@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 const pageTitle = "Greetings";
 
 const cards = [
@@ -8,7 +10,6 @@ const cards = [
 
 const tags = ["Italian", "greetings"];
 
-const titleColor = "purple";
 const side1Color = "navy";
 const side2Color = "maroon";
 ---
@@ -20,11 +21,7 @@ const side2Color = "maroon";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-        <style define:vars={{ titleColor, side1Color, side2Color }}>
-            h1 {
-                color: var(--titleColor);
-                font-size: 2rem;
-            }
+        <style define:vars={{ side1Color, side2Color }}>
             .card {
                 font-weight: bold;
             }
@@ -44,8 +41,8 @@ const side2Color = "maroon";
             {
                 cards.map(({ side1, side2 }) => (
                     <li>
-                        <span class="card card__side1">{side1}</span> -{" "}
-                        <span class="card card__side2">{side2}</span>
+                        <span class="card__side1">{side1}</span>
+                        <span class="card__side2">{side2}</span>
                     </li>
                 ))
             }

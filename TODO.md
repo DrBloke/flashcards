@@ -1,0 +1,12 @@
+# TODO
+- [ ] Global styles
+- [ ] External style sheet
+- [ ] Componentise
+- [ ] Containers
+- [ ] Flashcard interactivity
+- [ ] Learning log - single deck
+- [ ] Learning log - set
+- [ ] Remote persistence
+- [ ] Editable card decks
+- [ ] Make look good
+- [ ] PWA
