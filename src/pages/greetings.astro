@@ -1,8 +1,34 @@
-<body>
-    <a href="/">Home</a>
-    <a href="/greetings/">Greetings</a>
-    <h1>Greetings</h1>
-    <p>Buon giorno</p>
+---
+const pageTitle = "Greetings";
 
-    <p>Hello</p>
-</body>
+const cards = [
+    { side1: "Buon giorno", side2: "Hello" },
+    { side1: "Grazie", side2: "Thank you" },
+];
+
+const tags = ["Italian", "greetings"];
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/greetings/">Greetings</a>
+        <h1>{pageTitle}</h1>
+        <ul>
+            {
+                cards.map(({ side1, side2 }) => (
+                    <li>
+                        {side1} - {side2}
+                    </li>
+                ))
+            }
+        </ul>
+    </body>
+</html>
