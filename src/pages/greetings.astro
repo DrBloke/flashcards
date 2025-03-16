@@ -7,6 +7,10 @@ const cards = [
 ];
 
 const tags = ["Italian", "greetings"];
+
+const titleColor = "purple";
+const side1Color = "navy";
+const side2Color = "maroon";
 ---
 
 <html lang="en">
@@ -16,6 +20,21 @@ const tags = ["Italian", "greetings"];
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <style define:vars={{ titleColor, side1Color, side2Color }}>
+            h1 {
+                color: var(--titleColor);
+                font-size: 2rem;
+            }
+            .card {
+                font-weight: bold;
+            }
+            .card__side1 {
+                color: var(--side1Color);
+            }
+            .card__side2 {
+                color: var(--side2Color);
+            }
+        </style>
     </head>
     <body>
         <a href="/">Home</a>
@@ -25,7 +44,8 @@ const tags = ["Italian", "greetings"];
             {
                 cards.map(({ side1, side2 }) => (
                     <li>
-                        {side1} - {side2}
+                        <span class="card card__side1">{side1}</span> -{" "}
+                        <span class="card card__side2">{side2}</span>
                     </li>
                 ))
             }
