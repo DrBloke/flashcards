@@ -25,10 +25,12 @@ const side2Color = "maroon";
             .card {
                 font-weight: bold;
             }
-            .card__side1 {
+
+            .side1 {
                 color: var(--side1Color);
             }
-            .card__side2 {
+
+            .side2 {
                 color: var(--side2Color);
             }
         </style>
@@ -41,8 +43,8 @@ const side2Color = "maroon";
             {
                 cards.map(({ side1, side2 }) => (
                     <li>
-                        <span class="card__side1">{side1}</span>
-                        <span class="card__side2">{side2}</span>
+                        <span class="side1">{side1}</span>
+                        <span class="side2">{side2}</span>
                     </li>
                 ))
             }

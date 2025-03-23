@@ -1,6 +1,6 @@
 # TODO
-- [ ] Global styles
-- [ ] External style sheet
+- [x] Global styles
+- [x] External style sheet
 - [ ] Componentise
 - [ ] Containers
 - [ ] Flashcard interactivity
