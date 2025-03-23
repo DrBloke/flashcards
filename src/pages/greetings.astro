@@ -1,6 +1,4 @@
 ---
-import "../styles/global.css";
-
 const pageTitle = "Greetings";
 
 const cards = [
@@ -18,20 +16,10 @@ const side2Color = "maroon";
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="stylesheet" href="/styles/global.css" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-        <style define:vars={{ side1Color, side2Color }}>
-            .card {
-                font-weight: bold;
-            }
-            .card__side1 {
-                color: var(--side1Color);
-            }
-            .card__side2 {
-                color: var(--side2Color);
-            }
-        </style>
     </head>
     <body>
         <a href="/">Home</a>

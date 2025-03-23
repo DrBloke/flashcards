@@ -20,3 +20,15 @@ h1 {
     margin: 1rem 0;
     font-size: 2.5rem;
 }
+
+.card {
+    font-weight: bold;
+}
+
+.card__side1 {
+    color: maroon;
+}
+
+.card__side2 {
+    color: navy;
+}
