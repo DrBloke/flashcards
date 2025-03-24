@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 
+import Flashcard from "../components/Flashcard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Greetings";
 
 const cards = [
@@ -9,45 +11,8 @@ const cards = [
 ];
 
 const tags = ["Italian", "greetings"];
-
-const side1Color = "navy";
-const side2Color = "maroon";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <style define:vars={{ side1Color, side2Color }}>
-            .card {
-                font-weight: bold;
-            }
-
-            .side1 {
-                color: var(--side1Color);
-            }
-
-            .side2 {
-                color: var(--side2Color);
-            }
-        </style>
-    </head>
-    <body>
-        <a href="/">Home</a>
-        <a href="/greetings/">Greetings</a>
-        <h1>{pageTitle}</h1>
-        <ul>
-            {
-                cards.map(({ side1, side2 }) => (
-                    <li>
-                        <span class="side1">{side1}</span>
-                        <span class="side2">{side2}</span>
-                    </li>
-                ))
-            }
-        </ul>
-    </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+    <Flashcard pageTitle={pageTitle} cards={cards} />
+</BaseLayout>

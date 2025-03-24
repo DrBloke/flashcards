@@ -1,11 +1,11 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navigation from "../components/Navigation.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+const title = "Italian vocabulary";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout pageTitle={title}>
+	<Header pageTitle={title} />
+	<Navigation />
+</BaseLayout>

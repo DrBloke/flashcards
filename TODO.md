@@ -1,7 +1,7 @@
 # TODO
 - [x] Global styles
 - [x] External style sheet
-- [ ] Componentise
+- [x] Componentise
 - [ ] Containers
 - [ ] Flashcard interactivity
 - [ ] Learning log - single deck

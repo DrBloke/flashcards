@@ -1,0 +1,29 @@
+---
+const { pageTitle, cards } = Astro.props;
+---
+
+<style>
+    .card {
+        font-weight: bold;
+    }
+
+    .side1 {
+        color: navy;
+    }
+
+    .side2 {
+        color: maroon;
+    }
+</style>
+<h1>{pageTitle}</h1>
+<a href="/">Home</a>
+<ul>
+    {
+        cards.map(({ side1, side2 }) => (
+            <li>
+                <span class="side1">{side1}</span>
+                <span class="side2">{side2}</span>
+            </li>
+        ))
+    }
+</ul>
