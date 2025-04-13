@@ -1,0 +1,17 @@
+{
+    "title": "Food",
+    "cards": [
+        {
+            "side1": "il Prosciutto",
+            "side2": "Ham"
+        },
+        {
+            "side1": "il Pollo",
+            "side2": "Chicken"
+        }
+    ],
+    "tags": [
+        "Italian",
+        "food"
+    ]
+}

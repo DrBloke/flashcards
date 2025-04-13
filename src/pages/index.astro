@@ -1,11 +1,22 @@
 ---
-import Navigation from "../components/Navigation.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
+
+const decks = await getCollection("decks");
+
 const title = "Italian vocabulary";
 ---
 
 <BaseLayout pageTitle={title}>
 	<Header pageTitle={title} />
-	<Navigation />
+	<ul>
+		{
+			decks.map((deck) => (
+				<li>
+					<a href={deck.id}>{deck.data.title}</a>
+				</li>
+			))
+		}
+	</ul>
 </BaseLayout>

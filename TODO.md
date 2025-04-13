@@ -2,7 +2,7 @@
 - [x] Global styles
 - [x] External style sheet
 - [x] Componentise
-- [ ] Containers
+- [ ] Collections
 - [ ] Flashcard interactivity
 - [ ] Learning log - single deck
 - [ ] Learning log - set

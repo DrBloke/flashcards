@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+
+import Flashcard from "../components/Flashcard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const decks = await getCollection("decks");
+  return decks.map((deck) => ({
+    params: { id: deck.id },
+    props: { deck },
+  }));
+}
+const { deck } = Astro.props;
+---
+
+<BaseLayout pageTitle={deck.data.title}>
+  <Flashcard pageTitle={deck.data.title} cards={deck.data.cards} />
+</BaseLayout>

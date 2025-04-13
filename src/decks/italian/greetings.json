@@ -1,0 +1,17 @@
+{
+    "title": "Greetings",
+    "cards": [
+        {
+            "side1": "Buon giorno",
+            "side2": "Hello"
+        },
+        {
+            "side1": "Grazie",
+            "side2": "Thank you"
+        }
+    ],
+    "tags": [
+        "Italian",
+        "greetings"
+    ]
+}

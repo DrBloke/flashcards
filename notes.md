@@ -38,7 +38,7 @@ const { Content } = await render(product);
 - Schemas done with [Zod](https://github.com/colinhacks/zod). Import as z from astro:content. Some features of Zod are not available e.g. custom validation checks on images.
 - Use `reference` to define a schema entry from another schema.
 - Any references defined in your schema must be queried separately after first querying your collection entry.
-- Query collection with `getCollection()` and `getEntry()`, returning array of entries or a single entry, both with `id`, `data` and `body` with unmpiled body of markdown.
+- Query collection with `getCollection()` and `getEntry()`, returning array of entries or a single entry, both with `id`, `data` and `body` with uncompiled body of markdown.
 - Once queried, render with `render()`.
 - `getCollection` takes an optional `filter` callback.
 - Generate routes: use the getStaticPaths() function to create multiple pages from a single page component (e.g. src/pages/[slug]) during your build.
@@ -187,6 +187,7 @@ const publishedBlogEntries = await getCollection('blog', ({ data }) => {
 ```
 
 Static routing:
+`src/pages/posts/[id].astro`
 ``` astro
 ---
 import { getCollection, render } from 'astro:content';
