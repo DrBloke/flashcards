@@ -1,8 +1,11 @@
 ---
-const { pageTitle, cards } = Astro.props;
+const { data } = Astro.props;
+
+// type Deck = { title: string; cards: { side1: string; side2: string }[] };
+// const deck: Deck = JSON.parse(data);
 ---
 
-<style>
+<!-- <style>
     .card {
         font-weight: bold;
     }
@@ -15,15 +18,64 @@ const { pageTitle, cards } = Astro.props;
         color: maroon;
     }
 </style>
-<h1>{pageTitle}</h1>
-<a href="/">Home</a>
-<ul>
-    {
-        cards.map(({ side1, side2 }) => (
-            <li>
-                <span class="side1">{side1}</span>
-                <span class="side2">{side2}</span>
-            </li>
-        ))
+-->
+<flashcard-app data-deck={data}>
+    <header><a href="/">Home</a><h1></h1></header>
+    <div>content</div>
+    <footer>
+        <button>Flip</button>
+    </footer>
+</flashcard-app>
+
+<script>
+    class Flashcard extends HTMLElement {
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            type Deck = {
+                title: string;
+                cards: { side1: string; side2: string }[];
+            };
+
+            // Read the message from the data attribute.
+            const data = this.dataset.deck as string;
+            const deck = JSON.parse(data);
+
+            const allCards = deck.cards;
+            let remainingCards = allCards;
+            let currentCard = remainingCards.shift();
+            let side1 = true;
+
+            const title = this.querySelector("h1");
+            const button = this.querySelector("button");
+            const content = this.querySelector("div");
+
+            if (title !== null) {
+                title.innerText = deck.title;
+            }
+            if (content !== null) {
+                content.innerText = currentCard.side1;
+                side1 = false;
+            }
+
+            if (button) {
+                button.addEventListener("click", () => {
+                    if (content !== null) {
+                        content.innerText = side1
+                            ? currentCard.side1
+                            : currentCard.side2;
+                    }
+                    if (!side1) {
+                        remainingCards.push(currentCard);
+                        currentCard = remainingCards.shift();
+                    }
+                    side1 = !side1;
+                });
+            }
+        }
     }
-</ul>
+
+    customElements.define("flashcard-app", Flashcard);
+</script>

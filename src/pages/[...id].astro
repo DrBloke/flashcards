@@ -16,5 +16,5 @@ const { deck } = Astro.props;
 ---
 
 <BaseLayout pageTitle={deck.data.title}>
-  <Flashcard pageTitle={deck.data.title} cards={deck.data.cards} />
+  <Flashcard data={JSON.stringify(deck.data)} />
 </BaseLayout>

@@ -228,3 +228,18 @@ const { Content } = await render(post);
 <h1>{post.data.title}</h1>
 <Content />
 ```
+
+## Web components
+- Data goes in as a data attribute (JSON.stringified) or as child nodes
+- Props/configuration goes in as props. The setters and getters can handle the encapsalation.
+- Check out [Wired elements](https://wiredjs.com/)
+- Checkout [Webcomponents](https://www.webcomponents.org/)
+- Pass data in Astro using [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
+
+In the class constructor, you can set up initial state and default values, register event listeners and perhaps create a shadow root. At this point, you should not inspect the element's attributes or children, or add new attributes or children. Do it in `connectedCallback()`.
+
+Movong custom element in the DOM: If you want to preserve the element's state, you can do so by defining a `connectedMoveCallback()` lifecycle callback inside the element class, and then using the `Element.moveBefore()` method to move the element. This causes the `connectedMoveCallback()` to run instead of `connectedCallback(`) and `disconnectedCallback()`. You could add an empty `connectedMoveCallback()` to stop the other two callbacks running, or include some custom logic to handle the move:
+
+To respond to attribute changes you need:
+- A static property named observedAttributes. This must be an array containing the names of all attributes for which the element needs change notifications.
+- An implementation of the attributeChangedCallback() lifecycle callback.
