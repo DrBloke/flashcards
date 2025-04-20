@@ -2,8 +2,9 @@
 - [x] Global styles
 - [x] External style sheet
 - [x] Componentise
-- [ ] Collections
-- [ ] Flashcard interactivity
+- [x] Collections
+- [x] Flashcard interactivity
+- [ ] Remove if correct
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Remote persistence

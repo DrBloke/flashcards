@@ -243,3 +243,129 @@ Movong custom element in the DOM: If you want to preserve the element's state, y
 To respond to attribute changes you need:
 - A static property named observedAttributes. This must be an array containing the names of all attributes for which the element needs change notifications.
 - An implementation of the attributeChangedCallback() lifecycle callback.
+
+The callback is passed three arguments:
+- The name of the attribute which changed.
+- The attribute's old value.
+- The attribute's new value.
+
+Autonomous custom elements (but not elements based on built-in elements) also allow you to define states and select against them using the :state() pseudo-class function.
+
+```JS
+class MyCustomElement extends HTMLElement {
+  constructor() {
+    super();
+    this._internals = this.attachInternals();
+  }
+
+  get collapsed() {
+    return this._internals.states.has("hidden");
+  }
+
+  set collapsed(flag) {
+    if (flag) {
+      // Existence of identifier corresponds to "true"
+      this._internals.states.add("hidden");
+    } else {
+      // Absence of identifier corresponds to "false"
+      this._internals.states.delete("hidden");
+    }
+  }
+}
+
+// Register the custom element
+customElements.define("my-custom-element", MyCustomElement);
+```
+
+The :state() pseudo-class can also be used within the :host() pseudo-class function to match a custom state within a custom element's shadow DOM. Additionally, the :state() pseudo-class can be used after the ::part() pseudo-element to match the shadow parts of a custom element that is in a particular state.
+
+Shadow DOM
+It's important that code running in the page should not be able to accidentally break a custom element by modifying its internal implementation. Shadow DOM enables you to attach a DOM tree to an element, and have the internals of this tree hidden from JavaScript and CSS running in the page.
+
+For custom elements, you can make the custom element the host and then append the shadow dom:
+```JS
+ connectedCallback() {
+    // Create a shadow root
+    // The custom element itself is the shadow host
+    const shadow = this.attachShadow({ mode: "open" });
+    ...
+    shadow.appendChild(my-element);
+```
+
+Encapsulated style can be attached:
+- Programmatically, by constructing a CSSStyleSheet object and attaching it to the shadow root.
+- Declaratively, by adding a <style> element in a <template> element's declaration.
+
+```HTML
+<template id="my-element">
+  <style>
+    span {
+      color: red;
+      border: 2px dotted black;
+    }
+  </style>
+  <span>I'm in the shadow DOM</span>
+</template>
+
+<div id="host"></div>
+<span>I'm not in the shadow DOM</span>
+```
+
+```JS
+const host = document.querySelector("#host");
+const shadow = host.attachShadow({ mode: "open" });
+const template = document.getElementById("my-element");
+
+shadow.appendChild(template.content);
+```
+
+Templates:
+```HTML
+<template id="custom-paragraph">
+  <p>My paragraph</p>
+</template>
+```
+```JS
+customElements.define(
+  "my-paragraph",
+  class extends HTMLElement {
+    constructor() {
+      super();
+      let template = document.getElementById("custom-paragraph");
+      let templateContent = template.content;
+
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(templateContent.cloneNode(true));
+    }
+  },
+);
+
+```
+
+Slots:
+```HTML
+<template id="custom-paragraph">
+  <style>
+    p {
+      color: white;
+      background-color: #666;
+      padding: 5px;
+    }
+  </style>
+  <p>
+    <slot name="my-text">My default text</slot>
+    <slot></slot>
+  </p>
+</template>
+```
+
+Use like this (note use of unnamed slot):
+```HTML
+<my-paragraph>
+  <span slot="my-text">Let's have some different text!</span>
+  <span>This will go into the unnamed slot</span>
+  <span>This will also go into the unnamed slot</span>
+</my-paragraph>
+```
+
+[Useful examples of web component stuff](https://github.com/mdn/web-components-examples/tree/main)

@@ -1,0 +1,131 @@
+---
+const { data } = Astro.props;
+---
+
+<template id="flashcard">
+    <style>
+        header {
+            display: flex;
+            background-color: grey;
+        }
+        h1 {
+            color: green;
+            font-size: 1rem;
+            margin: 0;
+        }
+    </style>
+
+    <header>
+        <a href="/">Home</a>
+        <h1>Title</h1>
+    </header>
+    <div>Flashcard content appears here</div>
+    <footer>
+        <button>Flip</button>
+    </footer>
+</template>
+
+<flashcard-component data-deck={data}></flashcard-component>
+
+<script>
+    function assert(condition: boolean, message: string): asserts condition {
+        if (!condition) {
+            throw new Error(message);
+        }
+    }
+
+    class Flashcard extends HTMLElement {
+        constructor() {
+            super();
+            const template = document.getElementById("flashcard");
+            assert(
+                template instanceof HTMLTemplateElement,
+                "A <template> of id 'flashcard' needs to exist in the DOM.",
+            );
+            const templateContent = template.content;
+            const shadow = this.attachShadow({ mode: "open" });
+            shadow.appendChild(templateContent.cloneNode(true));
+        }
+
+        connectedCallback() {
+            type Deck = {
+                title: string;
+                cards: { side1: string; side2: string }[];
+            };
+
+            // Read the message from the data attribute.
+            const data = this.dataset.deck;
+            assert(
+                typeof data === "string",
+                "data must be defined on flashcard component",
+            );
+            const deck = JSON.parse(data) as Deck;
+            const deckTitle = deck.title;
+            assert(typeof deckTitle === "string", "Title must be a string");
+
+            // assert(Array.isArray(deck.cards), "deck.cards should be an array");
+
+            // deck.cards.map((card: { side1: string; side2: string }) => {
+            //     assert(
+            //         typeof card.side1 === "string" && card.side1 !== "",
+            //         ` deck.cards.side1 must be a not empty string. It is "${card.side1}"`,
+            //     );
+            //     assert(
+            //         typeof card.side2 === "string" && card.side2 !== "",
+            //         ` deck.cards.side2 must be a not empty string. It is "${card.side2}"`,
+            //     );
+            // });
+
+            // Set initial state
+            const state = {
+                allCards: deck.cards,
+                remainingCards: deck.cards,
+                side1: true,
+            };
+
+            // Set up selectors
+            assert(
+                this.shadowRoot !== null,
+                "There should be a shadow root on the component, but there isn't.",
+            );
+
+            const title = this.shadowRoot.querySelector("h1");
+            const button = this.shadowRoot.querySelector("button");
+            const content = this.shadowRoot.querySelector("div");
+
+            assert(
+                title !== null,
+                "The title node is missing from the component",
+            );
+            assert(
+                button !== null,
+                "The button node is missing from the component",
+            );
+            assert(
+                content !== null,
+                "The content node is missing from the component",
+            );
+
+            // Initial render
+            title.innerText = deck.title;
+            content.innerHTML = state.remainingCards[0].side1;
+
+            // Events. This is where state mutation should occur
+            button.addEventListener("click", () => {
+                let currentCard = state.remainingCards[0];
+                if (content !== null) {
+                    if (state.side1) {
+                        content.innerHTML = currentCard.side2;
+                        state.remainingCards.shift();
+                        state.remainingCards.push(currentCard);
+                    } else {
+                        content.innerHTML = currentCard.side1;
+                    }
+                    state.side1 = !state.side1;
+                }
+            });
+        }
+    }
+
+    customElements.define("flashcard-component", Flashcard);
+</script>
