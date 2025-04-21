@@ -1,36 +1,50 @@
 ---
 const { data } = Astro.props;
-
-// type Deck = { title: string; cards: { side1: string; side2: string }[] };
-// const deck: Deck = JSON.parse(data);
 ---
 
-<!-- <style>
-    .card {
-        font-weight: bold;
-    }
+<template id="flashcard">
+    <style>
+        header {
+            display: flex;
+            background-color: grey;
+        }
+        h1 {
+            color: green;
+            font-size: 1rem;
+            margin: 0;
+        }
+    </style>
 
-    .side1 {
-        color: navy;
-    }
-
-    .side2 {
-        color: maroon;
-    }
-</style>
--->
-<flashcard-app data-deck={data}>
-    <header><a href="/">Home</a><h1></h1></header>
-    <div>content</div>
+    <header>
+        <a href="/">Home</a>
+        <h1>Title</h1>
+    </header>
+    <div>Flashcard content appears here</div>
     <footer>
-        <button>Flip</button>
+        <button id="flip">Flip</button>
     </footer>
-</flashcard-app>
+</template>
+
+<flashcard-component data-deck={data}></flashcard-component>
 
 <script>
+    function assert(condition: boolean, message: string): asserts condition {
+        if (!condition) {
+            throw new Error(message);
+        }
+    }
+
     class Flashcard extends HTMLElement {
         constructor() {
             super();
+            const template = document.getElementById("flashcard");
+            assert(
+                template instanceof HTMLTemplateElement,
+                "A <template> of id 'flashcard' needs to exist in the DOM.",
+            );
+            const templateContent = template.content;
+            const shadow = this.attachShadow({ mode: "open" });
+            shadow.appendChild(templateContent.cloneNode(true));
         }
 
         connectedCallback() {
@@ -40,42 +54,147 @@ const { data } = Astro.props;
             };
 
             // Read the message from the data attribute.
-            const data = this.dataset.deck as string;
-            const deck = JSON.parse(data);
+            const data = this.dataset.deck;
+            assert(
+                typeof data === "string",
+                "data must be defined on flashcard component",
+            );
+            const deck = JSON.parse(data) as Deck;
+            const deckTitle = deck.title;
+            assert(typeof deckTitle === "string", "Title must be a string");
 
-            const allCards = deck.cards;
-            let remainingCards = allCards;
-            let currentCard = remainingCards.shift();
-            let side1 = true;
+            // assert(Array.isArray(deck.cards), "deck.cards should be an array");
 
-            const title = this.querySelector("h1");
-            const button = this.querySelector("button");
-            const content = this.querySelector("div");
+            // deck.cards.map((card: { side1: string; side2: string }) => {
+            //     assert(
+            //         typeof card.side1 === "string" && card.side1 !== "",
+            //         ` deck.cards.side1 must be a not empty string. It is "${card.side1}"`,
+            //     );
+            //     assert(
+            //         typeof card.side2 === "string" && card.side2 !== "",
+            //         ` deck.cards.side2 must be a not empty string. It is "${card.side2}"`,
+            //     );
+            // });
 
-            if (title !== null) {
-                title.innerText = deck.title;
-            }
-            if (content !== null) {
-                content.innerText = currentCard.side1;
-                side1 = false;
-            }
+            // Set initial state
+            const state = {
+                allCards: deck.cards,
+                remainingCards: deck.cards,
+            };
 
-            if (button) {
-                button.addEventListener("click", () => {
-                    if (content !== null) {
-                        content.innerText = side1
-                            ? currentCard.side1
-                            : currentCard.side2;
+            // Set up selectors
+            assert(
+                this.shadowRoot !== null,
+                "There should be a shadow root on the component",
+            );
+
+            const title = this.shadowRoot.querySelector("h1");
+            const content = this.shadowRoot.querySelector("div");
+            const footer = this.shadowRoot.querySelector("footer");
+
+            assert(
+                title !== null,
+                "The title node is missing from the component",
+            );
+            assert(
+                content !== null,
+                "The content node is missing from the component",
+            );
+            assert(
+                footer !== null,
+                "The footer node is missing from the component",
+            );
+
+            // Initial render
+            title.innerText = deck.title;
+            content.innerText = state.remainingCards[0].side1;
+
+            // Events. This is where state mutation should occur
+
+            const flipClicked = () => {
+                let currentCard = state.remainingCards[0];
+                if (content !== null) {
+                    const newButtons = `
+                            <button id="correct">Correct</button>
+                            <button id="incorrect">Incorrect</button>`;
+                    footer.innerHTML = newButtons;
+                    content.innerHTML = currentCard.side2;
+
+                    assert(
+                        this.shadowRoot !== null,
+                        "There should be a shadow root on the component",
+                    );
+                    const incorrect =
+                        this.shadowRoot.querySelector("#incorrect");
+                    assert(
+                        incorrect !== null,
+                        "There should be an incorrect button on the component",
+                    );
+                    incorrect.addEventListener("click", incorrectClicked);
+                    const correct = this.shadowRoot.querySelector("#correct");
+                    assert(
+                        correct !== null,
+                        "There should be an incorrect button on the component",
+                    );
+                    correct.addEventListener("click", correctClicked);
+                }
+            };
+
+            const incorrectClicked = () => {
+                let currentCard = state.remainingCards[0];
+                if (content !== null) {
+                    footer.innerHTML = `<button id="flip">Flip</button>`;
+                    state.remainingCards.shift();
+                    state.remainingCards.push(currentCard);
+                    currentCard = state.remainingCards[0];
+                    content.innerHTML = currentCard.side1;
+
+                    assert(
+                        this.shadowRoot !== null,
+                        "There should be a shadow root on the component",
+                    );
+                    const flip = this.shadowRoot.querySelector("#flip");
+                    assert(
+                        flip !== null,
+                        "There should be an flip button on the component",
+                    );
+                    flip.addEventListener("click", flipClicked);
+                }
+            };
+
+            const correctClicked = () => {
+                let currentCard = state.remainingCards[0];
+                if (content !== null) {
+                    state.remainingCards.shift();
+                    if (state.remainingCards.length === 0) {
+                        document.location = "/";
+                    } else {
+                        footer.innerHTML = `<button id="flip">Flip</button>`;
+                        currentCard = state.remainingCards[0];
+                        content.innerHTML = currentCard.side1;
+
+                        assert(
+                            this.shadowRoot !== null,
+                            "There should be a shadow root on the component",
+                        );
+                        const flip = this.shadowRoot.querySelector("#flip");
+                        assert(
+                            flip !== null,
+                            "There should be an flip button on the component",
+                        );
+                        flip.addEventListener("click", flipClicked);
                     }
-                    if (!side1) {
-                        remainingCards.push(currentCard);
-                        currentCard = remainingCards.shift();
-                    }
-                    side1 = !side1;
-                });
-            }
+                }
+            };
+
+            const flip = this.shadowRoot.querySelector("#flip");
+            assert(
+                flip !== null,
+                "There should be an flip button on the component",
+            );
+            flip.addEventListener("click", flipClicked);
         }
     }
 
-    customElements.define("flashcard-app", Flashcard);
+    customElements.define("flashcard-component", Flashcard);
 </script>
