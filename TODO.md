@@ -6,6 +6,7 @@
 - [x] Flashcard interactivity
 - [x] Remove if correct
 - [ ] Deploy
+- [ ] Issue with back to home on completion. Home needs to be configurable.
 - [ ] Make look good
 - [ ] Learning log - single deck
 - [ ] Learning log - set

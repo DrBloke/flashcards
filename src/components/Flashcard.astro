@@ -1,5 +1,10 @@
 ---
-const { data } = Astro.props;
+let { data } = Astro.props;
+data = {
+    ...JSON.parse(data),
+    homeRoute: import.meta.env.BASE_URL,
+};
+data = JSON.stringify(data);
 ---
 
 <template id="flashcard">
@@ -16,7 +21,7 @@ const { data } = Astro.props;
     </style>
 
     <header>
-        <a href={import.meta.env.BASE_URL}>Home</a>
+        <a href="homeRouteHere">Home</a>
         <h1>Title</h1>
     </header>
     <div>Flashcard content appears here</div>
@@ -25,7 +30,7 @@ const { data } = Astro.props;
     </footer>
 </template>
 
-<flashcard-component data-deck={data}></flashcard-component>
+<flashcard-component data-deck={data}> </flashcard-component>
 
 <script>
     function assert(condition: boolean, message: string): asserts condition {
@@ -51,6 +56,7 @@ const { data } = Astro.props;
             type Deck = {
                 title: string;
                 cards: { side1: string; side2: string }[];
+                homeRoute: string;
             };
 
             // Read the message from the data attribute.
@@ -62,6 +68,11 @@ const { data } = Astro.props;
             const deck = JSON.parse(data) as Deck;
             const deckTitle = deck.title;
             assert(typeof deckTitle === "string", "Title must be a string");
+            const homeRoute = deck.homeRoute;
+            assert(
+                typeof homeRoute === "string",
+                "Home route should be a string representing the route page",
+            );
 
             // assert(Array.isArray(deck.cards), "deck.cards should be an array");
 
@@ -91,6 +102,7 @@ const { data } = Astro.props;
             const title = this.shadowRoot.querySelector("h1");
             const content = this.shadowRoot.querySelector("div");
             const footer = this.shadowRoot.querySelector("footer");
+            const anchorTag = this.shadowRoot.querySelector("a");
 
             assert(
                 title !== null,
@@ -104,10 +116,15 @@ const { data } = Astro.props;
                 footer !== null,
                 "The footer node is missing from the component",
             );
+            assert(
+                anchorTag !== null,
+                "The homeRoot node is missing from the component",
+            );
 
             // Initial render
             title.innerText = deck.title;
             content.innerText = state.remainingCards[0].side1;
+            anchorTag.setAttribute("href", deck.homeRoute);
 
             // Events. This is where state mutation should occur
 
@@ -167,7 +184,7 @@ const { data } = Astro.props;
                 if (content !== null) {
                     state.remainingCards.shift();
                     if (state.remainingCards.length === 0) {
-                        document.location = "/";
+                        document.location = deck.homeRoute;
                     } else {
                         footer.innerHTML = `<button id="flip">Flip</button>`;
                         currentCard = state.remainingCards[0];
