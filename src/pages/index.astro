@@ -14,7 +14,7 @@ const title = "Italian vocabulary";
 		{
 			decks.map((deck) => (
 				<li>
-					<a href={import.meta.env.BASE_URL + deck.id}>
+					<a href={import.meta.env.BASE_URL + "/" + deck.id}>
 						{deck.data.title}
 					</a>
 				</li>
