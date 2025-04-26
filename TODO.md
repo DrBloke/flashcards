@@ -4,10 +4,11 @@
 - [x] Componentise
 - [x] Collections
 - [x] Flashcard interactivity
-- [ ] Remove if correct
+- [x] Remove if correct
+- [ ] Deploy
+- [ ] Make look good
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Remote persistence
 - [ ] Editable card decks
-- [ ] Make look good
 - [ ] PWA

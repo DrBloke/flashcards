@@ -16,7 +16,7 @@ const { data } = Astro.props;
     </style>
 
     <header>
-        <a href="/">Home</a>
+        <a href={import.meta.env.BASE_URL}>Home</a>
         <h1>Title</h1>
     </header>
     <div>Flashcard content appears here</div>
