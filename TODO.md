@@ -5,11 +5,16 @@
 - [x] Collections
 - [x] Flashcard interactivity
 - [x] Remove if correct
-- [ ] Deploy
-- [ ] Issue with back to home on completion. Home needs to be configurable.
+- [x] Deploy
+- [x] Issue with back to home on completion. Home needs to be configurable.
 - [ ] Make look good
+- [ ] Check the 301 redirection due to trailing slash
+- [ ] Italian flag fav icon
 - [ ] Learning log - single deck
 - [ ] Learning log - set
+- [ ] Images
+- [ ] Voice
+- [ ] Use browser built in translations to generate new languages and allow translations to other than English
 - [ ] Remote persistence
 - [ ] Editable card decks
 - [ ] PWA

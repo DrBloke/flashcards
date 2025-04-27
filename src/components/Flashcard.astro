@@ -9,30 +9,64 @@ data = JSON.stringify(data);
 
 <template id="flashcard">
     <style>
+        div#wrapper {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-between; */
+            height: 100%;
+        }
         header {
             display: flex;
-            background-color: grey;
+            justify-content: space-between;
+            padding: var(--wa-space-xs) var(--wa-space-xs);
         }
         h1 {
-            color: green;
-            font-size: 1rem;
+            font-size: var(--wa-font-size-m);
+            color: var(--wa-color-brand-on-quiet);
             margin: 0;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(--wa-font-size-4xl);
+        }
+        footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: var(--wa-space-xs) var(--wa-space-xs);
+        }
+        span.toolbar {
+            display: flex;
+            justify-content: space-between;
+            min-width: 190px;
+        }
+        wa-button#flip {
+            width: 100%;
         }
     </style>
 
-    <header>
-        <a href="homeRouteHere">Home</a>
-        <h1>Title</h1>
-    </header>
-    <div>Flashcard content appears here</div>
-    <footer>
-        <button id="flip">Flip</button>
-    </footer>
+    <div id="wrapper">
+        <header>
+            <wa-button href="homeRouteHere" id="home">Home</wa-button>
+            <h1>Title</h1>
+        </header>
+        <main>
+            <div id="content">Flashcard content appears here</div>
+        </main>
+        <footer>
+            <span class="toolbar">
+                <wa-button id="flip" variant="brand">Flip</wa-button>
+            </span>
+        </footer>
+    </div>
 </template>
 
 <flashcard-component data-deck={data}> </flashcard-component>
 
 <script>
+    import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/button/button.js";
     function assert(condition: boolean, message: string): asserts condition {
         if (!condition) {
             throw new Error(message);
@@ -100,9 +134,9 @@ data = JSON.stringify(data);
             );
 
             const title = this.shadowRoot.querySelector("h1");
-            const content = this.shadowRoot.querySelector("div");
-            const footer = this.shadowRoot.querySelector("footer");
-            const anchorTag = this.shadowRoot.querySelector("a");
+            const content = this.shadowRoot.querySelector("div#content");
+            const toolbar = this.shadowRoot.querySelector("span.toolbar");
+            const anchorTag = this.shadowRoot.querySelector("wa-button#home");
 
             assert(
                 title !== null,
@@ -113,8 +147,8 @@ data = JSON.stringify(data);
                 "The content node is missing from the component",
             );
             assert(
-                footer !== null,
-                "The footer node is missing from the component",
+                toolbar !== null,
+                "The toolbar node is missing from the component",
             );
             assert(
                 anchorTag !== null,
@@ -123,7 +157,7 @@ data = JSON.stringify(data);
 
             // Initial render
             title.innerText = deck.title;
-            content.innerText = state.remainingCards[0].side1;
+            content.innerHTML = state.remainingCards[0].side1;
             anchorTag.setAttribute("href", deck.homeRoute);
 
             // Events. This is where state mutation should occur
@@ -132,9 +166,9 @@ data = JSON.stringify(data);
                 let currentCard = state.remainingCards[0];
                 if (content !== null) {
                     const newButtons = `
-                            <button id="correct">Correct</button>
-                            <button id="incorrect">Incorrect</button>`;
-                    footer.innerHTML = newButtons;
+                            <wa-button id="correct" variant="success">Correct</wa-button>
+                            <wa-button id="incorrect" variant="danger">Incorrect</wa-button>`;
+                    toolbar.innerHTML = newButtons;
                     content.innerHTML = currentCard.side2;
 
                     assert(
@@ -160,7 +194,7 @@ data = JSON.stringify(data);
             const incorrectClicked = () => {
                 let currentCard = state.remainingCards[0];
                 if (content !== null) {
-                    footer.innerHTML = `<button id="flip">Flip</button>`;
+                    toolbar.innerHTML = `<wa-button id="flip" variant="brand">Flip</wa-button>`;
                     state.remainingCards.shift();
                     state.remainingCards.push(currentCard);
                     currentCard = state.remainingCards[0];
@@ -186,7 +220,7 @@ data = JSON.stringify(data);
                     if (state.remainingCards.length === 0) {
                         document.location = deck.homeRoute;
                     } else {
-                        footer.innerHTML = `<button id="flip">Flip</button>`;
+                        toolbar.innerHTML = `<wa-button id="flip" variant="brand">Flip</wa-button>`;
                         currentCard = state.remainingCards[0];
                         content.innerHTML = currentCard.side1;
 
