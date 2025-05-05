@@ -21,7 +21,7 @@ data = JSON.stringify(data);
             padding: var(--wa-space-xs) var(--wa-space-xs);
         }
         h1 {
-            font-size: var(--wa-font-size-m);
+            font-size: var(--wa-font-size-2xl);
             color: var(--wa-color-brand-on-quiet);
             margin: 0;
         }
@@ -39,17 +39,34 @@ data = JSON.stringify(data);
         }
         span.toolbar {
             display: flex;
-            justify-content: space-between;
-            min-width: 190px;
+            justify-content: space-around;
+            min-width: 114px;
         }
-        wa-button#flip {
-            width: 100%;
+        wa-icon-button {
+            font-size: var(--wa-font-size-3xl);
+            color: var(--wa-color-brand-on-quiet);
+        }
+        wa-icon-button#flip {
+            align-items: center;
+            padding-left: 12px;
+        }
+        wa-icon-button#correct {
+            color: var(--wa-color-success-on-quiet);
+        }
+        wa-icon-button#incorrect {
+            color: var(--wa-color-danger-on-quiet);
         }
     </style>
 
     <div id="wrapper">
         <header>
-            <wa-button href="homeRouteHere" id="home">Home</wa-button>
+            <wa-icon-button
+                name="house"
+                href="homeRouteHere"
+                id="home"
+                label="Home"
+                title="home">Home</wa-icon-button
+            >
             <h1>Title</h1>
         </header>
         <main>
@@ -57,7 +74,12 @@ data = JSON.stringify(data);
         </main>
         <footer>
             <span class="toolbar">
-                <wa-button id="flip" variant="brand">Flip</wa-button>
+                <wa-icon-button
+                    name="rotate"
+                    label="flip"
+                    title="flip"
+                    id="flip">Flip</wa-icon-button
+                >
             </span>
         </footer>
     </div>
@@ -67,6 +89,8 @@ data = JSON.stringify(data);
 
 <script>
     import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/button/button.js";
+    import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/icon-button/icon-button.js";
+
     function assert(condition: boolean, message: string): asserts condition {
         if (!condition) {
             throw new Error(message);
@@ -136,7 +160,9 @@ data = JSON.stringify(data);
             const title = this.shadowRoot.querySelector("h1");
             const content = this.shadowRoot.querySelector("div#content");
             const toolbar = this.shadowRoot.querySelector("span.toolbar");
-            const anchorTag = this.shadowRoot.querySelector("wa-button#home");
+            const anchorTag = this.shadowRoot.querySelector(
+                "wa-icon-button#home",
+            );
 
             assert(
                 title !== null,
@@ -166,8 +192,8 @@ data = JSON.stringify(data);
                 let currentCard = state.remainingCards[0];
                 if (content !== null) {
                     const newButtons = `
-                            <wa-button id="correct" variant="success">Correct</wa-button>
-                            <wa-button id="incorrect" variant="danger">Incorrect</wa-button>`;
+                            <wa-icon-button name="check" id="correct" label="correct" title="correct" ></wa-icon-button>
+                            <wa-icon-button name="xmark" id="incorrect" label="incorrect" title="incorrect"></wa-icon-button>`;
                     toolbar.innerHTML = newButtons;
                     content.innerHTML = currentCard.side2;
 
@@ -194,7 +220,7 @@ data = JSON.stringify(data);
             const incorrectClicked = () => {
                 let currentCard = state.remainingCards[0];
                 if (content !== null) {
-                    toolbar.innerHTML = `<wa-button id="flip" variant="brand">Flip</wa-button>`;
+                    toolbar.innerHTML = `<wa-icon-button name="rotate" id="flip" title="flip" label="flip">Flip</wa-icon-button>`;
                     state.remainingCards.shift();
                     state.remainingCards.push(currentCard);
                     currentCard = state.remainingCards[0];
@@ -220,7 +246,7 @@ data = JSON.stringify(data);
                     if (state.remainingCards.length === 0) {
                         document.location = deck.homeRoute;
                     } else {
-                        toolbar.innerHTML = `<wa-button id="flip" variant="brand">Flip</wa-button>`;
+                        toolbar.innerHTML = `<wa-icon-button name="rotate" id="flip" label="flip" title="flip">Flip</wa-icon-button>`;
                         currentCard = state.remainingCards[0];
                         content.innerHTML = currentCard.side1;
 
