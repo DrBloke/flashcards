@@ -7,11 +7,19 @@
 - [x] Remove if correct
 - [x] Deploy
 - [x] Issue with back to home on completion. Home needs to be configurable.
-- [ ] Make look good
+- [x] Make look good
+- [x] Icon buttons
+- [x] Italian flag fav icon
+- [ ] Reimplement in Lit
+- [ ] Reverse deck
+- [ ] Advance/Previous buttons
+- [ ] Focus on the buttons after flipping
 - [ ] Check the 301 redirection due to trailing slash
-- [ ] Italian flag fav icon
 - [ ] Learning log - single deck
 - [ ] Learning log - set
+- [ ] Animations and swiping
+- [ ] Markdown content
+- [ ] Maths, chemistry and diagrams
 - [ ] Images
 - [ ] Voice
 - [ ] Use browser built in translations to generate new languages and allow translations to other than English
