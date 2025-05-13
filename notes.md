@@ -369,3 +369,12 @@ Use like this (note use of unnamed slot):
 ```
 
 [Useful examples of web component stuff](https://github.com/mdn/web-components-examples/tree/main)
+
+## Using lit
+The @ symbol gave an illegal character error U+0040. This was fixed by adding this to the TS config
+``` TS
+  "compilerOptions": {
+    "target": "ES5",
+    "experimentalDecorators": true
+  }
+```
