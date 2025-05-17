@@ -371,10 +371,32 @@ Use like this (note use of unnamed slot):
 [Useful examples of web component stuff](https://github.com/mdn/web-components-examples/tree/main)
 
 ## Using lit
-The @ symbol gave an illegal character error U+0040. This was fixed by adding this to the TS config
+The @ symbol gave an illegal character error U+0040. This was fixed by adding this to the TS config. See [Lit decorators docs](https://lit.dev/docs/components/decorators/)
 ``` TS
   "compilerOptions": {
     "target": "ES5",
     "experimentalDecorators": true
+    "useDefineForClassFields": false,
   }
 ```
+
+### Property update cycle
+When a property changes, the following sequence occurs:
+
+- The property's setter is called.
+- The setter calls the component's requestUpdate method.
+- The property's old and new values are compared.
+- By default Lit uses a strict inequality test to determine if the value has changed (that is newValue !== oldValue).
+- If the property has a hasChanged function, it's called with the property's old and new values.
+- If the property change is detected, an update is scheduled asynchronously. If an update is already scheduled, only a single update is executed.
+- The component's update method is called, reflecting changed properties to attributes and re-rendering the component's templates.
+
+Note that if you mutate an object or array property, it won't trigger an update, because the object itself hasn't changed. For more information, see Mutating object and array properties.
+
+### State
+Internal reactive state refers to reactive properties that are not part of the component's public API. These state properties don't have corresponding attributes, and aren't intended to be used from outside the component. Internal reactive state should be set by the component itself
+
+### Standard custom element lifecycle
+Lit components use the standard custom element lifecycle methods. In addition Lit introduces a reactive update cycle that renders changes to DOM when reactive properties change.
+
+If you need to customize any of the standard custom element lifecycle methods, make sure to call the super implementation (such as super.connectedCallback()) so the standard Lit functionality is maintained.

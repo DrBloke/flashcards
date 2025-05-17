@@ -4,12 +4,12 @@ data = {
     ...JSON.parse(data),
     homeRoute: import.meta.env.BASE_URL,
 };
-data = JSON.stringify(data);
+// data = JSON.stringify(data);
 ---
 
 <!-- <flashcard-component data-deck={data}> </flashcard-component> --><!-- <my-element></my-element> -->
 <simple-greeting></simple-greeting>
-<flashcard-deck></flashcard-deck>
+<flashcard-deck title={data.title} home-route={data.homeRoute}></flashcard-deck>
 
 <script>
     import "../components/lit/Flashcard.ts";
