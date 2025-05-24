@@ -8,20 +8,18 @@ const title = "Italian vocabulary";
 ---
 
 <BaseLayout pageTitle={title}>
-	<main>
-		<h1>{title}</h1>
-		<ul>
-			{
-				decks.map((deck) => (
-					<li>
-						<a href={import.meta.env.BASE_URL + deck.id}>
-							{deck.data.title}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</main>
+  <main>
+    <h1>{title}</h1>
+    <ul>
+      {
+        decks.map((deck) => (
+          <li>
+            <a href={import.meta.env.BASE_URL + deck.id}>{deck.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 </BaseLayout>
 <!-- <style>
 	main {

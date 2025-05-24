@@ -124,7 +124,6 @@ data = JSON.stringify(data);
             assert(
                 typeof data === "string",
                 "data must be defined on flashcard component",
-            );
             const deck = JSON.parse(data) as Deck;
             const deckTitle = deck.title;
             assert(typeof deckTitle === "string", "Title must be a string");

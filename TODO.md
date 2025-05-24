@@ -1,4 +1,5 @@
 # TODO
+
 - [x] Global styles
 - [x] External style sheet
 - [x] Componentise
@@ -10,18 +11,22 @@
 - [x] Make look good
 - [x] Icon buttons
 - [x] Italian flag fav icon
-- [ ] Reimplement in Lit
-- [ ] Reverse deck
-- [ ] Advance/Previous buttons
+- [x] Reimplement in Lit
+- [x] Reverse deck
+- [ ] Parse data
+- [ ] Shuffle
 - [ ] Focus on the buttons after flipping
+- [ ] Advance/Previous buttons
 - [ ] Check the 301 redirection due to trailing slash
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Animations and swiping
 - [ ] Markdown content
+- [ ] Multiple cards
 - [ ] Maths, chemistry and diagrams
 - [ ] Images
 - [ ] Voice
+- [ ] Diagrams
 - [ ] Use browser built in translations to generate new languages and allow translations to other than English
 - [ ] Remote persistence
 - [ ] Editable card decks
