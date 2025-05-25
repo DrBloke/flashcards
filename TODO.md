@@ -31,3 +31,7 @@
 - [ ] Remote persistence
 - [ ] Editable card decks
 - [ ] PWA
+
+## Issues
+
+- [ ] Mark correct on last round re-renders first card before relocating. Render a success message instead.

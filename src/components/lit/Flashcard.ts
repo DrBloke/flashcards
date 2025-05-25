@@ -74,10 +74,15 @@ export class FlashcardDeck extends LitElement {
   cards: { side1: string; side2: string }[] = [
     { side1: "No data", side2: "Still no data" },
   ];
-  // cards: [] = []
+
+  @property({ type: Number })
+  remainingRounds = 3;
 
   @state()
   private _remainingCards = this.cards;
+
+  @state()
+  private _doneCards: typeof this.cards = [];
 
   @state()
   private _side: "side1" | "side2" = "side1";
@@ -175,9 +180,16 @@ export class FlashcardDeck extends LitElement {
 
   markCorrect() {
     this.flip("back");
-    this._remainingCards = this._remainingCards.slice(1);
+    if (this._remainingCards.length !== 0) {
+      this._doneCards.push(this._remainingCards.shift()!);
+    }
     if (this._remainingCards.length === 0) {
-      document.location = this.homeRoute;
+      this.remainingRounds--;
+      if (this.remainingRounds === 0) {
+        document.location = this.homeRoute;
+      }
+      this._remainingCards = this._doneCards;
+      this._doneCards = [];
     }
   }
 
