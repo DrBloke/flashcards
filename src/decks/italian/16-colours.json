@@ -1,0 +1,85 @@
+{
+  "title": "Colours",
+  "cards": [
+    {
+      "side1": "arancione",
+      "side2": "orange"
+    },
+    {
+      "side1": "azzurro",
+      "side2": "blue"
+    },
+    {
+      "side1": "bianco/a/hi/he",
+      "side2": "white"
+    },
+    {
+      "side1": "biondo",
+      "side2": "blonde"
+    },
+    {
+      "side1": "bruno",
+      "side2": "brown"
+    },
+    {
+      "side1": "castano",
+      "side2": "light brown"
+    },
+    {
+      "side1": "celeste",
+      "side2": "light blue"
+    },
+    {
+      "side1": "chiaro",
+      "side2": "light"
+    },
+    {
+      "side1": "colorato",
+      "side2": "coloured"
+    },
+    {
+      "side1": "giallo",
+      "side2": "yellow"
+    },
+    {
+      "side1": "grigio",
+      "side2": "grey"
+    },
+    {
+      "side1": "marrone",
+      "side2": "brown"
+    },
+    {
+      "side1": "nero",
+      "side2": "black"
+    },
+    {
+      "side1": "rosa (inv)",
+      "side2": "pink"
+    },
+    {
+      "side1": "rosso",
+      "side2": "red"
+    },
+    {
+      "side1": "scuro",
+      "side2": "dark"
+    },
+    {
+      "side1": "tinta unita, la",
+      "side2": "plain colour"
+    },
+    {
+      "side1": "verde",
+      "side2": "green"
+    },
+    {
+      "side1": "viola (inv)",
+      "side2": "mauve"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "colours"
+  ]
+}

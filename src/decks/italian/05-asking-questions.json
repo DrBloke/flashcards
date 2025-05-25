@@ -1,0 +1,42 @@
+{
+  "title": "Asking questions",
+  "cards": [
+    {
+      "side1": "che (cosa)?",
+      "side2": "what?"
+    },
+    {
+      "side1": "chi?",
+      "side2": "who?"
+    },
+    {
+      "side1": "come?",
+      "side2": "how? (what like?)"
+    },
+    {
+      "side1": "cosa?",
+      "side2": "what?"
+    },
+    {
+      "side1": "dove?",
+      "side2": "where?"
+    },
+    {
+      "side1": "perché?",
+      "side2": "why?"
+    },
+    {
+      "side1": "quale",
+      "side2": "which?"
+    },
+    {
+      "side1": "quanto/a/i/e?",
+      "side2": "how much/many?"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "asking",
+    "questions"
+  ]
+}

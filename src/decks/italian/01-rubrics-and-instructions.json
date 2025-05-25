@@ -1,0 +1,122 @@
+{
+  "title": "Rubrics and instructions",
+  "cards": [
+    {
+      "side1": "Completa/Riempi la tabella/il testo/lo spazio in italiano",
+      "side2": "Complete/Fill in the table/the text/the blank space in Italian."
+    },
+    {
+      "side1": "Completa la frase/le frasi…",
+      "side2": "Complete the phrase(s)/sentence(s)…"
+    },
+    {
+      "side1": "Indica...",
+      "side2": "Indicate..."
+    },
+    {
+      "side1": "Scegli (due) frase corrette...",
+      "side2": "Choose (two) correct sentences."
+    },
+    {
+      "side1": "Scegli la risposta giusta.",
+      "side2": "Choose the correct answer."
+    },
+    {
+      "side1": "Completa…in italiano.",
+      "side2": "Complete…in Italian."
+    },
+    {
+      "side1": "Riempi gli spazi con la parola corretta dalla lista.",
+      "side2": "Complete the following text with words from the list."
+    },
+    {
+      "side1": "Scegli il paragrafo…",
+      "side2": "Choose the paragraph…"
+    },
+    {
+      "side1": "Menziona (due) dettagli.",
+      "side2": "Mention (two) details."
+    },
+    {
+      "side1": "Ascolta questa conversazione/intervista…",
+      "side2": "Listen to this conversation/interview."
+    },
+    {
+      "side1": "Scrivi la lettera giusta in ogni casella.",
+      "side2": "Write the correct letter in each box."
+    },
+    {
+      "side1": "Scrivi la lettera giusta nella casella.",
+      "side2": "Write the correct letter in the box."
+    },
+    {
+      "side1": "Scrivi le lettere giuste nelle caselle.",
+      "side2": "Write the correct letters in the boxes."
+    },
+    {
+      "side1": "Non è necessario scrivere frasi complete.",
+      "side2": "It is not necessary to write in full sentences."
+    },
+    {
+      "side1": "Leggi…",
+      "side2": "Read…"
+    },
+    {
+      "side1": "Menziona un’aspetto positvo/negativo.",
+      "side2": "Mention one positive/negative aspect."
+    },
+    {
+      "side1": "Scrivi:\nP se l’opinione è positiva\nN se l’opinione è negativa\nP + N se l’opinione è positiva e negativa",
+      "side2": "Write:\nP if the opinion is positive\nN if the opinion is negative\nP + N if the opinion is positive and negative"
+    },
+    {
+      "side1": "Qual è la risposta corretta?",
+      "side2": "Which is the correct answer?"
+    },
+    {
+      "side1": "Chi...?",
+      "side2": "Who...?"
+    },
+    {
+      "side1": "Rispondi alle domande.",
+      "side2": "Answer the questions."
+    },
+    {
+      "side1": "Rispondi alle domande in italiano .",
+      "side2": "Answer (the questions) in Italian ."
+    },
+    {
+      "side1": "Descrivi...",
+      "side2": "Describe…"
+    },
+    {
+      "side1": "Scrivi...",
+      "side2": "Write…"
+    },
+    {
+      "side1": "Scrivi circa 40 parole in italiano.",
+      "side2": "Write approximately 40 words in Italian ."
+    },
+    {
+      "side1": "Scrivi circa 90 parole in italiano . Rispondi a tutti gli aspetti della domanda.",
+      "side2": "Write approximately 90 words in Italian . Write something about each bullet point."
+    },
+    {
+      "side1": "Scrivi circa 150 parole in italiano . Rispondi ai due aspetti della domanda.",
+      "side2": "Write approximately 150 words in Italian . Write something about both bullet points."
+    },
+    {
+      "side1": "Cosa c’è nella foto? Scrivi quattro frasi in italiano.",
+      "side2": "What is there in the photo? Write four sentences in Italian ."
+    },
+    {
+      "side1": "Menziona...",
+      "side2": "Mention..."
+    }
+  ],
+  "tags": [
+    "Italian",
+    "rubrics",
+    "instructions"
+  ]
+}

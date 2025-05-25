@@ -1,0 +1,33 @@
+{
+  "title": "Access",
+  "cards": [
+    {
+      "side1": "aperto",
+      "side2": "open"
+    },
+    {
+      "side1": "chiuso",
+      "side2": "closed"
+    },
+    {
+      "side1": "divieto di fumo",
+      "side2": "no smoking"
+    },
+    {
+      "side1": "entrata libera, l’",
+      "side2": "free admission"
+    },
+    {
+      "side1": "libero",
+      "side2": "vacant, free"
+    },
+    {
+      "side1": "occupato",
+      "side2": "occupied, busy"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "access"
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "title": "Weather (part 1)",
+  "cards": [
+    {
+      "side1": "asciutto",
+      "side2": "dry"
+    },
+    {
+      "side1": "bagnato",
+      "side2": "wet"
+    },
+    {
+      "side1": "bollettino meteorologico, il",
+      "side2": "weather forecast"
+    },
+    {
+      "side1": "cielo, il",
+      "side2": "sky"
+    },
+    {
+      "side1": "clima, il",
+      "side2": "climate"
+    },
+    {
+      "side1": "coperto",
+      "side2": "overcast"
+    },
+    {
+      "side1": "fare bel/brutto tempo",
+      "side2": "to be fine/bad weather"
+    },
+    {
+      "side1": "fare caldo/freddo",
+      "side2": "to be hot/cold weather"
+    },
+    {
+      "side1": "fare fresco",
+      "side2": "to be chilly"
+    },
+    {
+      "side1": "gelare",
+      "side2": "to freeze"
+    },
+    {
+      "side1": "gelo, il",
+      "side2": "frost"
+    },
+    {
+      "side1": "ghiaccio, il",
+      "side2": "ice"
+    },
+    {
+      "side1": "grado, il",
+      "side2": "degree (temperature)"
+    },
+    {
+      "side1": "lampo, il",
+      "side2": "lightening"
+    },
+    {
+      "side1": "mare, il",
+      "side2": "sea"
+    },
+    {
+      "side1": "mite",
+      "side2": "mild"
+    },
+    {
+      "side1": "mosso",
+      "side2": "rough"
+    },
+    {
+      "side1": "nebbia, la",
+      "side2": "fog"
+    },
+    {
+      "side1": "neve, la",
+      "side2": "snow"
+    },
+    {
+      "side1": "nevicare",
+      "side2": "to snow"
+    },
+    {
+      "side1": "nuvola, la",
+      "side2": "cloud"
+    },
+    {
+      "side1": "nuvoloso",
+      "side2": "cloudy"
+    },
+    {
+      "side1": "ombra, l’",
+      "side2": "shade"
+    },
+    {
+      "side1": "onda, l’",
+      "side2": "wave"
+    },
+    {
+      "side1": "palla di neve, la",
+      "side2": "snowball"
+    },
+    {
+      "side1": "pioggia, la",
+      "side2": "rain"
+    },
+    {
+      "side1": "piovere",
+      "side2": "to rain"
+    },
+    {
+      "side1": "previsioni del tempo, le",
+      "side2": "weather forecast"
+    },
+    {
+      "side1": "sereno",
+      "side2": "clear sky"
+    },
+    {
+      "side1": "sole, il",
+      "side2": "sun"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "weather"
+  ]
+}

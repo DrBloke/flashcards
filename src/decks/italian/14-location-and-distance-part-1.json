@@ -1,0 +1,130 @@
+{
+  "title": "Location and distance (part 1)",
+  "cards": [
+    {
+      "side1": "a",
+      "side2": "at"
+    },
+    {
+      "side1": "a destra",
+      "side2": "on the right"
+    },
+    {
+      "side1": "a due passi",
+      "side2": "very nearby"
+    },
+    {
+      "side1": "a sinistra",
+      "side2": "on the left"
+    },
+    {
+      "side1": "accanto a",
+      "side2": "next to"
+    },
+    {
+      "side1": "avanti",
+      "side2": "before"
+    },
+    {
+      "side1": "centro, il",
+      "side2": "centre"
+    },
+    {
+      "side1": "chilometro, il",
+      "side2": "kilometre"
+    },
+    {
+      "side1": "contro",
+      "side2": "against"
+    },
+    {
+      "side1": "da",
+      "side2": "from"
+    },
+    {
+      "side1": "da nessuna parte",
+      "side2": "nowhere"
+    },
+    {
+      "side1": "da ogni parte",
+      "side2": "everywhere"
+    },
+    {
+      "side1": "da qualche parte",
+      "side2": "somewhere"
+    },
+    {
+      "side1": "da questa parte",
+      "side2": "this way"
+    },
+    {
+      "side1": "da tutte le parti",
+      "side2": "everywhere"
+    },
+    {
+      "side1": "dall’altra parte",
+      "side2": "on the other hand"
+    },
+    {
+      "side1": "dappertutto",
+      "side2": "everywhere"
+    },
+    {
+      "side1": "davanti a",
+      "side2": "in front of"
+    },
+    {
+      "side1": "dentro",
+      "side2": "inside"
+    },
+    {
+      "side1": "di fronte a",
+      "side2": "in front of"
+    },
+    {
+      "side1": "dietro",
+      "side2": "behind"
+    },
+    {
+      "side1": "diritto/dritto",
+      "side2": "ahead"
+    },
+    {
+      "side1": "di sopra",
+      "side2": "above"
+    },
+    {
+      "side1": "di sotto",
+      "side2": "below"
+    },
+    {
+      "side1": "dove, dov’è",
+      "side2": "where, where is"
+    },
+    {
+      "side1": "essere situato",
+      "side2": "to be situated"
+    },
+    {
+      "side1": "est, l’ (m)",
+      "side2": "east"
+    },
+    {
+      "side1": "fino a",
+      "side2": "until, up to"
+    },
+    {
+      "side1": "fuori .... (di)",
+      "side2": "outside"
+    },
+    {
+      "side1": "giù .... (per)",
+      "side2": "down from"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "location",
+    "distance"
+  ]
+}

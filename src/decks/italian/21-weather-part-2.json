@@ -1,0 +1,33 @@
+{
+  "title": "Weather (part 2)",
+  "cards": [
+    {
+      "side1": "tempo, il",
+      "side2": "weather"
+    },
+    {
+      "side1": "temporale, il",
+      "side2": "storm"
+    },
+    {
+      "side1": "umido",
+      "side2": "damp"
+    },
+    {
+      "side1": "tirare vento",
+      "side2": "to be windy"
+    },
+    {
+      "side1": "tuono, il",
+      "side2": "thunder"
+    },
+    {
+      "side1": "vento, il",
+      "side2": "wind"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "weather"
+  ]
+}

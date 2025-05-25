@@ -16,13 +16,14 @@
 - [ ] Parse data
 - [ ] Shuffle
 - [ ] Focus on the buttons after flipping
+- [ ] Don't reshow cards if right on first attempt (optional)
 - [ ] Advance/Previous buttons
 - [ ] Check the 301 redirection due to trailing slash
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Animations and swiping
 - [ ] Markdown content
-- [ ] Multiple cards
+- [ ] Multiple cards. Problem on first card.
 - [ ] Maths, chemistry and diagrams
 - [ ] Images
 - [ ] Voice

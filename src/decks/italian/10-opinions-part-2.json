@@ -1,0 +1,93 @@
+{
+  "title": "Opinions (part 2)",
+  "cards": [
+    {
+      "side1": "noioso",
+      "side2": "boring"
+    },
+    {
+      "side1": "nuovo",
+      "side2": "new"
+    },
+    {
+      "side1": "odiare",
+      "side2": "to hate"
+    },
+    {
+      "side1": "pensare",
+      "side2": "to think"
+    },
+    {
+      "side1": "permettere",
+      "side2": "to allow"
+    },
+    {
+      "side1": "piacere, il",
+      "side2": "pleasure"
+    },
+    {
+      "side1": "preferire",
+      "side2": "to prefer"
+    },
+    {
+      "side1": "preferito",
+      "side2": "favourite"
+    },
+    {
+      "side1": "promettere",
+      "side2": "to promise"
+    },
+    {
+      "side1": "scontento",
+      "side2": "unhappy"
+    },
+    {
+      "side1": "sembrare",
+      "side2": "to seem"
+    },
+    {
+      "side1": "semplice",
+      "side2": "simple"
+    },
+    {
+      "side1": "sicuro",
+      "side2": "sure, safe"
+    },
+    {
+      "side1": "soddisfacente",
+      "side2": "satisfying"
+    },
+    {
+      "side1": "sorpresa, la",
+      "side2": "surprise"
+    },
+    {
+      "side1": "sorpreso",
+      "side2": "surprising"
+    },
+    {
+      "side1": "speranza, la",
+      "side2": "hope"
+    },
+    {
+      "side1": "sperare",
+      "side2": "to hope"
+    },
+    {
+      "side1": "spiritoso",
+      "side2": "witty"
+    },
+    {
+      "side1": "utile",
+      "side2": "useful"
+    },
+    {
+      "side1": "vecchio",
+      "side2": "old"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "opinions"
+  ]
+}

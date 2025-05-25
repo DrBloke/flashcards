@@ -1,0 +1,130 @@
+{
+  "title": "Expressions of time (part 2)",
+  "cards": [
+    {
+      "side1": "(x) anni fa",
+      "side2": "(x) years ago"
+    },
+    {
+      "side1": "fine, la",
+      "side2": "end"
+    },
+    {
+      "side1": "fine settimana, il/la",
+      "side2": "weekend"
+    },
+    {
+      "side1": "fra/tra poco",
+      "side2": "in a bit"
+    },
+    {
+      "side1": "già",
+      "side2": "already"
+    },
+    {
+      "side1": "giorno, il",
+      "side2": "day"
+    },
+    {
+      "side1": "ieri",
+      "side2": "yesterday"
+    },
+    {
+      "side1": "improvvisamente",
+      "side2": "suddenly"
+    },
+    {
+      "side1": "indomani, l’ (m)",
+      "side2": "the next day"
+    },
+    {
+      "side1": "in orario",
+      "side2": "on time"
+    },
+    {
+      "side1": "in punto",
+      "side2": "precisely"
+    },
+    {
+      "side1": "lentamente",
+      "side2": "slowly"
+    },
+    {
+      "side1": "lento",
+      "side2": "slow"
+    },
+    {
+      "side1": "mattina, la",
+      "side2": "morning"
+    },
+    {
+      "side1": "meno",
+      "side2": "less (to)"
+    },
+    {
+      "side1": "mese, il",
+      "side2": "month"
+    },
+    {
+      "side1": "mezzanotte",
+      "side2": "midnight"
+    },
+    {
+      "side1": "mezzo/a",
+      "side2": "half"
+    },
+    {
+      "side1": "mezzogiorno",
+      "side2": "midday"
+    },
+    {
+      "side1": "minuto, un",
+      "side2": "minute"
+    },
+    {
+      "side1": "ogni (x) giorni",
+      "side2": "every (x) days"
+    },
+    {
+      "side1": "ogni giorno",
+      "side2": "every day"
+    },
+    {
+      "side1": "ogni tanto",
+      "side2": "every now and then"
+    },
+    {
+      "side1": "ora",
+      "side2": "now"
+    },
+    {
+      "side1": "ora, un’",
+      "side2": "hour"
+    },
+    {
+      "side1": "più tardi",
+      "side2": "later"
+    },
+    {
+      "side1": "poi",
+      "side2": "then"
+    },
+    {
+      "side1": "pomeriggio, il",
+      "side2": "afternoon"
+    },
+    {
+      "side1": "presto",
+      "side2": "early, soon"
+    },
+    {
+      "side1": "prima",
+      "side2": "first(ly)"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "expressions",
+    "time"
+  ]
+}

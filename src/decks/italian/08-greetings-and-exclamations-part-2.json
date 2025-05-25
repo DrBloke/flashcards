@@ -1,0 +1,22 @@
+{
+  "title": "Greetings and exclamations (part 2)",
+  "cards": [
+    {
+      "side1": "prego",
+      "side2": "no problem"
+    },
+    {
+      "side1": "sì",
+      "side2": "yes"
+    },
+    {
+      "side1": "scusa/scusi",
+      "side2": "excuse me, sorry"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "greetings",
+    "exclamations"
+  ]
+}

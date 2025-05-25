@@ -1,0 +1,65 @@
+{
+  "title": "Comparisons",
+  "cards": [
+    {
+      "side1": "diverso",
+      "side2": "different"
+    },
+    {
+      "side1": "maggiore",
+      "side2": "greater/bigger"
+    },
+    {
+      "side1": "massimo",
+      "side2": "maximum"
+    },
+    {
+      "side1": "meglio/migliore",
+      "side2": "better/best"
+    },
+    {
+      "side1": "minimo",
+      "side2": "minimum"
+    },
+    {
+      "side1": "minore",
+      "side2": "smaller/minor"
+    },
+    {
+      "side1": "ottimo",
+      "side2": "best, excellent"
+    },
+    {
+      "side1": "peggio/peggiore",
+      "side2": "worse/worst"
+    },
+    {
+      "side1": "pessimo",
+      "side2": "awful, very poor"
+    },
+    {
+      "side1": "più/meno",
+      "side2": "more/less"
+    },
+    {
+      "side1": "poco",
+      "side2": "few/little"
+    },
+    {
+      "side1": "simile",
+      "side2": "similar"
+    },
+    {
+      "side1": "stesso",
+      "side2": "same"
+    },
+    {
+      "side1": "uguale (…a)",
+      "side2": "equal to"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "comparisons"
+  ]
+}

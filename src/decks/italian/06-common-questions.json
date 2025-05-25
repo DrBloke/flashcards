@@ -1,0 +1,50 @@
+{
+  "title": "Common questions",
+  "cards": [
+    {
+      "side1": "A che ora ...?",
+      "side2": "At what time ...?"
+    },
+    {
+      "side1": "Che data è?",
+      "side2": "What is the date?"
+    },
+    {
+      "side1": "Che giorno è?",
+      "side2": "What day is it?"
+    },
+    {
+      "side1": "Che ora è?",
+      "side2": "What time is it?"
+    },
+    {
+      "side1": "Che ore sono?",
+      "side2": "What time is it?"
+    },
+    {
+      "side1": "Da quanto tempo ...?",
+      "side2": "How long ...?"
+    },
+    {
+      "side1": "Di che colore è?",
+      "side2": "What colour is it?"
+    },
+    {
+      "side1": "Dov’è ...?",
+      "side2": "Where ...?"
+    },
+    {
+      "side1": "Qual è la data?",
+      "side2": "What's the date?"
+    },
+    {
+      "side1": "Quanti ne abbiamo?",
+      "side2": "How many do we have?"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "common",
+    "questions"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "title": "Materials",
+  "cards": [
+    {
+      "side1": "argento, l’",
+      "side2": "silver"
+    },
+    {
+      "side1": "carta, la",
+      "side2": "paper"
+    },
+    {
+      "side1": "cotone, il",
+      "side2": "cotton"
+    },
+    {
+      "side1": "cuoio, il",
+      "side2": "leather"
+    },
+    {
+      "side1": "ferro, il",
+      "side2": "iron"
+    },
+    {
+      "side1": "lana, la",
+      "side2": "wool"
+    },
+    {
+      "side1": "legno, il",
+      "side2": "wood"
+    },
+    {
+      "side1": "oro, l’",
+      "side2": "gold"
+    },
+    {
+      "side1": "pelle, la",
+      "side2": "leather"
+    },
+    {
+      "side1": "seta, la",
+      "side2": "silk"
+    },
+    {
+      "side1": "vetro, il",
+      "side2": "glass"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "materials"
+  ]
+}

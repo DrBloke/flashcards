@@ -1,0 +1,45 @@
+{
+  "title": "Correctness",
+  "cards": [
+    {
+      "side1": "aver ragione/torto",
+      "side2": "to be right/wrong"
+    },
+    {
+      "side1": "errore, l’ (m)",
+      "side2": "mistake"
+    },
+    {
+      "side1": "esatto",
+      "side2": "exactly"
+    },
+    {
+      "side1": "falso",
+      "side2": "wrong, false"
+    },
+    {
+      "side1": "giusto",
+      "side2": "right, correct"
+    },
+    {
+      "side1": "non è indicato",
+      "side2": "not shown"
+    },
+    {
+      "side1": "non si sa",
+      "side2": "no one knows"
+    },
+    {
+      "side1": "sbagliato",
+      "side2": "wrong, mistaken"
+    },
+    {
+      "side1": "vero",
+      "side2": "true, right"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "correctness"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "title": "Location and distance (part 2)",
+  "cards": [
+    {
+      "side1": "in cima a",
+      "side2": "at the top of"
+    },
+    {
+      "side1": "in fondo a",
+      "side2": "at the bottom/end of"
+    },
+    {
+      "side1": "in mezzo a",
+      "side2": "in the middle of"
+    },
+    {
+      "side1": "in ogni luogo",
+      "side2": "everywhere"
+    },
+    {
+      "side1": "in periferia",
+      "side2": "in the suburbs/edge"
+    },
+    {
+      "side1": "in qualche posto",
+      "side2": "somewhere"
+    },
+    {
+      "side1": "in qualsiasi luogo",
+      "side2": "everywhere"
+    },
+    {
+      "side1": "intorno a",
+      "side2": "around"
+    },
+    {
+      "side1": "là, lì",
+      "side2": "there"
+    },
+    {
+      "side1": "lontano (da)",
+      "side2": "far from"
+    },
+    {
+      "side1": "luogo, il",
+      "side2": "place"
+    },
+    {
+      "side1": "meridionale",
+      "side2": "southern"
+    },
+    {
+      "side1": "Meridione, il",
+      "side2": "south (of Italy)"
+    },
+    {
+      "side1": "nord, il",
+      "side2": "north"
+    },
+    {
+      "side1": "occidentale",
+      "side2": "westerly"
+    },
+    {
+      "side1": "orientale",
+      "side2": "easterly"
+    },
+    {
+      "side1": "ovest, l’ (m)",
+      "side2": "west"
+    },
+    {
+      "side1": "posto, il",
+      "side2": "place"
+    },
+    {
+      "side1": "qua, qui",
+      "side2": "here"
+    },
+    {
+      "side1": "settentrionale",
+      "side2": "northerly"
+    },
+    {
+      "side1": "Settentrione, il",
+      "side2": "north"
+    },
+    {
+      "side1": "sinistra",
+      "side2": "left"
+    },
+    {
+      "side1": "sopra",
+      "side2": "above"
+    },
+    {
+      "side1": "sotto",
+      "side2": "below"
+    },
+    {
+      "side1": "su",
+      "side2": "under"
+    },
+    {
+      "side1": "sud, il",
+      "side2": "south"
+    },
+    {
+      "side1": "trovarsi",
+      "side2": "to find yourself (in a place)"
+    },
+    {
+      "side1": "verso",
+      "side2": "towards"
+    },
+    {
+      "side1": "vicino (a)",
+      "side2": "near"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "location",
+    "distance"
+  ]
+}

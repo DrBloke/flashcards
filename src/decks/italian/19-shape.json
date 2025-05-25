@@ -1,0 +1,21 @@
+{
+  "title": "Shape",
+  "cards": [
+    {
+      "side1": "di forma (...)",
+      "side2": "shaped"
+    },
+    {
+      "side1": "quadrato",
+      "side2": "square"
+    },
+    {
+      "side1": "rotondo",
+      "side2": "round"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "shape"
+  ]
+}

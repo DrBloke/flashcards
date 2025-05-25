@@ -1,0 +1,57 @@
+{
+  "title": "Numbers",
+  "cards": [
+    {
+      "side1": "mille",
+      "side2": "thousand"
+    },
+    {
+      "side1": "duemila",
+      "side2": "two thousand"
+    },
+    {
+      "side1": "milione, un",
+      "side2": "million"
+    },
+    {
+      "side1": "miliardo, un",
+      "side2": "billion"
+    },
+    {
+      "side1": "centinaio, un (centinaia di)",
+      "side2": "about a hundred"
+    },
+    {
+      "side1": "migliaio, un (migliaia di...)",
+      "side2": "about a thousand (thousands of ...)"
+    },
+    {
+      "side1": "decina, una",
+      "side2": "about ten"
+    },
+    {
+      "side1": "dozzina, una",
+      "side2": "dozen"
+    },
+    {
+      "side1": "ventina, una",
+      "side2": "about twenty"
+    },
+    {
+      "side1": "trentina, una",
+      "side2": "about thirty"
+    },
+    {
+      "side1": "paio, un",
+      "side2": "pair"
+    },
+    {
+      "side1": "numero, un",
+      "side2": "number"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "numbers"
+  ]
+}

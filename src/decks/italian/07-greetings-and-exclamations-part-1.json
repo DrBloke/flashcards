@@ -1,0 +1,130 @@
+{
+  "title": "Greetings and exclamations (part 1)",
+  "cards": [
+    {
+      "side1": "a presto",
+      "side2": "see you soon"
+    },
+    {
+      "side1": "a domani",
+      "side2": "until tomorrow"
+    },
+    {
+      "side1": "a lunedì",
+      "side2": "until Monday"
+    },
+    {
+      "side1": "arrivederci",
+      "side2": "goodbye"
+    },
+    {
+      "side1": "attenzione",
+      "side2": "be careful"
+    },
+    {
+      "side1": "auguri",
+      "side2": "best wishes"
+    },
+    {
+      "side1": "benvenuto/a/i/e",
+      "side2": "welcome"
+    },
+    {
+      "side1": "buon anno",
+      "side2": "happy New Year"
+    },
+    {
+      "side1": "buon appetito",
+      "side2": "enjoy the meal"
+    },
+    {
+      "side1": "buon compleanno",
+      "side2": "happy birthday"
+    },
+    {
+      "side1": "buon divertimento",
+      "side2": "have fun"
+    },
+    {
+      "side1": "buon Natale",
+      "side2": "happy Christmas"
+    },
+    {
+      "side1": "buon viaggio",
+      "side2": "have a good journey"
+    },
+    {
+      "side1": "buona fortuna",
+      "side2": "good luck"
+    },
+    {
+      "side1": "buongiorno, buon giorno",
+      "side2": "good day"
+    },
+    {
+      "side1": "buona notte",
+      "side2": "good night"
+    },
+    {
+      "side1": "buona Pasqua",
+      "side2": "happy Easter"
+    },
+    {
+      "side1": "buonasera, buona sera",
+      "side2": "good evening"
+    },
+    {
+      "side1": "buone vacanze",
+      "side2": "happy holiday"
+    },
+    {
+      "side1": "che peccato",
+      "side2": "what a shame"
+    },
+    {
+      "side1": "ciao",
+      "side2": "hi/hello"
+    },
+    {
+      "side1": "colpa mia",
+      "side2": "my fault"
+    },
+    {
+      "side1": "come stai/sta?",
+      "side2": "how are you?"
+    },
+    {
+      "side1": "grazie",
+      "side2": "thank you"
+    },
+    {
+      "side1": "in bocca al lupo",
+      "side2": "good luck"
+    },
+    {
+      "side1": "mi dispiace",
+      "side2": "I’m sorry"
+    },
+    {
+      "side1": "non vedo l’ora di…",
+      "side2": "I cannot wait …"
+    },
+    {
+      "side1": "per favore",
+      "side2": "please"
+    },
+    {
+      "side1": "per fortuna",
+      "side2": "luckily"
+    },
+    {
+      "side1": "per piacere",
+      "side2": "please"
+    }
+  ],
+  "tags": [
+    "Italian",
+    "greetings",
+    "exclamations"
+  ]
+}
