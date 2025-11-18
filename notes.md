@@ -1,7 +1,7 @@
 ## Notes
 
 ## Markdown
-- [GitHub Flavoured Markdown](https://github.github.com/gfm/). But can be disabled to use a selt of remark plugins for MDX, for example.
+- [GitHub Flavoured Markdown](https://github.github.com/gfm/). But can be disabled to use a set of remark plugins for MDX, for example.
 - When fetching data from your collections with the helper functions getCollection() or getEntry(), your Markdown’s frontmatter properties are available on a data object (e.g. post.data.title). Additionally, body contains the raw, uncompiled body content as a string.
 - Slugs for headings are available on import
 - third-party remark and rehype plugins: add table of contents; style your markdown. See [Awesome remark](https://github.com/remarkjs/awesome-remark)
@@ -238,7 +238,7 @@ const { Content } = await render(post);
 
 In the class constructor, you can set up initial state and default values, register event listeners and perhaps create a shadow root. At this point, you should not inspect the element's attributes or children, or add new attributes or children. Do it in `connectedCallback()`.
 
-Movong custom element in the DOM: If you want to preserve the element's state, you can do so by defining a `connectedMoveCallback()` lifecycle callback inside the element class, and then using the `Element.moveBefore()` method to move the element. This causes the `connectedMoveCallback()` to run instead of `connectedCallback(`) and `disconnectedCallback()`. You could add an empty `connectedMoveCallback()` to stop the other two callbacks running, or include some custom logic to handle the move:
+Moving custom element in the DOM: If you want to preserve the element's state, you can do so by defining a `connectedMoveCallback()` lifecycle callback inside the element class, and then using the `Element.moveBefore()` method to move the element. This causes the `connectedMoveCallback()` to run instead of `connectedCallback()` and `disconnectedCallback()`. You could add an empty `connectedMoveCallback()` to stop the other two callbacks running, or include some custom logic to handle the move:
 
 To respond to attribute changes you need:
 - A static property named observedAttributes. This must be an array containing the names of all attributes for which the element needs change notifications.
@@ -294,14 +294,14 @@ For custom elements, you can make the custom element the host and then append th
 
 Encapsulated style can be attached:
 - Programmatically, by constructing a CSSStyleSheet object and attaching it to the shadow root.
-- Declaratively, by adding a <style> element in a <template> element's declaration.
+- Declaratively, by adding a `<style>` element in a `<template>` element's declaration.
 
 ```HTML
 <template id="my-element">
   <style>
     span {
       color: red;
-      border: 2px dotted black;
+      border: .125rem dotted black;
     }
   </style>
   <span>I'm in the shadow DOM</span>
@@ -349,7 +349,7 @@ Slots:
     p {
       color: white;
       background-color: #666;
-      padding: 5px;
+      padding: .3125rem;
     }
   </style>
   <p>

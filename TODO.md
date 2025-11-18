@@ -13,8 +13,21 @@
 - [x] Italian flag fav icon
 - [x] Reimplement in Lit
 - [x] Reverse deck
-- [ ] Parse data
+- [ ] Refactor Web Awesome to use NPM
+    - npm install
+    - add compiler options for TS
+    - change button-icon
+    - check resources are set up correctly
+    - await for all to be defined
+    - use updateComplete on re-rendering components or requestAnimationFrame if using multiple components that are updating
+    - initialise VS Code completion
+- [ ] ES Lint and Prettify setup and run
+- [ ] Buttons need borders, or maybe focus indicator will do
+- [ ] Refactor to use arrays for card sides for extensibility
+- [ ] Refactor Flashcard HTML into more sections, e.g. header and footer
+- [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
 - [ ] Shuffle
+- [ ] Home route should be a function callback?
 - [ ] Focus on the buttons after flipping
 - [ ] Don't reshow cards if right on first attempt (optional)
 - [ ] Advance/Previous buttons
@@ -32,7 +45,11 @@
 - [ ] Remote persistence
 - [ ] Editable card decks
 - [ ] PWA
+- [ ] AI scanning of decks
+- [ ] Localisation
+- [ ] Playwright tests
 
 ## Issues
 
 - [ ] Mark correct on last round re-renders first card before relocating. Render a success message instead.
+- [ ] I think the use of side1 and side2 my be a poor choice. It should instead be an array. This would help when I have cards with more than two sides.
