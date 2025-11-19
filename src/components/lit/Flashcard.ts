@@ -1,7 +1,11 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
-import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/button/button.js";
-import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/icon-button/icon-button.js";
+// import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/button/button.js";
+// import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/icon-button/icon-button.js";
+import "@awesome.me/webawesome/dist/styles/themes/default.css";
+import "@awesome.me/webawesome/dist/components/button/button.js";
+import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
+import "@awesome.me/webawesome/dist/components/icon/icon.js";
 
 @customElement("flashcard-deck")
 export class FlashcardDeck extends LitElement {
@@ -44,19 +48,8 @@ export class FlashcardDeck extends LitElement {
         justify-content: space-around;
         min-width: 114px;
       }
-      wa-icon-button {
-        font-size: var(--wa-font-size-3xl);
-        color: var(--wa-color-brand-on-quiet);
-      }
-      wa-icon-button#flip {
-        align-items: center;
-        padding-left: 12px;
-      }
-      wa-icon-button#correct {
-        color: var(--wa-color-success-on-quiet);
-      }
-      wa-icon-button#incorrect {
-        color: var(--wa-color-danger-on-quiet);
+      button::part(base) {
+        width: 100px;
       }
     }
   `;
@@ -95,72 +88,86 @@ export class FlashcardDeck extends LitElement {
     this._remainingCards = this.cards;
   }
 
+  headerTemplate() {
+    return html`<wa-button
+            href=${this.homeRoute}
+            id="home"
+            title="home"
+            variant="brand"
+          >
+            <wa-icon name="house" label="Home"></wa-icon>
+
+            </wa-icon>
+            </wa-button>
+          <h1>${this.deckTitle}</h1>`;
+  }
+
+  footerTemplate() {
+    return html`<span class="toolbar-left">
+        <wa-button
+          id="reverse-deck"
+          name=${this.deckIsReversed ? "caret-left" : "caret-right"}
+          title="Reverse deck order"
+          @click=${this.reverseDeck}
+          variant="brand"
+        >
+          <wa-icon
+            name=${this.deckIsReversed ? "caret-left" : "caret-right"}
+            label=${this.deckIsReversed
+              ? "Toggle deck order - currently reversed"
+              : "Toggle deck order - currently normal"}
+          ></wa-icon>
+        </wa-button>
+      </span>
+      <span class="toolbar-right">
+        ${(this._side === "side1" && !this.deckIsReversed) ||
+        (this._side === "side2" && this.deckIsReversed)
+          ? this.flipTemplate()
+          : this.correctTemplate()}
+      </span>`;
+  }
+
   flipTemplate() {
-    return html` <wa-icon-button
+    return html` <wa-button
       id="flip"
-      name="arrows-rotate"
-      label="flip"
       title="flip"
       @click=${this.flipCard}
+      variant="brand"
     >
-    </wa-icon-button>`;
+      <wa-icon id="flip-icon" name="arrows-rotate" label="flip"></wa-icon
+      >&nbsp;&nbsp;Flip
+    </wa-button>`;
   }
 
   correctTemplate() {
-    return html` <wa-icon-button
-        name="check"
+    return html` <wa-button-group>
+      <wa-button
         id="correct"
-        label="correct"
         title="correct"
         @click=${this.markCorrect}
-      ></wa-icon-button>
-      <wa-icon-button
-        name="xmark"
+        variant="brand"
+      >
+        <wa-icon name="check" label="correct"></wa-icon>
+      </wa-button>
+      <wa-button
         id="incorrect"
-        label="incorrect"
         title="incorrect"
         @click=${this.markIncorrect}
-      ></wa-icon-button>`;
+        variant="danger"
+      >
+        <wa-icon name="xmark" label="incorrect"></wa-icon>
+      </wa-button>
+    </wa-button-group>`;
   }
 
   render() {
     return html`
       <div id="wrapper">
-        <header>
-          <wa-icon-button
-            name="house"
-            href=${this.homeRoute}
-            id="home"
-            label="Home"
-            title="home"
-          >
-            Home
-          </wa-icon-button>
-          <h1>${this.deckTitle}</h1>
-        </header>
+        <header>${this.headerTemplate()}</header>
         <main>
           <div id="content">${this._remainingCards[0][this._side]}</div>
         </main>
-        <footer>
-          <span class="toolbar-left">
-            <wa-icon-button
-              id="reverse-deck"
-              name=${this.deckIsReversed ? "caret-left" : "caret-right"}
-              label=${this.deckIsReversed
-                ? "Toggle deck order - currently reversed"
-                : "Toggle deck order - currently normal"}
-              title="Reverse deck order"
-              @click=${this.reverseDeck}
-            >
-            </wa-icon-button>
-          </span>
-          <span class="toolbar-right">
-            ${(this._side === "side1" && !this.deckIsReversed) ||
-            (this._side === "side2" && this.deckIsReversed)
-              ? this.flipTemplate()
-              : this.correctTemplate()}
-          </span>
-        </footer>
+        <footer>${this.footerTemplate()}</footer>
       </div>
     `;
   }
