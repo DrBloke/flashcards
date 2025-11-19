@@ -122,9 +122,5 @@
       "side2": "first(ly)"
     }
   ],
-  "tags": [
-    "Italian",
-    "expressions",
-    "time"
-  ]
+  "tags": ["Italian", "expressions", "time"]
 }

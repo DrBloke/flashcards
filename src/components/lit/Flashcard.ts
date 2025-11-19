@@ -90,16 +90,15 @@ export class FlashcardDeck extends LitElement {
 
   headerTemplate() {
     return html`<wa-button
-            href=${this.homeRoute}
-            id="home"
-            title="home"
-            variant="brand"
-          >
-            <wa-icon name="house" label="Home"></wa-icon>
-
-            </wa-icon>
-            </wa-button>
-          <h1>${this.deckTitle}</h1>`;
+        href=${this.homeRoute}
+        id="home"
+        title="home"
+        variant="brand"
+        appearance="filled"
+      >
+        <wa-icon name="house" label="Home"></wa-icon>
+      </wa-button>
+      <h1>${this.deckTitle}</h1>`;
   }
 
   footerTemplate() {
@@ -110,6 +109,7 @@ export class FlashcardDeck extends LitElement {
           title="Reverse deck order"
           @click=${this.reverseDeck}
           variant="brand"
+          appearance="filled"
         >
           <wa-icon
             name=${this.deckIsReversed ? "caret-left" : "caret-right"}

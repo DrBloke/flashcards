@@ -26,8 +26,5 @@
       "side2": "wind"
     }
   ],
-  "tags": [
-    "Italian",
-    "weather"
-  ]
+  "tags": ["Italian", "weather"]
 }

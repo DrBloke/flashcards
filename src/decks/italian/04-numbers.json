@@ -50,8 +50,5 @@
       "side2": "number"
     }
   ],
-  "tags": [
-    "Italian",
-    "numbers"
-  ]
+  "tags": ["Italian", "numbers"]
 }

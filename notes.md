@@ -1,6 +1,7 @@
 ## Notes
 
 ## Markdown
+
 - [GitHub Flavoured Markdown](https://github.github.com/gfm/). But can be disabled to use a set of remark plugins for MDX, for example.
 - When fetching data from your collections with the helper functions getCollection() or getEntry(), your Markdown’s frontmatter properties are available on a data object (e.g. post.data.title). Additionally, body contains the raw, uncompiled body content as a string.
 - Slugs for headings are available on import
@@ -8,6 +9,7 @@
 - Astro does not include built-in support for remote Markdown outside of content collections. If you do it you will need your own markdown parser. Consider using a content collections loader instead.
 
 Get markdown content:
+
 ```astro
 ---
 // Import statement
@@ -27,6 +29,7 @@ const { Content } = await render(product);
 ```
 
 ## Content collections
+
 - You can create a collection any time you have a group of related data or content that shares a common structure.
 - Collections help to organize and query your documents, enable Intellisense and type checking in your editor, and provide automatic TypeScript type-safety for all of your content.
 - Use a loader and an optional schema
@@ -45,8 +48,8 @@ const { Content } = await render(product);
 - If your custom slugs contain the / character to produce URLs with multiple path segments, you must use a rest parameter (e.g. [...slug]) in the .astro filename for this dynamic routing page.
 - For server side routing, the url depends on the request so use `Astro.request` or `Astro.params`.
 
-
 local data:
+
 ```astro
 // 1. Import utilities from `astro:content`
 import { defineCollection, z } from 'astro:content';
@@ -63,7 +66,8 @@ export const collections = { blog, dogs };
 ```
 
 remote data:
-``` astro
+
+```astro
 const countries = defineCollection({
   loader: async () => {
     const response = await fetch("https://restcountries.com/v3.1/all");
@@ -79,7 +83,8 @@ const countries = defineCollection({
 ```
 
 Schema with Zod:
-``` astro
+
+```astro
 // Example: A cheatsheet of many common Zod datatypes
 import { z, defineCollection } from 'astro:content';
 
@@ -110,7 +115,8 @@ defineCollection({
 ```
 
 Use of `reference`:
-``` astro
+
+```astro
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
@@ -137,7 +143,8 @@ export const collections = { blog, authors };
 ```
 
 Secondary query to get reference:
-``` astro
+
+```astro
 ---
 import { getEntry, getEntries } from 'astro:content';
 
@@ -162,7 +169,8 @@ const relatedPosts = await getEntries(blogPost.data.relatedPosts);
 ```
 
 Render content:
-``` astro 
+
+```astro
 ---
 import { getEntry, render } from 'astro:content';
 
@@ -178,7 +186,8 @@ const { Content, headings } = await render(entry);
 ```
 
 Filter query:
-``` astro
+
+```astro
 // Example: Filter out content entries with `draft: true`
 import { getCollection } from 'astro:content';
 const publishedBlogEntries = await getCollection('blog', ({ data }) => {
@@ -188,7 +197,8 @@ const publishedBlogEntries = await getCollection('blog', ({ data }) => {
 
 Static routing:
 `src/pages/posts/[id].astro`
-``` astro
+
+```astro
 ---
 import { getCollection, render } from 'astro:content';
 // 1. Generate a new path for every collection entry
@@ -208,7 +218,8 @@ const { Content } = await render(post);
 ```
 
 Server side routing:
-``` astro
+
+```astro
 ---
 import { getEntry, render } from "astro:content";
 // 1. Get the slug from the incoming server request
@@ -230,6 +241,7 @@ const { Content } = await render(post);
 ```
 
 ## Web components
+
 - Data goes in as a data attribute (JSON.stringified) or as child nodes
 - Props/configuration goes in as props. The setters and getters can handle the encapsalation.
 - Check out [Wired elements](https://wiredjs.com/)
@@ -241,10 +253,12 @@ In the class constructor, you can set up initial state and default values, regis
 Moving custom element in the DOM: If you want to preserve the element's state, you can do so by defining a `connectedMoveCallback()` lifecycle callback inside the element class, and then using the `Element.moveBefore()` method to move the element. This causes the `connectedMoveCallback()` to run instead of `connectedCallback()` and `disconnectedCallback()`. You could add an empty `connectedMoveCallback()` to stop the other two callbacks running, or include some custom logic to handle the move:
 
 To respond to attribute changes you need:
+
 - A static property named observedAttributes. This must be an array containing the names of all attributes for which the element needs change notifications.
 - An implementation of the attributeChangedCallback() lifecycle callback.
 
 The callback is passed three arguments:
+
 - The name of the attribute which changed.
 - The attribute's old value.
 - The attribute's new value.
@@ -283,6 +297,7 @@ Shadow DOM
 It's important that code running in the page should not be able to accidentally break a custom element by modifying its internal implementation. Shadow DOM enables you to attach a DOM tree to an element, and have the internals of this tree hidden from JavaScript and CSS running in the page.
 
 For custom elements, you can make the custom element the host and then append the shadow dom:
+
 ```JS
  connectedCallback() {
     // Create a shadow root
@@ -293,6 +308,7 @@ For custom elements, you can make the custom element the host and then append th
 ```
 
 Encapsulated style can be attached:
+
 - Programmatically, by constructing a CSSStyleSheet object and attaching it to the shadow root.
 - Declaratively, by adding a `<style>` element in a `<template>` element's declaration.
 
@@ -320,11 +336,13 @@ shadow.appendChild(template.content);
 ```
 
 Templates:
+
 ```HTML
 <template id="custom-paragraph">
   <p>My paragraph</p>
 </template>
 ```
+
 ```JS
 customElements.define(
   "my-paragraph",
@@ -343,6 +361,7 @@ customElements.define(
 ```
 
 Slots:
+
 ```HTML
 <template id="custom-paragraph">
   <style>
@@ -360,6 +379,7 @@ Slots:
 ```
 
 Use like this (note use of unnamed slot):
+
 ```HTML
 <my-paragraph>
   <span slot="my-text">Let's have some different text!</span>
@@ -371,8 +391,10 @@ Use like this (note use of unnamed slot):
 [Useful examples of web component stuff](https://github.com/mdn/web-components-examples/tree/main)
 
 ## Using lit
+
 The @ symbol gave an illegal character error U+0040. This was fixed by adding this to the TS config. See [Lit decorators docs](https://lit.dev/docs/components/decorators/)
-``` TS
+
+```TS
   "compilerOptions": {
     "target": "ES5",
     "experimentalDecorators": true
@@ -381,6 +403,7 @@ The @ symbol gave an illegal character error U+0040. This was fixed by adding th
 ```
 
 ### Property update cycle
+
 When a property changes, the following sequence occurs:
 
 - The property's setter is called.
@@ -394,9 +417,11 @@ When a property changes, the following sequence occurs:
 Note that if you mutate an object or array property, it won't trigger an update, because the object itself hasn't changed. For more information, see Mutating object and array properties.
 
 ### State
+
 Internal reactive state refers to reactive properties that are not part of the component's public API. These state properties don't have corresponding attributes, and aren't intended to be used from outside the component. Internal reactive state should be set by the component itself
 
 ### Standard custom element lifecycle
+
 Lit components use the standard custom element lifecycle methods. In addition Lit introduces a reactive update cycle that renders changes to DOM when reactive properties change.
 
 If you need to customize any of the standard custom element lifecycle methods, make sure to call the super implementation (such as super.connectedCallback()) so the standard Lit functionality is maintained.

@@ -122,9 +122,5 @@
       "side2": "down from"
     }
   ],
-  "tags": [
-    "Italian",
-    "location",
-    "distance"
-  ]
+  "tags": ["Italian", "location", "distance"]
 }

@@ -94,11 +94,5 @@
       "side2": "technician"
     }
   ],
-  "tags": [
-    "Italian",
-    "current",
-    "future",
-    "study",
-    "employment"
-  ]
+  "tags": ["Italian", "current", "future", "study", "employment"]
 }

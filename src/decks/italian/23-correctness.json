@@ -38,8 +38,5 @@
       "side2": "true, right"
     }
   ],
-  "tags": [
-    "Italian",
-    "correctness"
-  ]
+  "tags": ["Italian", "correctness"]
 }

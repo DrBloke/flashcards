@@ -122,8 +122,5 @@
       "side2": "sun"
     }
   ],
-  "tags": [
-    "Italian",
-    "weather"
-  ]
+  "tags": ["Italian", "weather"]
 }

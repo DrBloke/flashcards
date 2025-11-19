@@ -26,8 +26,5 @@
       "side2": "occupied, busy"
     }
   ],
-  "tags": [
-    "Italian",
-    "access"
-  ]
+  "tags": ["Italian", "access"]
 }

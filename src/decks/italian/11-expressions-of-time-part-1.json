@@ -122,9 +122,5 @@
       "side2": "exactly"
     }
   ],
-  "tags": [
-    "Italian",
-    "expressions",
-    "time"
-  ]
+  "tags": ["Italian", "expressions", "time"]
 }

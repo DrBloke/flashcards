@@ -114,9 +114,5 @@
       "side2": "Mention..."
     }
   ],
-  "tags": [
-    "Italian",
-    "rubrics",
-    "instructions"
-  ]
+  "tags": ["Italian", "rubrics", "instructions"]
 }

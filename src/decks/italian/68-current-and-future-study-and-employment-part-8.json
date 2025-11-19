@@ -70,11 +70,5 @@
       "side2": "vet"
     }
   ],
-  "tags": [
-    "Italian",
-    "current",
-    "future",
-    "study",
-    "employment"
-  ]
+  "tags": ["Italian", "current", "future", "study", "employment"]
 }

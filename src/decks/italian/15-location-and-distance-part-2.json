@@ -118,9 +118,5 @@
       "side2": "near"
     }
   ],
-  "tags": [
-    "Italian",
-    "location",
-    "distance"
-  ]
+  "tags": ["Italian", "location", "distance"]
 }

@@ -1,15 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "target": "ES5",
     "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-  },
+    "useDefineForClassFields": false
+  }
 }

@@ -122,11 +122,5 @@
       "side2": "hall"
     }
   ],
-  "tags": [
-    "Italian",
-    "current",
-    "future",
-    "study",
-    "employment"
-  ]
+  "tags": ["Italian", "current", "future", "study", "employment"]
 }

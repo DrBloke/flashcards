@@ -14,13 +14,13 @@
 - [x] Reimplement in Lit
 - [x] Reverse deck
 - [ ] Refactor Web Awesome to use NPM
-    - npm install
-    - add compiler options for TS
-    - change button-icon
-    - check resources are set up correctly
-    - await for all to be defined
-    - use updateComplete on re-rendering components or requestAnimationFrame if using multiple components that are updating
-    - initialise VS Code completion
+  - npm install
+  - add compiler options for TS
+  - change button-icon
+  - check resources are set up correctly
+  - await for all to be defined
+  - use updateComplete on re-rendering components or requestAnimationFrame if using multiple components that are updating
+  - initialise VS Code completion
 - [ ] ES Lint and Prettify setup and run
 - [ ] Buttons need borders, or maybe focus indicator will do
 - [ ] Refactor to use arrays for card sides for extensibility
