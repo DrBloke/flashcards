@@ -12,5 +12,8 @@
     "@awesome.me/webawesome": "^3.0.0",
     "astro": "^5.6.1",
     "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
   }
 }
