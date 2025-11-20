@@ -10,7 +10,7 @@
 - [x] Issue with back to home on completion. Home needs to be configurable.
 - [x] Make look good
 - [x] Icon buttons
-- [x] Italian flag fav icon
+- [x] Italian flag fav iconPPP
 - [x] Reimplement in Lit
 - [x] Reverse deck
 - [x] Refactor Web Awesome to use NPM
@@ -18,10 +18,11 @@
   - use updateComplete on re-rendering components or requestAnimationFrame if using multiple components that are updating
 - [x] Buttons need borders, or maybe focus indicator will do
 - [x] Refactor Flashcard HTML into more sections, e.g. header and footer
-- [ ] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
+- [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
+- [ ] Shuffle
+- [ ] Seach for ES linter for .astro files
 - [ ] Refactor to use arrays for card sides for extensibility
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
-- [ ] Shuffle
 - [ ] Home route should be a function callback?
 - [ ] Focus on the buttons after flipping
 - [ ] Don't reshow cards if right on first attempt (optional)

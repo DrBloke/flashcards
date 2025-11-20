@@ -8,10 +8,6 @@ main {
   margin: 10px;
 }
 
-h1 {
-  color: var(--wa-color-brand-on-quiet);
-}
-
 :where(:root),
 :host,
 .wa-theme-default,

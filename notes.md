@@ -44,8 +44,8 @@ const { Content } = await render(product);
 - Query collection with `getCollection()` and `getEntry()`, returning array of entries or a single entry, both with `id`, `data` and `body` with uncompiled body of markdown.
 - Once queried, render with `render()`.
 - `getCollection` takes an optional `filter` callback.
-- Generate routes: use the getStaticPaths() function to create multiple pages from a single page component (e.g. src/pages/[slug]) during your build.
-- If your custom slugs contain the / character to produce URLs with multiple path segments, you must use a rest parameter (e.g. [...slug]) in the .astro filename for this dynamic routing page.
+- Generate routes: use the getStaticPaths() function to create multiple pages from a single page component (e.g. `src/pages/[slug]`) during your build.
+- If your custom slugs contain the / character to produce URLs with multiple path segments, you must use a rest parameter (e.g. `[...slug]`) in the .astro filename for this dynamic routing page.
 - For server side routing, the url depends on the request so use `Astro.request` or `Astro.params`.
 
 local data:
@@ -425,3 +425,5 @@ Internal reactive state refers to reactive properties that are not part of the c
 Lit components use the standard custom element lifecycle methods. In addition Lit introduces a reactive update cycle that renders changes to DOM when reactive properties change.
 
 If you need to customize any of the standard custom element lifecycle methods, make sure to call the super implementation (such as super.connectedCallback()) so the standard Lit functionality is maintained.
+
+## ES Lint
