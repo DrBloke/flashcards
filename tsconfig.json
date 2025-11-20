@@ -1,6 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
+  "include": [
+    ".astro/types.d.ts",
+    "node_modules/@awesome.me/webawesome/dist/custom-elements-jsx.d.ts",
+    "**/*"
+  ],
   "exclude": ["dist"],
   "compilerOptions": {
     "target": "ES5",
