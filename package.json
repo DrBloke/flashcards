@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "prepare": "husky"
   },
   "dependencies": {
     "@awesome.me/webawesome": "^3.0.0",
@@ -15,6 +16,11 @@
     "lit": "^3.3.0"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "3.6.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

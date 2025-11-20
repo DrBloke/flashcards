@@ -16,10 +16,10 @@
 - [x] Refactor Web Awesome to use NPM
   - await for all to be defined
   - use updateComplete on re-rendering components or requestAnimationFrame if using multiple components that are updating
-- [ ] ES Lint and Prettify setup and run
-- [ ] Buttons need borders, or maybe focus indicator will do
+- [x] Buttons need borders, or maybe focus indicator will do
+- [x] Refactor Flashcard HTML into more sections, e.g. header and footer
+- [ ] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
 - [ ] Refactor to use arrays for card sides for extensibility
-- [ ] Refactor Flashcard HTML into more sections, e.g. header and footer
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
 - [ ] Shuffle
 - [ ] Home route should be a function callback?
