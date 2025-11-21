@@ -19,13 +19,16 @@
 - [x] Buttons need borders, or maybe focus indicator will do
 - [x] Refactor Flashcard HTML into more sections, e.g. header and footer
 - [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
+- [ ] Search for ESlinter and prettify for .astro files; https://www.npmjs.com/package/eslint-plugin-astro and the a11y one
+- [ ] Update Astro
 - [ ] Shuffle
-- [ ] Seach for ES linter for .astro files
+- [ ] Smaller font option for when you have a lot of text
 - [ ] Refactor to use arrays for card sides for extensibility
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
 - [ ] Home route should be a function callback?
 - [ ] Focus on the buttons after flipping
 - [ ] Don't reshow cards if right on first attempt (optional)
+- [ ] Progress indicator
 - [ ] Advance/Previous buttons
 - [ ] Check the 301 redirection due to trailing slash
 - [ ] Learning log - single deck

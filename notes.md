@@ -13,14 +13,15 @@ Get markdown content:
 ```astro
 ---
 // Import statement
-import {Content as PromoBanner} from '../components/promoBanner.md';
+import { Content as PromoBanner } from "../components/promoBanner.md";
 
 // Collections query
-import { getEntry, render } from 'astro:content';
+import { getEntry, render } from "astro:content";
 
-const product = await getEntry('products', 'shirt');
+const product = await getEntry("products", "shirt");
 const { Content } = await render(product);
 ---
+
 <h2>Today's promo</h2>
 <PromoBanner />
 
@@ -51,23 +52,19 @@ const { Content } = await render(product);
 local data:
 
 ```astro
-// 1. Import utilities from `astro:content`
-import { defineCollection, z } from 'astro:content';
-
-// 2. Import loader(s)
-import { glob, file } from 'astro/loaders';
-
-// 3. Define your collection(s)
-const blog = defineCollection({ /* ... */ });
-const dogs = defineCollection({ /* ... */ });
-
-// 4. Export a single `collections` object to register your collection(s)
-export const collections = { blog, dogs };
+// 1. Import utilities from `astro:content` import {(defineCollection, z)} from
+'astro:content'; // 2. Import loader(s) import {(glob, file)} from
+'astro/loaders'; // 3. Define your collection(s) const blog = defineCollection({
+  /* ... */
+}); const dogs = defineCollection({/* ... */}); // 4. Export a single
+`collections` object to register your collection(s) export const collections = {
+  (blog, dogs)
+};
 ```
 
 remote data:
 
-```astro
+```ts
 const countries = defineCollection({
   loader: async () => {
     const response = await fetch("https://restcountries.com/v3.1/all");
@@ -84,9 +81,9 @@ const countries = defineCollection({
 
 Schema with Zod:
 
-```astro
+```ts
 // Example: A cheatsheet of many common Zod datatypes
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection } from "astro:content";
 
 defineCollection({
   schema: z.object({
@@ -97,8 +94,8 @@ defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    author: z.string().default('Anonymous'),
-    language: z.enum(['en', 'es']),
+    author: z.string().default("Anonymous"),
+    language: z.enum(["en", "es"]),
     tags: z.array(z.string()),
     footnote: z.string().optional(),
 
@@ -110,33 +107,33 @@ defineCollection({
 
     authorContact: z.string().email(),
     canonicalURL: z.string().url(),
-  })
-})
+  }),
+});
 ```
 
 Use of `reference`:
 
-```astro
-import { defineCollection, reference, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+```ts
+import { defineCollection, reference, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const blog = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.md', base: "./src/data/blog" }),
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/data/blog" }),
   schema: z.object({
     title: z.string(),
     // Reference a single author from the `authors` collection by `id`
-    author: reference('authors'),
+    author: reference("authors"),
     // Reference an array of related posts from the `blog` collection by `slug`
-    relatedPosts: z.array(reference('blog')),
-  })
+    relatedPosts: z.array(reference("blog")),
+  }),
 });
 
 const authors = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.json', base: "./src/data/authors" }),
+  loader: glob({ pattern: "**/[^_]*.json", base: "./src/data/authors" }),
   schema: z.object({
     name: z.string(),
     portfolio: z.string().url(),
-  })
+  }),
 });
 
 export const collections = { blog, authors };
@@ -146,9 +143,9 @@ Secondary query to get reference:
 
 ```astro
 ---
-import { getEntry, getEntries } from 'astro:content';
+import { getEntry, getEntries } from "astro:content";
 
-const blogPost = await getEntry('blog', 'welcome');
+const blogPost = await getEntry("blog", "welcome");
 
 // Resolve a singular reference (e.g. `{collection: "authors", id: "ben-holmes"}`)
 const author = await getEntry(blogPost.data.author);
@@ -163,34 +160,33 @@ const relatedPosts = await getEntries(blogPost.data.relatedPosts);
 <!-- ... -->
 
 <h2>You might also like:</h2>
-{relatedPosts.map(post => (
-  <a href={post.id}>{post.data.title}</a>
-))}
+{relatedPosts.map((post) => <a href={post.id}>{post.data.title}</a>)}
 ```
 
 Render content:
 
 ```astro
 ---
-import { getEntry, render } from 'astro:content';
+import { getEntry, render } from "astro:content";
 
-const entry = await getEntry('blog', 'post-1');
+const entry = await getEntry("blog", "post-1");
 if (!entry) {
   // Handle Error, for example:
-  throw new Error('Could not find blog post 1');
+  throw new Error("Could not find blog post 1");
 }
 const { Content, headings } = await render(entry);
 ---
+
 <p>Published on: {entry.data.published.toDateString()}</p>
 <Content />
 ```
 
 Filter query:
 
-```astro
+```ts
 // Example: Filter out content entries with `draft: true`
-import { getCollection } from 'astro:content';
-const publishedBlogEntries = await getCollection('blog', ({ data }) => {
+import { getCollection } from "astro:content";
+const publishedBlogEntries = await getCollection("blog", ({ data }) => {
   return data.draft !== true;
 });
 ```
@@ -200,11 +196,11 @@ Static routing:
 
 ```astro
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, render } from "astro:content";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map(post => ({
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
   }));
@@ -213,6 +209,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
+
 <h1>{post.data.title}</h1>
 <Content />
 ```
@@ -236,6 +233,7 @@ if (post === undefined) {
 // 4. Render the entry to HTML in the template
 const { Content } = await render(post);
 ---
+
 <h1>{post.data.title}</h1>
 <Content />
 ```
