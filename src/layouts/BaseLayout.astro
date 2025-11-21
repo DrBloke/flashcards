@@ -1,4 +1,6 @@
 ---
+import "@awesome.me/webawesome/dist/styles/themes/default.css";
+import "@awesome.me/webawesome/dist/styles/native.css";
 const { pageTitle } = Astro.props;
 ---
 
@@ -11,7 +13,16 @@ const { pageTitle } = Astro.props;
       type="image/svg+xml"
       href={import.meta.env.BASE_URL + "favicon.svg"}
     />
-    <!-- <link rel="stylesheet" href="@awesome.me/dist/styles/themes/default.css" /> -->
+    <!-- <link
+      rel="stylesheet"
+      href={import.meta.env.BASE_URL +
+        "node_modules/@awesome.me/webawesome/dist/styles/themes/default.css"}
+    />
+    <link
+      rel="stylesheet"
+      href={import.meta.env.BASE_URL +
+        "node_modules/@awesome.me/webawesome/dist/styles/native.css"}
+    /> -->
     <!-- <link
             rel="stylesheet"
             href="https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/styles/themes/default.css"

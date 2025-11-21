@@ -1,3 +1,6 @@
+/* @import "../../node_modules/@awesome.me/webawesome/dist/styles/themes/default.css";
+@import "../../node_modules/@awesome.me/webawesome/dist/styles/native.css"; */
+
 html,
 body {
   margin: 0;
@@ -8,9 +11,10 @@ main {
   margin: 10px;
 }
 
-:where(:root),
+/* :where(:root),
 :host,
-.wa-theme-default,
+.wa-theme-default, */
+:root,
 .wa-light,
 .wa-dark .wa-invert {
   --wa-color-brand-95: var(--wa-color-green-95);
@@ -42,5 +46,5 @@ main {
   --wa-color-brand-max-70: var(--wa-color-green-max-70);
   --wa-color-brand-min-70: var(--wa-color-green-min-70);
 
-  --wa-color-brand-on: var(--wa-color-green-on);
+  /* --wa-color-brand-on: var(--wa-color-green-on); */
 }

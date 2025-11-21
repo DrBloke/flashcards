@@ -2,7 +2,7 @@ import { LitElement, css, html } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 // import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/button/button.js";
 // import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/icon-button/icon-button.js";
-import "@awesome.me/webawesome/dist/styles/themes/default.css";
+// import "@awesome.me/webawesome/dist/styles/themes/default.css";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";

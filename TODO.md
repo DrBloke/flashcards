@@ -19,6 +19,15 @@
 - [x] Buttons need borders, or maybe focus indicator will do
 - [x] Refactor Flashcard HTML into more sections, e.g. header and footer
 - [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
+- [ ] I think maybe the customisation of colours is wrong, and I might be downloading more CSS than I need to. Try inspecting the Web Awesome page to see what they're doing.
+
+Why do you have to import CSS into JS file? can I just use a Link tag? Not appearing in the live app. I think I need to import the CSS into the main CSS file
+
+Note that the base paths are different for index and card page
+
+default.css being imported in dev app is 64kB
+
+- [ ] I'm disappointed in the size of the lit file being downloaded.
 - [ ] Update Astro
 - [ ] Shuffle
 - [ ] Smaller font option for when you have a lot of text
@@ -29,6 +38,8 @@
 - [ ] Don't reshow cards if right on first attempt (optional)
 - [ ] Progress indicator
 - [ ] Advance/Previous buttons
+- [ ] Heriachical menus
+- [ ] Add meta description for SEO
 - [ ] Check the 301 redirection due to trailing slash
 - [ ] Learning log - single deck
 - [ ] Learning log - set
