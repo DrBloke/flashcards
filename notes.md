@@ -55,8 +55,7 @@ local data:
 // 1. Import utilities from `astro:content` import {(defineCollection, z)} from
 'astro:content'; // 2. Import loader(s) import {(glob, file)} from
 'astro/loaders'; // 3. Define your collection(s) const blog = defineCollection({
-  /* ... */
-}); const dogs = defineCollection({/* ... */}); // 4. Export a single
+/* ... */ }); const dogs = defineCollection({/* ... */}); // 4. Export a single
 `collections` object to register your collection(s) export const collections = {
   (blog, dogs)
 };
@@ -425,3 +424,28 @@ Lit components use the standard custom element lifecycle methods. In addition Li
 If you need to customize any of the standard custom element lifecycle methods, make sure to call the super implementation (such as super.connectedCallback()) so the standard Lit functionality is maintained.
 
 ## ES Lint
+
+Failed to set up Astro eslint plugin. Tried this:
+
+```ts
+export default defineConfig([
+  globalIgnores([".astro/*"]),
+  {
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    plugins: { js },
+    extends: ["js/recommended"],
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+  },
+  tseslint.configs.recommended,
+  astro.configs.recommended,
+  ...
+]);
+```
+
+but got this error
+`TypeError: Error while loading rule 'astro/missing-client-only-directive-value': Cannot read properties of undefined (reading 'isAstro')
+Occurred while linting /home/sam/Code/flashcards/.vscode/extensions.json`
+It shouldn't be looking at JSON files. But can't work out how to scope it. Seek further here: https://ota-meshi.github.io/eslint-plugin-astro/user-guide/
+Disabled for the time-being.
+Also looked [here](https://typescript-eslint.io/getting-started/) because I'm using the TS version
+[ES Lint docs](https://eslint.org/docs/latest/use/configure/configuration-files) may also be of help, but they are only documented in JS.

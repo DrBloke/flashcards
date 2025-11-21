@@ -19,7 +19,6 @@
 - [x] Buttons need borders, or maybe focus indicator will do
 - [x] Refactor Flashcard HTML into more sections, e.g. header and footer
 - [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
-- [ ] Search for ESlinter and prettify for .astro files; https://www.npmjs.com/package/eslint-plugin-astro and the a11y one
 - [ ] Update Astro
 - [ ] Shuffle
 - [ ] Smaller font option for when you have a lot of text
@@ -35,6 +34,7 @@
 - [ ] Learning log - set
 - [ ] Animations and swiping
 - [ ] Markdown content
+- [ ] ES lint for Astro not set up properly. See ES Lint section of Notes.md
 - [ ] Multiple cards. Problem on first card.
 - [ ] Maths, chemistry and diagrams
 - [ ] Images
