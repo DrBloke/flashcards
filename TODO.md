@@ -21,9 +21,9 @@
 - [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
 - [ ] I think maybe the customisation of colours is wrong, and I might be downloading more CSS than I need to. Try inspecting the Web Awesome page to see what they're doing.
 
-Why do you have to import CSS into JS file? can I just use a Link tag? Not appearing in the live app. I think I need to import the CSS into the main CSS file
+Why do you have to import CSS into JS file? can I just use a Link tag? I think this is sorted, but the main css has a lower precedence than the Awesome theme. That might become a problem. But maybe not if the main CSS is only used to define native elements in a way that doesn't effect things. Maybe the theme itself should be updated.
 
-Note that the base paths are different for index and card page
+Note that the base paths are different for index and card pageq
 
 default.css being imported in dev app is 64kB
 
@@ -39,6 +39,7 @@ default.css being imported in dev app is 64kB
 - [ ] Progress indicator
 - [ ] Advance/Previous buttons
 - [ ] Heriachical menus
+- [ ] I'm not sure reversing the deck makes sense as a concept while session is in progress
 - [ ] Add meta description for SEO
 - [ ] Check the 301 redirection due to trailing slash
 - [ ] Learning log - single deck
