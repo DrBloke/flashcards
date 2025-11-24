@@ -10,6 +10,7 @@ const title = "Italian vocabulary";
 <BaseLayout pageTitle={title}>
   <main>
     <h1>{title}</h1>
+    <wa-switch id="reverse-deck-switch">Reverse Deck</wa-switch>
     <ul>
       {
         decks.map((deck) => (
@@ -21,12 +22,21 @@ const title = "Italian vocabulary";
     </ul>
   </main>
 </BaseLayout>
-<!-- <style>
-	main {
-		padding: var(--wa-spacing-s);
-	}
-	h1 {
-		font-family: Cambria;
-		color: var(--wa-color-green-50);
-	}
-</style> -->
+<script>
+  import "@awesome.me/webawesome/dist/components/switch/switch.js";
+  const reverseDeckSwitch = document.getElementById("reverse-deck-switch");
+
+  // Load state from localStorage
+  const isReversed = localStorage.getItem("reverseDeck") === "true";
+
+  if (reverseDeckSwitch) {
+    (reverseDeckSwitch as any).checked = isReversed;
+
+    reverseDeckSwitch.addEventListener("change", (event: any) => {
+      const target = event.target as any;
+      if (target) {
+        localStorage.setItem("reverseDeck", String(target.checked));
+      }
+    });
+  }
+</script>

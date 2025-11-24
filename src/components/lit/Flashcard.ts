@@ -86,6 +86,11 @@ export class FlashcardDeck extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this._remainingCards = this.cards;
+    const isReversed = localStorage.getItem("reverseDeck") === "true";
+    this.deckIsReversed = isReversed;
+    if (this.deckIsReversed) {
+      this._side = "side2";
+    }
   }
 
   headerTemplate() {
@@ -102,23 +107,7 @@ export class FlashcardDeck extends LitElement {
   }
 
   footerTemplate() {
-    return html`<span class="toolbar-left">
-        <wa-button
-          id="reverse-deck"
-          name=${this.deckIsReversed ? "caret-left" : "caret-right"}
-          title="Reverse deck order"
-          @click=${this.reverseDeck}
-          variant="brand"
-          appearance="filled"
-        >
-          <wa-icon
-            name=${this.deckIsReversed ? "caret-left" : "caret-right"}
-            label=${this.deckIsReversed
-              ? "Toggle deck order - currently reversed"
-              : "Toggle deck order - currently normal"}
-          ></wa-icon>
-        </wa-button>
-      </span>
+    return html`<span class="toolbar-left"> </span>
       <span class="toolbar-right">
         ${(this._side === "side1" && !this.deckIsReversed) ||
         (this._side === "side2" && this.deckIsReversed)
@@ -170,15 +159,6 @@ export class FlashcardDeck extends LitElement {
         <footer>${this.footerTemplate()}</footer>
       </div>
     `;
-  }
-
-  reverseDeck() {
-    this.deckIsReversed = !this.deckIsReversed;
-    if (this.deckIsReversed) {
-      this._side = "side2";
-    } else {
-      this._side = "side1";
-    }
   }
 
   flipCard() {
