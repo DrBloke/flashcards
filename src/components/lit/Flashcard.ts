@@ -188,7 +188,9 @@ export class FlashcardDeck extends LitElement {
   markCorrect() {
     this.flip("back");
     if (this._remainingCards.length !== 0) {
-      this._doneCards.push(this._remainingCards.shift()!);
+      const card = this._remainingCards[0];
+      this._doneCards = [...this._doneCards, card];
+      this._remainingCards = this._remainingCards.slice(1);
     }
     if (this._remainingCards.length === 0) {
       this.remainingRounds--;
