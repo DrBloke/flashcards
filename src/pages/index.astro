@@ -24,6 +24,9 @@ const title = "Italian vocabulary";
 </BaseLayout>
 <script>
   import "@awesome.me/webawesome/dist/components/switch/switch.js";
+
+  await customElements.whenDefined("wa-switch");
+
   const reverseDeckSwitch = document.getElementById("reverse-deck-switch");
 
   // Load state from localStorage
