@@ -1,5 +1,7 @@
-@import "../../node_modules/@awesome.me/webawesome/dist/styles/themes/default.css";
-@import "../../node_modules/@awesome.me/webawesome/dist/styles/native.css";
+/* @import "../../node_modules/@awesome.me/webawesome/dist/styles/themes/default.css";
+@import "../../node_modules/@awesome.me/webawesome/dist/styles/native.css"; */
+@import "@awesome.me/webawesome/dist/styles/themes/default.css";
+@import "@awesome.me/webawesome/dist/styles/native.css";
 
 html,
 body {

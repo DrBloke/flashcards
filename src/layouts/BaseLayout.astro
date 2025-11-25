@@ -1,6 +1,5 @@
 ---
-// import "@awesome.me/webawesome/dist/styles/themes/default.css";
-// import "@awesome.me/webawesome/dist/styles/native.css";
+import "../styles/style.css";
 const { pageTitle } = Astro.props;
 ---
 
@@ -13,29 +12,6 @@ const { pageTitle } = Astro.props;
       type="image/svg+xml"
       href={import.meta.env.BASE_URL + "favicon.svg"}
     />
-    <!-- <link
-      rel="stylesheet"
-      href={import.meta.env.BASE_URL +
-        "node_modules/@awesome.me/webawesome/dist/styles/themes/default.css"}
-    />
-    <link
-      rel="stylesheet"
-      href={import.meta.env.BASE_URL +
-        "node_modules/@awesome.me/webawesome/dist/styles/native.css"}
-    /> -->
-    <!-- <link
-            rel="stylesheet"
-            href="https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/styles/themes/default.css"
-        /> -->
-    <!-- <link
-            rel="stylesheet"
-            href="https://early.webawesome.com/webawesome@4.0.0-alpha.12/dist/styles/webawesome.css"
-        /> -->
-    <link
-      rel="stylesheet"
-      href={import.meta.env.BASE_URL + "styles/style.css"}
-    />
-
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
