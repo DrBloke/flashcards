@@ -134,7 +134,7 @@ export class FlashcardDeck extends LitElement {
         id="correct"
         title="correct"
         @click=${this.markCorrect}
-        variant="brand"
+        variant="success"
       >
         <wa-icon name="check" label="correct"></wa-icon>
       </wa-button>

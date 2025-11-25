@@ -19,6 +19,7 @@
 - [x] Buttons need borders, or maybe focus indicator will do
 - [x] Refactor Flashcard HTML into more sections, e.g. header and footer
 - [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
+- [ ] Each page should have its own stylesheet.
 - [ ] I think maybe the customisation of colours is wrong, and I might be downloading more CSS than I need to. Try inspecting the Web Awesome page to see what they're doing.
 
 Why do you have to import CSS into JS file? can I just use a Link tag? I think this is sorted, but the main css has a lower precedence than the Awesome theme. That might become a problem. But maybe not if the main CSS is only used to define native elements in a way that doesn't effect things. Maybe the theme itself should be updated.
@@ -28,7 +29,7 @@ Note that the base paths are different for index and card pageq
 default.css being imported in dev app is 64kB
 
 - [ ] I'm disappointed in the size of the lit file being downloaded.
-- [ ] Update Astro
+- [x] Update Astro
 - [ ] Shuffle
 - [ ] Smaller font option for when you have a lot of text
 - [ ] Refactor to use arrays for card sides for extensibility
