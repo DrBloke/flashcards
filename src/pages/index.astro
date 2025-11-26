@@ -37,10 +37,11 @@ const title = "Italian vocabulary";
   const isShuffled = localStorage.getItem("shuffleDeck") === "true";
 
   if (reverseDeckSwitch) {
-    (reverseDeckSwitch as any).checked = isReversed;
+    (reverseDeckSwitch as HTMLElement & { checked: boolean }).checked =
+      isReversed;
 
-    reverseDeckSwitch.addEventListener("change", (event: any) => {
-      const target = event.target as any;
+    reverseDeckSwitch.addEventListener("change", (event) => {
+      const target = event.target as HTMLElement & { checked: boolean };
       if (target) {
         localStorage.setItem("reverseDeck", String(target.checked));
       }
@@ -48,10 +49,11 @@ const title = "Italian vocabulary";
   }
 
   if (shuffleDeckSwitch) {
-    (shuffleDeckSwitch as any).checked = isShuffled;
+    (shuffleDeckSwitch as HTMLElement & { checked: boolean }).checked =
+      isShuffled;
 
-    shuffleDeckSwitch.addEventListener("change", (event: any) => {
-      const target = event.target as any;
+    shuffleDeckSwitch.addEventListener("change", (event) => {
+      const target = event.target as HTMLElement & { checked: boolean };
       if (target) {
         localStorage.setItem("shuffleDeck", String(target.checked));
       }
