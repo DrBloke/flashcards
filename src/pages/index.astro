@@ -11,6 +11,7 @@ const title = "Italian vocabulary";
   <main>
     <h1>{title}</h1>
     <wa-switch id="reverse-deck-switch">Reverse Deck</wa-switch>
+    <wa-switch id="shuffle-deck-switch">Shuffle Decks</wa-switch>
     <ul>
       {
         decks.map((deck) => (
@@ -29,9 +30,11 @@ const title = "Italian vocabulary";
   await customElements.whenDefined("wa-switch");
 
   const reverseDeckSwitch = document.getElementById("reverse-deck-switch");
+  const shuffleDeckSwitch = document.getElementById("shuffle-deck-switch");
 
   // Load state from localStorage
   const isReversed = localStorage.getItem("reverseDeck") === "true";
+  const isShuffled = localStorage.getItem("shuffleDeck") === "true";
 
   if (reverseDeckSwitch) {
     (reverseDeckSwitch as any).checked = isReversed;
@@ -40,6 +43,17 @@ const title = "Italian vocabulary";
       const target = event.target as any;
       if (target) {
         localStorage.setItem("reverseDeck", String(target.checked));
+      }
+    });
+  }
+
+  if (shuffleDeckSwitch) {
+    (shuffleDeckSwitch as any).checked = isShuffled;
+
+    shuffleDeckSwitch.addEventListener("change", (event: any) => {
+      const target = event.target as any;
+      if (target) {
+        localStorage.setItem("shuffleDeck", String(target.checked));
       }
     });
   }

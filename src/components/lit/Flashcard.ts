@@ -91,6 +91,31 @@ export class FlashcardDeck extends LitElement {
     if (this.deckIsReversed) {
       this._side = "side2";
     }
+
+    const isShuffled = localStorage.getItem("shuffleDeck") === "true";
+    if (isShuffled) {
+      this._remainingCards = this.shuffle(this._remainingCards);
+    }
+  }
+
+  shuffle(array: typeof this.cards) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
   }
 
   headerTemplate() {
@@ -178,6 +203,10 @@ export class FlashcardDeck extends LitElement {
         document.location = this.homeRoute;
       }
       this._remainingCards = this._doneCards;
+      const isShuffled = localStorage.getItem("shuffleDeck") === "true";
+      if (isShuffled) {
+        this._remainingCards = this.shuffle(this._remainingCards);
+      }
       this._doneCards = [];
     }
   }
