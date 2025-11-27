@@ -4,6 +4,7 @@ import tseslint from "typescript-eslint";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
+import astro from "eslint-plugin-astro";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
@@ -34,4 +35,16 @@ export default defineConfig([
     language: "css/css",
     extends: ["css/recommended"],
   },
+  ...astro.configs.recommended.map((config) => ({
+    ...config,
+    files: config.files || [
+      "**/*.astro",
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.ts",
+      "**/*.mts",
+      "**/*.cts",
+    ],
+  })),
 ]);
