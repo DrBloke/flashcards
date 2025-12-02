@@ -70,7 +70,7 @@ export class FlashcardDeck extends LitElement {
   ];
 
   @property({ type: Number })
-  remainingRounds = 3;
+  totalRounds = 3;
 
   @state()
   private _remainingCards = this.cards;
@@ -82,13 +82,7 @@ export class FlashcardDeck extends LitElement {
   private _side: "side1" | "side2" = "side1";
 
   @state()
-  private _cardsCompleted = 0;
-
-  @state()
   private _currentRound = 0;
-
-  @state()
-  private _totalRounds = 3;
 
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
@@ -98,10 +92,7 @@ export class FlashcardDeck extends LitElement {
     // Convert deck title to camelCase
     return this.deckTitle
       .split(" ")
-      .map((word, index) => {
-        if (index === 0) {
-          return word.toLowerCase();
-        }
+      .map((word) => {
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
       })
       .join("");
@@ -123,23 +114,15 @@ export class FlashcardDeck extends LitElement {
 
     // Load progress from localStorage with deck-specific keys
     const deckId = this.getDeckId();
-    const savedCardsCompleted = localStorage.getItem(`cardsCompleted${deckId}`);
     const savedCurrentRound = localStorage.getItem(`currentRound${deckId}`);
     const savedTotalRounds = localStorage.getItem("totalRounds");
-
-    if (savedCardsCompleted !== null) {
-      this._cardsCompleted = parseInt(savedCardsCompleted, 10);
-    }
 
     if (savedCurrentRound !== null) {
       this._currentRound = parseInt(savedCurrentRound, 10);
     }
 
     if (savedTotalRounds !== null) {
-      this._totalRounds = parseInt(savedTotalRounds, 10);
-      this.remainingRounds = this._totalRounds - this._currentRound;
-    } else {
-      this._totalRounds = 3;
+      this.totalRounds = parseInt(savedTotalRounds, 10);
     }
   }
 
@@ -184,12 +167,13 @@ export class FlashcardDeck extends LitElement {
 
   footerTemplate() {
     const totalCards = this.cards.length;
+    const completedCards = this._doneCards.length;
     return html`<span class="toolbar-left">
         <span class="cards-progress"
-          >Cards: ${this._cardsCompleted}/${totalCards}</span
+          >Cards: ${completedCards}/${totalCards}</span
         >
         <span class="rounds-progress"
-          >Rounds: ${this._currentRound}/${this._totalRounds}</span
+          >Rounds: ${this._currentRound}/${this.totalRounds}</span
         >
       </span>
       <span class="toolbar-right">
@@ -253,42 +237,26 @@ export class FlashcardDeck extends LitElement {
 
   async markCorrect() {
     this.flip("back");
-    if (this._remainingCards.length !== 0) {
-      const card = this._remainingCards[0];
-      this._doneCards = [...this._doneCards, card];
-      this._remainingCards = this._remainingCards.slice(1);
+    const card = this._remainingCards[0];
+    this._doneCards = [...this._doneCards, card];
+    this._remainingCards = this._remainingCards.slice(1);
+    const deckId = this.getDeckId();
 
-      // Increment cards completed and save to localStorage
-      this._cardsCompleted++;
-      const deckId = this.getDeckId();
-      localStorage.setItem(
-        `cardsCompleted${deckId}`,
-        this._cardsCompleted.toString(),
-      );
-    }
     if (this._remainingCards.length === 0) {
-      this.remainingRounds--;
       this._currentRound++;
 
-      // Reset cards completed for the new round
-      this._cardsCompleted = 0;
+      if (this._currentRound === this.totalRounds) {
+        // Reset progress when session is complete
+        localStorage.removeItem(`currentRound${deckId}`);
+        document.location = this.homeRoute;
+        return; // Prevent further execution after redirect
+      }
 
-      const deckId = this.getDeckId();
+      // Only save progress if session is not complete
       localStorage.setItem(
         `currentRound${deckId}`,
         this._currentRound.toString(),
       );
-      localStorage.setItem(
-        `cardsCompleted${deckId}`,
-        this._cardsCompleted.toString(),
-      );
-
-      if (this.remainingRounds === 0) {
-        // Reset progress when session is complete
-        localStorage.removeItem(`cardsCompleted${deckId}`);
-        localStorage.removeItem(`currentRound${deckId}`);
-        document.location = this.homeRoute;
-      }
       this._remainingCards = this._doneCards;
       const isShuffled = localStorage.getItem("shuffleDeck") === "true";
       if (isShuffled) {
