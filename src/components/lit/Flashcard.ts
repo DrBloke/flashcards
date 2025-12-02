@@ -42,6 +42,7 @@ export class FlashcardDeck extends LitElement {
       span.toolbar-left {
         display: flex;
         justify-content: space-between;
+        min-width: 190px;
       }
       span.toolbar-right {
         display: flex;
@@ -80,8 +81,31 @@ export class FlashcardDeck extends LitElement {
   @state()
   private _side: "side1" | "side2" = "side1";
 
+  @state()
+  private _cardsCompleted = 0;
+
+  @state()
+  private _currentRound = 0;
+
+  @state()
+  private _totalRounds = 3;
+
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
+
+  // Generate a unique identifier for this deck based on its title
+  private getDeckId(): string {
+    // Convert deck title to camelCase
+    return this.deckTitle
+      .split(" ")
+      .map((word, index) => {
+        if (index === 0) {
+          return word.toLowerCase();
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join("");
+  }
 
   connectedCallback() {
     super.connectedCallback();
@@ -95,6 +119,27 @@ export class FlashcardDeck extends LitElement {
     const isShuffled = localStorage.getItem("shuffleDeck") === "true";
     if (isShuffled) {
       this._remainingCards = this.shuffle(this._remainingCards);
+    }
+
+    // Load progress from localStorage with deck-specific keys
+    const deckId = this.getDeckId();
+    const savedCardsCompleted = localStorage.getItem(`cardsCompleted${deckId}`);
+    const savedCurrentRound = localStorage.getItem(`currentRound${deckId}`);
+    const savedTotalRounds = localStorage.getItem("totalRounds");
+
+    if (savedCardsCompleted !== null) {
+      this._cardsCompleted = parseInt(savedCardsCompleted, 10);
+    }
+
+    if (savedCurrentRound !== null) {
+      this._currentRound = parseInt(savedCurrentRound, 10);
+    }
+
+    if (savedTotalRounds !== null) {
+      this._totalRounds = parseInt(savedTotalRounds, 10);
+      this.remainingRounds = this._totalRounds - this._currentRound;
+    } else {
+      this._totalRounds = 3;
     }
   }
 
@@ -138,7 +183,15 @@ export class FlashcardDeck extends LitElement {
   }
 
   footerTemplate() {
-    return html`<span class="toolbar-left"> </span>
+    const totalCards = this.cards.length;
+    return html`<span class="toolbar-left">
+        <span class="cards-progress"
+          >Cards: ${this._cardsCompleted}/${totalCards}</span
+        >
+        <span class="rounds-progress"
+          >Rounds: ${this._currentRound}/${this._totalRounds}</span
+        >
+      </span>
       <span class="toolbar-right">
         ${(this._side === "side1" && !this.deckIsReversed) ||
         (this._side === "side2" && this.deckIsReversed)
@@ -204,10 +257,36 @@ export class FlashcardDeck extends LitElement {
       const card = this._remainingCards[0];
       this._doneCards = [...this._doneCards, card];
       this._remainingCards = this._remainingCards.slice(1);
+
+      // Increment cards completed and save to localStorage
+      this._cardsCompleted++;
+      const deckId = this.getDeckId();
+      localStorage.setItem(
+        `cardsCompleted${deckId}`,
+        this._cardsCompleted.toString(),
+      );
     }
     if (this._remainingCards.length === 0) {
       this.remainingRounds--;
+      this._currentRound++;
+
+      // Reset cards completed for the new round
+      this._cardsCompleted = 0;
+
+      const deckId = this.getDeckId();
+      localStorage.setItem(
+        `currentRound${deckId}`,
+        this._currentRound.toString(),
+      );
+      localStorage.setItem(
+        `cardsCompleted${deckId}`,
+        this._cardsCompleted.toString(),
+      );
+
       if (this.remainingRounds === 0) {
+        // Reset progress when session is complete
+        localStorage.removeItem(`cardsCompleted${deckId}`);
+        localStorage.removeItem(`currentRound${deckId}`);
         document.location = this.homeRoute;
       }
       this._remainingCards = this._doneCards;
