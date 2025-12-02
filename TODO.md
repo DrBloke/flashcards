@@ -23,7 +23,7 @@
 - [x] Shuffle
 - [x] ES lint for Astro not set up properly. See ES Lint section of Notes.md
 - [x] I'm not sure reversing the deck makes sense as a concept while session is in progress
-- [ ] Focus on the buttons after flipping
+- [x] Focus on the buttons after flipping
 - [ ] Progress indicator
 - [ ] Advance/Previous buttons
 - [ ] Don't reshow cards if correct on first attempt (optional)

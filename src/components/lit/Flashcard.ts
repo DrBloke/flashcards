@@ -98,6 +98,12 @@ export class FlashcardDeck extends LitElement {
     }
   }
 
+  firstUpdated() {
+    requestAnimationFrame(() => {
+      this.shadowRoot?.getElementById("flip")?.focus();
+    });
+  }
+
   shuffle(array: typeof this.cards) {
     let currentIndex = array.length,
       randomIndex;
@@ -186,11 +192,13 @@ export class FlashcardDeck extends LitElement {
     `;
   }
 
-  flipCard() {
+  async flipCard() {
     this.flip("forward");
+    await this.updateComplete;
+    this.shadowRoot?.getElementById("correct")?.focus();
   }
 
-  markCorrect() {
+  async markCorrect() {
     this.flip("back");
     if (this._remainingCards.length !== 0) {
       const card = this._remainingCards[0];
@@ -209,12 +217,16 @@ export class FlashcardDeck extends LitElement {
       }
       this._doneCards = [];
     }
+    await this.updateComplete;
+    this.shadowRoot?.getElementById("flip")?.focus();
   }
 
-  markIncorrect() {
+  async markIncorrect() {
     this.flip("back");
     const currentCard = this._remainingCards[0];
     this._remainingCards = this._remainingCards.slice(1).concat([currentCard]);
+    await this.updateComplete;
+    this.shadowRoot?.getElementById("flip")?.focus();
   }
 
   flip(flipDirection: "forward" | "back") {
