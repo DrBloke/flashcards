@@ -19,37 +19,32 @@
 - [x] Buttons need borders, or maybe focus indicator will do
 - [x] Refactor Flashcard HTML into more sections, e.g. header and footer
 - [x] ES Lint and Prettify setup and run; If you use ESLint, make sure lint-staged runs it before Prettier, not after.
-- [ ] Each page should have its own stylesheet.
-- [ ] I think maybe the customisation of colours is wrong, and I might be downloading more CSS than I need to. Try inspecting the Web Awesome page to see what they're doing.
-
-Why do you have to import CSS into JS file? can I just use a Link tag? I think this is sorted, but the main css has a lower precedence than the Awesome theme. That might become a problem. But maybe not if the main CSS is only used to define native elements in a way that doesn't effect things. Maybe the theme itself should be updated.
-
-Note that the base paths are different for index and card pageq
-
-default.css being imported in dev app is 64kB
-
-- [ ] I'm disappointed in the size of the lit file being downloaded.
 - [x] Update Astro
-- [ ] Shuffle
+- [x] Shuffle
+- [x] ES lint for Astro not set up properly. See ES Lint section of Notes.md
+- [x] I'm not sure reversing the deck makes sense as a concept while session is in progress
+- [ ] Focus on the buttons after flipping
+- [ ] Progress indicator
+- [ ] Advance/Previous buttons
+- [ ] Don't reshow cards if correct on first attempt (optional)
+- [ ] Add meta description for SEO
+- [ ] Learning log - single deck
+- [ ] Learning log - set
+- [ ] Markdown content
+- [ ] Maths, chemistry and diagrams
+- [ ] Playwright tests
+- [ ] Hydration of lit components
+- [ ] Heriachical menus
+- [ ] Default.css being imported in dev app is 64kB. I think this can be minimised by making specific CSS files and importing different ones into each page without excess styles.
+- [ ] Each page should have its own stylesheet.
+- [ ] I'm disappointed in the size of the lit file being downloaded.
 - [ ] Smaller font option for when you have a lot of text
+- [ ] Animations and swiping
 - [ ] Refactor to use arrays for card sides for extensibility
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
 - [ ] Home route should be a function callback?
-- [ ] Focus on the buttons after flipping
-- [ ] Don't reshow cards if right on first attempt (optional)
-- [ ] Progress indicator
-- [ ] Advance/Previous buttons
-- [ ] Heriachical menus
-- [ ] I'm not sure reversing the deck makes sense as a concept while session is in progress
-- [ ] Add meta description for SEO
 - [ ] Check the 301 redirection due to trailing slash
-- [ ] Learning log - single deck
-- [ ] Learning log - set
-- [ ] Animations and swiping
-- [ ] Markdown content
-- [ ] ES lint for Astro not set up properly. See ES Lint section of Notes.md
 - [ ] Multiple cards. Problem on first card.
-- [ ] Maths, chemistry and diagrams
 - [ ] Images
 - [ ] Voice
 - [ ] Diagrams
@@ -59,7 +54,6 @@ default.css being imported in dev app is 64kB
 - [ ] PWA
 - [ ] AI scanning of decks
 - [ ] Localisation
-- [ ] Playwright tests
 - [ ] Web Awesome - [check resources are set up correctly](https://webawesome.com/docs#setting-the-base-path)
 
 ## Issues
