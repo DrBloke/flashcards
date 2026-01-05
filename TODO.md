@@ -26,8 +26,8 @@
 - [x] Focus on the buttons after flipping
 - [x] Progress indicator
 - [x] Don't reshow cards if correct on first attempt (optional)
-- [ ] Convert deck info to single JSON object. Use ID.
-- [ ] Zod parsing
+- [x] Convert deck info to single JSON object. Use ID.
+- [x] Zod parsing
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Markdown content

@@ -1,5 +1,6 @@
 import { LitElement, css, html, type PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
+import { z } from "astro:content";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
@@ -132,9 +133,25 @@ export class FlashcardDeck extends LitElement {
     const savedTotalRounds = localStorage.getItem("totalRounds");
 
     if (savedData) {
-      const data = JSON.parse(savedData);
-      this._currentRound = data.currentRound || 0;
-      this._wrongFirstTime = data.wrongFirstTime || [];
+      try {
+        const parsed = JSON.parse(savedData);
+        const schema = z.object({
+          currentRound: z.number(),
+          wrongFirstTime: z.array(z.number()),
+        });
+        const result = schema.safeParse(parsed);
+
+        if (result.success) {
+          this._currentRound = result.data.currentRound;
+          this._wrongFirstTime = result.data.wrongFirstTime;
+        } else {
+          console.error("Invalid session data in localStorage:", result.error);
+          this._clearSession();
+        }
+      } catch (e) {
+        console.error("Error parsing session data:", e);
+        this._clearSession();
+      }
     }
 
     if (savedTotalRounds !== null) {
