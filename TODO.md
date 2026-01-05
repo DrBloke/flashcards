@@ -29,6 +29,7 @@
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Markdown content
+- [ ] Colours
 - [ ] Maths, chemistry and diagrams
 - [ ] Hierarchical menus
 - [ ] Smaller font option for when you have a lot of text
@@ -38,6 +39,7 @@
 - [ ] Advance/Previous buttons
 - [ ] Default.css being imported in dev app is 64kB. I think this can be minimised by making specific CSS files and importing different ones into each page without excess styles.
 - [ ] Each page should have its own stylesheet.
+- [ ] Remove unused CSS
 - [ ] Animations and swiping
 - [ ] Refactor to use arrays for card sides for extensibility
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
