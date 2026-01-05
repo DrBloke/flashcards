@@ -1,8 +1,5 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, css, html, type PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
-// import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/button/button.js";
-// import "https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/components/icon-button/icon-button.js";
-// import "@awesome.me/webawesome/dist/styles/themes/default.css";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
@@ -65,18 +62,19 @@ export class FlashcardDeck extends LitElement {
   deckIsReversed = false;
 
   @property({ type: Array })
-  cards: { side1: string; side2: string }[] = [
-    { side1: "No data", side2: "Still no data" },
-  ];
+  cards: { id: number; side1: string; side2: string }[] = [];
 
   @property({ type: Number })
   totalRounds = 3;
 
   @state()
-  private _remainingCards = this.cards;
+  private _remainingCards: typeof this.cards = [];
 
   @state()
   private _doneCards: typeof this.cards = [];
+
+  @state()
+  private _wrongFirstTime: number[] = [];
 
   @state()
   private _side: "side1" | "side2" = "side1";
@@ -84,46 +82,84 @@ export class FlashcardDeck extends LitElement {
   @state()
   private _currentRound = 0;
 
+  @state()
+  private _sessionInitialized = false;
+
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
 
   // Generate a unique identifier for this deck based on its title
   private getDeckId(): string {
-    // Convert deck title to camelCase
     return this.deckTitle
       .split(" ")
-      .map((word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-      })
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join("");
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this._remainingCards = this.cards;
-    const isReversed = localStorage.getItem("reverseDeck") === "true";
-    this.deckIsReversed = isReversed;
-    if (this.deckIsReversed) {
-      this._side = "side2";
+  willUpdate(changedProperties: PropertyValues<this>) {
+    if (changedProperties.has("cards") || changedProperties.has("deckTitle")) {
+      // Initialize session only when we have actual cards and a non-default title
+      if (
+        this.cards.length > 0 &&
+        this.deckTitle !== "Title" &&
+        !this._sessionInitialized
+      ) {
+        this._initializeSession();
+        this._sessionInitialized = true;
+      }
     }
+  }
 
-    const isShuffled = localStorage.getItem("shuffleDeck") === "true";
-    if (isShuffled) {
-      this._remainingCards = this.shuffle(this._remainingCards);
-    }
-
-    // Load progress from localStorage with deck-specific keys
+  private _initializeSession() {
     const deckId = this.getDeckId();
+
+    // Load settings
+    this.deckIsReversed = localStorage.getItem("reverseDeck") === "true";
+    this._side = this.deckIsReversed ? "side2" : "side1";
+
+    // Load progress
     const savedCurrentRound = localStorage.getItem(`currentRound${deckId}`);
     const savedTotalRounds = localStorage.getItem("totalRounds");
+    const savedWrongFirstTime = localStorage.getItem(`wrongFirstTime${deckId}`);
 
     if (savedCurrentRound !== null) {
       this._currentRound = parseInt(savedCurrentRound, 10);
     }
-
     if (savedTotalRounds !== null) {
       this.totalRounds = parseInt(savedTotalRounds, 10);
     }
+    if (savedWrongFirstTime !== null) {
+      this._wrongFirstTime = JSON.parse(savedWrongFirstTime);
+    }
+
+    // Initialize cards
+    let initialCards = [...this.cards];
+
+    // Apply filtering for rounds > 1
+    if (this._currentRound > 0) {
+      const filtered = initialCards.filter((card) =>
+        this._wrongFirstTime.includes(card.id),
+      );
+      if (filtered.length > 0) {
+        initialCards = filtered;
+      } else {
+        // Fallback: If resume data is inconsistent (e.g. round > 0 but no wrong cards recorded)
+        // Reset to round 0 to avoid "No cards available"
+        this._currentRound = 0;
+        localStorage.setItem(`currentRound${deckId}`, "0");
+      }
+    }
+
+    const isShuffled = localStorage.getItem("shuffleDeck") === "true";
+    if (isShuffled) {
+      initialCards = this.shuffle(initialCards);
+    }
+
+    this._remainingCards = initialCards;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
   }
 
   firstUpdated() {
@@ -133,23 +169,20 @@ export class FlashcardDeck extends LitElement {
   }
 
   shuffle(array: typeof this.cards) {
-    let currentIndex = array.length,
+    const newArray = [...array];
+    let currentIndex = newArray.length,
       randomIndex;
 
-    // While there remain elements to shuffle.
     while (currentIndex != 0) {
-      // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
+      [newArray[currentIndex], newArray[randomIndex]] = [
+        newArray[randomIndex],
+        newArray[currentIndex],
       ];
     }
 
-    return array;
+    return newArray;
   }
 
   headerTemplate() {
@@ -166,14 +199,14 @@ export class FlashcardDeck extends LitElement {
   }
 
   footerTemplate() {
-    const totalCards = this.cards.length;
+    const totalInRound = this._remainingCards.length + this._doneCards.length;
     const completedCards = this._doneCards.length;
     return html`<span class="toolbar-left">
         <span class="cards-progress"
-          >Cards: ${completedCards}/${totalCards}</span
+          >Cards: ${completedCards}/${totalInRound}</span
         >
         <span class="rounds-progress"
-          >Rounds: ${this._currentRound}/${this.totalRounds}</span
+          >Round: ${this._currentRound + 1}/${this.totalRounds}</span
         >
       </span>
       <span class="toolbar-right">
@@ -218,6 +251,9 @@ export class FlashcardDeck extends LitElement {
   }
 
   render() {
+    if (this._remainingCards.length === 0) {
+      return html`<div>No cards available</div>`;
+    }
     return html`
       <div id="wrapper">
         <header>${this.headerTemplate()}</header>
@@ -246,18 +282,31 @@ export class FlashcardDeck extends LitElement {
       this._currentRound++;
 
       if (this._currentRound === this.totalRounds) {
-        // Reset progress when session is complete
         localStorage.removeItem(`currentRound${deckId}`);
-        document.location = this.homeRoute;
-        return; // Prevent further execution after redirect
+        localStorage.removeItem(`wrongFirstTime${deckId}`);
+        window.location.href = this.homeRoute;
+        return;
       }
 
-      // Only save progress if session is not complete
       localStorage.setItem(
         `currentRound${deckId}`,
         this._currentRound.toString(),
       );
-      this._remainingCards = this._doneCards;
+
+      const nextRoundCards = this._doneCards.filter((card) =>
+        this._wrongFirstTime.includes(card.id),
+      );
+
+      if (this._currentRound > 0 && nextRoundCards.length === 0) {
+        localStorage.removeItem(`currentRound${deckId}`);
+        localStorage.removeItem(`wrongFirstTime${deckId}`);
+        window.location.href = this.homeRoute;
+        return;
+      }
+
+      this._remainingCards =
+        this._currentRound > 0 ? nextRoundCards : this._doneCards;
+
       const isShuffled = localStorage.getItem("shuffleDeck") === "true";
       if (isShuffled) {
         this._remainingCards = this.shuffle(this._remainingCards);
@@ -271,6 +320,18 @@ export class FlashcardDeck extends LitElement {
   async markIncorrect() {
     this.flip("back");
     const currentCard = this._remainingCards[0];
+    const deckId = this.getDeckId();
+
+    if (this._currentRound === 0) {
+      if (!this._wrongFirstTime.includes(currentCard.id)) {
+        this._wrongFirstTime = [...this._wrongFirstTime, currentCard.id];
+        localStorage.setItem(
+          `wrongFirstTime${deckId}`,
+          JSON.stringify(this._wrongFirstTime),
+        );
+      }
+    }
+
     this._remainingCards = this._remainingCards.slice(1).concat([currentCard]);
     await this.updateComplete;
     this.shadowRoot?.getElementById("flip")?.focus();

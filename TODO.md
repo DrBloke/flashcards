@@ -25,35 +25,42 @@
 - [x] I'm not sure reversing the deck makes sense as a concept while session is in progress
 - [x] Focus on the buttons after flipping
 - [x] Progress indicator
-- [ ] Don't reshow cards if correct on first attempt (optional)
+- [x] Don't reshow cards if correct on first attempt (optional)
+- [ ] Convert deck info to single JSON object. Use ID.
+- [ ] Zod parsing
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Markdown content
 - [ ] Colours
 - [ ] Maths, chemistry and diagrams
 - [ ] Hierarchical menus
+- [ ] Timer for session
 - [ ] Smaller font option for when you have a lot of text
+- [ ] isReversible - not all decks are
 - [ ] Playwright tests
 - [ ] Add meta description for SEO
+- [ ] Animations and swiping
 - [ ] Hydration of lit components
+- [ ] PWA
+- [ ] Images
+- [ ] Voice
+- [ ] Diagrams
+
+## Nice to have
+
+- [ ] Remote persistence and syncing
+- [ ] Editable card decks
+- [ ] AI scanning of decks - Could use NotebookLM
 - [ ] Advance/Previous buttons
 - [ ] Default.css being imported in dev app is 64kB. I think this can be minimised by making specific CSS files and importing different ones into each page without excess styles.
 - [ ] Each page should have its own stylesheet.
 - [ ] Remove unused CSS
-- [ ] Animations and swiping
 - [ ] Refactor to use arrays for card sides for extensibility
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
 - [ ] Home route should be a function callback?
 - [ ] Check the 301 redirection due to trailing slash
 - [ ] Multiple cards. Problem on first card.
-- [ ] Images
-- [ ] Voice
-- [ ] Diagrams
 - [ ] Use browser built in translations to generate new languages and allow translations to other than English
-- [ ] Remote persistence
-- [ ] Editable card decks
-- [ ] PWA
-- [ ] AI scanning of decks
 - [ ] I'm disappointed in the size of the lit file being downloaded.
 - [ ] Localisation
 - [ ] Web Awesome - [check resources are set up correctly](https://webawesome.com/docs#setting-the-base-path)
