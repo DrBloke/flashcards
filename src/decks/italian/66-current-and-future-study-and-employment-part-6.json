@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 6)",
   "cards": [
     {
+      "id": 0,
       "side1": "congresso, il",
       "side2": "congress"
     },
     {
+      "id": 1,
       "side1": "cuoco, il",
       "side2": "cook"
     },
     {
+      "id": 2,
       "side1": "decidere",
       "side2": "to decide"
     },
     {
+      "id": 3,
       "side1": "direttore/direttrice, il/la",
       "side2": "director"
     },
     {
+      "id": 4,
       "side1": "dirigere",
       "side2": "to direct"
     },
     {
+      "id": 5,
       "side1": "ditta, la",
       "side2": "company"
     },
     {
+      "id": 6,
       "side1": "divisa, la",
       "side2": "uniform"
     },
     {
+      "id": 7,
       "side1": "domicilio, il",
       "side2": "home"
     },
     {
+      "id": 8,
       "side1": "dottore/dottoressa, il/la",
       "side2": "doctor"
     },
     {
+      "id": 9,
       "side1": "elenco telefonico, l’",
       "side2": "telephone directory"
     },
     {
+      "id": 10,
       "side1": "entusiasmo, l’",
       "side2": "enthusiasm"
     },
     {
+      "id": 11,
       "side1": "esportare",
       "side2": "to export"
     },
     {
+      "id": 12,
       "side1": "essere disposto a",
       "side2": "to be willing to"
     },
     {
+      "id": 13,
       "side1": "fare una domanda di lavoro",
       "side2": "apply for work"
     },
     {
+      "id": 14,
       "side1": "fare una telefonata",
       "side2": "make a telephone call"
     },
     {
+      "id": 15,
       "side1": "fornaio, il",
       "side2": "baker"
     },
     {
+      "id": 16,
       "side1": "futuro, il",
       "side2": "future"
     },
     {
+      "id": 17,
       "side1": "garantire",
       "side2": "to guarantee"
     },
     {
+      "id": 18,
       "side1": "giornalista, il/la",
       "side2": "journalist"
     },
     {
+      "id": 19,
       "side1": "guadagnare",
       "side2": "to earn"
     },
     {
+      "id": 20,
       "side1": "guida, la (turistica/alpina)",
       "side2": "(tourist/mountain) guide"
     },
     {
+      "id": 21,
       "side1": "imbucare",
       "side2": "to post"
     },
     {
+      "id": 22,
       "side1": "impiegato amministrativo, l’",
       "side2": "administrator"
     },
     {
+      "id": 23,
       "side1": "importare",
       "side2": "to import"
     },
     {
+      "id": 24,
       "side1": "ingegnere",
       "side2": "engineer"
     },
     {
+      "id": 25,
       "side1": "interprete, l’",
       "side2": "interpreter"
     },
     {
+      "id": 26,
       "side1": "lavorare",
       "side2": "to work"
     },
     {
+      "id": 27,
       "side1": "lavoretto, il",
       "side2": "part-time job/odd job"
     },
     {
+      "id": 28,
       "side1": "lavoro temporaneo, il",
       "side2": "temporary work"
     },
     {
+      "id": 29,
       "side1": "lavoro, il",
       "side2": "work"
     }

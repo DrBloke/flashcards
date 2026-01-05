@@ -3,14 +3,17 @@
   "title": "Greetings and exclamations (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "prego",
       "side2": "no problem"
     },
     {
+      "id": 1,
       "side1": "sì",
       "side2": "yes"
     },
     {
+      "id": 2,
       "side1": "scusa/scusi",
       "side2": "excuse me, sorry"
     }

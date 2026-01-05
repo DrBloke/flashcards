@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "arte, l’",
       "side2": "art"
     },
     {
+      "id": 1,
       "side1": "biologia, la",
       "side2": "biology"
     },
     {
+      "id": 2,
       "side1": "chimica, la",
       "side2": "chemistry"
     },
     {
+      "id": 3,
       "side1": "classe, la",
       "side2": "class"
     },
     {
+      "id": 4,
       "side1": "economia domestica, la",
       "side2": "food technology"
     },
     {
+      "id": 5,
       "side1": "economia, l’",
       "side2": "economics"
     },
     {
+      "id": 6,
       "side1": "educazione fisica, l'",
       "side2": "physical education"
     },
     {
+      "id": 7,
       "side1": "fisica, la",
       "side2": "physics"
     },
     {
+      "id": 8,
       "side1": "geografia, la",
       "side2": "geography"
     },
     {
+      "id": 9,
       "side1": "greco, il",
       "side2": "Greek"
     },
     {
+      "id": 10,
       "side1": "informatica, l’",
       "side2": "IT"
     },
     {
+      "id": 11,
       "side1": "inglese, l’",
       "side2": "English"
     },
     {
+      "id": 12,
       "side1": "italiano, l’",
       "side2": "Italian"
     },
     {
+      "id": 13,
       "side1": "latino, il",
       "side2": "Latin"
     },
     {
+      "id": 14,
       "side1": "lingue straniere, le",
       "side2": "foreign languages"
     },
     {
+      "id": 15,
       "side1": "maestro/a, il/la",
       "side2": "teacher"
     },
     {
+      "id": 16,
       "side1": "matematica, la",
       "side2": "mathematics"
     },
     {
+      "id": 17,
       "side1": "materia, la",
       "side2": "subject"
     },
     {
+      "id": 18,
       "side1": "professore/professoressa, il/la",
       "side2": "teacher"
     },
     {
+      "id": 19,
       "side1": "scienza, la",
       "side2": "science"
     },
     {
+      "id": 20,
       "side1": "spagnolo, lo",
       "side2": "Spanish"
     },
     {
+      "id": 21,
       "side1": "storia, la",
       "side2": "history"
     },
     {
+      "id": 22,
       "side1": "studiare",
       "side2": "to study"
     },
     {
+      "id": 23,
       "side1": "a piedi",
       "side2": "on foot"
     },
     {
+      "id": 24,
       "side1": "alunno/a, l’",
       "side2": "pupil"
     },
     {
+      "id": 25,
       "side1": "andare in bicicletta",
       "side2": "to cycle"
     },
     {
+      "id": 26,
       "side1": "aprire",
       "side2": "to open"
     },
     {
+      "id": 27,
       "side1": "ascoltare",
       "side2": "to listen"
     },
     {
+      "id": 28,
       "side1": "assente",
       "side2": "absent"
     },
     {
+      "id": 29,
       "side1": "aula, l’",
       "side2": "hall"
     }

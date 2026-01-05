@@ -3,122 +3,152 @@
   "title": "Weights and measures (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "abbastanza",
       "side2": "enough, quite"
     },
     {
+      "id": 1,
       "side1": "almeno",
       "side2": "at least"
     },
     {
+      "id": 2,
       "side1": "alto",
       "side2": "tall"
     },
     {
+      "id": 3,
       "side1": "altro",
       "side2": "other"
     },
     {
+      "id": 4,
       "side1": "ancora",
       "side2": "more, again"
     },
     {
+      "id": 5,
       "side1": "avere (x) metri di larghezza/lunghezza",
       "side2": "to be (x) metres wide/long"
     },
     {
+      "id": 6,
       "side1": "basta",
       "side2": "enough"
     },
     {
+      "id": 7,
       "side1": "centimetro, il",
       "side2": "centimetre"
     },
     {
+      "id": 8,
       "side1": "taglia",
       "side2": "size"
     },
     {
+      "id": 9,
       "side1": "circa",
       "side2": "about, roughly"
     },
     {
+      "id": 10,
       "side1": "completamente",
       "side2": "completely"
     },
     {
+      "id": 11,
       "side1": "dimensione, la",
       "side2": "measurement, size"
     },
     {
+      "id": 12,
       "side1": "etto, l’",
       "side2": "100 grams"
     },
     {
+      "id": 13,
       "side1": "fetta, la",
       "side2": "slice"
     },
     {
+      "id": 14,
       "side1": "grande",
       "side2": "big"
     },
     {
+      "id": 15,
       "side1": "grosso",
       "side2": "large"
     },
     {
+      "id": 16,
       "side1": "largo (x) metri",
       "side2": "(x) metres wide"
     },
     {
+      "id": 17,
       "side1": "medio",
       "side2": "average"
     },
     {
+      "id": 18,
       "side1": "metà, la",
       "side2": "half"
     },
     {
+      "id": 19,
       "side1": "metro, il",
       "side2": "metre"
     },
     {
+      "id": 20,
       "side1": "misura, la",
       "side2": "size (clothing)"
     },
     {
+      "id": 21,
       "side1": "misurare",
       "side2": "to measure"
     },
     {
+      "id": 22,
       "side1": "molto/a, molti/molte",
       "side2": "much, many"
     },
     {
+      "id": 23,
       "side1": "parecchi/parecchie",
       "side2": "several"
     },
     {
+      "id": 24,
       "side1": "pesare",
       "side2": "to weigh"
     },
     {
+      "id": 25,
       "side1": "pezzo, il",
       "side2": "piece"
     },
     {
+      "id": 26,
       "side1": "piccolo",
       "side2": "small"
     },
     {
+      "id": 27,
       "side1": "piuttosto",
       "side2": "rather"
     },
     {
+      "id": 28,
       "side1": "po’, un",
       "side2": "a bit"
     },
     {
+      "id": 29,
       "side1": "sottile",
       "side2": "thin"
     }

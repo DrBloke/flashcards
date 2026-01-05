@@ -3,118 +3,147 @@
   "title": "Expressions of time (part 3)",
   "cards": [
     {
+      "id": 0,
       "side1": "prossimo",
       "side2": "next"
     },
     {
+      "id": 1,
       "side1": "qualche volta",
       "side2": "sometimes"
     },
     {
+      "id": 2,
       "side1": "quarto, un",
       "side2": "quarter"
     },
     {
+      "id": 3,
       "side1": "quasi",
       "side2": "almost"
     },
     {
+      "id": 4,
       "side1": "quotidiano",
       "side2": "daily"
     },
     {
+      "id": 5,
       "side1": "raramente",
       "side2": "rarely"
     },
     {
+      "id": 6,
       "side1": "recentemente",
       "side2": "recently"
     },
     {
+      "id": 7,
       "side1": "scorso",
       "side2": "last"
     },
     {
+      "id": 8,
       "side1": "secolo, il",
       "side2": "century"
     },
     {
+      "id": 9,
       "side1": "secondo, un",
       "side2": "second"
     },
     {
+      "id": 10,
       "side1": "sempre",
       "side2": "always, still"
     },
     {
+      "id": 11,
       "side1": "sera, la",
       "side2": "evening"
     },
     {
+      "id": 12,
       "side1": "settimana, la",
       "side2": "week"
     },
     {
+      "id": 13,
       "side1": "solamente",
       "side2": "only"
     },
     {
+      "id": 14,
       "side1": "solo",
       "side2": "only"
     },
     {
+      "id": 15,
       "side1": "soltanto",
       "side2": "only"
     },
     {
+      "id": 16,
       "side1": "spesso",
       "side2": "often"
     },
     {
+      "id": 17,
       "side1": "stamattina",
       "side2": "this morning"
     },
     {
+      "id": 18,
       "side1": "stanotte",
       "side2": "tonight"
     },
     {
+      "id": 19,
       "side1": "stasera",
       "side2": "this evening"
     },
     {
+      "id": 20,
       "side1": "subito",
       "side2": "suddenly"
     },
     {
+      "id": 21,
       "side1": "tanto",
       "side2": "so/very much"
     },
     {
+      "id": 22,
       "side1": "tardi",
       "side2": "late"
     },
     {
+      "id": 23,
       "side1": "tra un minuto",
       "side2": "in a moment"
     },
     {
+      "id": 24,
       "side1": "tra una settimana/un mese",
       "side2": "in a week/month"
     },
     {
+      "id": 25,
       "side1": "tutti i giorni/mesi",
       "side2": "every day/month"
     },
     {
+      "id": 26,
       "side1": "ultimo",
       "side2": "last (final)"
     },
     {
+      "id": 27,
       "side1": "una volta (all’anno)",
       "side2": "once (per year)"
     },
     {
+      "id": 28,
       "side1": "veloce",
       "side2": "quickly"
     }

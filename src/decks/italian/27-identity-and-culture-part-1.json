@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "adolescente, l’",
       "side2": "teenager"
     },
     {
+      "id": 1,
       "side1": "alzarsi",
       "side2": "to get up"
     },
     {
+      "id": 2,
       "side1": "amichevole",
       "side2": "friendly"
     },
     {
+      "id": 3,
       "side1": "amicizia, l’",
       "side2": "friendship"
     },
     {
+      "id": 4,
       "side1": "amico/a, l’",
       "side2": "friend"
     },
     {
+      "id": 5,
       "side1": "amore, l’",
       "side2": "love"
     },
     {
+      "id": 6,
       "side1": "andare a letto",
       "side2": "to go to bed"
     },
     {
+      "id": 7,
       "side1": "andare a trovare",
       "side2": "to meet (somebody)"
     },
     {
+      "id": 8,
       "side1": "andare d’accordo",
       "side2": "to get on with"
     },
     {
+      "id": 9,
       "side1": "animale domestico, l’",
       "side2": "pet"
     },
     {
+      "id": 10,
       "side1": "antipatico",
       "side2": "unfriendly"
     },
     {
+      "id": 11,
       "side1": "arrabbiato",
       "side2": "angry"
     },
     {
+      "id": 12,
       "side1": "attivo",
       "side2": "active"
     },
     {
+      "id": 13,
       "side1": "avere ... anni",
       "side2": "to be … years old"
     },
     {
+      "id": 14,
       "side1": "babbo, il",
       "side2": "daddy"
     },
     {
+      "id": 15,
       "side1": "baffi, i",
       "side2": "moustache"
     },
     {
+      "id": 16,
       "side1": "bambino/a, il/la",
       "side2": "child"
     },
     {
+      "id": 17,
       "side1": "barba, la",
       "side2": "beard"
     },
     {
+      "id": 18,
       "side1": "bello",
       "side2": "beautiful"
     },
     {
+      "id": 19,
       "side1": "bocca, la",
       "side2": "mouth"
     },
     {
+      "id": 20,
       "side1": "brutto",
       "side2": "ugly"
     },
     {
+      "id": 21,
       "side1": "canarino, il",
       "side2": "budgie"
     },
     {
+      "id": 22,
       "side1": "cane, il",
       "side2": "dog"
     },
     {
+      "id": 23,
       "side1": "capelli, i (lunghi/corti)",
       "side2": "hair"
     },
     {
+      "id": 24,
       "side1": "carattere, il",
       "side2": "character"
     },
     {
+      "id": 25,
       "side1": "carta d’identità, la",
       "side2": "identity card"
     },
     {
+      "id": 26,
       "side1": "cavallo, il",
       "side2": "horse"
     },
     {
+      "id": 27,
       "side1": "chiacchierare",
       "side2": "to chat"
     },
     {
+      "id": 28,
       "side1": "chiacchierone/a",
       "side2": "chatterbox"
     },
     {
+      "id": 29,
       "side1": "chiamare",
       "side2": "to call"
     }

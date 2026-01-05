@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 3)",
   "cards": [
     {
+      "id": 0,
       "side1": "gemello/a, il/la",
       "side2": "twin"
     },
     {
+      "id": 1,
       "side1": "genitore solo, un",
       "side2": "single parent"
     },
     {
+      "id": 2,
       "side1": "gente, la",
       "side2": "people"
     },
     {
+      "id": 3,
       "side1": "gentile",
       "side2": "kind"
     },
     {
+      "id": 4,
       "side1": "giovane",
       "side2": "young"
     },
     {
+      "id": 5,
       "side1": "handicappato",
       "side2": "disabled"
     },
     {
+      "id": 6,
       "side1": "immigrato, l’",
       "side2": "immigrant"
     },
     {
+      "id": 7,
       "side1": "immigrazione, l’",
       "side2": "immigration"
     },
     {
+      "id": 8,
       "side1": "in pensione",
       "side2": "retired"
     },
     {
+      "id": 9,
       "side1": "incinta",
       "side2": "pregnant"
     },
     {
+      "id": 10,
       "side1": "incoraggiare",
       "side2": "to encourage"
     },
     {
+      "id": 11,
       "side1": "indirizzo, l’",
       "side2": "address"
     },
     {
+      "id": 12,
       "side1": "innamorarsi",
       "side2": "to fall in love"
     },
     {
+      "id": 13,
       "side1": "invitare",
       "side2": "to send"
     },
     {
+      "id": 14,
       "side1": "lenti a contatto, le",
       "side2": "contact lenses"
     },
     {
+      "id": 15,
       "side1": "lieto",
       "side2": "happy"
     },
     {
+      "id": 16,
       "side1": "liscio",
       "side2": "straight (hair)"
     },
     {
+      "id": 17,
       "side1": "litigare",
       "side2": "to argue"
     },
     {
+      "id": 18,
       "side1": "luna di miele, la",
       "side2": "honeymoon"
     },
     {
+      "id": 19,
       "side1": "lungo",
       "side2": "long"
     },
     {
+      "id": 20,
       "side1": "luogo, il (di nascita)",
       "side2": "place"
     },
     {
+      "id": 21,
       "side1": "madre, la",
       "side2": "mother"
     },
     {
+      "id": 22,
       "side1": "madrina, la",
       "side2": "godmother"
     },
     {
+      "id": 23,
       "side1": "mamma, la",
       "side2": "mummy"
     },
     {
+      "id": 24,
       "side1": "marito, il",
       "side2": "husband"
     },
     {
+      "id": 25,
       "side1": "matrimonio, il",
       "side2": "marriage"
     },
     {
+      "id": 26,
       "side1": "moglie, la",
       "side2": "wife"
     },
     {
+      "id": 27,
       "side1": "nascere",
       "side2": "to be born"
     },
     {
+      "id": 28,
       "side1": "naso, il",
       "side2": "nose"
     },
     {
+      "id": 29,
       "side1": "nato",
       "side2": "born"
     }

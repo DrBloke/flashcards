@@ -8,6 +8,7 @@ const decks = defineCollection({
     title: z.string(),
     cards: z.array(
       z.object({
+        id: z.number(),
         side1: z.string(),
         side2: z.string(),
       }),

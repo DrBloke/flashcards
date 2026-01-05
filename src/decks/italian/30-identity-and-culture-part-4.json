@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 4)",
   "cards": [
     {
+      "id": 0,
       "side1": "nipote, il",
       "side2": "nephew, grandson"
     },
     {
+      "id": 1,
       "side1": "nipote, la",
       "side2": "niece, granddaughter"
     },
     {
+      "id": 2,
       "side1": "nome, il",
       "side2": "name (first)"
     },
     {
+      "id": 3,
       "side1": "nonni, i",
       "side2": "grandparents"
     },
     {
+      "id": 4,
       "side1": "nonno/a, il/la",
       "side2": "grandfather/grandmother"
     },
     {
+      "id": 5,
       "side1": "occhiali, gli (da sole)",
       "side2": "glasses (sun)"
     },
     {
+      "id": 6,
       "side1": "ospite, l’",
       "side2": "host/hostess, guest"
     },
     {
+      "id": 7,
       "side1": "padre, il",
       "side2": "father"
     },
     {
+      "id": 8,
       "side1": "padrino, il",
       "side2": "godfather"
     },
     {
+      "id": 9,
       "side1": "papà, il",
       "side2": "dad"
     },
     {
+      "id": 10,
       "side1": "parente, il/la",
       "side2": "relative"
     },
     {
+      "id": 11,
       "side1": "partner ideale, il/la",
       "side2": "ideal partner"
     },
     {
+      "id": 12,
       "side1": "pelle, la",
       "side2": "skin"
     },
     {
+      "id": 13,
       "side1": "pensionato, il",
       "side2": "pensioner"
     },
     {
+      "id": 14,
       "side1": "pesce, il (rosso)",
       "side2": "(gold) fish"
     },
     {
+      "id": 15,
       "side1": "piangere",
       "side2": "to cry"
     },
     {
+      "id": 16,
       "side1": "pigro",
       "side2": "lazy"
     },
     {
+      "id": 17,
       "side1": "porcellino d’India, il",
       "side2": "guinea pig"
     },
     {
+      "id": 18,
       "side1": "portare",
       "side2": "to wear"
     },
     {
+      "id": 19,
       "side1": "povero",
       "side2": "poor"
     },
     {
+      "id": 20,
       "side1": "prepotente",
       "side2": "bully"
     },
     {
+      "id": 21,
       "side1": "presentare",
       "side2": "to introduce"
     },
     {
+      "id": 22,
       "side1": "proprio",
       "side2": "really"
     },
     {
+      "id": 23,
       "side1": "ragazzo/a, il/la",
       "side2": "boy/girl"
     },
     {
+      "id": 24,
       "side1": "ricci",
       "side2": "curly (hair)"
     },
     {
+      "id": 25,
       "side1": "ricco",
       "side2": "rich"
     },
     {
+      "id": 26,
       "side1": "ringraziare",
       "side2": "to thank"
     },
     {
+      "id": 27,
       "side1": "scrivere",
       "side2": "to write"
     },
     {
+      "id": 28,
       "side1": "scusare",
       "side2": "to excuse"
     },
     {
+      "id": 29,
       "side1": "senzatetto, il",
       "side2": "homeless person"
     }

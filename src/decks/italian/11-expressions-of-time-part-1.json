@@ -3,122 +3,152 @@
   "title": "Expressions of time (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "autunnale",
       "side2": "autumnal"
     },
     {
+      "id": 1,
       "side1": "estivo",
       "side2": "summery"
     },
     {
+      "id": 2,
       "side1": "invernale",
       "side2": "wintery"
     },
     {
+      "id": 3,
       "side1": "primaverile",
       "side2": "spring like"
     },
     {
+      "id": 4,
       "side1": "stagionale",
       "side2": "seasonal"
     },
     {
+      "id": 5,
       "side1": "stagione, la",
       "side2": "season"
     },
     {
+      "id": 6,
       "side1": "a volte",
       "side2": "sometimes"
     },
     {
+      "id": 7,
       "side1": "ad un tratto",
       "side2": "suddenly"
     },
     {
+      "id": 8,
       "side1": "adesso",
       "side2": "now"
     },
     {
+      "id": 9,
       "side1": "al momento",
       "side2": "at the moment"
     },
     {
+      "id": 10,
       "side1": "alla fine",
       "side2": "in the end"
     },
     {
+      "id": 11,
       "side1": "all’inizio",
       "side2": "at the start"
     },
     {
+      "id": 12,
       "side1": "allo stesso tempo",
       "side2": "at the same time"
     },
     {
+      "id": 13,
       "side1": "allora",
       "side2": "then"
     },
     {
+      "id": 14,
       "side1": "altro ieri, l’",
       "side2": "day before yesterday"
     },
     {
+      "id": 15,
       "side1": "anno, un",
       "side2": "year"
     },
     {
+      "id": 16,
       "side1": "appena",
       "side2": "hardly"
     },
     {
+      "id": 17,
       "side1": "ci vuole … (molto tempo)",
       "side2": "it takes"
     },
     {
+      "id": 18,
       "side1": "da… a",
       "side2": "from … to"
     },
     {
+      "id": 19,
       "side1": "da … in poi",
       "side2": "from … onwards"
     },
     {
+      "id": 20,
       "side1": "davvero",
       "side2": "really"
     },
     {
+      "id": 21,
       "side1": "di quando in quando",
       "side2": "every now and then"
     },
     {
+      "id": 22,
       "side1": "di tanto in tanto",
       "side2": "from time to time"
     },
     {
+      "id": 23,
       "side1": "di solito",
       "side2": "usually"
     },
     {
+      "id": 24,
       "side1": "domani",
       "side2": "tomorrow"
     },
     {
+      "id": 25,
       "side1": "dopo",
       "side2": "after"
     },
     {
+      "id": 26,
       "side1": "dopodomani",
       "side2": "day after tomorrow"
     },
     {
+      "id": 27,
       "side1": "durante",
       "side2": "during (for)"
     },
     {
+      "id": 28,
       "side1": "durare",
       "side2": "to last"
     },
     {
+      "id": 29,
       "side1": "esattamente",
       "side2": "exactly"
     }

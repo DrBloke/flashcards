@@ -3,34 +3,42 @@
   "title": "Asking questions",
   "cards": [
     {
+      "id": 0,
       "side1": "che (cosa)?",
       "side2": "what?"
     },
     {
+      "id": 1,
       "side1": "chi?",
       "side2": "who?"
     },
     {
+      "id": 2,
       "side1": "come?",
       "side2": "how? (what like?)"
     },
     {
+      "id": 3,
       "side1": "cosa?",
       "side2": "what?"
     },
     {
+      "id": 4,
       "side1": "dove?",
       "side2": "where?"
     },
     {
+      "id": 5,
       "side1": "perché?",
       "side2": "why?"
     },
     {
+      "id": 6,
       "side1": "quale",
       "side2": "which?"
     },
     {
+      "id": 7,
       "side1": "quanto/a/i/e?",
       "side2": "how much/many?"
     }

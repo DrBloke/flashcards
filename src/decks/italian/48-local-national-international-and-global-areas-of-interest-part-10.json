@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 10)",
   "cards": [
     {
+      "id": 0,
       "side1": "bicchiere, il",
       "side2": "glass"
     },
     {
+      "id": 1,
       "side1": "cadere",
       "side2": "to fall"
     },
     {
+      "id": 2,
       "side1": "caloria, la",
       "side2": "calorie"
     },
     {
+      "id": 3,
       "side1": "camminare",
       "side2": "to walk"
     },
     {
+      "id": 4,
       "side1": "cancro, il",
       "side2": "cancer"
     },
     {
+      "id": 5,
       "side1": "caviglia, la",
       "side2": "ankle"
     },
     {
+      "id": 6,
       "side1": "cena, la",
       "side2": "dinner"
     },
     {
+      "id": 7,
       "side1": "cenare",
       "side2": "to dine"
     },
     {
+      "id": 8,
       "side1": "cereale, il",
       "side2": "cereal"
     },
     {
+      "id": 9,
       "side1": "cerotto, il",
       "side2": "plaster"
     },
     {
+      "id": 10,
       "side1": "cibo, il",
       "side2": "food"
     },
     {
+      "id": 11,
       "side1": "cocaina, la",
       "side2": "cocaine"
     },
     {
+      "id": 12,
       "side1": "colazione, la (prima)",
       "side2": "breakfast"
     },
     {
+      "id": 13,
       "side1": "compressa, la",
       "side2": "pill, tablet"
     },
     {
+      "id": 14,
       "side1": "corpo, il",
       "side2": "body"
     },
     {
+      "id": 15,
       "side1": "correre",
       "side2": "to run"
     },
     {
+      "id": 16,
       "side1": "cucina, la",
       "side2": "kitchen"
     },
     {
+      "id": 17,
       "side1": "cucinare",
       "side2": "to cook"
     },
     {
+      "id": 18,
       "side1": "cuore, il",
       "side2": "heart"
     },
     {
+      "id": 19,
       "side1": "danneggiare",
       "side2": "to harm"
     },
     {
+      "id": 20,
       "side1": "danno, il",
       "side2": "harm, damage"
     },
     {
+      "id": 21,
       "side1": "dannoso",
       "side2": "harmful"
     },
     {
+      "id": 22,
       "side1": "dare da mangiare",
       "side2": "to feed"
     },
     {
+      "id": 23,
       "side1": "dente, il",
       "side2": "tooth"
     },
     {
+      "id": 24,
       "side1": "dentista, il/la",
       "side2": "dentist"
     },
     {
+      "id": 25,
       "side1": "dimagrire",
       "side2": "to lose weight"
     },
     {
+      "id": 26,
       "side1": "disoccupato",
       "side2": "unemployed"
     },
     {
+      "id": 27,
       "side1": "disoccupazione, la",
       "side2": "unemployment"
     },
     {
+      "id": 28,
       "side1": "dito, il (le dita)",
       "side2": "finger (fingers)"
     },
     {
+      "id": 29,
       "side1": "dolore, il",
       "side2": "pain"
     }

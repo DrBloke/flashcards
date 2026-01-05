@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 6)",
   "cards": [
     {
+      "id": 0,
       "side1": "piatto, il",
       "side2": "plate"
     },
     {
+      "id": 1,
       "side1": "piazza, la",
       "side2": "town square"
     },
     {
+      "id": 2,
       "side1": "pigiama, il",
       "side2": "pyjamas"
     },
     {
+      "id": 3,
       "side1": "pittoresco",
       "side2": "picturesque"
     },
     {
+      "id": 4,
       "side1": "poltrona, la",
       "side2": "armchair"
     },
     {
+      "id": 5,
       "side1": "ponte, il",
       "side2": "bridge"
     },
     {
+      "id": 6,
       "side1": "porta, la",
       "side2": "door"
     },
     {
+      "id": 7,
       "side1": "porta-finestra, la",
       "side2": "French window"
     },
     {
+      "id": 8,
       "side1": "portafoglio, il",
       "side2": "wallet"
     },
     {
+      "id": 9,
       "side1": "portamonete, il (inv)",
       "side2": "purse"
     },
     {
+      "id": 10,
       "side1": "pranzare",
       "side2": "to eat lunch"
     },
     {
+      "id": 11,
       "side1": "pranzo il",
       "side2": "lunch"
     },
     {
+      "id": 12,
       "side1": "prezzi fissi, i",
       "side2": "fixed prices"
     },
     {
+      "id": 13,
       "side1": "primo piano, il",
       "side2": "first floor"
     },
     {
+      "id": 14,
       "side1": "privato",
       "side2": "private"
     },
     {
+      "id": 15,
       "side1": "profumeria, la",
       "side2": "perfume shop"
     },
     {
+      "id": 16,
       "side1": "provincia, la",
       "side2": "province, region"
     },
     {
+      "id": 17,
       "side1": "pubblico",
       "side2": "public"
     },
     {
+      "id": 18,
       "side1": "pulire",
       "side2": "to clean"
     },
     {
+      "id": 19,
       "side1": "quadro, il",
       "side2": "picture"
     },
     {
+      "id": 20,
       "side1": "qualità, la (inv)",
       "side2": "quality"
     },
     {
+      "id": 21,
       "side1": "quantità, la (inv)",
       "side2": "quantity"
     },
     {
+      "id": 22,
       "side1": "quartiere, il",
       "side2": "district"
     },
     {
+      "id": 23,
       "side1": "regione, la",
       "side2": "region"
     },
     {
+      "id": 24,
       "side1": "residenziale",
       "side2": "residential"
     },
     {
+      "id": 25,
       "side1": "rosa, la",
       "side2": "rose"
     },
     {
+      "id": 26,
       "side1": "rumore, il",
       "side2": "noise"
     },
     {
+      "id": 27,
       "side1": "rumoroso",
       "side2": "noisy"
     },
     {
+      "id": 28,
       "side1": "ruota, la",
       "side2": "wheel"
     },
     {
+      "id": 29,
       "side1": "sacchetto, il",
       "side2": "bag (from shop)"
     }

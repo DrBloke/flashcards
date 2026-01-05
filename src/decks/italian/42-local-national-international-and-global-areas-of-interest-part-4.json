@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 4)",
   "cards": [
     {
+      "id": 0,
       "side1": "gratuito",
       "side2": "free"
     },
     {
+      "id": 1,
       "side1": "incartare",
       "side2": "to wrap"
     },
     {
+      "id": 2,
       "side1": "industria, l’",
       "side2": "industry"
     },
     {
+      "id": 3,
       "side1": "industriale",
       "side2": "industrial"
     },
     {
+      "id": 4,
       "side1": "isola, l’",
       "side2": "island"
     },
     {
+      "id": 5,
       "side1": "lago, il",
       "side2": "lake"
     },
     {
+      "id": 6,
       "side1": "lampada, la",
       "side2": "lamp"
     },
     {
+      "id": 7,
       "side1": "lampadina, la",
       "side2": "light bulb"
     },
     {
+      "id": 8,
       "side1": "lavabo, il",
       "side2": "sink, wash basin"
     },
     {
+      "id": 9,
       "side1": "lavandino, il",
       "side2": "sink, wash basin"
     },
     {
+      "id": 10,
       "side1": "lavare (lavarsi)",
       "side2": "to wash (oneself)"
     },
     {
+      "id": 11,
       "side1": "lavastoviglie, la",
       "side2": "dishwasher"
     },
     {
+      "id": 12,
       "side1": "lavatrice, la",
       "side2": "washing machine"
     },
     {
+      "id": 13,
       "side1": "leggero",
       "side2": "light (weight)"
     },
     {
+      "id": 14,
       "side1": "letto, il",
       "side2": "bed"
     },
     {
+      "id": 15,
       "side1": "libreria, la",
       "side2": "bookshop"
     },
     {
+      "id": 16,
       "side1": "libreria, la",
       "side2": "bookshop"
     },
     {
+      "id": 17,
       "side1": "lista della spesa",
       "side2": "shopping list"
     },
     {
+      "id": 18,
       "side1": "locale notturno, il",
       "side2": "night club"
     },
     {
+      "id": 19,
       "side1": "luce, la",
       "side2": "light"
     },
     {
+      "id": 20,
       "side1": "macchina, la",
       "side2": "car"
     },
     {
+      "id": 21,
       "side1": "macelleria, la",
       "side2": "butcher’s shop"
     },
     {
+      "id": 22,
       "side1": "maglia, la",
       "side2": "jumper"
     },
     {
+      "id": 23,
       "side1": "maglietta, la",
       "side2": "t-shirt"
     },
     {
+      "id": 24,
       "side1": "maglione, il",
       "side2": "sweater"
     },
     {
+      "id": 25,
       "side1": "mappa, la",
       "side2": "map"
     },
     {
+      "id": 26,
       "side1": "marciapiede, il",
       "side2": "pavement"
     },
     {
+      "id": 27,
       "side1": "mercato, il",
       "side2": "market"
     },
     {
+      "id": 28,
       "side1": "metro(politana), la",
       "side2": "underground"
     },
     {
+      "id": 29,
       "side1": "mettere in ordine",
       "side2": "to sort out"
     }

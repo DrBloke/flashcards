@@ -3,10 +3,12 @@
   "title": "Impersonal verbs",
   "cards": [
     {
+      "id": 0,
       "side1": "piacere a…",
       "side2": "to like"
     },
     {
+      "id": 1,
       "side1": "mancare",
       "side2": "to miss"
     }

@@ -3,18 +3,22 @@
   "title": "Weights and measures (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "stretto",
       "side2": "tight"
     },
     {
+      "id": 1,
       "side1": "totalmente",
       "side2": "totally"
     },
     {
+      "id": 2,
       "side1": "troppo",
       "side2": "too (much)"
     },
     {
+      "id": 3,
       "side1": "tutto",
       "side2": "all"
     }

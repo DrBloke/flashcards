@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "attento/a/i/e",
       "side2": "attentive"
     },
     {
+      "id": 1,
       "side1": "cucito, il",
       "side2": "sewing"
     },
     {
+      "id": 2,
       "side1": "educazione civica, la",
       "side2": "Citizenship"
     },
     {
+      "id": 3,
       "side1": "tesi, la",
       "side2": "thesis"
     },
     {
+      "id": 4,
       "side1": "ambizioso",
       "side2": "ambitious"
     },
     {
+      "id": 5,
       "side1": "attività culturali, le",
       "side2": "cultural activities"
     },
     {
+      "id": 6,
       "side1": "bocciare",
       "side2": "fail (have to repeat a school year)"
     },
     {
+      "id": 7,
       "side1": "borsa di studio, la",
       "side2": "grant, scholarship"
     },
     {
+      "id": 8,
       "side1": "comportamenti antisociali",
       "side2": "antisocial behaviour"
     },
     {
+      "id": 9,
       "side1": "delusione, la",
       "side2": "disappointment"
     },
     {
+      "id": 10,
       "side1": "dettaglio, il",
       "side2": "detail"
     },
     {
+      "id": 11,
       "side1": "esame di Stato, l’",
       "side2": "national exams"
     },
     {
+      "id": 12,
       "side1": "pagella, la",
       "side2": "school report"
     },
     {
+      "id": 13,
       "side1": "punizione, la",
       "side2": "detention"
     },
     {
+      "id": 14,
       "side1": "ripassare",
       "side2": "to revise"
     },
     {
+      "id": 15,
       "side1": "ripetere un anno",
       "side2": "to retake a year"
     },
     {
+      "id": 16,
       "side1": "rispettare",
       "side2": "to respect"
     },
     {
+      "id": 17,
       "side1": "scuolabus, lo",
       "side2": "school bus"
     },
     {
+      "id": 18,
       "side1": "apprendistato, l’",
       "side2": "apprenticeship"
     },
     {
+      "id": 19,
       "side1": "carriera, la",
       "side2": "career"
     },
     {
+      "id": 20,
       "side1": "ricerca, la",
       "side2": "research"
     },
     {
+      "id": 21,
       "side1": "università, l’",
       "side2": "university"
     },
     {
+      "id": 22,
       "side1": "assumere",
       "side2": "to accept, take on"
     },
     {
+      "id": 23,
       "side1": "aumento di stipendio, l’",
       "side2": "pay rise"
     },
     {
+      "id": 24,
       "side1": "autorimessa, l’",
       "side2": "garage (repairs)"
     },
     {
+      "id": 25,
       "side1": "avvocato, l’",
       "side2": "lawyer"
     },
     {
+      "id": 26,
       "side1": "buca delle lettere, la",
       "side2": "letter box"
     },
     {
+      "id": 27,
       "side1": "cercapersone, il",
       "side2": "pager"
     },
     {
+      "id": 28,
       "side1": "collega, il/la",
       "side2": "colleague"
     },
     {
+      "id": 29,
       "side1": "contattare",
       "side2": "to contact"
     }

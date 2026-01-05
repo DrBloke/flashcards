@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 11)",
   "cards": [
     {
+      "id": 0,
       "side1": "droga, la /le droghe",
       "side2": "drugs"
     },
     {
+      "id": 1,
       "side1": "drogarsi",
       "side2": "to take drugs"
     },
     {
+      "id": 2,
       "side1": "droghe pesanti, le",
       "side2": "hard drugs"
     },
     {
+      "id": 3,
       "side1": "eroina, l’",
       "side2": "heroine"
     },
     {
+      "id": 4,
       "side1": "esercizio fisico, l’",
       "side2": "physical exercise"
     },
     {
+      "id": 5,
       "side1": "essere in forma",
       "side2": "to be fit"
     },
     {
+      "id": 6,
       "side1": "fame, la",
       "side2": "hunger"
     },
     {
+      "id": 7,
       "side1": "fare bene/male alla salute",
       "side2": "to be good/bad for health"
     },
     {
+      "id": 8,
       "side1": "fare jogging",
       "side2": "to go jogging"
     },
     {
+      "id": 9,
       "side1": "farmacia, la",
       "side2": "chemists"
     },
     {
+      "id": 10,
       "side1": "farmacista, il",
       "side2": "pharmacist"
     },
     {
+      "id": 11,
       "side1": "febbre, la",
       "side2": "high temperature"
     },
     {
+      "id": 12,
       "side1": "fegato, il",
       "side2": "liver"
     },
     {
+      "id": 13,
       "side1": "ferito",
       "side2": "injured"
     },
     {
+      "id": 14,
       "side1": "freddo",
       "side2": "cold"
     },
     {
+      "id": 15,
       "side1": "fritto",
       "side2": "fried"
     },
     {
+      "id": 16,
       "side1": "frutta, la",
       "side2": "fruit"
     },
     {
+      "id": 17,
       "side1": "fumare",
       "side2": "to smoke"
     },
     {
+      "id": 18,
       "side1": "fumo, il",
       "side2": "smoke"
     },
     {
+      "id": 19,
       "side1": "gamba, la",
       "side2": "leg"
     },
     {
+      "id": 20,
       "side1": "ginocchio, il (le ginocchia)",
       "side2": "knee (knees)"
     },
     {
+      "id": 21,
       "side1": "gola, la",
       "side2": "throat"
     },
     {
+      "id": 22,
       "side1": "guarire",
       "side2": "to cure"
     },
     {
+      "id": 23,
       "side1": "in buona salute",
       "side2": "in good health"
     },
     {
+      "id": 24,
       "side1": "indigestione, l’",
       "side2": "indigestion"
     },
     {
+      "id": 25,
       "side1": "influenza, l’",
       "side2": "flu"
     },
     {
+      "id": 26,
       "side1": "iniettarsi",
       "side2": "to inject"
     },
     {
+      "id": 27,
       "side1": "lavoro di volontario",
       "side2": "voluntary work"
     },
     {
+      "id": 28,
       "side1": "lista, la",
       "side2": "list"
     },
     {
+      "id": 29,
       "side1": "malato",
       "side2": "ill"
     }

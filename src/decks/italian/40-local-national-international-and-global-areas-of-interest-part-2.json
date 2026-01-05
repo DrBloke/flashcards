@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "castello, il",
       "side2": "castle"
     },
     {
+      "id": 1,
       "side1": "cattedrale, la",
       "side2": "cathedral"
     },
     {
+      "id": 2,
       "side1": "centro commerciale, il",
       "side2": "shopping centre"
     },
     {
+      "id": 3,
       "side1": "chiave, la",
       "side2": "key"
     },
     {
+      "id": 4,
       "side1": "chiesa, la",
       "side2": "church"
     },
     {
+      "id": 5,
       "side1": "citofono, il",
       "side2": "intercom"
     },
     {
+      "id": 6,
       "side1": "città, la",
       "side2": "town, city"
     },
     {
+      "id": 7,
       "side1": "cittadina, la",
       "side2": "small town"
     },
     {
+      "id": 8,
       "side1": "cliente, il/la",
       "side2": "customer"
     },
     {
+      "id": 9,
       "side1": "codice postale, il",
       "side2": "post code"
     },
     {
+      "id": 10,
       "side1": "collana, la",
       "side2": "necklace"
     },
     {
+      "id": 11,
       "side1": "commesso",
       "side2": "shop assistant"
     },
     {
+      "id": 12,
       "side1": "comodo",
       "side2": "comfortable, convenient"
     },
     {
+      "id": 13,
       "side1": "condividere",
       "side2": "to share"
     },
     {
+      "id": 14,
       "side1": "congelatore, il",
       "side2": "freezer"
     },
     {
+      "id": 15,
       "side1": "contanti, i",
       "side2": "cash"
     },
     {
+      "id": 16,
       "side1": "coperta, la",
       "side2": "blanket"
     },
     {
+      "id": 17,
       "side1": "copriletto, il",
       "side2": "bedcover"
     },
     {
+      "id": 18,
       "side1": "corridoio, il",
       "side2": "corridor"
     },
     {
+      "id": 19,
       "side1": "costoso",
       "side2": "expensive"
     },
     {
+      "id": 20,
       "side1": "costume da bagno, il",
       "side2": "swimming costume"
     },
     {
+      "id": 21,
       "side1": "cravatta, la",
       "side2": "tie"
     },
     {
+      "id": 22,
       "side1": "cucina, la",
       "side2": "kitchen"
     },
     {
+      "id": 23,
       "side1": "cucina, la (gas/elettrica)",
       "side2": "(gas/electric) cooker"
     },
     {
+      "id": 24,
       "side1": "cuscino, il",
       "side2": "cushion"
     },
     {
+      "id": 25,
       "side1": "detersivo, il",
       "side2": "washing powder"
     },
     {
+      "id": 26,
       "side1": "disordinato",
       "side2": "untidy"
     },
     {
+      "id": 27,
       "side1": "divano, il",
       "side2": "sofa"
     },
     {
+      "id": 28,
       "side1": "dormire",
       "side2": "to sleep"
     },
     {
+      "id": 29,
       "side1": "duomo, il",
       "side2": "cathedral"
     }

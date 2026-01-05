@@ -3,118 +3,147 @@
   "title": "Location and distance (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "in cima a",
       "side2": "at the top of"
     },
     {
+      "id": 1,
       "side1": "in fondo a",
       "side2": "at the bottom/end of"
     },
     {
+      "id": 2,
       "side1": "in mezzo a",
       "side2": "in the middle of"
     },
     {
+      "id": 3,
       "side1": "in ogni luogo",
       "side2": "everywhere"
     },
     {
+      "id": 4,
       "side1": "in periferia",
       "side2": "in the suburbs/edge"
     },
     {
+      "id": 5,
       "side1": "in qualche posto",
       "side2": "somewhere"
     },
     {
+      "id": 6,
       "side1": "in qualsiasi luogo",
       "side2": "everywhere"
     },
     {
+      "id": 7,
       "side1": "intorno a",
       "side2": "around"
     },
     {
+      "id": 8,
       "side1": "là, lì",
       "side2": "there"
     },
     {
+      "id": 9,
       "side1": "lontano (da)",
       "side2": "far from"
     },
     {
+      "id": 10,
       "side1": "luogo, il",
       "side2": "place"
     },
     {
+      "id": 11,
       "side1": "meridionale",
       "side2": "southern"
     },
     {
+      "id": 12,
       "side1": "Meridione, il",
       "side2": "south (of Italy)"
     },
     {
+      "id": 13,
       "side1": "nord, il",
       "side2": "north"
     },
     {
+      "id": 14,
       "side1": "occidentale",
       "side2": "westerly"
     },
     {
+      "id": 15,
       "side1": "orientale",
       "side2": "easterly"
     },
     {
+      "id": 16,
       "side1": "ovest, l’ (m)",
       "side2": "west"
     },
     {
+      "id": 17,
       "side1": "posto, il",
       "side2": "place"
     },
     {
+      "id": 18,
       "side1": "qua, qui",
       "side2": "here"
     },
     {
+      "id": 19,
       "side1": "settentrionale",
       "side2": "northerly"
     },
     {
+      "id": 20,
       "side1": "Settentrione, il",
       "side2": "north"
     },
     {
+      "id": 21,
       "side1": "sinistra",
       "side2": "left"
     },
     {
+      "id": 22,
       "side1": "sopra",
       "side2": "above"
     },
     {
+      "id": 23,
       "side1": "sotto",
       "side2": "below"
     },
     {
+      "id": 24,
       "side1": "su",
       "side2": "under"
     },
     {
+      "id": 25,
       "side1": "sud, il",
       "side2": "south"
     },
     {
+      "id": 26,
       "side1": "trovarsi",
       "side2": "to find yourself (in a place)"
     },
     {
+      "id": 27,
       "side1": "verso",
       "side2": "towards"
     },
     {
+      "id": 28,
       "side1": "vicino (a)",
       "side2": "near"
     }

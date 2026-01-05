@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "allegro",
       "side2": "happy"
     },
     {
+      "id": 1,
       "side1": "anello, l’ (di fidanzamento)",
       "side2": "(engagement) ring"
     },
     {
+      "id": 2,
       "side1": "assistere",
       "side2": "to attend"
     },
     {
+      "id": 3,
       "side1": "bisogni dell’altro, i",
       "side2": "needs of others"
     },
     {
+      "id": 4,
       "side1": "celebre",
       "side2": "famous"
     },
     {
+      "id": 5,
       "side1": "celibe",
       "side2": "unmarried"
     },
     {
+      "id": 6,
       "side1": "cieco",
       "side2": "blind"
     },
     {
+      "id": 7,
       "side1": "coetaneo, il",
       "side2": "peer"
     },
     {
+      "id": 8,
       "side1": "cooperativo",
       "side2": "cooperative"
     },
     {
+      "id": 9,
       "side1": "dedicare",
       "side2": "to dedicate"
     },
     {
+      "id": 10,
       "side1": "deludere",
       "side2": "to disappoint"
     },
     {
+      "id": 11,
       "side1": "fede, la",
       "side2": "faith, wedding ring"
     },
     {
+      "id": 12,
       "side1": "fratellastro, il",
       "side2": "step/half brother"
     },
     {
+      "id": 13,
       "side1": "gabbia, la",
       "side2": "cage"
     },
     {
+      "id": 14,
       "side1": "genero, il",
       "side2": "son-in-law"
     },
     {
+      "id": 15,
       "side1": "giudizio, il",
       "side2": "judgement"
     },
     {
+      "id": 16,
       "side1": "indagine, l’",
       "side2": "survey"
     },
     {
+      "id": 17,
       "side1": "matrigna, la",
       "side2": "stepmother"
     },
     {
+      "id": 18,
       "side1": "minaccia, la",
       "side2": "menace"
     },
     {
+      "id": 19,
       "side1": "minacciare",
       "side2": "to menace"
     },
     {
+      "id": 20,
       "side1": "nostalgia, la",
       "side2": "homesickness"
     },
     {
+      "id": 21,
       "side1": "nubile",
       "side2": "unmarried"
     },
     {
+      "id": 22,
       "side1": "nuora, la",
       "side2": "daughter-in-law"
     },
     {
+      "id": 23,
       "side1": "offeso",
       "side2": "offended"
     },
     {
+      "id": 24,
       "side1": "patrigno, il",
       "side2": "stepfather"
     },
     {
+      "id": 25,
       "side1": "pieno di vita",
       "side2": "full of life"
     },
     {
+      "id": 26,
       "side1": "rompere le scatole a qn.",
       "side2": "to annoy somebody"
     },
     {
+      "id": 27,
       "side1": "scherzare",
       "side2": "to joke"
     },
     {
+      "id": 28,
       "side1": "socializzare",
       "side2": "to socialise"
     },
     {
+      "id": 29,
       "side1": "sordo",
       "side2": "deaf"
     }

@@ -3,70 +3,87 @@
   "title": "Current and future study and employment (part 8)",
   "cards": [
     {
+      "id": 0,
       "side1": "scadenza, la",
       "side2": "expiry"
     },
     {
+      "id": 1,
       "side1": "scopo, lo",
       "side2": "purpose"
     },
     {
+      "id": 2,
       "side1": "scrittore/scrittrice, lo/la",
       "side2": "writer"
     },
     {
+      "id": 3,
       "side1": "segretario/a, il/la",
       "side2": "secretary"
     },
     {
+      "id": 4,
       "side1": "segreteria telefonica, la",
       "side2": "answering machine"
     },
     {
+      "id": 5,
       "side1": "società, la",
       "side2": "society"
     },
     {
+      "id": 6,
       "side1": "specializzazione, la",
       "side2": "specialisation"
     },
     {
+      "id": 7,
       "side1": "spedire",
       "side2": "to send"
     },
     {
+      "id": 8,
       "side1": "spiegazione, la",
       "side2": "to explain"
     },
     {
+      "id": 9,
       "side1": "stage aziendale, lo",
       "side2": "internship"
     },
     {
+      "id": 10,
       "side1": "stilista, lo/la",
       "side2": "stylist"
     },
     {
+      "id": 11,
       "side1": "stipendio, lo",
       "side2": "salary"
     },
     {
+      "id": 12,
       "side1": "studente/studentessa, lo/la",
       "side2": "student"
     },
     {
+      "id": 13,
       "side1": "titolo di studio, il",
       "side2": "qualification"
     },
     {
+      "id": 14,
       "side1": "traduttore/traduttrice, il/la",
       "side2": "translator"
     },
     {
+      "id": 15,
       "side1": "ufficio, l’",
       "side2": "office"
     },
     {
+      "id": 16,
       "side1": "veterinario, il",
       "side2": "vet"
     }

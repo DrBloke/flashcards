@@ -3,46 +3,57 @@
   "title": "Materials",
   "cards": [
     {
+      "id": 0,
       "side1": "argento, l’",
       "side2": "silver"
     },
     {
+      "id": 1,
       "side1": "carta, la",
       "side2": "paper"
     },
     {
+      "id": 2,
       "side1": "cotone, il",
       "side2": "cotton"
     },
     {
+      "id": 3,
       "side1": "cuoio, il",
       "side2": "leather"
     },
     {
+      "id": 4,
       "side1": "ferro, il",
       "side2": "iron"
     },
     {
+      "id": 5,
       "side1": "lana, la",
       "side2": "wool"
     },
     {
+      "id": 6,
       "side1": "legno, il",
       "side2": "wood"
     },
     {
+      "id": 7,
       "side1": "oro, l’",
       "side2": "gold"
     },
     {
+      "id": 8,
       "side1": "pelle, la",
       "side2": "leather"
     },
     {
+      "id": 9,
       "side1": "seta, la",
       "side2": "silk"
     },
     {
+      "id": 10,
       "side1": "vetro, il",
       "side2": "glass"
     }

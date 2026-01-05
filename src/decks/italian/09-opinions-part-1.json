@@ -3,122 +3,152 @@
   "title": "Opinions (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "affascinante",
       "side2": "fascinating"
     },
     {
+      "id": 1,
       "side1": "allegro",
       "side2": "happy"
     },
     {
+      "id": 2,
       "side1": "amare",
       "side2": "to love"
     },
     {
+      "id": 3,
       "side1": "annoiarsi",
       "side2": "to be bored"
     },
     {
+      "id": 4,
       "side1": "ansioso",
       "side2": "worried"
     },
     {
+      "id": 5,
       "side1": "avere voglia di",
       "side2": "to want to"
     },
     {
+      "id": 6,
       "side1": "bene",
       "side2": "well"
     },
     {
+      "id": 7,
       "side1": "bravo",
       "side2": "good (at something)"
     },
     {
+      "id": 8,
       "side1": "buono",
       "side2": "good"
     },
     {
+      "id": 9,
       "side1": "cambiare idea",
       "side2": "to change one’s mind"
     },
     {
+      "id": 10,
       "side1": "carino",
       "side2": "cute, sweet"
     },
     {
+      "id": 11,
       "side1": "caro",
       "side2": "dear, expensive"
     },
     {
+      "id": 12,
       "side1": "cattivo",
       "side2": "bad"
     },
     {
+      "id": 13,
       "side1": "comico",
       "side2": "comic/comical"
     },
     {
+      "id": 14,
       "side1": "convincere",
       "side2": "to convince"
     },
     {
+      "id": 15,
       "side1": "credere",
       "side2": "to believe"
     },
     {
+      "id": 16,
       "side1": "d’accordo",
       "side2": "agreed"
     },
     {
+      "id": 17,
       "side1": "desiderare",
       "side2": "to want"
     },
     {
+      "id": 18,
       "side1": "divertirsi",
       "side2": "to enjoy oneself"
     },
     {
+      "id": 19,
       "side1": "essere d’accordo",
       "side2": "to agree"
     },
     {
+      "id": 20,
       "side1": "felice",
       "side2": "happy"
     },
     {
+      "id": 21,
       "side1": "infelice",
       "side2": "unhappy"
     },
     {
+      "id": 22,
       "side1": "interessante",
       "side2": "interesting"
     },
     {
+      "id": 23,
       "side1": "interessarsi a",
       "side2": "to be interested in"
     },
     {
+      "id": 24,
       "side1": "inutile",
       "side2": "useless"
     },
     {
+      "id": 25,
       "side1": "lato negativo/positivo",
       "side2": "the negative/positive side"
     },
     {
+      "id": 26,
       "side1": "male",
       "side2": "badly"
     },
     {
+      "id": 27,
       "side1": "meraviglioso",
       "side2": "marvellous"
     },
     {
+      "id": 28,
       "side1": "molto",
       "side2": "very (much)"
     },
     {
+      "id": 29,
       "side1": "molto bene",
       "side2": "very well"
     }

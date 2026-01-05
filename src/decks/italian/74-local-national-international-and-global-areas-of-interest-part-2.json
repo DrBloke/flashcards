@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "mensola, la",
       "side2": "shelf"
     },
     {
+      "id": 1,
       "side1": "municipio, il",
       "side2": "town hall"
     },
     {
+      "id": 2,
       "side1": "mutande, le",
       "side2": "knickers, pants"
     },
     {
+      "id": 3,
       "side1": "padella, la",
       "side2": "pan"
     },
     {
+      "id": 4,
       "side1": "passaggio pedonale, il",
       "side2": "zebra crossing"
     },
     {
+      "id": 5,
       "side1": "pentola, la",
       "side2": "pan"
     },
     {
+      "id": 6,
       "side1": "persiana, la",
       "side2": "blind"
     },
     {
+      "id": 7,
       "side1": "pieno zeppo",
       "side2": "completely full"
     },
     {
+      "id": 8,
       "side1": "pozzo, il",
       "side2": "well"
     },
     {
+      "id": 9,
       "side1": "questura, la",
       "side2": "police station"
     },
     {
+      "id": 10,
       "side1": "recintato",
       "side2": "fenced"
     },
     {
+      "id": 11,
       "side1": "ripostiglio, il",
       "side2": "cupboard"
     },
     {
+      "id": 12,
       "side1": "sgabuzzino, lo",
       "side2": "cupboard"
     },
     {
+      "id": 13,
       "side1": "siepe, la",
       "side2": "hedge"
     },
     {
+      "id": 14,
       "side1": "sindaco, il",
       "side2": "mayor"
     },
     {
+      "id": 15,
       "side1": "sparecchiare",
       "side2": "to clear (table)"
     },
     {
+      "id": 16,
       "side1": "spolverare",
       "side2": "to dust"
     },
     {
+      "id": 17,
       "side1": "stirare",
       "side2": "to iron"
     },
     {
+      "id": 18,
       "side1": "accadere",
       "side2": "to happen"
     },
     {
+      "id": 19,
       "side1": "acqua potabile, l’",
       "side2": "drinking water"
     },
     {
+      "id": 20,
       "side1": "AIDS, l’",
       "side2": "AIDS"
     },
     {
+      "id": 21,
       "side1": "allenamento, l’",
       "side2": "training (physical)"
     },
     {
+      "id": 22,
       "side1": "anfetamina, l’",
       "side2": "amphetamine"
     },
     {
+      "id": 23,
       "side1": "anoressia",
       "side2": "anorexia"
     },
     {
+      "id": 24,
       "side1": "assaggiare",
       "side2": "to try, taste"
     },
     {
+      "id": 25,
       "side1": "aver luogo",
       "side2": "to take place"
     },
     {
+      "id": 26,
       "side1": "avvenire",
       "side2": "to happen"
     },
     {
+      "id": 27,
       "side1": "avvertire",
       "side2": "to advise, warn"
     },
     {
+      "id": 28,
       "side1": "cedere alla tentazione",
       "side2": "to give into temptation"
     },
     {
+      "id": 29,
       "side1": "centro anti-droga, il",
       "side2": "rehab centre"
     }

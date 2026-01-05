@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 3)",
   "cards": [
     {
+      "id": 0,
       "side1": "cervello, il",
       "side2": "brain"
     },
     {
+      "id": 1,
       "side1": "consumo, il",
       "side2": "consumption"
     },
     {
+      "id": 2,
       "side1": "crisi d’astinenza, la",
       "side2": "cold turkey"
     },
     {
+      "id": 3,
       "side1": "debito, il",
       "side2": "debt"
     },
     {
+      "id": 4,
       "side1": "depressione, la",
       "side2": "depression"
     },
     {
+      "id": 5,
       "side1": "disintossicarsi",
       "side2": "detox"
     },
     {
+      "id": 6,
       "side1": "emarginare",
       "side2": "marginalise"
     },
     {
+      "id": 7,
       "side1": "extracomunitari, gli",
       "side2": "non-EU"
     },
     {
+      "id": 8,
       "side1": "fare moto",
       "side2": "to exercise"
     },
     {
+      "id": 9,
       "side1": "faticoso",
       "side2": "tiring"
     },
     {
+      "id": 10,
       "side1": "fegato, il",
       "side2": "liver"
     },
     {
+      "id": 11,
       "side1": "infarto, l'",
       "side2": "heart attack"
     },
     {
+      "id": 12,
       "side1": "inserimento sociale, l’",
       "side2": "integration"
     },
     {
+      "id": 13,
       "side1": "malattia cardiovascolare, la",
       "side2": "cardiovascular disease"
     },
     {
+      "id": 14,
       "side1": "morfina, la",
       "side2": "morphine"
     },
     {
+      "id": 15,
       "side1": "oppio, l’",
       "side2": "opium"
     },
     {
+      "id": 16,
       "side1": "parità, la",
       "side2": "equality"
     },
     {
+      "id": 17,
       "side1": "peggiorare",
       "side2": "to get worse"
     },
     {
+      "id": 18,
       "side1": "pelle, la",
       "side2": "skin"
     },
     {
+      "id": 19,
       "side1": "pregiudizio, il",
       "side2": "prejudice"
     },
     {
+      "id": 20,
       "side1": "problema respiratorio, il",
       "side2": "respiratory problem"
     },
     {
+      "id": 21,
       "side1": "prostituzione la",
       "side2": "prostitution"
     },
     {
+      "id": 22,
       "side1": "provocare",
       "side2": "to cause"
     },
     {
+      "id": 23,
       "side1": "remare",
       "side2": "to row"
     },
     {
+      "id": 24,
       "side1": "respirare",
       "side2": "to breathe"
     },
     {
+      "id": 25,
       "side1": "riabilitazione, la",
       "side2": "rehabilitation"
     },
     {
+      "id": 26,
       "side1": "rinunciare",
       "side2": "to give up"
     },
     {
+      "id": 27,
       "side1": "robusto",
       "side2": "strong, sturdy"
     },
     {
+      "id": 28,
       "side1": "salato",
       "side2": "salty"
     },
     {
+      "id": 29,
       "side1": "sapore, il",
       "side2": "flavour"
     }

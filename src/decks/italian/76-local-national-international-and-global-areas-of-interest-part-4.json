@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 4)",
   "cards": [
     {
+      "id": 0,
       "side1": "saporito",
       "side2": "tasty"
     },
     {
+      "id": 1,
       "side1": "scivolare",
       "side2": "to slip"
     },
     {
+      "id": 2,
       "side1": "sieropositivo, il",
       "side2": "HIV positive"
     },
     {
+      "id": 3,
       "side1": "sforzo, lo",
       "side2": "effort"
     },
     {
+      "id": 4,
       "side1": "slogare",
       "side2": "to dislocate"
     },
     {
+      "id": 5,
       "side1": "tatuare",
       "side2": "to tattoo"
     },
     {
+      "id": 6,
       "side1": "tatuaggio, il",
       "side2": "tattoo"
     },
     {
+      "id": 7,
       "side1": "tosse, la",
       "side2": "cough"
     },
     {
+      "id": 8,
       "side1": "ubriacarsi",
       "side2": "to get drunk"
     },
     {
+      "id": 9,
       "side1": "ubriaco",
       "side2": "drunk"
     },
     {
+      "id": 10,
       "side1": "alluminio, l’",
       "side2": "aluminium"
     },
     {
+      "id": 11,
       "side1": "anidride carbonica",
       "side2": "carbon dioxide, CO2"
     },
     {
+      "id": 12,
       "side1": "buco, il",
       "side2": "hole"
     },
     {
+      "id": 13,
       "side1": "carbone, il",
       "side2": "coal"
     },
     {
+      "id": 14,
       "side1": "cartone, il",
       "side2": "cardboard"
     },
     {
+      "id": 15,
       "side1": "centrale, la",
       "side2": "power station"
     },
     {
+      "id": 16,
       "side1": "cibo biologico, il",
       "side2": "organic food"
     },
     {
+      "id": 17,
       "side1": "cloro fluoro carburi",
       "side2": "CFCs"
     },
     {
+      "id": 18,
       "side1": "consumo giornaliero, il",
       "side2": "daily consumption"
     },
     {
+      "id": 19,
       "side1": "contenitore, il",
       "side2": "container (recycling)"
     },
     {
+      "id": 20,
       "side1": "danneggiare",
       "side2": "to damage"
     },
     {
+      "id": 21,
       "side1": "deforestazione, la",
       "side2": "deforestation"
     },
     {
+      "id": 22,
       "side1": "discarica, la",
       "side2": "dump, waste disposal centre"
     },
     {
+      "id": 23,
       "side1": "ecologico",
       "side2": "ecological"
     },
     {
+      "id": 24,
       "side1": "effetto serra, l’",
       "side2": "greenhouse effect"
     },
     {
+      "id": 25,
       "side1": "energia solare/eolica/nucleare/d’onda/\nrinnovabile, l’",
       "side2": "solar/wind/nuclear/wave/renewable energy"
     },
     {
+      "id": 26,
       "side1": "fertilizzante, il",
       "side2": "fertilizer"
     },
     {
+      "id": 27,
       "side1": "fracasso, il",
       "side2": "lot of loud noise"
     },
     {
+      "id": 28,
       "side1": "guerra, la",
       "side2": "war"
     },
     {
+      "id": 29,
       "side1": "imballaggio, l’",
       "side2": "packaging"
     }

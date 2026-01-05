@@ -3,122 +3,152 @@
   "title": "Greetings and exclamations (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "a presto",
       "side2": "see you soon"
     },
     {
+      "id": 1,
       "side1": "a domani",
       "side2": "until tomorrow"
     },
     {
+      "id": 2,
       "side1": "a lunedì",
       "side2": "until Monday"
     },
     {
+      "id": 3,
       "side1": "arrivederci",
       "side2": "goodbye"
     },
     {
+      "id": 4,
       "side1": "attenzione",
       "side2": "be careful"
     },
     {
+      "id": 5,
       "side1": "auguri",
       "side2": "best wishes"
     },
     {
+      "id": 6,
       "side1": "benvenuto/a/i/e",
       "side2": "welcome"
     },
     {
+      "id": 7,
       "side1": "buon anno",
       "side2": "happy New Year"
     },
     {
+      "id": 8,
       "side1": "buon appetito",
       "side2": "enjoy the meal"
     },
     {
+      "id": 9,
       "side1": "buon compleanno",
       "side2": "happy birthday"
     },
     {
+      "id": 10,
       "side1": "buon divertimento",
       "side2": "have fun"
     },
     {
+      "id": 11,
       "side1": "buon Natale",
       "side2": "happy Christmas"
     },
     {
+      "id": 12,
       "side1": "buon viaggio",
       "side2": "have a good journey"
     },
     {
+      "id": 13,
       "side1": "buona fortuna",
       "side2": "good luck"
     },
     {
+      "id": 14,
       "side1": "buongiorno, buon giorno",
       "side2": "good day"
     },
     {
+      "id": 15,
       "side1": "buona notte",
       "side2": "good night"
     },
     {
+      "id": 16,
       "side1": "buona Pasqua",
       "side2": "happy Easter"
     },
     {
+      "id": 17,
       "side1": "buonasera, buona sera",
       "side2": "good evening"
     },
     {
+      "id": 18,
       "side1": "buone vacanze",
       "side2": "happy holiday"
     },
     {
+      "id": 19,
       "side1": "che peccato",
       "side2": "what a shame"
     },
     {
+      "id": 20,
       "side1": "ciao",
       "side2": "hi/hello"
     },
     {
+      "id": 21,
       "side1": "colpa mia",
       "side2": "my fault"
     },
     {
+      "id": 22,
       "side1": "come stai/sta?",
       "side2": "how are you?"
     },
     {
+      "id": 23,
       "side1": "grazie",
       "side2": "thank you"
     },
     {
+      "id": 24,
       "side1": "in bocca al lupo",
       "side2": "good luck"
     },
     {
+      "id": 25,
       "side1": "mi dispiace",
       "side2": "I’m sorry"
     },
     {
+      "id": 26,
       "side1": "non vedo l’ora di…",
       "side2": "I cannot wait …"
     },
     {
+      "id": 27,
       "side1": "per favore",
       "side2": "please"
     },
     {
+      "id": 28,
       "side1": "per fortuna",
       "side2": "luckily"
     },
     {
+      "id": 29,
       "side1": "per piacere",
       "side2": "please"
     }

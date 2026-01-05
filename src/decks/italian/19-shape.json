@@ -3,14 +3,17 @@
   "title": "Shape",
   "cards": [
     {
+      "id": 0,
       "side1": "di forma (...)",
       "side2": "shaped"
     },
     {
+      "id": 1,
       "side1": "quadrato",
       "side2": "square"
     },
     {
+      "id": 2,
       "side1": "rotondo",
       "side2": "round"
     }

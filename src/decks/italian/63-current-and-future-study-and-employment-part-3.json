@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 3)",
   "cards": [
     {
+      "id": 0,
       "side1": "frequentare",
       "side2": "to attend"
     },
     {
+      "id": 1,
       "side1": "gesso, il",
       "side2": "chalk"
     },
     {
+      "id": 2,
       "side1": "gita, la",
       "side2": "(school) trip"
     },
     {
+      "id": 3,
       "side1": "gomma, la",
       "side2": "rubber"
     },
     {
+      "id": 4,
       "side1": "imparare",
       "side2": "to learn"
     },
     {
+      "id": 5,
       "side1": "informatica, l’",
       "side2": "information technology"
     },
     {
+      "id": 6,
       "side1": "iniziare",
       "side2": "to start"
     },
     {
+      "id": 7,
       "side1": "insegnante, l’",
       "side2": "teacher"
     },
     {
+      "id": 8,
       "side1": "insegnare",
       "side2": "to teach"
     },
     {
+      "id": 9,
       "side1": "insultare",
       "side2": "to insult"
     },
     {
+      "id": 10,
       "side1": "intervallo, l’",
       "side2": "break time"
     },
     {
+      "id": 11,
       "side1": "istruzione, l’",
       "side2": "teaching"
     },
     {
+      "id": 12,
       "side1": "laboratorio, il",
       "side2": "laboratory"
     },
     {
+      "id": 13,
       "side1": "lavagna a fogli mobili,",
       "side2": "flip chart"
     },
     {
+      "id": 14,
       "side1": "la lavagna bianca, la",
       "side2": "whiteboard"
     },
     {
+      "id": 15,
       "side1": "lavagna interattiva, la",
       "side2": "interactive whiteboard"
     },
     {
+      "id": 16,
       "side1": "lavagna luminosa, la",
       "side2": "overhead projector"
     },
     {
+      "id": 17,
       "side1": "letteratura, la",
       "side2": "literature"
     },
     {
+      "id": 18,
       "side1": "lezione, la",
       "side2": "lesson"
     },
     {
+      "id": 19,
       "side1": "libertà, la",
       "side2": "freedom"
     },
     {
+      "id": 20,
       "side1": "libro, il (di testo)",
       "side2": "(text) book"
     },
     {
+      "id": 21,
       "side1": "liceo, il classico/linguistico/scientifico",
       "side2": "high school"
     },
     {
+      "id": 22,
       "side1": "marinare la scuola",
       "side2": "to truant school"
     },
     {
+      "id": 23,
       "side1": "matita, la",
       "side2": "pencil"
     },
     {
+      "id": 24,
       "side1": "mensa, la",
       "side2": "dining room"
     },
     {
+      "id": 25,
       "side1": "necessario",
       "side2": "necessary"
     },
     {
+      "id": 26,
       "side1": "orario l’",
       "side2": "timetable"
     },
     {
+      "id": 27,
       "side1": "pagina, la",
       "side2": "page"
     },
     {
+      "id": 28,
       "side1": "parlare",
       "side2": "to speak"
     },
     {
+      "id": 29,
       "side1": "parola, la",
       "side2": "word"
     }

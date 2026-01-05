@@ -3,78 +3,97 @@
   "title": "Common verbs",
   "cards": [
     {
+      "id": 0,
       "side1": "andare",
       "side2": "to go"
     },
     {
+      "id": 1,
       "side1": "avere",
       "side2": "to have"
     },
     {
+      "id": 2,
       "side1": "conoscere",
       "side2": "to know (person or place)"
     },
     {
+      "id": 3,
       "side1": "dare",
       "side2": "to give"
     },
     {
+      "id": 4,
       "side1": "dire",
       "side2": "to say"
     },
     {
+      "id": 5,
       "side1": "diventare",
       "side2": "to become"
     },
     {
+      "id": 6,
       "side1": "divenire",
       "side2": "to become"
     },
     {
+      "id": 7,
       "side1": "dovere",
       "side2": "to have to"
     },
     {
+      "id": 8,
       "side1": "essere",
       "side2": "to be"
     },
     {
+      "id": 9,
       "side1": "fare",
       "side2": "to do, to make + idiomatic phrases"
     },
     {
+      "id": 10,
       "side1": "mettere",
       "side2": "to put"
     },
     {
+      "id": 11,
       "side1": "potere",
       "side2": "to have to"
     },
     {
+      "id": 12,
       "side1": "prendere",
       "side2": "to take"
     },
     {
+      "id": 13,
       "side1": "sapere",
       "side2": "to know (information)"
     },
     {
+      "id": 14,
       "side1": "stare",
       "side2": "to be"
     },
     {
+      "id": 15,
       "side1": "tenere",
       "side2": "to hold"
     },
     {
+      "id": 16,
       "side1": "uscire",
       "side2": "to go out"
     },
     {
+      "id": 17,
       "side1": "venire",
       "side2": "to come"
     },
     {
+      "id": 18,
       "side1": "volere",
       "side2": "to want"
     }

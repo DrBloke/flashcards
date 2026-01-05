@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 3)",
   "cards": [
     {
+      "id": 0,
       "side1": "duro",
       "side2": "hard"
     },
     {
+      "id": 1,
       "side1": "economico",
       "side2": "inexpensive"
     },
     {
+      "id": 2,
       "side1": "edicola, l’",
       "side2": "kiosk"
     },
     {
+      "id": 3,
       "side1": "edificio, l’",
       "side2": "building"
     },
     {
+      "id": 4,
       "side1": "entrare",
       "side2": "to enter"
     },
     {
+      "id": 5,
       "side1": "entrata, l’",
       "side2": "entrance"
     },
     {
+      "id": 6,
       "side1": "equitazione, l’",
       "side2": "horse riding"
     },
     {
+      "id": 7,
       "side1": "erba, l’",
       "side2": "grass"
     },
     {
+      "id": 8,
       "side1": "fabbrica, la",
       "side2": "factory"
     },
     {
+      "id": 9,
       "side1": "fare i piatti",
       "side2": "to wash up"
     },
     {
+      "id": 10,
       "side1": "fare il letto",
       "side2": "to make the bed"
     },
     {
+      "id": 11,
       "side1": "fare la doccia",
       "side2": "to have a shower"
     },
     {
+      "id": 12,
       "side1": "fare uno sconto",
       "side2": "to give a discount"
     },
     {
+      "id": 13,
       "side1": "fattoria, la",
       "side2": "farm"
     },
     {
+      "id": 14,
       "side1": "felpa, la",
       "side2": "fleece"
     },
     {
+      "id": 15,
       "side1": "fermata, la (dell’autobus)",
       "side2": "(bus) stop"
     },
     {
+      "id": 16,
       "side1": "finestra, la",
       "side2": "window"
     },
     {
+      "id": 17,
       "side1": "fiore, il",
       "side2": "flower"
     },
     {
+      "id": 18,
       "side1": "fontana, la",
       "side2": "fountain"
     },
     {
+      "id": 19,
       "side1": "forno, il (a microonde)",
       "side2": "(microwave) oven"
     },
     {
+      "id": 20,
       "side1": "frigorifero, il",
       "side2": "fridge"
     },
     {
+      "id": 21,
       "side1": "fruttivendolo, il",
       "side2": "greengrocer"
     },
     {
+      "id": 22,
       "side1": "gabinetto, il",
       "side2": "toilet"
     },
     {
+      "id": 23,
       "side1": "galleria d’arte, la",
       "side2": "art gallery"
     },
     {
+      "id": 24,
       "side1": "gelateria, la",
       "side2": "ice cream shop"
     },
     {
+      "id": 25,
       "side1": "giacca, la",
       "side2": "jacket"
     },
     {
+      "id": 26,
       "side1": "giardino, il",
       "side2": "garden"
     },
     {
+      "id": 27,
       "side1": "gonna, la",
       "side2": "skirt"
     },
     {
+      "id": 28,
       "side1": "grande magazzino, il",
       "side2": "department store"
     },
     {
+      "id": 29,
       "side1": "gratis",
       "side2": "free"
     }

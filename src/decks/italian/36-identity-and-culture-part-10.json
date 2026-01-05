@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 10)",
   "cards": [
     {
+      "id": 0,
       "side1": "nuoto, il",
       "side2": "swimming"
     },
     {
+      "id": 1,
       "side1": "olio, l’",
       "side2": "oil"
     },
     {
+      "id": 2,
       "side1": "oliva, l’",
       "side2": "olive"
     },
     {
+      "id": 3,
       "side1": "palestra, la",
       "side2": "gym"
     },
     {
+      "id": 4,
       "side1": "palla, la",
       "side2": "ball"
     },
     {
+      "id": 5,
       "side1": "pallacanestro, la",
       "side2": "basketball"
     },
     {
+      "id": 6,
       "side1": "pallamano, la",
       "side2": "handball"
     },
     {
+      "id": 7,
       "side1": "pallavolo, la",
       "side2": "volleyball"
     },
     {
+      "id": 8,
       "side1": "pallone, il",
       "side2": "ball"
     },
     {
+      "id": 9,
       "side1": "pane, il",
       "side2": "bread"
     },
     {
+      "id": 10,
       "side1": "partita, la",
       "side2": "match"
     },
     {
+      "id": 11,
       "side1": "pasta, la",
       "side2": "pasta, pastry"
     },
     {
+      "id": 12,
       "side1": "patata, la",
       "side2": "potato"
     },
     {
+      "id": 13,
       "side1": "patate fritte, le",
       "side2": "chips"
     },
     {
+      "id": 14,
       "side1": "patatine, le",
       "side2": "crisps"
     },
     {
+      "id": 15,
       "side1": "pattinaggio a rotelle, il /su ghiaccio",
       "side2": "skating – roller/ice"
     },
     {
+      "id": 16,
       "side1": "pattini, i",
       "side2": "skates"
     },
     {
+      "id": 17,
       "side1": "pepe, il",
       "side2": "pepper"
     },
     {
+      "id": 18,
       "side1": "peperone verde/rosso, il",
       "side2": "green/red pepper"
     },
     {
+      "id": 19,
       "side1": "pera, la",
       "side2": "pear"
     },
     {
+      "id": 20,
       "side1": "pesce, il",
       "side2": "fish"
     },
     {
+      "id": 21,
       "side1": "piacere, un",
       "side2": "a favour, a pleasure"
     },
     {
+      "id": 22,
       "side1": "piano (forte), il",
       "side2": "piano"
     },
     {
+      "id": 23,
       "side1": "piscina, la",
       "side2": "swimming pool"
     },
     {
+      "id": 24,
       "side1": "pollo, il",
       "side2": "chicken"
     },
     {
+      "id": 25,
       "side1": "pomodoro, il",
       "side2": "tomato"
     },
     {
+      "id": 26,
       "side1": "premio, il",
       "side2": "prize"
     },
     {
+      "id": 27,
       "side1": "prosciutto cotto/crudo, il",
       "side2": "cooked/uncooked ham"
     },
     {
+      "id": 28,
       "side1": "regalare",
       "side2": "to give a gift"
     },
     {
+      "id": 29,
       "side1": "regalo, il",
       "side2": "a gift"
     }

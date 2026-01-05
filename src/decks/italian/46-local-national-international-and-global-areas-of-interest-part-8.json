@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 8)",
   "cards": [
     {
+      "id": 0,
       "side1": "storico",
       "side2": "historic"
     },
     {
+      "id": 1,
       "side1": "studio, lo",
       "side2": "study"
     },
     {
+      "id": 2,
       "side1": "supermercato",
       "side2": "supermarket"
     },
     {
+      "id": 3,
       "side1": "svantaggio, lo",
       "side2": "disadvantage"
     },
     {
+      "id": 4,
       "side1": "sveglia, la",
       "side2": "alarm clock"
     },
     {
+      "id": 5,
       "side1": "svegliarsi",
       "side2": "to wake up"
     },
     {
+      "id": 6,
       "side1": "tabaccheria, la",
       "side2": "tobacconist’s"
     },
     {
+      "id": 7,
       "side1": "taglia, la",
       "side2": "size"
     },
     {
+      "id": 8,
       "side1": "tappeto, il",
       "side2": "carpet, rug"
     },
     {
+      "id": 9,
       "side1": "tassì/taxi, il",
       "side2": "taxi"
     },
     {
+      "id": 10,
       "side1": "tavolo/a, il/la",
       "side2": "table"
     },
     {
+      "id": 11,
       "side1": "tazza, la",
       "side2": "cup"
     },
     {
+      "id": 12,
       "side1": "telefonare",
       "side2": "to phone"
     },
     {
+      "id": 13,
       "side1": "telefono, il",
       "side2": "telephone"
     },
     {
+      "id": 14,
       "side1": "televisore, il",
       "side2": "a television set"
     },
     {
+      "id": 15,
       "side1": "tende, le",
       "side2": "curtains"
     },
     {
+      "id": 16,
       "side1": "terrazza, la",
       "side2": "patio, veranda"
     },
     {
+      "id": 17,
       "side1": "tetto, il",
       "side2": "roof"
     },
     {
+      "id": 18,
       "side1": "tirare",
       "side2": "to pull"
     },
     {
+      "id": 19,
       "side1": "toilette, la (inv)",
       "side2": "toilet"
     },
     {
+      "id": 20,
       "side1": "torre, la",
       "side2": "tower"
     },
     {
+      "id": 21,
       "side1": "tovaglia, la",
       "side2": "tablecloth"
     },
     {
+      "id": 22,
       "side1": "tovagliolo, il",
       "side2": "napkin"
     },
     {
+      "id": 23,
       "side1": "ufficio postale, l’",
       "side2": "post office"
     },
     {
+      "id": 24,
       "side1": "ufficio turistico, l’",
       "side2": "tourist office"
     },
     {
+      "id": 25,
       "side1": "vantaggio, il",
       "side2": "advantage"
     },
     {
+      "id": 26,
       "side1": "vasca da bagno, la",
       "side2": "bath tub"
     },
     {
+      "id": 27,
       "side1": "vaso, il",
       "side2": "vase"
     },
     {
+      "id": 28,
       "side1": "vestirsi",
       "side2": "to get dressed"
     },
     {
+      "id": 29,
       "side1": "vestito, il",
       "side2": "dress"
     }

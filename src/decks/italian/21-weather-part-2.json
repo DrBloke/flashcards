@@ -3,26 +3,32 @@
   "title": "Weather (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "tempo, il",
       "side2": "weather"
     },
     {
+      "id": 1,
       "side1": "temporale, il",
       "side2": "storm"
     },
     {
+      "id": 2,
       "side1": "umido",
       "side2": "damp"
     },
     {
+      "id": 3,
       "side1": "tirare vento",
       "side2": "to be windy"
     },
     {
+      "id": 4,
       "side1": "tuono, il",
       "side2": "thunder"
     },
     {
+      "id": 5,
       "side1": "vento, il",
       "side2": "wind"
     }

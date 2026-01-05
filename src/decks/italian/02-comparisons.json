@@ -3,58 +3,72 @@
   "title": "Comparisons",
   "cards": [
     {
+      "id": 0,
       "side1": "diverso",
       "side2": "different"
     },
     {
+      "id": 1,
       "side1": "maggiore",
       "side2": "greater/bigger"
     },
     {
+      "id": 2,
       "side1": "massimo",
       "side2": "maximum"
     },
     {
+      "id": 3,
       "side1": "meglio/migliore",
       "side2": "better/best"
     },
     {
+      "id": 4,
       "side1": "minimo",
       "side2": "minimum"
     },
     {
+      "id": 5,
       "side1": "minore",
       "side2": "smaller/minor"
     },
     {
+      "id": 6,
       "side1": "ottimo",
       "side2": "best, excellent"
     },
     {
+      "id": 7,
       "side1": "peggio/peggiore",
       "side2": "worse/worst"
     },
     {
+      "id": 8,
       "side1": "pessimo",
       "side2": "awful, very poor"
     },
     {
+      "id": 9,
       "side1": "più/meno",
       "side2": "more/less"
     },
     {
+      "id": 10,
       "side1": "poco",
       "side2": "few/little"
     },
     {
+      "id": 11,
       "side1": "simile",
       "side2": "similar"
     },
     {
+      "id": 12,
       "side1": "stesso",
       "side2": "same"
     },
     {
+      "id": 13,
       "side1": "uguale (…a)",
       "side2": "equal to"
     }

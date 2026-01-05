@@ -3,110 +3,137 @@
   "title": "Conjunctions and connectives",
   "cards": [
     {
+      "id": 0,
       "side1": "a dire la verità",
       "side2": "to tell the truth"
     },
     {
+      "id": 1,
       "side1": "a parte questo",
       "side2": "apart from this"
     },
     {
+      "id": 2,
       "side1": "altrimenti",
       "side2": "otherwise"
     },
     {
+      "id": 3,
       "side1": "anche",
       "side2": "also/too/even"
     },
     {
+      "id": 4,
       "side1": "cioè",
       "side2": "that is to say/actually/rather"
     },
     {
+      "id": 5,
       "side1": "come",
       "side2": "as/like"
     },
     {
+      "id": 6,
       "side1": "comunque",
       "side2": "anyway/in any case/even so/however"
     },
     {
+      "id": 7,
       "side1": "dunque",
       "side2": "therefore"
     },
     {
+      "id": 8,
       "side1": "forse",
       "side2": "maybe/perhaps"
     },
     {
+      "id": 9,
       "side1": "inoltre",
       "side2": "furthermore/also/moreover"
     },
     {
+      "id": 10,
       "side1": "insomma",
       "side2": "so/therefore/in conclusion"
     },
     {
+      "id": 11,
       "side1": "nonostante",
       "side2": "although/even though/despite"
     },
     {
+      "id": 12,
       "side1": "o",
       "side2": "or"
     },
     {
+      "id": 13,
       "side1": "ovviamente",
       "side2": "obviously"
     },
     {
+      "id": 14,
       "side1": "per caso",
       "side2": "by chance"
     },
     {
+      "id": 15,
       "side1": "per fortuna",
       "side2": "luckily"
     },
     {
+      "id": 16,
       "side1": "perciò",
       "side2": "therefore/for this reason/so"
     },
     {
+      "id": 17,
       "side1": "però",
       "side2": "but/yet/however"
     },
     {
+      "id": 18,
       "side1": "prima di tutto",
       "side2": "first of all"
     },
     {
+      "id": 19,
       "side1": "purtroppo",
       "side2": "unfortunately"
     },
     {
+      "id": 20,
       "side1": "ragione per cui, la",
       "side2": "reason that"
     },
     {
+      "id": 21,
       "side1": "quindi",
       "side2": "therefore/so"
     },
     {
+      "id": 22,
       "side1": "se",
       "side2": "if"
     },
     {
+      "id": 23,
       "side1": "senza dubbio",
       "side2": "without doubt"
     },
     {
+      "id": 24,
       "side1": "sia … sia",
       "side2": "both…and/whether…or"
     },
     {
+      "id": 25,
       "side1": "soprattutto",
       "side2": "above all"
     },
     {
+      "id": 26,
       "side1": "visto che",
       "side2": "given that"
     }

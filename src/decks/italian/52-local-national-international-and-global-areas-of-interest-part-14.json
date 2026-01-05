@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 14)",
   "cards": [
     {
+      "id": 0,
       "side1": "tossicodipendente, il/la",
       "side2": "drug addict"
     },
     {
+      "id": 1,
       "side1": "trafficante di droga, il/la",
       "side2": "drug trafficker"
     },
     {
+      "id": 2,
       "side1": "trattoria, la",
       "side2": "restaurant"
     },
     {
+      "id": 3,
       "side1": "ubriacarsi",
       "side2": "to get drunk"
     },
     {
+      "id": 4,
       "side1": "ubriaco",
       "side2": "drunk"
     },
     {
+      "id": 5,
       "side1": "vandalismo, il",
       "side2": "vandalism"
     },
     {
+      "id": 6,
       "side1": "vegetariano",
       "side2": "vegetarian"
     },
     {
+      "id": 7,
       "side1": "verdura, la",
       "side2": "vegetables"
     },
     {
+      "id": 8,
       "side1": "vigile del fuoco, il",
       "side2": "firefighter"
     },
     {
+      "id": 9,
       "side1": "vizio, il",
       "side2": "bad habit"
     },
     {
+      "id": 10,
       "side1": "voce, la",
       "side2": "voice"
     },
     {
+      "id": 11,
       "side1": "volontario, il",
       "side2": "volunteer"
     },
     {
+      "id": 12,
       "side1": "vuotare",
       "side2": "to empty"
     },
     {
+      "id": 13,
       "side1": "vuoto",
       "side2": "empty"
     },
     {
+      "id": 14,
       "side1": "zuccherato",
       "side2": "sugary"
     },
     {
+      "id": 15,
       "side1": "acqua del rubinetto, l’",
       "side2": "tap water"
     },
     {
+      "id": 16,
       "side1": "ambiente, l’",
       "side2": "environment"
     },
     {
+      "id": 17,
       "side1": "aumento, l’",
       "side2": "increase"
     },
     {
+      "id": 18,
       "side1": "benzina (senza piombo), la",
       "side2": "(lead free) petrol"
     },
     {
+      "id": 19,
       "side1": "bidone dei rifiuti, il",
       "side2": "rubbish bin"
     },
     {
+      "id": 20,
       "side1": "biodegradabile",
       "side2": "biodegradable"
     },
     {
+      "id": 21,
       "side1": "bombolette spray, le",
       "side2": "spray cans"
     },
     {
+      "id": 22,
       "side1": "bottiglia, la",
       "side2": "bottle"
     },
     {
+      "id": 23,
       "side1": "buco dell’ozono, il",
       "side2": "hole in ozone layer"
     },
     {
+      "id": 24,
       "side1": "buttare",
       "side2": "to throw away"
     },
     {
+      "id": 25,
       "side1": "carbone, il",
       "side2": "coal"
     },
     {
+      "id": 26,
       "side1": "carta, la",
       "side2": "paper"
     },
     {
+      "id": 27,
       "side1": "contenitore, il",
       "side2": "container"
     },
     {
+      "id": 28,
       "side1": "disastro, il",
       "side2": "disaster"
     },
     {
+      "id": 29,
       "side1": "distruggere",
       "side2": "to destroy"
     }

@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 5)",
   "cards": [
     {
+      "id": 0,
       "side1": "studio, lo",
       "side2": "study"
     },
     {
+      "id": 1,
       "side1": "tacere",
       "side2": "to be quiet"
     },
     {
+      "id": 2,
       "side1": "tema, il",
       "side2": "essay"
     },
     {
+      "id": 3,
       "side1": "trimestre, il",
       "side2": "term"
     },
     {
+      "id": 4,
       "side1": "trovare",
       "side2": "to find"
     },
     {
+      "id": 5,
       "side1": "vittima, la",
       "side2": "victim"
     },
     {
+      "id": 6,
       "side1": "vocabolario, il",
       "side2": "vocabulary"
     },
     {
+      "id": 7,
       "side1": "voto, il",
       "side2": "mark, grade"
     },
     {
+      "id": 8,
       "side1": "zaino, lo",
       "side2": "rucksack"
     },
     {
+      "id": 9,
       "side1": "anno sabatico",
       "side2": "gap year"
     },
     {
+      "id": 10,
       "side1": "apprendista",
       "side2": "apprentice"
     },
     {
+      "id": 11,
       "side1": "apprendistato, l'/stage, lo/tirocinio, il",
       "side2": "training"
     },
     {
+      "id": 12,
       "side1": "laurea, la",
       "side2": "degree"
     },
     {
+      "id": 13,
       "side1": "laurearsi",
       "side2": "to graduate"
     },
     {
+      "id": 14,
       "side1": "scegliere",
       "side2": "to choose"
     },
     {
+      "id": 15,
       "side1": "università, l’",
       "side2": "university"
     },
     {
+      "id": 16,
       "side1": "a tempo pieno",
       "side2": "full time"
     },
     {
+      "id": 17,
       "side1": "appuntamento, l’",
       "side2": "appointment"
     },
     {
+      "id": 18,
       "side1": "attore/attrice, l’",
       "side2": "actor"
     },
     {
+      "id": 19,
       "side1": "autista, l’",
       "side2": "driver"
     },
     {
+      "id": 20,
       "side1": "azienda, l’",
       "side2": "agency"
     },
     {
+      "id": 21,
       "side1": "barbiere, il",
       "side2": "barber"
     },
     {
+      "id": 22,
       "side1": "camionista, il",
       "side2": "lorry driver"
     },
     {
+      "id": 23,
       "side1": "candidato, il",
       "side2": "candidate"
     },
     {
+      "id": 24,
       "side1": "carriera, la",
       "side2": "career"
     },
     {
+      "id": 25,
       "side1": "casalingo/a, il/la",
       "side2": "housewife/husband"
     },
     {
+      "id": 26,
       "side1": "cassiere/a, il/la",
       "side2": "cashier, check-out assistant"
     },
     {
+      "id": 27,
       "side1": "certamente",
       "side2": "certainly"
     },
     {
+      "id": 28,
       "side1": "colpo di telefono, il",
       "side2": "phone call"
     },
     {
+      "id": 29,
       "side1": "commerciante, il",
       "side2": "trader"
     }

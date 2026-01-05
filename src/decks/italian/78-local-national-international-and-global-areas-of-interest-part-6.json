@@ -3,114 +3,142 @@
   "title": "Local, national, international and global areas of interest (part 6)",
   "cards": [
     {
+      "id": 0,
       "side1": "decollare",
       "side2": "to take off"
     },
     {
+      "id": 1,
       "side1": "direttissimo, il",
       "side2": "fast train"
     },
     {
+      "id": 2,
       "side1": "dogana, la",
       "side2": "customs"
     },
     {
+      "id": 3,
       "side1": "gemellato",
       "side2": "twinned"
     },
     {
+      "id": 4,
       "side1": "giorno feriale, il",
       "side2": "working day"
     },
     {
+      "id": 5,
       "side1": "giorno festivo, il",
       "side2": "non-working day"
     },
     {
+      "id": 6,
       "side1": "guasto",
       "side2": "out of order, broken"
     },
     {
+      "id": 7,
       "side1": "incrocio, l’",
       "side2": "crossroads"
     },
     {
+      "id": 8,
       "side1": "letti a castello, i",
       "side2": "bunk beds"
     },
     {
+      "id": 9,
       "side1": "Manica, la",
       "side2": "English Channel"
     },
     {
+      "id": 10,
       "side1": "nave, la",
       "side2": "ship"
     },
     {
+      "id": 11,
       "side1": "ostello della gioventù, l’",
       "side2": "youth hostel"
     },
     {
+      "id": 12,
       "side1": "Parigi",
       "side2": "Paris"
     },
     {
+      "id": 13,
       "side1": "patente, la",
       "side2": "driving licence"
     },
     {
+      "id": 14,
       "side1": "pista, la",
       "side2": "track"
     },
     {
+      "id": 15,
       "side1": "posto, il",
       "side2": "seat (on transport)"
     },
     {
+      "id": 16,
       "side1": "rallentare",
       "side2": "to slow down"
     },
     {
+      "id": 17,
       "side1": "rapido, il",
       "side2": "fast train"
     },
     {
+      "id": 18,
       "side1": "roulotte, la (inv)",
       "side2": "caravan"
     },
     {
+      "id": 19,
       "side1": "sala d’aspetto, la",
       "side2": "waiting room"
     },
     {
+      "id": 20,
       "side1": "scarponi da sci, gli",
       "side2": "ski boots"
     },
     {
+      "id": 21,
       "side1": "sedia a sdraio, la",
       "side2": "deck chair"
     },
     {
+      "id": 22,
       "side1": "tessera, la",
       "side2": "pass"
     },
     {
+      "id": 23,
       "side1": "traghetto, il",
       "side2": "ferry"
     },
     {
+      "id": 24,
       "side1": "trascorrere",
       "side2": "to pass (time)"
     },
     {
+      "id": 25,
       "side1": "traversata, la",
       "side2": "crossing"
     },
     {
+      "id": 26,
       "side1": "verificare",
       "side2": "to check"
     },
     {
+      "id": 27,
       "side1": "vettura ristorante, la",
       "side2": "restaurant carriage"
     }

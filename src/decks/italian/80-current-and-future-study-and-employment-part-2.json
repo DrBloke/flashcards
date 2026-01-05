@@ -3,94 +3,117 @@
   "title": "Current and future study and employment (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "dirigente, il/la",
       "side2": "manager"
     },
     {
+      "id": 1,
       "side1": "domanda d’impiego, la",
       "side2": "job application"
     },
     {
+      "id": 2,
       "side1": "fare il pendolare",
       "side2": "to commute"
     },
     {
+      "id": 3,
       "side1": "Fiera, la",
       "side2": "trade fair"
     },
     {
+      "id": 4,
       "side1": "fotocopia, la",
       "side2": "photocopy"
     },
     {
+      "id": 5,
       "side1": "fotocopiare",
       "side2": "to photocopy"
     },
     {
+      "id": 6,
       "side1": "impegnativo",
       "side2": "demanding"
     },
     {
+      "id": 7,
       "side1": "impegnato",
       "side2": "busy"
     },
     {
+      "id": 8,
       "side1": "indipendenza economica, l’",
       "side2": "financial independence"
     },
     {
+      "id": 9,
       "side1": "licenziare",
       "side2": "to dismiss"
     },
     {
+      "id": 10,
       "side1": "licenziarsi",
       "side2": "to resign"
     },
     {
+      "id": 11,
       "side1": "motivante",
       "side2": "motivating"
     },
     {
+      "id": 12,
       "side1": "motivare",
       "side2": "to motivate"
     },
     {
+      "id": 13,
       "side1": "muratore, il",
       "side2": "bricklayer"
     },
     {
+      "id": 14,
       "side1": "pendolare, il/la",
       "side2": "commuter"
     },
     {
+      "id": 15,
       "side1": "personale, il",
       "side2": "staff"
     },
     {
+      "id": 16,
       "side1": "preoccuparsi",
       "side2": "to worry"
     },
     {
+      "id": 17,
       "side1": "preoccupazione, la",
       "side2": "worry"
     },
     {
+      "id": 18,
       "side1": "prova scritta, la",
       "side2": "written test"
     },
     {
+      "id": 19,
       "side1": "sede (centrale), la",
       "side2": "headquarters"
     },
     {
+      "id": 20,
       "side1": "squillare",
       "side2": "to ring"
     },
     {
+      "id": 21,
       "side1": "stressante",
       "side2": "stressful"
     },
     {
+      "id": 22,
       "side1": "tecnico, il",
       "side2": "technician"
     }

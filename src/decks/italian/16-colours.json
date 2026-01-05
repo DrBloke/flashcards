@@ -3,78 +3,97 @@
   "title": "Colours",
   "cards": [
     {
+      "id": 0,
       "side1": "arancione",
       "side2": "orange"
     },
     {
+      "id": 1,
       "side1": "azzurro",
       "side2": "blue"
     },
     {
+      "id": 2,
       "side1": "bianco/a/hi/he",
       "side2": "white"
     },
     {
+      "id": 3,
       "side1": "biondo",
       "side2": "blonde"
     },
     {
+      "id": 4,
       "side1": "bruno",
       "side2": "brown"
     },
     {
+      "id": 5,
       "side1": "castano",
       "side2": "light brown"
     },
     {
+      "id": 6,
       "side1": "celeste",
       "side2": "light blue"
     },
     {
+      "id": 7,
       "side1": "chiaro",
       "side2": "light"
     },
     {
+      "id": 8,
       "side1": "colorato",
       "side2": "coloured"
     },
     {
+      "id": 9,
       "side1": "giallo",
       "side2": "yellow"
     },
     {
+      "id": 10,
       "side1": "grigio",
       "side2": "grey"
     },
     {
+      "id": 11,
       "side1": "marrone",
       "side2": "brown"
     },
     {
+      "id": 12,
       "side1": "nero",
       "side2": "black"
     },
     {
+      "id": 13,
       "side1": "rosa (inv)",
       "side2": "pink"
     },
     {
+      "id": 14,
       "side1": "rosso",
       "side2": "red"
     },
     {
+      "id": 15,
       "side1": "scuro",
       "side2": "dark"
     },
     {
+      "id": 16,
       "side1": "tinta unita, la",
       "side2": "plain colour"
     },
     {
+      "id": 17,
       "side1": "verde",
       "side2": "green"
     },
     {
+      "id": 18,
       "side1": "viola (inv)",
       "side2": "mauve"
     }

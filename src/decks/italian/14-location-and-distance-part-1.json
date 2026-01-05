@@ -3,122 +3,152 @@
   "title": "Location and distance (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "a",
       "side2": "at"
     },
     {
+      "id": 1,
       "side1": "a destra",
       "side2": "on the right"
     },
     {
+      "id": 2,
       "side1": "a due passi",
       "side2": "very nearby"
     },
     {
+      "id": 3,
       "side1": "a sinistra",
       "side2": "on the left"
     },
     {
+      "id": 4,
       "side1": "accanto a",
       "side2": "next to"
     },
     {
+      "id": 5,
       "side1": "avanti",
       "side2": "before"
     },
     {
+      "id": 6,
       "side1": "centro, il",
       "side2": "centre"
     },
     {
+      "id": 7,
       "side1": "chilometro, il",
       "side2": "kilometre"
     },
     {
+      "id": 8,
       "side1": "contro",
       "side2": "against"
     },
     {
+      "id": 9,
       "side1": "da",
       "side2": "from"
     },
     {
+      "id": 10,
       "side1": "da nessuna parte",
       "side2": "nowhere"
     },
     {
+      "id": 11,
       "side1": "da ogni parte",
       "side2": "everywhere"
     },
     {
+      "id": 12,
       "side1": "da qualche parte",
       "side2": "somewhere"
     },
     {
+      "id": 13,
       "side1": "da questa parte",
       "side2": "this way"
     },
     {
+      "id": 14,
       "side1": "da tutte le parti",
       "side2": "everywhere"
     },
     {
+      "id": 15,
       "side1": "dall’altra parte",
       "side2": "on the other hand"
     },
     {
+      "id": 16,
       "side1": "dappertutto",
       "side2": "everywhere"
     },
     {
+      "id": 17,
       "side1": "davanti a",
       "side2": "in front of"
     },
     {
+      "id": 18,
       "side1": "dentro",
       "side2": "inside"
     },
     {
+      "id": 19,
       "side1": "di fronte a",
       "side2": "in front of"
     },
     {
+      "id": 20,
       "side1": "dietro",
       "side2": "behind"
     },
     {
+      "id": 21,
       "side1": "diritto/dritto",
       "side2": "ahead"
     },
     {
+      "id": 22,
       "side1": "di sopra",
       "side2": "above"
     },
     {
+      "id": 23,
       "side1": "di sotto",
       "side2": "below"
     },
     {
+      "id": 24,
       "side1": "dove, dov’è",
       "side2": "where, where is"
     },
     {
+      "id": 25,
       "side1": "essere situato",
       "side2": "to be situated"
     },
     {
+      "id": 26,
       "side1": "est, l’ (m)",
       "side2": "east"
     },
     {
+      "id": 27,
       "side1": "fino a",
       "side2": "until, up to"
     },
     {
+      "id": 28,
       "side1": "fuori .... (di)",
       "side2": "outside"
     },
     {
+      "id": 29,
       "side1": "giù .... (per)",
       "side2": "down from"
     }

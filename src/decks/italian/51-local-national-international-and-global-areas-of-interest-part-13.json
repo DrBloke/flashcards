@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 13)",
   "cards": [
     {
+      "id": 0,
       "side1": "ristorante, il",
       "side2": "restaurant"
     },
     {
+      "id": 1,
       "side1": "rompere",
       "side2": "to break"
     },
     {
+      "id": 2,
       "side1": "sale, il",
       "side2": "salt"
     },
     {
+      "id": 3,
       "side1": "salute, la",
       "side2": "health"
     },
     {
+      "id": 4,
       "side1": "sangue, il",
       "side2": "blood"
     },
     {
+      "id": 5,
       "side1": "sano",
       "side2": "healthy"
     },
     {
+      "id": 6,
       "side1": "scatola, la",
       "side2": "box, can"
     },
     {
+      "id": 7,
       "side1": "schiena, la",
       "side2": "back"
     },
     {
+      "id": 8,
       "side1": "secco",
       "side2": "dry"
     },
     {
+      "id": 9,
       "side1": "sentire odore di ….",
       "side2": "to be able to smell"
     },
     {
+      "id": 10,
       "side1": "sentirsi",
       "side2": "to feel (eg unwell)"
     },
     {
+      "id": 11,
       "side1": "sete, la",
       "side2": "thirst"
     },
     {
+      "id": 12,
       "side1": "sigaretta, la",
       "side2": "cigarette"
     },
     {
+      "id": 13,
       "side1": "smettere di",
       "side2": "to stop doing something"
     },
     {
+      "id": 14,
       "side1": "sniffare",
       "side2": "to sniff, snort"
     },
     {
+      "id": 15,
       "side1": "soffrire",
       "side2": "to suffer"
     },
     {
+      "id": 16,
       "side1": "sostanza chimica, la",
       "side2": "chemical substance"
     },
     {
+      "id": 17,
       "side1": "spacciare",
       "side2": "to deal eg drugs"
     },
     {
+      "id": 18,
       "side1": "spacciatore/trice di droga, lo/la",
       "side2": "drug dealer"
     },
     {
+      "id": 19,
       "side1": "spalla, la",
       "side2": "shoulder"
     },
     {
+      "id": 20,
       "side1": "spazzolino da denti, lo",
       "side2": "toothbrush"
     },
     {
+      "id": 21,
       "side1": "spinello, lo",
       "side2": "marijuana cigarette"
     },
     {
+      "id": 22,
       "side1": "spuntino, lo",
       "side2": "snack"
     },
     {
+      "id": 23,
       "side1": "stanco",
       "side2": "tired"
     },
     {
+      "id": 24,
       "side1": "stare bene/male",
       "side2": "to be well/unwell"
     },
     {
+      "id": 25,
       "side1": "stomaco, lo",
       "side2": "stomach"
     },
     {
+      "id": 26,
       "side1": "succedere",
       "side2": "to succeed"
     },
     {
+      "id": 27,
       "side1": "tavola calda, la",
       "side2": "self-service cafeteria"
     },
     {
+      "id": 28,
       "side1": "testa, la",
       "side2": "head"
     },
     {
+      "id": 29,
       "side1": "tosse, la",
       "side2": "cough"
     }

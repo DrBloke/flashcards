@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 6)",
   "cards": [
     {
+      "id": 0,
       "side1": "portatile, il",
       "side2": "laptop"
     },
     {
+      "id": 1,
       "side1": "comprare",
       "side2": "to buy"
     },
     {
+      "id": 2,
       "side1": "cliccare",
       "side2": "to click"
     },
     {
+      "id": 3,
       "side1": "gioco, il",
       "side2": "game"
     },
     {
+      "id": 4,
       "side1": "in linea",
       "side2": "on line"
     },
     {
+      "id": 5,
       "side1": "inviare",
       "side2": "to send"
     },
     {
+      "id": 6,
       "side1": "lettore MP3, il",
       "side2": "MP3 player"
     },
     {
+      "id": 7,
       "side1": "lettore DVD, il",
       "side2": "DVD player"
     },
     {
+      "id": 8,
       "side1": "mouse, il",
       "side2": "mouse"
     },
     {
+      "id": 9,
       "side1": "navigare",
       "side2": "browse, surf"
     },
     {
+      "id": 10,
       "side1": "pericoloso",
       "side2": "dangerous"
     },
     {
+      "id": 11,
       "side1": "portatile, il",
       "side2": "laptop"
     },
     {
+      "id": 12,
       "side1": "passare tempo",
       "side2": "to spend time"
     },
     {
+      "id": 13,
       "side1": "password, la",
       "side2": "password"
     },
     {
+      "id": 14,
       "side1": "rete, la",
       "side2": "web"
     },
     {
+      "id": 15,
       "side1": "ricevere",
       "side2": "to receive"
     },
     {
+      "id": 16,
       "side1": "scaricare",
       "side2": "to download"
     },
     {
+      "id": 17,
       "side1": "sito, il internet/web, il",
       "side2": "site"
     },
     {
+      "id": 18,
       "side1": "SMS, la",
       "side2": "text message"
     },
     {
+      "id": 19,
       "side1": "stampante, la",
       "side2": "printer"
     },
     {
+      "id": 20,
       "side1": "surfare",
       "side2": "to surf/browse the internet"
     },
     {
+      "id": 21,
       "side1": "svantaggio, lo",
       "side2": "disadvantage"
     },
     {
+      "id": 22,
       "side1": "tablet, il",
       "side2": "tablet computer"
     },
     {
+      "id": 23,
       "side1": "tastiera, la",
       "side2": "keyboard"
     },
     {
+      "id": 24,
       "side1": "tasto, il",
       "side2": "key"
     },
     {
+      "id": 25,
       "side1": "telefono cellulare, il",
       "side2": "mobile phone"
     },
     {
+      "id": 26,
       "side1": "telefonino, il",
       "side2": "mobile phone"
     },
     {
+      "id": 27,
       "side1": "vantaggio, il",
       "side2": "advantage"
     },
     {
+      "id": 28,
       "side1": "videogiochi, i",
       "side2": "computer games"
     },
     {
+      "id": 29,
       "side1": "abbonamento, il",
       "side2": "subscription"
     }

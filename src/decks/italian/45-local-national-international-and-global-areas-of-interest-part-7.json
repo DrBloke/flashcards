@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 7)",
   "cards": [
     {
+      "id": 0,
       "side1": "sala da pranzo, la",
       "side2": "dining room"
     },
     {
+      "id": 1,
       "side1": "salire",
       "side2": "to go up, get into (transport)"
     },
     {
+      "id": 2,
       "side1": "salotto, il",
       "side2": "sitting room"
     },
     {
+      "id": 3,
       "side1": "salumeria, la",
       "side2": "delicatessen"
     },
     {
+      "id": 4,
       "side1": "sandalo, il",
       "side2": "sandal"
     },
     {
+      "id": 5,
       "side1": "sbrigarsi",
       "side2": "to hurry up"
     },
     {
+      "id": 6,
       "side1": "scaffale, lo",
       "side2": "shelf"
     },
     {
+      "id": 7,
       "side1": "scale, le",
       "side2": "stairs"
     },
     {
+      "id": 8,
       "side1": "scarpa, la",
       "side2": "shoe"
     },
     {
+      "id": 9,
       "side1": "scegliere",
       "side2": "to choose"
     },
     {
+      "id": 10,
       "side1": "scelta, la",
       "side2": "choice"
     },
     {
+      "id": 11,
       "side1": "scendere",
       "side2": "to go down, get out of (transport)"
     },
     {
+      "id": 12,
       "side1": "sciarpa, la",
       "side2": "scarf"
     },
     {
+      "id": 13,
       "side1": "sconto, lo",
       "side2": "discount"
     },
     {
+      "id": 14,
       "side1": "scontrino, lo",
       "side2": "receipt"
     },
     {
+      "id": 15,
       "side1": "scrivania, la",
       "side2": "desk"
     },
     {
+      "id": 16,
       "side1": "sedersi",
       "side2": "to sit down"
     },
     {
+      "id": 17,
       "side1": "sedia, la",
       "side2": "chair"
     },
     {
+      "id": 18,
       "side1": "servizi, i",
       "side2": "bathroom"
     },
     {
+      "id": 19,
       "side1": "soffitta, la",
       "side2": "attic, loft"
     },
     {
+      "id": 20,
       "side1": "soggiorno, il",
       "side2": "sitting room"
     },
     {
+      "id": 21,
       "side1": "sogno, il",
       "side2": "dream"
     },
     {
+      "id": 22,
       "side1": "soldi, i",
       "side2": "sale"
     },
     {
+      "id": 23,
       "side1": "spazioso",
       "side2": "spacious"
     },
     {
+      "id": 24,
       "side1": "specchio, lo",
       "side2": "mirror"
     },
     {
+      "id": 25,
       "side1": "spegnere",
       "side2": "to switch off"
     },
     {
+      "id": 26,
       "side1": "sport acquatico, lo",
       "side2": "water sport"
     },
     {
+      "id": 27,
       "side1": "stanza, la",
       "side2": "room"
     },
     {
+      "id": 28,
       "side1": "sterlina, la",
       "side2": "pound"
     },
     {
+      "id": 29,
       "side1": "stivale, lo",
       "side2": "boot"
     }

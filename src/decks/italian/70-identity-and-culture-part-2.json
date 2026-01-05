@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "sorellastra, la",
       "side2": "step/half sister"
     },
     {
+      "id": 1,
       "side1": "sorvegliare",
       "side2": "monitor, keep an eye on"
     },
     {
+      "id": 2,
       "side1": "strano",
       "side2": "strange"
     },
     {
+      "id": 3,
       "side1": "suocero/a, il/ la",
       "side2": "father/mother-in-law"
     },
     {
+      "id": 4,
       "side1": "tagliare",
       "side2": "to cut"
     },
     {
+      "id": 5,
       "side1": "temperamento, il",
       "side2": "temperament"
     },
     {
+      "id": 6,
       "side1": "teppismo, il",
       "side2": "hooliganism"
     },
     {
+      "id": 7,
       "side1": "teppista, il",
       "side2": "hooligan"
     },
     {
+      "id": 8,
       "side1": "una famiglia composta da …",
       "side2": "a family consisting of"
     },
     {
+      "id": 9,
       "side1": "voler bene (a qn.)",
       "side2": "to love"
     },
     {
+      "id": 10,
       "side1": "accesso a distanza, l’",
       "side2": "remote access"
     },
     {
+      "id": 11,
       "side1": "allegato",
       "side2": "attached"
     },
     {
+      "id": 12,
       "side1": "blogger",
       "side2": "blogger"
     },
     {
+      "id": 13,
       "side1": "cancellare",
       "side2": "to delete"
     },
     {
+      "id": 14,
       "side1": "console per videogiochi",
       "side2": "games console"
     },
     {
+      "id": 15,
       "side1": "destinatario, il",
       "side2": "addressee"
     },
     {
+      "id": 16,
       "side1": "in diretta",
       "side2": "live"
     },
     {
+      "id": 17,
       "side1": "motore di ricerca, il",
       "side2": "search engine"
     },
     {
+      "id": 18,
       "side1": "pila",
       "side2": "battery"
     },
     {
+      "id": 19,
       "side1": "salvare",
       "side2": "to save"
     },
     {
+      "id": 20,
       "side1": "sistema operativo, il",
       "side2": "operating system"
     },
     {
+      "id": 21,
       "side1": "stampare",
       "side2": "to print"
     },
     {
+      "id": 22,
       "side1": "accompagnare",
       "side2": "to go with"
     },
     {
+      "id": 23,
       "side1": "aglio, l’",
       "side2": "garlic"
     },
     {
+      "id": 24,
       "side1": "albicocca, l’",
       "side2": "apricot"
     },
     {
+      "id": 25,
       "side1": "alpinismo, l’",
       "side2": "climbing"
     },
     {
+      "id": 26,
       "side1": "amaro",
       "side2": "bitter, sour"
     },
     {
+      "id": 27,
       "side1": "andare in barca a vela",
       "side2": "to go sailing"
     },
     {
+      "id": 28,
       "side1": "assegno, l’",
       "side2": "cheque"
     },
     {
+      "id": 29,
       "side1": "atleta, l’",
       "side2": "athlete"
     }

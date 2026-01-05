@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 12)",
   "cards": [
     {
+      "id": 0,
       "side1": "mangiare",
       "side2": "to eat"
     },
     {
+      "id": 1,
       "side1": "mano, la (le mani)",
       "side2": "hand (hands)"
     },
     {
+      "id": 2,
       "side1": "mantenersi in forma",
       "side2": "to keep fit"
     },
     {
+      "id": 3,
       "side1": "medicina, la",
       "side2": "medication"
     },
     {
+      "id": 4,
       "side1": "medico, il",
       "side2": "doctor"
     },
     {
+      "id": 5,
       "side1": "merenda, la",
       "side2": "afternoon snack"
     },
     {
+      "id": 6,
       "side1": "morire",
       "side2": "to die"
     },
     {
+      "id": 7,
       "side1": "morte, la",
       "side2": "death"
     },
     {
+      "id": 8,
       "side1": "negozio di beneficenza, il",
       "side2": "charity shop"
     },
     {
+      "id": 9,
       "side1": "occhio, l’",
       "side2": "eye"
     },
     {
+      "id": 10,
       "side1": "odore, l’",
       "side2": "odour"
     },
     {
+      "id": 11,
       "side1": "orecchio, l’",
       "side2": "ear"
     },
     {
+      "id": 12,
       "side1": "ospedale, l’",
       "side2": "hospital"
     },
     {
+      "id": 13,
       "side1": "pancia, la",
       "side2": "abdomen, stomach"
     },
     {
+      "id": 14,
       "side1": "pastiglia, la",
       "side2": "lozenge"
     },
     {
+      "id": 15,
       "side1": "pericolo, il",
       "side2": "danger"
     },
     {
+      "id": 16,
       "side1": "pericoloso",
       "side2": "dangerous"
     },
     {
+      "id": 17,
       "side1": "piede, il",
       "side2": "foot"
     },
     {
+      "id": 18,
       "side1": "pieno",
       "side2": "full"
     },
     {
+      "id": 19,
       "side1": "polizia, la",
       "side2": "police"
     },
     {
+      "id": 20,
       "side1": "poliziotto, il",
       "side2": "policeman"
     },
     {
+      "id": 21,
       "side1": "polmone, il",
       "side2": "lung"
     },
     {
+      "id": 22,
       "side1": "pompiere, il",
       "side2": "firefighter"
     },
     {
+      "id": 23,
       "side1": "profumo, il",
       "side2": "perfume"
     },
     {
+      "id": 24,
       "side1": "pronto soccorso, il",
       "side2": "first aid"
     },
     {
+      "id": 25,
       "side1": "raffreddore, il",
       "side2": "cold"
     },
     {
+      "id": 26,
       "side1": "razzismo",
       "side2": "racism"
     },
     {
+      "id": 27,
       "side1": "razzista",
       "side2": "racist"
     },
     {
+      "id": 28,
       "side1": "rilassarsi",
       "side2": "to relax"
     },
     {
+      "id": 29,
       "side1": "riposarsi",
       "side2": "to rest"
     }

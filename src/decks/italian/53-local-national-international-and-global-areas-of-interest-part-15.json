@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 15)",
   "cards": [
     {
+      "id": 0,
       "side1": "gas di scarico, il",
       "side2": "exhaust fumes"
     },
     {
+      "id": 1,
       "side1": "gas serra, i",
       "side2": "greenhouse gases"
     },
     {
+      "id": 2,
       "side1": "gettare",
       "side2": "to throw (away)"
     },
     {
+      "id": 3,
       "side1": "globale",
       "side2": "global"
     },
     {
+      "id": 4,
       "side1": "incendio, l’",
       "side2": "fire"
     },
     {
+      "id": 5,
       "side1": "industria chimica, l’",
       "side2": "chemical industry"
     },
     {
+      "id": 6,
       "side1": "inquinamento, l’ (dell’acqua/dell’aria,)",
       "side2": "(water/air) pollution"
     },
     {
+      "id": 7,
       "side1": "inquinare",
       "side2": "to pollute"
     },
     {
+      "id": 8,
       "side1": "lattina, la",
       "side2": "can"
     },
     {
+      "id": 9,
       "side1": "mezzi pubblici, i",
       "side2": "public transport"
     },
     {
+      "id": 10,
       "side1": "pedone, il",
       "side2": "pedestrian"
     },
     {
+      "id": 11,
       "side1": "pista ciclabile, la",
       "side2": "cycle path"
     },
     {
+      "id": 12,
       "side1": "povertà",
       "side2": "poverty"
     },
     {
+      "id": 13,
       "side1": "problema ambientale, il",
       "side2": "environmental problem"
     },
     {
+      "id": 14,
       "side1": "produrre",
       "side2": "to produce"
     },
     {
+      "id": 15,
       "side1": "proteggere",
       "side2": "to protect"
     },
     {
+      "id": 16,
       "side1": "pulito",
       "side2": "clean"
     },
     {
+      "id": 17,
       "side1": "riciclabile",
       "side2": "recyclable"
     },
     {
+      "id": 18,
       "side1": "riciclaggio, il",
       "side2": "recycling"
     },
     {
+      "id": 19,
       "side1": "riciclare",
       "side2": "to recycle"
     },
     {
+      "id": 20,
       "side1": "rifiuti, i",
       "side2": "rubbish"
     },
     {
+      "id": 21,
       "side1": "risparmiare",
       "side2": "to save"
     },
     {
+      "id": 22,
       "side1": "riusare",
       "side2": "to reuse"
     },
     {
+      "id": 23,
       "side1": "sacchetti di plastica, i",
       "side2": "plastic bags"
     },
     {
+      "id": 24,
       "side1": "senzatetto, il",
       "side2": "homeless person"
     },
     {
+      "id": 25,
       "side1": "sporcare",
       "side2": "to make dirty"
     },
     {
+      "id": 26,
       "side1": "terremoto, il",
       "side2": "earthquake"
     },
     {
+      "id": 27,
       "side1": "traffico, il",
       "side2": "traffic"
     },
     {
+      "id": 28,
       "side1": "trasporto, il",
       "side2": "transport"
     },
     {
+      "id": 29,
       "side1": "usare",
       "side2": "to use"
     }

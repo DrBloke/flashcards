@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 5)",
   "cards": [
     {
+      "id": 0,
       "side1": "mobili, i",
       "side2": "furniture"
     },
     {
+      "id": 1,
       "side1": "moda, la",
       "side2": "fashion"
     },
     {
+      "id": 2,
       "side1": "moneta, la",
       "side2": "money in coins"
     },
     {
+      "id": 3,
       "side1": "montagna, la",
       "side2": "mountain"
     },
     {
+      "id": 4,
       "side1": "monumento, il",
       "side2": "monument"
     },
     {
+      "id": 5,
       "side1": "mostrare",
       "side2": "to show"
     },
     {
+      "id": 6,
       "side1": "muro, il",
       "side2": "wall"
     },
     {
+      "id": 7,
       "side1": "negoziante, il/la",
       "side2": "shop keeper"
     },
     {
+      "id": 8,
       "side1": "negozio del quartiere, il",
       "side2": "local shops"
     },
     {
+      "id": 9,
       "side1": "negozio di abbigliamento, il",
       "side2": "clothes shop"
     },
     {
+      "id": 10,
       "side1": "negozio di generi alimentari, il",
       "side2": "grocer’s shop"
     },
     {
+      "id": 11,
       "side1": "negozio, il",
       "side2": "shop"
     },
     {
+      "id": 12,
       "side1": "offerta speciale, l’",
       "side2": "special offer"
     },
     {
+      "id": 13,
       "side1": "ora di pranzo/cena, l’",
       "side2": "lunch/dinner time"
     },
     {
+      "id": 14,
       "side1": "ordinato",
       "side2": "tidy"
     },
     {
+      "id": 15,
       "side1": "orecchini, gli",
       "side2": "earrings"
     },
     {
+      "id": 16,
       "side1": "orologio, l’",
       "side2": "clock, watch"
     },
     {
+      "id": 17,
       "side1": "paesaggio, il",
       "side2": "countryside"
     },
     {
+      "id": 18,
       "side1": "Paese, il",
       "side2": "country"
     },
     {
+      "id": 19,
       "side1": "paese, il",
       "side2": "village"
     },
     {
+      "id": 20,
       "side1": "pagare (in contanti)",
       "side2": "to pay cash"
     },
     {
+      "id": 21,
       "side1": "palazzo, il",
       "side2": "building, palace"
     },
     {
+      "id": 22,
       "side1": "panetteria, la",
       "side2": "baker’s shop"
     },
     {
+      "id": 23,
       "side1": "pantaloni, i",
       "side2": "trousers"
     },
     {
+      "id": 24,
       "side1": "parco, il",
       "side2": "park"
     },
     {
+      "id": 25,
       "side1": "parete, la",
       "side2": "wall (interior)"
     },
     {
+      "id": 26,
       "side1": "pasticceria, la",
       "side2": "cake shop"
     },
     {
+      "id": 27,
       "side1": "piano, il",
       "side2": "floor, piano"
     },
     {
+      "id": 28,
       "side1": "pianta, la",
       "side2": "plant"
     },
     {
+      "id": 29,
       "side1": "pianterreno, il",
       "side2": "ground floor"
     }

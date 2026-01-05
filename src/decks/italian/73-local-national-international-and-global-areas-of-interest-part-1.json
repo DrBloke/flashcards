@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "a righe",
       "side2": "stripy"
     },
     {
+      "id": 1,
       "side1": "abbigliamento, l’",
       "side2": "clothing"
     },
     {
+      "id": 2,
       "side1": "accomodarsi",
       "side2": "to settle in"
     },
     {
+      "id": 3,
       "side1": "ammobiliato",
       "side2": "furnished"
     },
     {
+      "id": 4,
       "side1": "apparecchiare",
       "side2": "to lay (table)"
     },
     {
+      "id": 5,
       "side1": "aspirapolvere, l’",
       "side2": "vacuum cleaner"
     },
     {
+      "id": 6,
       "side1": "badare al bambino",
       "side2": "look after a child (babysit)"
     },
     {
+      "id": 7,
       "side1": "bosco, il",
       "side2": "wood (trees)"
     },
     {
+      "id": 8,
       "side1": "box, il",
       "side2": "garage (parking)"
     },
     {
+      "id": 9,
       "side1": "bussare",
       "side2": "to knock"
     },
     {
+      "id": 10,
       "side1": "campanello, il",
       "side2": "bell"
     },
     {
+      "id": 11,
       "side1": "canale, il",
       "side2": "TV channel"
     },
     {
+      "id": 12,
       "side1": "cappello, il",
       "side2": "hat"
     },
     {
+      "id": 13,
       "side1": "cappotto, il",
       "side2": "coat"
     },
     {
+      "id": 14,
       "side1": "cartello, il",
       "side2": "sign"
     },
     {
+      "id": 15,
       "side1": "cintura, la",
       "side2": "belt"
     },
     {
+      "id": 16,
       "side1": "circondato",
       "side2": "surrounded"
     },
     {
+      "id": 17,
       "side1": "collant, i",
       "side2": "tights"
     },
     {
+      "id": 18,
       "side1": "collina, la",
       "side2": "hill"
     },
     {
+      "id": 19,
       "side1": "comodino, il",
       "side2": "bedside table"
     },
     {
+      "id": 20,
       "side1": "composto",
       "side2": "made up of"
     },
     {
+      "id": 21,
       "side1": "fiume, il",
       "side2": "river"
     },
     {
+      "id": 22,
       "side1": "foglia, la",
       "side2": "leaf"
     },
     {
+      "id": 23,
       "side1": "golfino, il",
       "side2": "cardigan"
     },
     {
+      "id": 24,
       "side1": "guanto, il",
       "side2": "glove"
     },
     {
+      "id": 25,
       "side1": "impermeabile, l’",
       "side2": "raincoat"
     },
     {
+      "id": 26,
       "side1": "ingresso, l’",
       "side2": "entrance"
     },
     {
+      "id": 27,
       "side1": "lavanderia, la",
       "side2": "utility room, laundry"
     },
     {
+      "id": 28,
       "side1": "lenzuolo, il",
       "side2": "sheet"
     },
     {
+      "id": 29,
       "side1": "mansarda, la",
       "side2": "attic room"
     }

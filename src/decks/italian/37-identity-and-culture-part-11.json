@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 11)",
   "cards": [
     {
+      "id": 0,
       "side1": "restare",
       "side2": "to stay, remain"
     },
     {
+      "id": 1,
       "side1": "ricevere",
       "side2": "to receive"
     },
     {
+      "id": 2,
       "side1": "ridere",
       "side2": "to laugh"
     },
     {
+      "id": 3,
       "side1": "riso, il",
       "side2": "rice"
     },
     {
+      "id": 4,
       "side1": "ritornare",
       "side2": "to return"
     },
     {
+      "id": 5,
       "side1": "rivista, la",
       "side2": "magazine"
     },
     {
+      "id": 6,
       "side1": "scacchi, gli",
       "side2": "chess"
     },
     {
+      "id": 7,
       "side1": "scoprire",
       "side2": "to discover"
     },
     {
+      "id": 8,
       "side1": "sottotitoli, i",
       "side2": "subtitles"
     },
     {
+      "id": 9,
       "side1": "speciale",
       "side2": "special"
     },
     {
+      "id": 10,
       "side1": "spedire un pacco",
       "side2": "to send a parcel"
     },
     {
+      "id": 11,
       "side1": "spendere",
       "side2": "to spend - money"
     },
     {
+      "id": 12,
       "side1": "spettacolo, lo",
       "side2": "show, play"
     },
     {
+      "id": 13,
       "side1": "spinaci, gli",
       "side2": "spinach"
     },
     {
+      "id": 14,
       "side1": "squadra, la",
       "side2": "team"
     },
     {
+      "id": 15,
       "side1": "stadio, lo",
       "side2": "stadium"
     },
     {
+      "id": 16,
       "side1": "stella, la (del cinema)",
       "side2": "film star"
     },
     {
+      "id": 17,
       "side1": "strumento, lo (musicale)",
       "side2": "instrument"
     },
     {
+      "id": 18,
       "side1": "succo di frutta, il",
       "side2": "fruit juice"
     },
     {
+      "id": 19,
       "side1": "suggerire",
       "side2": "to suggest"
     },
     {
+      "id": 20,
       "side1": "suonare",
       "side2": "to play an instrument, ring a bell"
     },
     {
+      "id": 21,
       "side1": "tatuaggio, il",
       "side2": "tattoo"
     },
     {
+      "id": 22,
       "side1": "telegiornale, il",
       "side2": "television news"
     },
     {
+      "id": 23,
       "side1": "tempo libero, il",
       "side2": "free time"
     },
     {
+      "id": 24,
       "side1": "tennis da tavolo, il",
       "side2": "table tennis"
     },
     {
+      "id": 25,
       "side1": "toccare",
       "side2": "to touch"
     },
     {
+      "id": 26,
       "side1": "tornare",
       "side2": "to return, turn"
     },
     {
+      "id": 27,
       "side1": "torta, la",
       "side2": "cake"
     },
     {
+      "id": 28,
       "side1": "uovo, l’ (le uova)",
       "side2": "egg, eggs"
     },
     {
+      "id": 29,
       "side1": "uva, l’",
       "side2": "grapes"
     }

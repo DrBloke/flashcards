@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 20)",
   "cards": [
     {
+      "id": 0,
       "side1": "partire",
       "side2": "to leave"
     },
     {
+      "id": 1,
       "side1": "passare",
       "side2": "to spend (time)"
     },
     {
+      "id": 2,
       "side1": "passeggero, il",
       "side2": "passenger"
     },
     {
+      "id": 3,
       "side1": "pensione completa, la",
       "side2": "full board"
     },
     {
+      "id": 4,
       "side1": "piantina, la",
       "side2": "map"
     },
     {
+      "id": 5,
       "side1": "piatto del giorno, il",
       "side2": "dish of the day"
     },
     {
+      "id": 6,
       "side1": "Portogallo, il",
       "side2": "Portugal"
     },
     {
+      "id": 7,
       "side1": "portoghese, il/la",
       "side2": "Portuguese"
     },
     {
+      "id": 8,
       "side1": "prendere il sole",
       "side2": "to sun bathe"
     },
     {
+      "id": 9,
       "side1": "prenotare",
       "side2": "to book"
     },
     {
+      "id": 10,
       "side1": "prenotazione,",
       "side2": "booking"
     },
     {
+      "id": 11,
       "side1": "prima colazione, la",
       "side2": "breakfast"
     },
     {
+      "id": 12,
       "side1": "primo piatto, il",
       "side2": "first course"
     },
     {
+      "id": 13,
       "side1": "pullman, il",
       "side2": "bus"
     },
     {
+      "id": 14,
       "side1": "Regno Unito, il",
       "side2": "United Kingdom"
     },
     {
+      "id": 15,
       "side1": "religioso",
       "side2": "religious"
     },
     {
+      "id": 16,
       "side1": "ricordare",
       "side2": "to remember"
     },
     {
+      "id": 17,
       "side1": "rimanere",
       "side2": "to stay, remain"
     },
     {
+      "id": 18,
       "side1": "ritorno, il",
       "side2": "return"
     },
     {
+      "id": 19,
       "side1": "Roma",
       "side2": "Rome"
     },
     {
+      "id": 20,
       "side1": "russo/a, il/la",
       "side2": "Russian (person)"
     },
     {
+      "id": 21,
       "side1": "sabbia, la",
       "side2": "sand"
     },
     {
+      "id": 22,
       "side1": "sapone, il",
       "side2": "soap"
     },
     {
+      "id": 23,
       "side1": "Sardegna, la",
       "side2": "Sardinia"
     },
     {
+      "id": 24,
       "side1": "sardo/a, il/la",
       "side2": "Sardinian (person)"
     },
     {
+      "id": 25,
       "side1": "sci, lo (inv)",
       "side2": "skiing"
     },
     {
+      "id": 26,
       "side1": "sciare",
       "side2": "to ski"
     },
     {
+      "id": 27,
       "side1": "sciopero, lo",
       "side2": "strike"
     },
     {
+      "id": 28,
       "side1": "Scozia, la",
       "side2": "Scotland"
     },
     {
+      "id": 29,
       "side1": "scozzese, il/la",
       "side2": "Scottish (person)"
     }

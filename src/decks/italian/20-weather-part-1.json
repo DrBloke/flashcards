@@ -3,122 +3,152 @@
   "title": "Weather (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "asciutto",
       "side2": "dry"
     },
     {
+      "id": 1,
       "side1": "bagnato",
       "side2": "wet"
     },
     {
+      "id": 2,
       "side1": "bollettino meteorologico, il",
       "side2": "weather forecast"
     },
     {
+      "id": 3,
       "side1": "cielo, il",
       "side2": "sky"
     },
     {
+      "id": 4,
       "side1": "clima, il",
       "side2": "climate"
     },
     {
+      "id": 5,
       "side1": "coperto",
       "side2": "overcast"
     },
     {
+      "id": 6,
       "side1": "fare bel/brutto tempo",
       "side2": "to be fine/bad weather"
     },
     {
+      "id": 7,
       "side1": "fare caldo/freddo",
       "side2": "to be hot/cold weather"
     },
     {
+      "id": 8,
       "side1": "fare fresco",
       "side2": "to be chilly"
     },
     {
+      "id": 9,
       "side1": "gelare",
       "side2": "to freeze"
     },
     {
+      "id": 10,
       "side1": "gelo, il",
       "side2": "frost"
     },
     {
+      "id": 11,
       "side1": "ghiaccio, il",
       "side2": "ice"
     },
     {
+      "id": 12,
       "side1": "grado, il",
       "side2": "degree (temperature)"
     },
     {
+      "id": 13,
       "side1": "lampo, il",
       "side2": "lightening"
     },
     {
+      "id": 14,
       "side1": "mare, il",
       "side2": "sea"
     },
     {
+      "id": 15,
       "side1": "mite",
       "side2": "mild"
     },
     {
+      "id": 16,
       "side1": "mosso",
       "side2": "rough"
     },
     {
+      "id": 17,
       "side1": "nebbia, la",
       "side2": "fog"
     },
     {
+      "id": 18,
       "side1": "neve, la",
       "side2": "snow"
     },
     {
+      "id": 19,
       "side1": "nevicare",
       "side2": "to snow"
     },
     {
+      "id": 20,
       "side1": "nuvola, la",
       "side2": "cloud"
     },
     {
+      "id": 21,
       "side1": "nuvoloso",
       "side2": "cloudy"
     },
     {
+      "id": 22,
       "side1": "ombra, l’",
       "side2": "shade"
     },
     {
+      "id": 23,
       "side1": "onda, l’",
       "side2": "wave"
     },
     {
+      "id": 24,
       "side1": "palla di neve, la",
       "side2": "snowball"
     },
     {
+      "id": 25,
       "side1": "pioggia, la",
       "side2": "rain"
     },
     {
+      "id": 26,
       "side1": "piovere",
       "side2": "to rain"
     },
     {
+      "id": 27,
       "side1": "previsioni del tempo, le",
       "side2": "weather forecast"
     },
     {
+      "id": 28,
       "side1": "sereno",
       "side2": "clear sky"
     },
     {
+      "id": 29,
       "side1": "sole, il",
       "side2": "sun"
     }

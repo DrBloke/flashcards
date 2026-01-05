@@ -3,50 +3,62 @@
   "title": "Numbers",
   "cards": [
     {
+      "id": 0,
       "side1": "mille",
       "side2": "thousand"
     },
     {
+      "id": 1,
       "side1": "duemila",
       "side2": "two thousand"
     },
     {
+      "id": 2,
       "side1": "milione, un",
       "side2": "million"
     },
     {
+      "id": 3,
       "side1": "miliardo, un",
       "side2": "billion"
     },
     {
+      "id": 4,
       "side1": "centinaio, un (centinaia di)",
       "side2": "about a hundred"
     },
     {
+      "id": 5,
       "side1": "migliaio, un (migliaia di...)",
       "side2": "about a thousand (thousands of ...)"
     },
     {
+      "id": 6,
       "side1": "decina, una",
       "side2": "about ten"
     },
     {
+      "id": 7,
       "side1": "dozzina, una",
       "side2": "dozen"
     },
     {
+      "id": 8,
       "side1": "ventina, una",
       "side2": "about twenty"
     },
     {
+      "id": 9,
       "side1": "trentina, una",
       "side2": "about thirty"
     },
     {
+      "id": 10,
       "side1": "paio, un",
       "side2": "pair"
     },
     {
+      "id": 11,
       "side1": "numero, un",
       "side2": "number"
     }

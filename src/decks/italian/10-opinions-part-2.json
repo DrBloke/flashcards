@@ -3,86 +3,107 @@
   "title": "Opinions (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "noioso",
       "side2": "boring"
     },
     {
+      "id": 1,
       "side1": "nuovo",
       "side2": "new"
     },
     {
+      "id": 2,
       "side1": "odiare",
       "side2": "to hate"
     },
     {
+      "id": 3,
       "side1": "pensare",
       "side2": "to think"
     },
     {
+      "id": 4,
       "side1": "permettere",
       "side2": "to allow"
     },
     {
+      "id": 5,
       "side1": "piacere, il",
       "side2": "pleasure"
     },
     {
+      "id": 6,
       "side1": "preferire",
       "side2": "to prefer"
     },
     {
+      "id": 7,
       "side1": "preferito",
       "side2": "favourite"
     },
     {
+      "id": 8,
       "side1": "promettere",
       "side2": "to promise"
     },
     {
+      "id": 9,
       "side1": "scontento",
       "side2": "unhappy"
     },
     {
+      "id": 10,
       "side1": "sembrare",
       "side2": "to seem"
     },
     {
+      "id": 11,
       "side1": "semplice",
       "side2": "simple"
     },
     {
+      "id": 12,
       "side1": "sicuro",
       "side2": "sure, safe"
     },
     {
+      "id": 13,
       "side1": "soddisfacente",
       "side2": "satisfying"
     },
     {
+      "id": 14,
       "side1": "sorpresa, la",
       "side2": "surprise"
     },
     {
+      "id": 15,
       "side1": "sorpreso",
       "side2": "surprising"
     },
     {
+      "id": 16,
       "side1": "speranza, la",
       "side2": "hope"
     },
     {
+      "id": 17,
       "side1": "sperare",
       "side2": "to hope"
     },
     {
+      "id": 18,
       "side1": "spiritoso",
       "side2": "witty"
     },
     {
+      "id": 19,
       "side1": "utile",
       "side2": "useful"
     },
     {
+      "id": 20,
       "side1": "vecchio",
       "side2": "old"
     }

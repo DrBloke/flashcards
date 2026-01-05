@@ -3,110 +3,137 @@
   "title": "Identity and culture (part 4)",
   "cards": [
     {
+      "id": 0,
       "side1": "pesca, la",
       "side2": "fishing"
     },
     {
+      "id": 1,
       "side1": "pescare",
       "side2": "to fish"
     },
     {
+      "id": 2,
       "side1": "pescheria, la",
       "side2": "fish shop"
     },
     {
+      "id": 3,
       "side1": "piccante",
       "side2": "spicy"
     },
     {
+      "id": 4,
       "side1": "pisello, il",
       "side2": "pea"
     },
     {
+      "id": 5,
       "side1": "pompelmo, il",
       "side2": "grapefruit"
     },
     {
+      "id": 6,
       "side1": "prugna, la",
       "side2": "plum"
     },
     {
+      "id": 7,
       "side1": "reparto, il (abbigliamento/casalinghi)",
       "side2": "(clothing/household) department"
     },
     {
+      "id": 8,
       "side1": "resto, il",
       "side2": "change (in money)"
     },
     {
+      "id": 9,
       "side1": "ricetta, la",
       "side2": "recipe"
     },
     {
+      "id": 10,
       "side1": "rosmarino, il",
       "side2": "rosemary"
     },
     {
+      "id": 11,
       "side1": "saldi, i (di fine stagione)",
       "side2": "(end of season) sale"
     },
     {
+      "id": 12,
       "side1": "sapere di",
       "side2": "taste of"
     },
     {
+      "id": 13,
       "side1": "scala mobile, la",
       "side2": "escalator"
     },
     {
+      "id": 14,
       "side1": "sci nautico, lo",
       "side2": "water skiing"
     },
     {
+      "id": 15,
       "side1": "servizio a domicilio, il",
       "side2": "home delivery"
     },
     {
+      "id": 16,
       "side1": "spiccioli, gli",
       "side2": "change (in coins)"
     },
     {
+      "id": 17,
       "side1": "spingere",
       "side2": "to push"
     },
     {
+      "id": 18,
       "side1": "svendita, la",
       "side2": "(closing down) sale"
     },
     {
+      "id": 19,
       "side1": "tonno, il",
       "side2": "tuna"
     },
     {
+      "id": 20,
       "side1": "trota, la",
       "side2": "trout"
     },
     {
+      "id": 21,
       "side1": "vitello, il",
       "side2": "veal"
     },
     {
+      "id": 22,
       "side1": "zucchino, lo",
       "side2": "courgette"
     },
     {
+      "id": 23,
       "side1": "canzone natalizia, la",
       "side2": "Christmas carol/song"
     },
     {
+      "id": 24,
       "side1": "maschera, la",
       "side2": "mask"
     },
     {
+      "id": 25,
       "side1": "processione, la",
       "side2": "procession"
     },
     {
+      "id": 26,
       "side1": "settimana di Pentecoste",
       "side2": "Whitsuntide"
     }

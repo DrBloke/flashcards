@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 7)",
   "cards": [
     {
+      "id": 0,
       "side1": "legge, la",
       "side2": "law"
     },
     {
+      "id": 1,
       "side1": "lettera, la",
       "side2": "letter"
     },
     {
+      "id": 2,
       "side1": "macellaio/a, il/la",
       "side2": "butcher"
     },
     {
+      "id": 3,
       "side1": "mandare",
       "side2": "to send"
     },
     {
+      "id": 4,
       "side1": "meccanico, il",
       "side2": "mechanic"
     },
     {
+      "id": 5,
       "side1": "messaggio, il",
       "side2": "message"
     },
     {
+      "id": 6,
       "side1": "migliorare",
       "side2": "to improve"
     },
     {
+      "id": 7,
       "side1": "negoziante, il",
       "side2": "shopkeeper"
     },
     {
+      "id": 8,
       "side1": "notizia, la",
       "side2": "news"
     },
     {
+      "id": 9,
       "side1": "obiettivi, gli",
       "side2": "objectives"
     },
     {
+      "id": 10,
       "side1": "onestà, l’",
       "side2": "honesty"
     },
     {
+      "id": 11,
       "side1": "operaio, l’",
       "side2": "workman"
     },
     {
+      "id": 12,
       "side1": "orario di lavoro, l’",
       "side2": "hours of work"
     },
     {
+      "id": 13,
       "side1": "orario flessibile, l'",
       "side2": "flexible working hours"
     },
     {
+      "id": 14,
       "side1": "padrone, il",
       "side2": "boss"
     },
     {
+      "id": 15,
       "side1": "paga, la",
       "side2": "pay"
     },
     {
+      "id": 16,
       "side1": "parrucchiere/a, il/la",
       "side2": "hairdresser"
     },
     {
+      "id": 17,
       "side1": "partecipazione, la",
       "side2": "participation"
     },
     {
+      "id": 18,
       "side1": "pittore/pittrice, il/la",
       "side2": "painter"
     },
     {
+      "id": 19,
       "side1": "possibile",
       "side2": "possible"
     },
     {
+      "id": 20,
       "side1": "postino, il",
       "side2": "postman"
     },
     {
+      "id": 21,
       "side1": "prefisso, il",
       "side2": "prefix"
     },
     {
+      "id": 22,
       "side1": "prete, il",
       "side2": "priest"
     },
     {
+      "id": 23,
       "side1": "professore/professoressa, il/la",
       "side2": "teacher"
     },
     {
+      "id": 24,
       "side1": "pronto",
       "side2": "ready"
     },
     {
+      "id": 25,
       "side1": "proprietario, il",
       "side2": "owner"
     },
     {
+      "id": 26,
       "side1": "provare",
       "side2": "to try"
     },
     {
+      "id": 27,
       "side1": "pubblicità, la (inv)",
       "side2": "advertising"
     },
     {
+      "id": 28,
       "side1": "richiamare",
       "side2": "to call back"
     },
     {
+      "id": 29,
       "side1": "rispondere",
       "side2": "to reply"
     }

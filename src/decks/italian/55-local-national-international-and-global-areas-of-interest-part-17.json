@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 17)",
   "cards": [
     {
+      "id": 0,
       "side1": "bibita, la",
       "side2": "soft drink"
     },
     {
+      "id": 1,
       "side1": "bicicletta, la",
       "side2": "bicycle"
     },
     {
+      "id": 2,
       "side1": "biglietteria, la",
       "side2": "ticket office"
     },
     {
+      "id": 3,
       "side1": "biglietto di andata e ritorno, il",
       "side2": "return ticket"
     },
     {
+      "id": 4,
       "side1": "biglietto di andata, il",
       "side2": "single ticket"
     },
     {
+      "id": 5,
       "side1": "biglietto intero/ridotto, il",
       "side2": "full priced/reduced price ticket"
     },
     {
+      "id": 6,
       "side1": "binario, il",
       "side2": "platform"
     },
     {
+      "id": 7,
       "side1": "bolognese",
       "side2": "bolognese meat sauce"
     },
     {
+      "id": 8,
       "side1": "camera a due letti, la",
       "side2": "twin room"
     },
     {
+      "id": 9,
       "side1": "camera doppia, la",
       "side2": "double room"
     },
     {
+      "id": 10,
       "side1": "camera matrimoniale, la",
       "side2": "double room with double bed"
     },
     {
+      "id": 11,
       "side1": "camera singola, la",
       "side2": "single room"
     },
     {
+      "id": 12,
       "side1": "cameriere/a, il/la",
       "side2": "waiter/waitress"
     },
     {
+      "id": 13,
       "side1": "camion, il (inv)",
       "side2": "lorry"
     },
     {
+      "id": 14,
       "side1": "campeggio, il",
       "side2": "campsite"
     },
     {
+      "id": 15,
       "side1": "carnevale, il",
       "side2": "festival (mardi gras in Venice)"
     },
     {
+      "id": 16,
       "side1": "cartolina, la",
       "side2": "postcard"
     },
     {
+      "id": 17,
       "side1": "cartello stradale, il",
       "side2": "road sign"
     },
     {
+      "id": 18,
       "side1": "casco, il",
       "side2": "helmet"
     },
     {
+      "id": 19,
       "side1": "cercare",
       "side2": "to look for"
     },
     {
+      "id": 20,
       "side1": "ciclomotore, il",
       "side2": "moped"
     },
     {
+      "id": 21,
       "side1": "cintura di sicurezza, la",
       "side2": "seat belt"
     },
     {
+      "id": 22,
       "side1": "classe (prima/seconda), la",
       "side2": "(first/second) class"
     },
     {
+      "id": 23,
       "side1": "compreso",
       "side2": "including"
     },
     {
+      "id": 24,
       "side1": "consigliare",
       "side2": "to advise"
     },
     {
+      "id": 25,
       "side1": "continuare (... a)",
       "side2": "to continue to"
     },
     {
+      "id": 26,
       "side1": "contorno, il",
       "side2": "side dish - vegetables"
     },
     {
+      "id": 27,
       "side1": "controllare",
       "side2": "to check"
     },
     {
+      "id": 28,
       "side1": "convalidare",
       "side2": "to validate (a ticket)"
     },
     {
+      "id": 29,
       "side1": "costare",
       "side2": "to cost"
     }

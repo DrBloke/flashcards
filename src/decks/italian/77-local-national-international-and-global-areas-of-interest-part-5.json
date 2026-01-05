@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 5)",
   "cards": [
     {
+      "id": 0,
       "side1": "immigrazione, l’",
       "side2": "immigration"
     },
     {
+      "id": 1,
       "side1": "impatto ambientale, l’",
       "side2": "environmental impact"
     },
     {
+      "id": 2,
       "side1": "industria, l’",
       "side2": "industry"
     },
     {
+      "id": 3,
       "side1": "inondazione, l’",
       "side2": "flooding"
     },
     {
+      "id": 4,
       "side1": "inquinamento acustico, l’",
       "side2": "noise pollution"
     },
     {
+      "id": 5,
       "side1": "insetticida, un",
       "side2": "insecticide"
     },
     {
+      "id": 6,
       "side1": "livello, il",
       "side2": "level"
     },
     {
+      "id": 7,
       "side1": "marea, la",
       "side2": "tide"
     },
     {
+      "id": 8,
       "side1": "medicine scadute, le",
       "side2": "out of date medicines"
     },
     {
+      "id": 9,
       "side1": "metano",
       "side2": "methane"
     },
     {
+      "id": 10,
       "side1": "nocivo",
       "side2": "harmful"
     },
     {
+      "id": 11,
       "side1": "ossigeno, l’",
       "side2": "oxygen"
     },
     {
+      "id": 12,
       "side1": "pace, la",
       "side2": "peace"
     },
     {
+      "id": 13,
       "side1": "petroliera, la",
       "side2": "oil tanker"
     },
     {
+      "id": 14,
       "side1": "petrolio, il",
       "side2": "crude oil"
     },
     {
+      "id": 15,
       "side1": "pile scariche, le",
       "side2": "dead batteries"
     },
     {
+      "id": 16,
       "side1": "strato di ozono, lo",
       "side2": "ozone layer"
     },
     {
+      "id": 17,
       "side1": "turbina eolica, la",
       "side2": "wind turbine"
     },
     {
+      "id": 18,
       "side1": "radiazioni ultraviolette",
       "side2": "ultraviolet radiation"
     },
     {
+      "id": 19,
       "side1": "raffineria, la",
       "side2": "refinery"
     },
     {
+      "id": 20,
       "side1": "scomparire",
       "side2": "to disappear"
     },
     {
+      "id": 21,
       "side1": "sovraffollamento, il",
       "side2": "overpopulation"
     },
     {
+      "id": 22,
       "side1": "superficie terrestre, la",
       "side2": "surface of the earth"
     },
     {
+      "id": 23,
       "side1": "a bordo",
       "side2": "on board"
     },
     {
+      "id": 24,
       "side1": "aria condizionata, l’",
       "side2": "air conditioning"
     },
     {
+      "id": 25,
       "side1": "atterrare",
       "side2": "to land"
     },
     {
+      "id": 26,
       "side1": "blocchetto di biglietti, il",
       "side2": "book of tickets"
     },
     {
+      "id": 27,
       "side1": "carta stradale, la",
       "side2": "road map"
     },
     {
+      "id": 28,
       "side1": "coincidenza, la",
       "side2": "connection (on journey)"
     },
     {
+      "id": 29,
       "side1": "dare su",
       "side2": "to overlook"
     }

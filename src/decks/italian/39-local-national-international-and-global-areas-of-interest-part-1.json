@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 1)",
   "cards": [
     {
+      "id": 0,
       "side1": "a buon mercato",
       "side2": "inexpensive"
     },
     {
+      "id": 1,
       "side1": "abbigliamento, l’",
       "side2": "clothing"
     },
     {
+      "id": 2,
       "side1": "abitante, l’",
       "side2": "inhabitant"
     },
     {
+      "id": 3,
       "side1": "abitare",
       "side2": "to live"
     },
     {
+      "id": 4,
       "side1": "abito, l’",
       "side2": "dress"
     },
     {
+      "id": 5,
       "side1": "albero, l’",
       "side2": "tree"
     },
     {
+      "id": 6,
       "side1": "all’aperto",
       "side2": "in the open air"
     },
     {
+      "id": 7,
       "side1": "andare di moda",
       "side2": "to be fashionable"
     },
     {
+      "id": 8,
       "side1": "antico",
       "side2": "old"
     },
     {
+      "id": 9,
       "side1": "appartamento, l’",
       "side2": "flat"
     },
     {
+      "id": 10,
       "side1": "armadio, l’",
       "side2": "cupboard, wardrobe"
     },
     {
+      "id": 11,
       "side1": "aspirapolvere, l’ (inv)",
       "side2": "vacuum cleaner"
     },
     {
+      "id": 12,
       "side1": "balcone, il",
       "side2": "balcony"
     },
     {
+      "id": 13,
       "side1": "banca, la",
       "side2": "bank"
     },
     {
+      "id": 14,
       "side1": "biblioteca, la",
       "side2": "library"
     },
     {
+      "id": 15,
       "side1": "borsa, la",
       "side2": "(hand)bag"
     },
     {
+      "id": 16,
       "side1": "calcetto, il",
       "side2": "five-a side-football"
     },
     {
+      "id": 17,
       "side1": "calzini, i",
       "side2": "socks"
     },
     {
+      "id": 18,
       "side1": "cambiare",
       "side2": "to (ex)change"
     },
     {
+      "id": 19,
       "side1": "cambio, il",
       "side2": "exchange rate - money"
     },
     {
+      "id": 20,
       "side1": "camera, la (da letto)",
       "side2": "bedroom"
     },
     {
+      "id": 21,
       "side1": "camicetta, la",
       "side2": "blouse"
     },
     {
+      "id": 22,
       "side1": "camicia, la",
       "side2": "shirt"
     },
     {
+      "id": 23,
       "side1": "campagna, la",
       "side2": "countryside"
     },
     {
+      "id": 24,
       "side1": "cantina, la",
       "side2": "cellar"
     },
     {
+      "id": 25,
       "side1": "carta di credito, la",
       "side2": "credit card"
     },
     {
+      "id": 26,
       "side1": "carta igienica, la",
       "side2": "toilet paper"
     },
     {
+      "id": 27,
       "side1": "casa, la a schiera/doppia",
       "side2": "(terraced/semi-detached) house"
     },
     {
+      "id": 28,
       "side1": "cassettiera, la",
       "side2": "chest of drawers"
     },
     {
+      "id": 29,
       "side1": "cassetto, il",
       "side2": "drawer"
     }

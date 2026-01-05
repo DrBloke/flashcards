@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 21)",
   "cards": [
     {
+      "id": 0,
       "side1": "secondo piatto, il",
       "side2": "main course"
     },
     {
+      "id": 1,
       "side1": "seguire",
       "side2": "to follow"
     },
     {
+      "id": 2,
       "side1": "semaforo, il",
       "side2": "traffic lights"
     },
     {
+      "id": 3,
       "side1": "senso unico",
       "side2": "one way"
     },
     {
+      "id": 4,
       "side1": "servizio, il",
       "side2": "service"
     },
     {
+      "id": 5,
       "side1": "Sicilia, la",
       "side2": "Sicily"
     },
     {
+      "id": 6,
       "side1": "siciliano/a, il/la",
       "side2": "Sicilian"
     },
     {
+      "id": 7,
       "side1": "soggiorno, il",
       "side2": "stay"
     },
     {
+      "id": 8,
       "side1": "Spagna, la",
       "side2": "Spain"
     },
     {
+      "id": 9,
       "side1": "spagnolo/a, lo/la",
       "side2": "Spanish (person)"
     },
     {
+      "id": 10,
       "side1": "specialità, la (della casa)",
       "side2": "speciality of the restaurant"
     },
     {
+      "id": 11,
       "side1": "spiaggia, la",
       "side2": "beach"
     },
     {
+      "id": 12,
       "side1": "spiegare",
       "side2": "to explain"
     },
     {
+      "id": 13,
       "side1": "sport invernale, lo",
       "side2": "winter sport"
     },
     {
+      "id": 14,
       "side1": "Stati Uniti, gli",
       "side2": "USA"
     },
     {
+      "id": 15,
       "side1": "stazione, la",
       "side2": "station"
     },
     {
+      "id": 16,
       "side1": "strada, la",
       "side2": "road"
     },
     {
+      "id": 17,
       "side1": "straniero, lo",
       "side2": "foreigner, stranger"
     },
     {
+      "id": 18,
       "side1": "supplemento, il",
       "side2": "supplement"
     },
     {
+      "id": 19,
       "side1": "Svizzera, la",
       "side2": "Switzerland"
     },
     {
+      "id": 20,
       "side1": "tenda, la",
       "side2": "tent"
     },
     {
+      "id": 21,
       "side1": "traversata, la",
       "side2": "crossing"
     },
     {
+      "id": 22,
       "side1": "ufficio informazioni, l’",
       "side2": "information office"
     },
     {
+      "id": 23,
       "side1": "uscita, l’",
       "side2": "exit"
     },
     {
+      "id": 24,
       "side1": "vacanza, la",
       "side2": "holiday"
     },
     {
+      "id": 25,
       "side1": "valigia, la",
       "side2": "suitcase"
     },
     {
+      "id": 26,
       "side1": "Venezia",
       "side2": "Venice"
     },
     {
+      "id": 27,
       "side1": "veneziano",
       "side2": "Venetian"
     },
     {
+      "id": 28,
       "side1": "veramente",
       "side2": "really"
     },
     {
+      "id": 29,
       "side1": "via, la",
       "side2": "road"
     }

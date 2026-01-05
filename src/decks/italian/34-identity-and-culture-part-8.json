@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 8)",
   "cards": [
     {
+      "id": 0,
       "side1": "cappuccino, il",
       "side2": "cappuccino, frothy coffee"
     },
     {
+      "id": 1,
       "side1": "caramella, la",
       "side2": "sweet"
     },
     {
+      "id": 2,
       "side1": "carne, la",
       "side2": "meat"
     },
     {
+      "id": 3,
       "side1": "carota, la",
       "side2": "carrot"
     },
     {
+      "id": 4,
       "side1": "cartoni animati, i",
       "side2": "cartoon"
     },
     {
+      "id": 5,
       "side1": "centro sportivo, il",
       "side2": "sports centre"
     },
     {
+      "id": 6,
       "side1": "chitarra, la",
       "side2": "guitar"
     },
     {
+      "id": 7,
       "side1": "ciclismo, il",
       "side2": "cycling"
     },
     {
+      "id": 8,
       "side1": "cioccolata, la",
       "side2": "chocolate"
     },
     {
+      "id": 9,
       "side1": "cipolla, la",
       "side2": "onion"
     },
     {
+      "id": 10,
       "side1": "coda, la",
       "side2": "queue/tail"
     },
     {
+      "id": 11,
       "side1": "collezionare",
       "side2": "to collect"
     },
     {
+      "id": 12,
       "side1": "coltello, il",
       "side2": "knife"
     },
     {
+      "id": 13,
       "side1": "concerto, il",
       "side2": "concert"
     },
     {
+      "id": 14,
       "side1": "conto, il",
       "side2": "bill"
     },
     {
+      "id": 15,
       "side1": "corto",
       "side2": "short"
     },
     {
+      "id": 16,
       "side1": "cotto",
       "side2": "cooked"
     },
     {
+      "id": 17,
       "side1": "crudo",
       "side2": "raw, uncooked"
     },
     {
+      "id": 18,
       "side1": "cucchiaino, il",
       "side2": "teaspoon"
     },
     {
+      "id": 19,
       "side1": "cucchiaio, il",
       "side2": "spoon"
     },
     {
+      "id": 20,
       "side1": "delizioso",
       "side2": "delicious"
     },
     {
+      "id": 21,
       "side1": "divertimento, il",
       "side2": "fun"
     },
     {
+      "id": 22,
       "side1": "espresso, l’",
       "side2": "espresso coffee"
     },
     {
+      "id": 23,
       "side1": "essere tifoso di …",
       "side2": "to be a fan of …"
     },
     {
+      "id": 24,
       "side1": "fare collezione di",
       "side2": "to collect"
     },
     {
+      "id": 25,
       "side1": "fare la spesa",
       "side2": "to go shopping"
     },
     {
+      "id": 26,
       "side1": "fare un gol",
       "side2": "to score a goal"
     },
     {
+      "id": 27,
       "side1": "fare una passeggiata",
       "side2": "to go for a walk"
     },
     {
+      "id": 28,
       "side1": "farina, la",
       "side2": "flour"
     },
     {
+      "id": 29,
       "side1": "favorito",
       "side2": "favourite"
     }

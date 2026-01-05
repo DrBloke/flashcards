@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 5)",
   "cards": [
     {
+      "id": 0,
       "side1": "separato/a",
       "side2": "separated"
     },
     {
+      "id": 1,
       "side1": "serio",
       "side2": "serious"
     },
     {
+      "id": 2,
       "side1": "serpente, il",
       "side2": "snake"
     },
     {
+      "id": 3,
       "side1": "signora, la",
       "side2": "lady"
     },
     {
+      "id": 4,
       "side1": "signore, il",
       "side2": "gentleman"
     },
     {
+      "id": 5,
       "side1": "signorina, la",
       "side2": "young lady"
     },
     {
+      "id": 6,
       "side1": "simpatico",
       "side2": "nice"
     },
     {
+      "id": 7,
       "side1": "snello",
       "side2": "slim"
     },
     {
+      "id": 8,
       "side1": "socievole",
       "side2": "sociable"
     },
     {
+      "id": 9,
       "side1": "sorella, la",
       "side2": "sister"
     },
     {
+      "id": 10,
       "side1": "sorriso",
       "side2": "smile"
     },
     {
+      "id": 11,
       "side1": "spiritoso",
       "side2": "witty"
     },
     {
+      "id": 12,
       "side1": "sportivo",
       "side2": "sporty"
     },
     {
+      "id": 13,
       "side1": "tipo",
       "side2": "kind (type)"
     },
     {
+      "id": 14,
       "side1": "tranquillo",
       "side2": "calm"
     },
     {
+      "id": 15,
       "side1": "triste",
       "side2": "sad"
     },
     {
+      "id": 16,
       "side1": "uccello, l’",
       "side2": "bird"
     },
     {
+      "id": 17,
       "side1": "uomo, l’ (gli uomini)",
       "side2": "man (men)"
     },
     {
+      "id": 18,
       "side1": "viaggio di nozze, il",
       "side2": "honeymoon"
     },
     {
+      "id": 19,
       "side1": "vicino, il (di casa)",
       "side2": "neighbours"
     },
     {
+      "id": 20,
       "side1": "vivace",
       "side2": "lively"
     },
     {
+      "id": 21,
       "side1": "viziato",
       "side2": "spoiled"
     },
     {
+      "id": 22,
       "side1": "volontario, i",
       "side2": "volunteers"
     },
     {
+      "id": 23,
       "side1": "zio/a, il/la",
       "side2": "uncle/aunt"
     },
     {
+      "id": 24,
       "side1": "banda larga, la",
       "side2": "broadband"
     },
     {
+      "id": 25,
       "side1": "caricare",
       "side2": "to upload"
     },
     {
+      "id": 26,
       "side1": "cellulare, il",
       "side2": "mobile phone"
     },
     {
+      "id": 27,
       "side1": "cercare",
       "side2": "to search"
     },
     {
+      "id": 28,
       "side1": "chat, la",
       "side2": "chatting"
     },
     {
+      "id": 29,
       "side1": "chattare",
       "side2": "to chat"
     }

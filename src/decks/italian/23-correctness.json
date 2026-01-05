@@ -3,38 +3,47 @@
   "title": "Correctness",
   "cards": [
     {
+      "id": 0,
       "side1": "aver ragione/torto",
       "side2": "to be right/wrong"
     },
     {
+      "id": 1,
       "side1": "errore, l’ (m)",
       "side2": "mistake"
     },
     {
+      "id": 2,
       "side1": "esatto",
       "side2": "exactly"
     },
     {
+      "id": 3,
       "side1": "falso",
       "side2": "wrong, false"
     },
     {
+      "id": 4,
       "side1": "giusto",
       "side2": "right, correct"
     },
     {
+      "id": 5,
       "side1": "non è indicato",
       "side2": "not shown"
     },
     {
+      "id": 6,
       "side1": "non si sa",
       "side2": "no one knows"
     },
     {
+      "id": 7,
       "side1": "sbagliato",
       "side2": "wrong, mistaken"
     },
     {
+      "id": 8,
       "side1": "vero",
       "side2": "true, right"
     }

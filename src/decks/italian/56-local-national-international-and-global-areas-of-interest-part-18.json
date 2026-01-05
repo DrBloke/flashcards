@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 18)",
   "cards": [
     {
+      "id": 0,
       "side1": "crema solare, la",
       "side2": "sun screen"
     },
     {
+      "id": 1,
       "side1": "crociera, la",
       "side2": "cruise"
     },
     {
+      "id": 2,
       "side1": "dentifricio, il",
       "side2": "toothpaste"
     },
     {
+      "id": 3,
       "side1": "deposito bagagli, il",
       "side2": "left luggage"
     },
     {
+      "id": 4,
       "side1": "di nuovo",
       "side2": "again"
     },
     {
+      "id": 5,
       "side1": "diretto",
       "side2": "direct(ly)"
     },
     {
+      "id": 6,
       "side1": "disponibile",
       "side2": "available"
     },
     {
+      "id": 7,
       "side1": "doccia, la",
       "side2": "shower"
     },
     {
+      "id": 8,
       "side1": "dogana, la",
       "side2": "customs"
     },
     {
+      "id": 9,
       "side1": "dolce, il",
       "side2": "dessert"
     },
     {
+      "id": 10,
       "side1": "Edimburgo",
       "side2": "Edinburgh"
     },
     {
+      "id": 11,
       "side1": "fare il bagno",
       "side2": "to have a bath/swim"
     },
     {
+      "id": 12,
       "side1": "fare una fotografia",
       "side2": "to take a photo"
     },
     {
+      "id": 13,
       "side1": "fare una gita",
       "side2": "to go on a trip"
     },
     {
+      "id": 14,
       "side1": "ferie, le",
       "side2": "holidays"
     },
     {
+      "id": 15,
       "side1": "firma, la",
       "side2": "signature"
     },
     {
+      "id": 16,
       "side1": "firmare",
       "side2": "to sign"
     },
     {
+      "id": 17,
       "side1": "francese, il/la",
       "side2": "French person"
     },
     {
+      "id": 18,
       "side1": "Francia, la",
       "side2": "France"
     },
     {
+      "id": 19,
       "side1": "francobollo, il",
       "side2": "postage stamp"
     },
     {
+      "id": 20,
       "side1": "funzionare",
       "side2": "to work (function)"
     },
     {
+      "id": 21,
       "side1": "Galles, il",
       "side2": "Wales"
     },
     {
+      "id": 22,
       "side1": "gallese, il/la",
       "side2": "Welsh"
     },
     {
+      "id": 23,
       "side1": "Gran Bretagna, la",
       "side2": "Great Britain"
     },
     {
+      "id": 24,
       "side1": "guida, la",
       "side2": "guide"
     },
     {
+      "id": 25,
       "side1": "guidare",
       "side2": "to drive"
     },
     {
+      "id": 26,
       "side1": "in ritardo",
       "side2": "late"
     },
     {
+      "id": 27,
       "side1": "incluso",
       "side2": "including"
     },
     {
+      "id": 28,
       "side1": "Inghilterra, l’",
       "side2": "England"
     },
     {
+      "id": 29,
       "side1": "inglese, l’",
       "side2": "English (person)"
     }

@@ -3,26 +3,32 @@
   "title": "Access",
   "cards": [
     {
+      "id": 0,
       "side1": "aperto",
       "side2": "open"
     },
     {
+      "id": 1,
       "side1": "chiuso",
       "side2": "closed"
     },
     {
+      "id": 2,
       "side1": "divieto di fumo",
       "side2": "no smoking"
     },
     {
+      "id": 3,
       "side1": "entrata libera, l’",
       "side2": "free admission"
     },
     {
+      "id": 4,
       "side1": "libero",
       "side2": "vacant, free"
     },
     {
+      "id": 5,
       "side1": "occupato",
       "side2": "occupied, busy"
     }

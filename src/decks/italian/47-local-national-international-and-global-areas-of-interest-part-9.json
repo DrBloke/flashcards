@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 9)",
   "cards": [
     {
+      "id": 0,
       "side1": "vetrina, la",
       "side2": "shop window"
     },
     {
+      "id": 1,
       "side1": "villaggio, il",
       "side2": "village"
     },
     {
+      "id": 2,
       "side1": "vista la",
       "side2": "view"
     },
     {
+      "id": 3,
       "side1": "vita, la",
       "side2": "life"
     },
     {
+      "id": 4,
       "side1": "vivere",
       "side2": "to live"
     },
     {
+      "id": 5,
       "side1": "zona, la",
       "side2": "area"
     },
     {
+      "id": 6,
       "side1": "acqua, l’",
       "side2": "water"
     },
     {
+      "id": 7,
       "side1": "aiutare",
       "side2": "to help"
     },
     {
+      "id": 8,
       "side1": "aiuto, l’",
       "side2": "help"
     },
     {
+      "id": 9,
       "side1": "alcolici, gli",
       "side2": "alcoholic drinks"
     },
     {
+      "id": 10,
       "side1": "alcolico",
       "side2": "alcoholics"
     },
     {
+      "id": 11,
       "side1": "alcolismo, l’",
       "side2": "alcoholism"
     },
     {
+      "id": 12,
       "side1": "alcool/alcol, l’ (inv)",
       "side2": "alcohol"
     },
     {
+      "id": 13,
       "side1": "ambulanza, l’",
       "side2": "ambulance"
     },
     {
+      "id": 14,
       "side1": "ambulatorio, l’",
       "side2": "surgery"
     },
     {
+      "id": 15,
       "side1": "ammalarsi",
       "side2": "to become ill"
     },
     {
+      "id": 16,
       "side1": "ammalato",
       "side2": "ill"
     },
     {
+      "id": 17,
       "side1": "andare a dormire",
       "side2": "to go to bed"
     },
     {
+      "id": 18,
       "side1": "andare dal medico/dentista",
       "side2": "to go to the doctor/dentist"
     },
     {
+      "id": 19,
       "side1": "aspirina, l’",
       "side2": "aspirin"
     },
     {
+      "id": 20,
       "side1": "astemio",
       "side2": "non-drinker of alcohol"
     },
     {
+      "id": 21,
       "side1": "avere caldo/freddo",
       "side2": "to be hot/cold"
     },
     {
+      "id": 22,
       "side1": "avere fame/sete",
       "side2": "to be hungry/thirsty"
     },
     {
+      "id": 23,
       "side1": "avere mal di (testa)",
       "side2": "to have a (head) ache"
     },
     {
+      "id": 24,
       "side1": "avere paura di",
       "side2": "to be afraid"
     },
     {
+      "id": 25,
       "side1": "avere sonno",
       "side2": "to be sleepy"
     },
     {
+      "id": 26,
       "side1": "bellezza, la",
       "side2": "beauty"
     },
     {
+      "id": 27,
       "side1": "bere",
       "side2": "to drink"
     },
     {
+      "id": 28,
       "side1": "bevande alcoliche, le",
       "side2": "alcoholic drinks"
     },
     {
+      "id": 29,
       "side1": "bevande analcoliche, le",
       "side2": "non-alcoholic drinks"
     }

@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "autobus, l’ (inv)",
       "side2": "bus"
     },
     {
+      "id": 1,
       "side1": "bullismo fisico/verbale, il",
       "side2": "physical/verbal bullying"
     },
     {
+      "id": 2,
       "side1": "bullo, il",
       "side2": "bully"
     },
     {
+      "id": 3,
       "side1": "calcolatrice, la",
       "side2": "calculator"
     },
     {
+      "id": 4,
       "side1": "campo da tennis, il",
       "side2": "tennis court"
     },
     {
+      "id": 5,
       "side1": "campo sportivo, il",
       "side2": "sports field"
     },
     {
+      "id": 6,
       "side1": "capire",
       "side2": "to understand"
     },
     {
+      "id": 7,
       "side1": "chiudere",
       "side2": "to close"
     },
     {
+      "id": 8,
       "side1": "classico",
       "side2": "classical"
     },
     {
+      "id": 9,
       "side1": "collegio, il",
       "side2": "college (boarding)"
     },
     {
+      "id": 10,
       "side1": "cominciare",
       "side2": "to start"
     },
     {
+      "id": 11,
       "side1": "compagno di classe, il",
       "side2": "classmate"
     },
     {
+      "id": 12,
       "side1": "compiti, i",
       "side2": "homework"
     },
     {
+      "id": 13,
       "side1": "complicato",
       "side2": "complicated"
     },
     {
+      "id": 14,
       "side1": "dare un esame",
       "side2": "to take an exam"
     },
     {
+      "id": 15,
       "side1": "difficile",
       "side2": "difficult"
     },
     {
+      "id": 16,
       "side1": "dimenticare",
       "side2": "to forget"
     },
     {
+      "id": 17,
       "side1": "direttore/direttrice, il/la",
       "side2": "head teacher"
     },
     {
+      "id": 18,
       "side1": "divisa scolastica, la",
       "side2": "uniform"
     },
     {
+      "id": 19,
       "side1": "dizionario, il",
       "side2": "dictionary"
     },
     {
+      "id": 20,
       "side1": "domanda, la",
       "side2": "question"
     },
     {
+      "id": 21,
       "side1": "domandare",
       "side2": "to ask"
     },
     {
+      "id": 22,
       "side1": "errore, l’",
       "side2": "mistake"
     },
     {
+      "id": 23,
       "side1": "esame, l’",
       "side2": "examination"
     },
     {
+      "id": 24,
       "side1": "esempio, l’",
       "side2": "example"
     },
     {
+      "id": 25,
       "side1": "facile",
       "side2": "easy"
     },
     {
+      "id": 26,
       "side1": "fare i compiti",
       "side2": "to do homework"
     },
     {
+      "id": 27,
       "side1": "finire",
       "side2": "to finish"
     },
     {
+      "id": 28,
       "side1": "fisica, la",
       "side2": "physics"
     },
     {
+      "id": 29,
       "side1": "frase, la",
       "side2": "sentence"
     }

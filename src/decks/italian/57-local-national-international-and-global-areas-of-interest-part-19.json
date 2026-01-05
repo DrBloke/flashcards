@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 19)",
   "cards": [
     {
+      "id": 0,
       "side1": "Irlanda, l’",
       "side2": "Ireland"
     },
     {
+      "id": 1,
       "side1": "irlandese, l’",
       "side2": "Irish (person)"
     },
     {
+      "id": 2,
       "side1": "Italia, l’",
       "side2": "Italy"
     },
     {
+      "id": 3,
       "side1": "italiano/a, l’",
       "side2": "Italian (person)"
     },
     {
+      "id": 4,
       "side1": "lato, il",
       "side2": "side"
     },
     {
+      "id": 5,
       "side1": "locale",
       "side2": "local"
     },
     {
+      "id": 6,
       "side1": "Londra",
       "side2": "London"
     },
     {
+      "id": 7,
       "side1": "Lotteria, la",
       "side2": "lottery"
     },
     {
+      "id": 8,
       "side1": "mal di mare, il",
       "side2": "sea sickness"
     },
     {
+      "id": 9,
       "side1": "Messa, la",
       "side2": "church service - mass"
     },
     {
+      "id": 10,
       "side1": "mezza pensione, la",
       "side2": "half board"
     },
     {
+      "id": 11,
       "side1": "mondo, il",
       "side2": "world"
     },
     {
+      "id": 12,
       "side1": "moto(cicletta), la",
       "side2": "motor bike"
     },
     {
+      "id": 13,
       "side1": "motore, il",
       "side2": "engine"
     },
     {
+      "id": 14,
       "side1": "motorino, il",
       "side2": "moped"
     },
     {
+      "id": 15,
       "side1": "museo, il",
       "side2": "museum"
     },
     {
+      "id": 16,
       "side1": "Napoli",
       "side2": "Naples"
     },
     {
+      "id": 17,
       "side1": "Natale, il",
       "side2": "Christmas"
     },
     {
+      "id": 18,
       "side1": "nient’altro?",
       "side2": "anything else?"
     },
     {
+      "id": 19,
       "side1": "noleggiare",
       "side2": "to hire"
     },
     {
+      "id": 20,
       "side1": "Olanda, l’",
       "side2": "Holland"
     },
     {
+      "id": 21,
       "side1": "olandese, l’",
       "side2": "Dutch (person)"
     },
     {
+      "id": 22,
       "side1": "ombrello, l’",
       "side2": "umbrella"
     },
     {
+      "id": 23,
       "side1": "ombrellone, l’",
       "side2": "sun umbrella"
     },
     {
+      "id": 24,
       "side1": "opera, l’",
       "side2": "opera, work of art"
     },
     {
+      "id": 25,
       "side1": "ordinare",
       "side2": "to order"
     },
     {
+      "id": 26,
       "side1": "panettone, il",
       "side2": "Italian Christmas cake"
     },
     {
+      "id": 27,
       "side1": "parcheggiare",
       "side2": "to park"
     },
     {
+      "id": 28,
       "side1": "parcheggio, il",
       "side2": "car park"
     },
     {
+      "id": 29,
       "side1": "partenza, la",
       "side2": "departure"
     }

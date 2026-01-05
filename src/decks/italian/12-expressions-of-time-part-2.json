@@ -3,122 +3,152 @@
   "title": "Expressions of time (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "(x) anni fa",
       "side2": "(x) years ago"
     },
     {
+      "id": 1,
       "side1": "fine, la",
       "side2": "end"
     },
     {
+      "id": 2,
       "side1": "fine settimana, il/la",
       "side2": "weekend"
     },
     {
+      "id": 3,
       "side1": "fra/tra poco",
       "side2": "in a bit"
     },
     {
+      "id": 4,
       "side1": "già",
       "side2": "already"
     },
     {
+      "id": 5,
       "side1": "giorno, il",
       "side2": "day"
     },
     {
+      "id": 6,
       "side1": "ieri",
       "side2": "yesterday"
     },
     {
+      "id": 7,
       "side1": "improvvisamente",
       "side2": "suddenly"
     },
     {
+      "id": 8,
       "side1": "indomani, l’ (m)",
       "side2": "the next day"
     },
     {
+      "id": 9,
       "side1": "in orario",
       "side2": "on time"
     },
     {
+      "id": 10,
       "side1": "in punto",
       "side2": "precisely"
     },
     {
+      "id": 11,
       "side1": "lentamente",
       "side2": "slowly"
     },
     {
+      "id": 12,
       "side1": "lento",
       "side2": "slow"
     },
     {
+      "id": 13,
       "side1": "mattina, la",
       "side2": "morning"
     },
     {
+      "id": 14,
       "side1": "meno",
       "side2": "less (to)"
     },
     {
+      "id": 15,
       "side1": "mese, il",
       "side2": "month"
     },
     {
+      "id": 16,
       "side1": "mezzanotte",
       "side2": "midnight"
     },
     {
+      "id": 17,
       "side1": "mezzo/a",
       "side2": "half"
     },
     {
+      "id": 18,
       "side1": "mezzogiorno",
       "side2": "midday"
     },
     {
+      "id": 19,
       "side1": "minuto, un",
       "side2": "minute"
     },
     {
+      "id": 20,
       "side1": "ogni (x) giorni",
       "side2": "every (x) days"
     },
     {
+      "id": 21,
       "side1": "ogni giorno",
       "side2": "every day"
     },
     {
+      "id": 22,
       "side1": "ogni tanto",
       "side2": "every now and then"
     },
     {
+      "id": 23,
       "side1": "ora",
       "side2": "now"
     },
     {
+      "id": 24,
       "side1": "ora, un’",
       "side2": "hour"
     },
     {
+      "id": 25,
       "side1": "più tardi",
       "side2": "later"
     },
     {
+      "id": 26,
       "side1": "poi",
       "side2": "then"
     },
     {
+      "id": 27,
       "side1": "pomeriggio, il",
       "side2": "afternoon"
     },
     {
+      "id": 28,
       "side1": "presto",
       "side2": "early, soon"
     },
     {
+      "id": 29,
       "side1": "prima",
       "side2": "first(ly)"
     }

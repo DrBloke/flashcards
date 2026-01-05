@@ -3,122 +3,152 @@
   "title": "Current and future study and employment (part 4)",
   "cards": [
     {
+      "id": 0,
       "side1": "passare un esame",
       "side2": "to pass an exam"
     },
     {
+      "id": 1,
       "side1": "penna, la",
       "side2": "pen"
     },
     {
+      "id": 2,
       "side1": "pennarello (a secco), il",
       "side2": "(whiteboard) marker pen"
     },
     {
+      "id": 3,
       "side1": "permesso?",
       "side2": "may I?"
     },
     {
+      "id": 4,
       "side1": "prendere un bel/brutto voto",
       "side2": "to get a good/bad mark"
     },
     {
+      "id": 5,
       "side1": "presente",
       "side2": "present"
     },
     {
+      "id": 6,
       "side1": "preside, il/la",
       "side2": "head teacher"
     },
     {
+      "id": 7,
       "side1": "problema, il",
       "side2": "problem"
     },
     {
+      "id": 8,
       "side1": "quaderno, il",
       "side2": "exercise book"
     },
     {
+      "id": 9,
       "side1": "refettorio, il",
       "side2": "refectory"
     },
     {
+      "id": 10,
       "side1": "registratore, il",
       "side2": "recorder"
     },
     {
+      "id": 11,
       "side1": "regola, la",
       "side2": "rule"
     },
     {
+      "id": 12,
       "side1": "religione, la",
       "side2": "religion, religious studies"
     },
     {
+      "id": 13,
       "side1": "ricreazione, la",
       "side2": "break time"
     },
     {
+      "id": 14,
       "side1": "righello, il",
       "side2": "ruler"
     },
     {
+      "id": 15,
       "side1": "ripetere",
       "side2": "to repeat"
     },
     {
+      "id": 16,
       "side1": "risposta, la",
       "side2": "reply"
     },
     {
+      "id": 17,
       "side1": "risultato, il",
       "side2": "result"
     },
     {
+      "id": 18,
       "side1": "riuscire",
       "side2": "to succeed"
     },
     {
+      "id": 19,
       "side1": "sala dei professori, la",
       "side2": "staff room"
     },
     {
+      "id": 20,
       "side1": "sbagliare",
       "side2": "to make a mistake"
     },
     {
+      "id": 21,
       "side1": "sbaglio, lo",
       "side2": "a mistake"
     },
     {
+      "id": 22,
       "side1": "scambio, lo",
       "side2": "an exchange"
     },
     {
+      "id": 23,
       "side1": "scuola elementare/primaria, la",
       "side2": "primary school"
     },
     {
+      "id": 24,
       "side1": "scuola media inferiore/ superiore",
       "side2": "middle school"
     },
     {
+      "id": 25,
       "side1": "scuola privata, la",
       "side2": "private school"
     },
     {
+      "id": 26,
       "side1": "scuola secondaria/superiore, la",
       "side2": "secondary school"
     },
     {
+      "id": 27,
       "side1": "scuola statale/pubblica, la",
       "side2": "state school"
     },
     {
+      "id": 28,
       "side1": "severo",
       "side2": "strict"
     },
     {
+      "id": 29,
       "side1": "silenzio, il",
       "side2": "silence"
     }

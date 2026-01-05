@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 2)",
   "cards": [
     {
+      "id": 0,
       "side1": "chiamarsi",
       "side2": "to be called"
     },
     {
+      "id": 1,
       "side1": "cognato/a, il/la",
       "side2": "brother-in-law"
     },
     {
+      "id": 2,
       "side1": "cognome, il",
       "side2": "surname"
     },
     {
+      "id": 3,
       "side1": "compagno/a, il/la",
       "side2": "companion"
     },
     {
+      "id": 4,
       "side1": "compleanno, il",
       "side2": "birthday"
     },
     {
+      "id": 5,
       "side1": "coniglio, il",
       "side2": "rabbit"
     },
     {
+      "id": 6,
       "side1": "contento",
       "side2": "happy"
     },
     {
+      "id": 7,
       "side1": "coraggioso",
       "side2": "brave"
     },
     {
+      "id": 8,
       "side1": "crescere",
       "side2": "to grow"
     },
     {
+      "id": 9,
       "side1": "criceto, il",
       "side2": "hamster"
     },
     {
+      "id": 10,
       "side1": "cugino/a, il/la",
       "side2": "cousin"
     },
     {
+      "id": 11,
       "side1": "dare fastidio (a)",
       "side2": "to annoy"
     },
     {
+      "id": 12,
       "side1": "data, la (di nascita)",
       "side2": "date (of birth)"
     },
     {
+      "id": 13,
       "side1": "descrivere",
       "side2": "to describe"
     },
     {
+      "id": 14,
       "side1": "divorziato/a",
       "side2": "divorced"
     },
     {
+      "id": 15,
       "side1": "documento, il",
       "side2": "document (ID)"
     },
     {
+      "id": 16,
       "side1": "donna, la",
       "side2": "woman"
     },
     {
+      "id": 17,
       "side1": "essere nato",
       "side2": "to be born"
     },
     {
+      "id": 18,
       "side1": "età, l’ (inv)",
       "side2": "age"
     },
     {
+      "id": 19,
       "side1": "faccia, la",
       "side2": "face"
     },
     {
+      "id": 20,
       "side1": "famiglia, la",
       "side2": "family"
     },
     {
+      "id": 21,
       "side1": "familiari, i",
       "side2": "family"
     },
     {
+      "id": 22,
       "side1": "famoso",
       "side2": "famous"
     },
     {
+      "id": 23,
       "side1": "fare volontariato",
       "side2": "to volunteer"
     },
     {
+      "id": 24,
       "side1": "fidanzato/a, il/la",
       "side2": "fiancée"
     },
     {
+      "id": 25,
       "side1": "figlia, la",
       "side2": "daughter"
     },
     {
+      "id": 26,
       "side1": "figlio, il",
       "side2": "son"
     },
     {
+      "id": 27,
       "side1": "forte",
       "side2": "strong"
     },
     {
+      "id": 28,
       "side1": "fratello, il",
       "side2": "brother"
     },
     {
+      "id": 29,
       "side1": "gatto, il",
       "side2": "cat"
     }

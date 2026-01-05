@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 9)",
   "cards": [
     {
+      "id": 0,
       "side1": "forchetta, la",
       "side2": "fork"
     },
     {
+      "id": 1,
       "side1": "formaggio, il",
       "side2": "cheese"
     },
     {
+      "id": 2,
       "side1": "fragola, la",
       "side2": "strawberry"
     },
     {
+      "id": 3,
       "side1": "frittata, la",
       "side2": "omelette"
     },
     {
+      "id": 4,
       "side1": "gambero, il",
       "side2": "prawn"
     },
     {
+      "id": 5,
       "side1": "gelato, il",
       "side2": "ice cream"
     },
     {
+      "id": 6,
       "side1": "ginnastica, la",
       "side2": "physical activity, gymnastics"
     },
     {
+      "id": 7,
       "side1": "giocare a (calcio/scacchi)",
       "side2": "to play (football/chess)"
     },
     {
+      "id": 8,
       "side1": "giocare a carte",
       "side2": "to play cards"
     },
     {
+      "id": 9,
       "side1": "giocatore, il",
       "side2": "player"
     },
     {
+      "id": 10,
       "side1": "gioco, il",
       "side2": "game"
     },
     {
+      "id": 11,
       "side1": "giornale, il",
       "side2": "newspaper"
     },
     {
+      "id": 12,
       "side1": "guardare",
       "side2": "to watch"
     },
     {
+      "id": 13,
       "side1": "incontrarsi",
       "side2": "to meet (somebody)"
     },
     {
+      "id": 14,
       "side1": "insalata, l’",
       "side2": "salad"
     },
     {
+      "id": 15,
       "side1": "insieme",
       "side2": "together"
     },
     {
+      "id": 16,
       "side1": "la palestra",
       "side2": "gym"
     },
     {
+      "id": 17,
       "side1": "lasagne, le",
       "side2": "lasagne"
     },
     {
+      "id": 18,
       "side1": "lasciare",
       "side2": "to leave"
     },
     {
+      "id": 19,
       "side1": "latte, il",
       "side2": "milk"
     },
     {
+      "id": 20,
       "side1": "lattuga, la",
       "side2": "lettuce"
     },
     {
+      "id": 21,
       "side1": "leggere",
       "side2": "to read"
     },
     {
+      "id": 22,
       "side1": "lettura, la",
       "side2": "reading"
     },
     {
+      "id": 23,
       "side1": "limonata, la",
       "side2": "lemonade"
     },
     {
+      "id": 24,
       "side1": "limone, il",
       "side2": "lemon"
     },
     {
+      "id": 25,
       "side1": "macchina fotografica, la",
       "side2": "camera"
     },
     {
+      "id": 26,
       "side1": "maiale, il",
       "side2": "pork"
     },
     {
+      "id": 27,
       "side1": "manzo, il",
       "side2": "beef"
     },
     {
+      "id": 28,
       "side1": "marmellata, la",
       "side2": "jam"
     },
     {
+      "id": 29,
       "side1": "membro, il",
       "side2": "member"
     }

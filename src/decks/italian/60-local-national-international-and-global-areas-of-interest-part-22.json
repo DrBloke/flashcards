@@ -3,34 +3,42 @@
   "title": "Local, national, international and global areas of interest (part 22)",
   "cards": [
     {
+      "id": 0,
       "side1": "viaggiare",
       "side2": "to travel"
     },
     {
+      "id": 1,
       "side1": "viaggiatore, il",
       "side2": "traveller"
     },
     {
+      "id": 2,
       "side1": "viaggio, il",
       "side2": "journey"
     },
     {
+      "id": 3,
       "side1": "visitare",
       "side2": "to visit (a place)"
     },
     {
+      "id": 4,
       "side1": "vista (sul mare), la",
       "side2": "view (of the sea)"
     },
     {
+      "id": 5,
       "side1": "volare",
       "side2": "to fly"
     },
     {
+      "id": 6,
       "side1": "volentieri",
       "side2": "willingly"
     },
     {
+      "id": 7,
       "side1": "volo, il",
       "side2": "flight"
     }

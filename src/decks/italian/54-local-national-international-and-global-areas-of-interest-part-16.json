@@ -3,122 +3,152 @@
   "title": "Local, national, international and global areas of interest (part 16)",
   "cards": [
     {
+      "id": 0,
       "side1": "uso, l’",
       "side2": "use"
     },
     {
+      "id": 1,
       "side1": "utilizzare",
       "side2": "to use"
     },
     {
+      "id": 2,
       "side1": "vestiti, i",
       "side2": "clothes"
     },
     {
+      "id": 3,
       "side1": "vetro, il",
       "side2": "glass"
     },
     {
+      "id": 4,
       "side1": "zona pedonale, la",
       "side2": "pedestrian zone"
     },
     {
+      "id": 5,
       "side1": "aereo, l’",
       "side2": "airplane"
     },
     {
+      "id": 6,
       "side1": "aeroporto, l’",
       "side2": "airport"
     },
     {
+      "id": 7,
       "side1": "affittare",
       "side2": "to rent/hire"
     },
     {
+      "id": 8,
       "side1": "agriturismo, l’",
       "side2": "bed and breakfast in the country"
     },
     {
+      "id": 9,
       "side1": "albergo, l’",
       "side2": "hotel"
     },
     {
+      "id": 10,
       "side1": "all’aria aperta",
       "side2": "open air"
     },
     {
+      "id": 11,
       "side1": "alloggio, l’",
       "side2": "accommodation"
     },
     {
+      "id": 12,
       "side1": "andare all’estero",
       "side2": "to go abroad"
     },
     {
+      "id": 13,
       "side1": "andare in vacanza",
       "side2": "to go on holiday"
     },
     {
+      "id": 14,
       "side1": "antipasto, l’",
       "side2": "starter"
     },
     {
+      "id": 15,
       "side1": "aria condizionata, l’",
       "side2": "air conditioning"
     },
     {
+      "id": 16,
       "side1": "arrivare",
       "side2": "to arrive"
     },
     {
+      "id": 17,
       "side1": "asciugamano, l’",
       "side2": "towel"
     },
     {
+      "id": 18,
       "side1": "attraversare",
       "side2": "to cross"
     },
     {
+      "id": 19,
       "side1": "autonoleggio, l’",
       "side2": "car hire"
     },
     {
+      "id": 20,
       "side1": "autostrada, l’",
       "side2": "motorway"
     },
     {
+      "id": 21,
       "side1": "bagaglio, il",
       "side2": "luggage"
     },
     {
+      "id": 22,
       "side1": "bagno, il",
       "side2": "bathroom, toilet"
     },
     {
+      "id": 23,
       "side1": "bandiera, la",
       "side2": "flag"
     },
     {
+      "id": 24,
       "side1": "barca, la",
       "side2": "boat"
     },
     {
+      "id": 25,
       "side1": "battello, il",
       "side2": "boat"
     },
     {
+      "id": 26,
       "side1": "befana, la",
       "side2": "kind witch who brings gifts"
     },
     {
+      "id": 27,
       "side1": "belga, il/la",
       "side2": "Belgian"
     },
     {
+      "id": 28,
       "side1": "Belgio, il",
       "side2": "Belgium"
     },
     {
+      "id": 29,
       "side1": "benzina, la",
       "side2": "petrol"
     }

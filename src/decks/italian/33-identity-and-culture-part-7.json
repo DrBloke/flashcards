@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 7)",
   "cards": [
     {
+      "id": 0,
       "side1": "accettare",
       "side2": "to accept"
     },
     {
+      "id": 1,
       "side1": "aceto, l’",
       "side2": "vinegar"
     },
     {
+      "id": 2,
       "side1": "acqua minerale, l’",
       "side2": "mineral water"
     },
     {
+      "id": 3,
       "side1": "agnello, l’",
       "side2": "lamb"
     },
     {
+      "id": 4,
       "side1": "alla griglia",
       "side2": "grilled"
     },
     {
+      "id": 5,
       "side1": "ananas, l’ (inv)",
       "side2": "pineapple"
     },
     {
+      "id": 6,
       "side1": "andare a cavallo",
       "side2": "to go horse riding"
     },
     {
+      "id": 7,
       "side1": "angolo, l’",
       "side2": "corner"
     },
     {
+      "id": 8,
       "side1": "arancia, l’",
       "side2": "orange"
     },
     {
+      "id": 9,
       "side1": "aranciata, l’",
       "side2": "orangeade"
     },
     {
+      "id": 10,
       "side1": "arrosto, l’",
       "side2": "roast"
     },
     {
+      "id": 11,
       "side1": "artista, l’",
       "side2": "artist"
     },
     {
+      "id": 12,
       "side1": "ascensore, l’",
       "side2": "lift"
     },
     {
+      "id": 13,
       "side1": "aspettare",
       "side2": "to wait"
     },
     {
+      "id": 14,
       "side1": "attrezzatura, l’",
       "side2": "attraction"
     },
     {
+      "id": 15,
       "side1": "attualità, l’",
       "side2": "news"
     },
     {
+      "id": 16,
       "side1": "avere bisogno di",
       "side2": "to need"
     },
     {
+      "id": 17,
       "side1": "avere tempo di",
       "side2": "to have time to"
     },
     {
+      "id": 18,
       "side1": "banana, la",
       "side2": "banana"
     },
     {
+      "id": 19,
       "side1": "ben cotto",
       "side2": "well cooked"
     },
     {
+      "id": 20,
       "side1": "biglietto, il (da 10 euro)",
       "side2": "a (10 euro) ticket"
     },
     {
+      "id": 21,
       "side1": "birra, la",
       "side2": "beer"
     },
     {
+      "id": 22,
       "side1": "biscotto, il",
       "side2": "biscuit"
     },
     {
+      "id": 23,
       "side1": "bistecca, la",
       "side2": "steak"
     },
     {
+      "id": 24,
       "side1": "braccio, il (le braccia)",
       "side2": "arm (arms)"
     },
     {
+      "id": 25,
       "side1": "burro, il",
       "side2": "butter"
     },
     {
+      "id": 26,
       "side1": "caffè, il (inv)",
       "side2": "coffee"
     },
     {
+      "id": 27,
       "side1": "calcio, il",
       "side2": "football"
     },
     {
+      "id": 28,
       "side1": "cantare",
       "side2": "to sing"
     },
     {
+      "id": 29,
       "side1": "canzone, la",
       "side2": "song"
     }

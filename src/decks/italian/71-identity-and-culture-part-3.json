@@ -3,122 +3,152 @@
   "title": "Identity and culture (part 3)",
   "cards": [
     {
+      "id": 0,
       "side1": "atletica, l’",
       "side2": "athletics"
     },
     {
+      "id": 1,
       "side1": "brodo, il",
       "side2": "thin soup, broth"
     },
     {
+      "id": 2,
       "side1": "carciofo, il",
       "side2": "artichoke"
     },
     {
+      "id": 3,
       "side1": "carrello, il",
       "side2": "shopping trolley"
     },
     {
+      "id": 4,
       "side1": "cartella, la",
       "side2": "file, folder"
     },
     {
+      "id": 5,
       "side1": "cartoleria, la",
       "side2": "stationery shop"
     },
     {
+      "id": 6,
       "side1": "cetriolo, il",
       "side2": "cucumber"
     },
     {
+      "id": 7,
       "side1": "chiuso per ferie",
       "side2": "shut for holidays"
     },
     {
+      "id": 8,
       "side1": "chiuso per turno",
       "side2": "day off"
     },
     {
+      "id": 9,
       "side1": "ciliegia, la",
       "side2": "cherry"
     },
     {
+      "id": 10,
       "side1": "commedia, la",
       "side2": "play"
     },
     {
+      "id": 11,
       "side1": "compilare un modulo",
       "side2": "to fill in a form"
     },
     {
+      "id": 12,
       "side1": "corsa, la",
       "side2": "running"
     },
     {
+      "id": 13,
       "side1": "didattico",
       "side2": "educational"
     },
     {
+      "id": 14,
       "side1": "drogheria, la",
       "side2": "grocers shop"
     },
     {
+      "id": 15,
       "side1": "fagiolino, il",
       "side2": "bean"
     },
     {
+      "id": 16,
       "side1": "film giallo, il",
       "side2": "thriller"
     },
     {
+      "id": 17,
       "side1": "fioraio, il",
       "side2": "florist shop"
     },
     {
+      "id": 18,
       "side1": "gioielleria, la",
       "side2": "jewellers shop"
     },
     {
+      "id": 19,
       "side1": "gustare",
       "side2": "to taste"
     },
     {
+      "id": 20,
       "side1": "gusto, il",
       "side2": "flavour"
     },
     {
+      "id": 21,
       "side1": "gustoso",
       "side2": "tasty"
     },
     {
+      "id": 22,
       "side1": "indovinare",
       "side2": "to guess"
     },
     {
+      "id": 23,
       "side1": "lampone, il",
       "side2": "raspberry"
     },
     {
+      "id": 24,
       "side1": "lavanderia, la",
       "side2": "cleaners"
     },
     {
+      "id": 25,
       "side1": "melanzana, la",
       "side2": "aubergine"
     },
     {
+      "id": 26,
       "side1": "nascondere",
       "side2": "to hide"
     },
     {
+      "id": 27,
       "side1": "noce, la",
       "side2": "(wal)nut"
     },
     {
+      "id": 28,
       "side1": "pallanuoto, la",
       "side2": "water polo"
     },
     {
+      "id": 29,
       "side1": "passeggiare",
       "side2": "to walk"
     }

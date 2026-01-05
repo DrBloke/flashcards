@@ -3,118 +3,147 @@
   "title": "Identity and culture (part 12)",
   "cards": [
     {
+      "id": 0,
       "side1": "vaniglia, la",
       "side2": "vanilla"
     },
     {
+      "id": 1,
       "side1": "vedere",
       "side2": "to see"
     },
     {
+      "id": 2,
       "side1": "verità, la (inv)",
       "side2": "truth"
     },
     {
+      "id": 3,
       "side1": "vincere",
       "side2": "to win"
     },
     {
+      "id": 4,
       "side1": "vino, il",
       "side2": "wine"
     },
     {
+      "id": 5,
       "side1": "yogurt, lo",
       "side2": "yoghurt"
     },
     {
+      "id": 6,
       "side1": "zucchero, lo",
       "side2": "sugar"
     },
     {
+      "id": 7,
       "side1": "zuppa, la",
       "side2": "soup"
     },
     {
+      "id": 8,
       "side1": "albero di Natale",
       "side2": "Christmas tree"
     },
     {
+      "id": 9,
       "side1": "auguri",
       "side2": "(best) wishes"
     },
     {
+      "id": 10,
       "side1": "Babbo Natale",
       "side2": "Father Christmas"
     },
     {
+      "id": 11,
       "side1": "Capodanno, il",
       "side2": "New Year"
     },
     {
+      "id": 12,
       "side1": "chiesa, la",
       "side2": "church"
     },
     {
+      "id": 13,
       "side1": "compleanno, il",
       "side2": "birthday"
     },
     {
+      "id": 14,
       "side1": "ebreo",
       "side2": "Jewish"
     },
     {
+      "id": 15,
       "side1": "Epifania",
       "side2": "twelfth night"
     },
     {
+      "id": 16,
       "side1": "Ferragosto, il",
       "side2": "summer bank holiday"
     },
     {
+      "id": 17,
       "side1": "festa, la",
       "side2": "party, festival"
     },
     {
+      "id": 18,
       "side1": "festa della mamma la",
       "side2": "mother’s day"
     },
     {
+      "id": 19,
       "side1": "festeggiare",
       "side2": "to celebrate"
     },
     {
+      "id": 20,
       "side1": "fuochi d’artificio, i",
       "side2": "fireworks"
     },
     {
+      "id": 21,
       "side1": "moschea, la",
       "side2": "mosque"
     },
     {
+      "id": 22,
       "side1": "musulmano",
       "side2": "Muslim"
     },
     {
+      "id": 23,
       "side1": "Natale, il",
       "side2": "Christmas"
     },
     {
+      "id": 24,
       "side1": "Pasqua",
       "side2": "Easter"
     },
     {
+      "id": 25,
       "side1": "regalo, il",
       "side2": "a gift"
     },
     {
+      "id": 26,
       "side1": "religioso",
       "side2": "religious"
     },
     {
+      "id": 27,
       "side1": "spumante, lo",
       "side2": "fizzy white wine"
     },
     {
+      "id": 28,
       "side1": "vigilia di Natale, la",
       "side2": "Christmas eve"
     }
