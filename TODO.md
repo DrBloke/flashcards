@@ -24,21 +24,20 @@
 - [x] ES lint for Astro not set up properly. See ES Lint section of Notes.md
 - [x] I'm not sure reversing the deck makes sense as a concept while session is in progress
 - [x] Focus on the buttons after flipping
-- [ ] Progress indicator
-- [ ] Advance/Previous buttons
+- [x] Progress indicator
 - [ ] Don't reshow cards if correct on first attempt (optional)
-- [ ] Add meta description for SEO
 - [ ] Learning log - single deck
 - [ ] Learning log - set
 - [ ] Markdown content
 - [ ] Maths, chemistry and diagrams
+- [ ] Hierarchical menus
+- [ ] Smaller font option for when you have a lot of text
 - [ ] Playwright tests
+- [ ] Add meta description for SEO
 - [ ] Hydration of lit components
-- [ ] Heriachical menus
+- [ ] Advance/Previous buttons
 - [ ] Default.css being imported in dev app is 64kB. I think this can be minimised by making specific CSS files and importing different ones into each page without excess styles.
 - [ ] Each page should have its own stylesheet.
-- [ ] I'm disappointed in the size of the lit file being downloaded.
-- [ ] Smaller font option for when you have a lot of text
 - [ ] Animations and swiping
 - [ ] Refactor to use arrays for card sides for extensibility
 - [ ] Parse data - I think card data should be parsed using Zod by the flashcard component (Maybe not)
@@ -53,10 +52,11 @@
 - [ ] Editable card decks
 - [ ] PWA
 - [ ] AI scanning of decks
+- [ ] I'm disappointed in the size of the lit file being downloaded.
 - [ ] Localisation
 - [ ] Web Awesome - [check resources are set up correctly](https://webawesome.com/docs#setting-the-base-path)
 
 ## Issues
 
 - [ ] Mark correct on last round re-renders first card before relocating. Render a success message instead.
-- [ ] I think the use of side1 and side2 my be a poor choice. It should instead be an array. This would help when I have cards with more than two sides.
+- [ ] I think the use of side1 and side2 may be a poor choice. It should instead be an array. This would help when I have cards with more than two sides.
