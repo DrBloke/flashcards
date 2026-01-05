@@ -52,6 +52,9 @@ export class FlashcardDeck extends LitElement {
     }
   `;
 
+  @property({ type: Number, attribute: "deck-id" })
+  deckId: number = 0;
+
   @property({ attribute: "deck-title" })
   deckTitle: string = "Title";
 
@@ -88,20 +91,17 @@ export class FlashcardDeck extends LitElement {
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
 
-  // Generate a unique identifier for this deck based on its title
-  private getDeckId(): string {
-    return this.deckTitle
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join("");
-  }
-
   willUpdate(changedProperties: PropertyValues<this>) {
-    if (changedProperties.has("cards") || changedProperties.has("deckTitle")) {
-      // Initialize session only when we have actual cards and a non-default title
+    if (
+      changedProperties.has("cards") ||
+      changedProperties.has("deckTitle") ||
+      changedProperties.has("deckId")
+    ) {
+      // Initialize session only when we have actual cards, a non-default title and a deckId
       if (
         this.cards.length > 0 &&
         this.deckTitle !== "Title" &&
+        this.deckId !== 0 &&
         !this._sessionInitialized
       ) {
         this._initializeSession();
@@ -110,26 +110,35 @@ export class FlashcardDeck extends LitElement {
     }
   }
 
-  private _initializeSession() {
-    const deckId = this.getDeckId();
+  private _saveSession() {
+    const deckData = {
+      currentRound: this._currentRound,
+      wrongFirstTime: this._wrongFirstTime,
+    };
+    localStorage.setItem(`deck-${this.deckId}`, JSON.stringify(deckData));
+  }
 
+  private _clearSession() {
+    localStorage.removeItem(`deck-${this.deckId}`);
+  }
+
+  private _initializeSession() {
     // Load settings
     this.deckIsReversed = localStorage.getItem("reverseDeck") === "true";
     this._side = this.deckIsReversed ? "side2" : "side1";
 
     // Load progress
-    const savedCurrentRound = localStorage.getItem(`currentRound${deckId}`);
+    const savedData = localStorage.getItem(`deck-${this.deckId}`);
     const savedTotalRounds = localStorage.getItem("totalRounds");
-    const savedWrongFirstTime = localStorage.getItem(`wrongFirstTime${deckId}`);
 
-    if (savedCurrentRound !== null) {
-      this._currentRound = parseInt(savedCurrentRound, 10);
+    if (savedData) {
+      const data = JSON.parse(savedData);
+      this._currentRound = data.currentRound || 0;
+      this._wrongFirstTime = data.wrongFirstTime || [];
     }
+
     if (savedTotalRounds !== null) {
       this.totalRounds = parseInt(savedTotalRounds, 10);
-    }
-    if (savedWrongFirstTime !== null) {
-      this._wrongFirstTime = JSON.parse(savedWrongFirstTime);
     }
 
     // Initialize cards
@@ -146,7 +155,7 @@ export class FlashcardDeck extends LitElement {
         // Fallback: If resume data is inconsistent (e.g. round > 0 but no wrong cards recorded)
         // Reset to round 0 to avoid "No cards available"
         this._currentRound = 0;
-        localStorage.setItem(`currentRound${deckId}`, "0");
+        this._saveSession();
       }
     }
 
@@ -276,30 +285,23 @@ export class FlashcardDeck extends LitElement {
     const card = this._remainingCards[0];
     this._doneCards = [...this._doneCards, card];
     this._remainingCards = this._remainingCards.slice(1);
-    const deckId = this.getDeckId();
-
     if (this._remainingCards.length === 0) {
       this._currentRound++;
 
       if (this._currentRound === this.totalRounds) {
-        localStorage.removeItem(`currentRound${deckId}`);
-        localStorage.removeItem(`wrongFirstTime${deckId}`);
+        this._clearSession();
         window.location.href = this.homeRoute;
         return;
       }
 
-      localStorage.setItem(
-        `currentRound${deckId}`,
-        this._currentRound.toString(),
-      );
+      this._saveSession();
 
       const nextRoundCards = this._doneCards.filter((card) =>
         this._wrongFirstTime.includes(card.id),
       );
 
       if (this._currentRound > 0 && nextRoundCards.length === 0) {
-        localStorage.removeItem(`currentRound${deckId}`);
-        localStorage.removeItem(`wrongFirstTime${deckId}`);
+        this._clearSession();
         window.location.href = this.homeRoute;
         return;
       }
@@ -320,15 +322,10 @@ export class FlashcardDeck extends LitElement {
   async markIncorrect() {
     this.flip("back");
     const currentCard = this._remainingCards[0];
-    const deckId = this.getDeckId();
-
     if (this._currentRound === 0) {
       if (!this._wrongFirstTime.includes(currentCard.id)) {
         this._wrongFirstTime = [...this._wrongFirstTime, currentCard.id];
-        localStorage.setItem(
-          `wrongFirstTime${deckId}`,
-          JSON.stringify(this._wrongFirstTime),
-        );
+        this._saveSession();
       }
     }
 
