@@ -3,6 +3,7 @@
 @import "@awesome.me/webawesome/dist/styles/themes/default.css";
 @import "@awesome.me/webawesome/dist/styles/native.css";
 
+/* Custom styles - placed after imports to override defaults */
 html,
 body {
   margin: 0;

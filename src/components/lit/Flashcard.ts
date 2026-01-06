@@ -10,47 +10,108 @@ import "@awesome.me/webawesome/dist/components/icon/icon.js";
 export class FlashcardDeck extends LitElement {
   static styles = css`
     :host {
-      div#wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        padding: var(--wa-space-xs) var(--wa-space-xs);
-      }
-      h1 {
-        font-size: var(--wa-font-size-2xl);
-        color: var(--wa-color-brand-on-quiet);
-        margin: 0;
-      }
-      main {
-        flex-grow: 1;
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    div#wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 0 auto;
+      background-color: var(--wa-color-surface-default);
+    }
+    /* Desktop and larger screens */
+    @media (min-width: 768px) {
+      :host {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: var(--wa-font-size-4xl);
+        background-color: var(--wa-color-gray-90);
+        padding: var(--wa-space-xl);
       }
-      footer {
-        display: flex;
-        justify-content: space-between;
-        padding: var(--wa-space-xs) var(--wa-space-xs);
+      div#wrapper {
+        height: 85vh;
+        max-height: 600px;
+        width: 100%;
+        max-width: 600px;
+        border-radius: var(--wa-border-radius-xl);
+        box-shadow: var(--wa-shadow-2xl);
+        overflow: hidden;
+        border: 1px solid var(--wa-color-gray-80);
+        background-color: var(--wa-color-surface-default);
       }
-      span.toolbar-left {
-        display: flex;
-        justify-content: space-between;
-        min-width: 190px;
+    }
+    /* Extra large screens */
+    @media (min-width: 1200px) {
+      div#wrapper {
+        max-width: 700px;
       }
-      span.toolbar-right {
-        display: flex;
-        justify-content: space-around;
-        min-width: 114px;
-      }
-      button::part(base) {
-        width: 100px;
-      }
+    }
+    header {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--wa-space-m);
+      border-bottom: 1px solid var(--wa-color-gray-100);
+      background-color: var(--wa-color-surface-default);
+      z-index: 1;
+    }
+    h1 {
+      font-size: var(--wa-font-size-xl);
+      color: var(--wa-color-brand-on-quiet);
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      text-align: right;
+    }
+    main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: var(--wa-space-xl);
+      min-height: 0;
+      background-color: var(--wa-color-surface-default);
+    }
+    #content {
+      font-size: var(--wa-font-size-4xl);
+      text-align: center;
+      width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    footer {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--wa-space-m);
+      border-top: 1px solid var(--wa-color-gray-100);
+      background-color: var(--wa-color-surface-default);
+      z-index: 1;
+    }
+    span.toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--wa-space-3xs);
+      font-size: var(--wa-font-size-s);
+      color: var(--wa-color-gray-600);
+    }
+    span.toolbar-right {
+      display: flex;
+      align-items: center;
+    }
+    wa-button#home::part(base) {
+      width: auto;
+      padding: 0 var(--wa-space-s);
     }
   `;
 
