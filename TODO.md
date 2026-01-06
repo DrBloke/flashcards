@@ -30,8 +30,9 @@
 - [x] Zod parsing
 - [ ] Learning log - single deck
 - [ ] Learning log - set
-- [ ] Markdown content
+- [ ] Look good on desktop
 - [ ] Colours
+- [ ] Markdown content¬
 - [ ] Maths, chemistry and diagrams
 - [ ] Hierarchical menus
 - [ ] Timer for session
@@ -69,3 +70,9 @@
 
 - [ ] Mark correct on last round re-renders first card before relocating. Render a success message instead.
 - [ ] I think the use of side1 and side2 may be a poor choice. It should instead be an array. This would help when I have cards with more than two sides.
+
+## Review
+
+In `index.astro`, deck-id, deck-title and cards should be combined into a single object called deck. This should be validated by Zod, using the schema in `conten.config.ts`.
+
+This will require a change to the flashcard component to accept a deck object instead of deck-id, deck-title and cards. This should be validated by Zod, using the schema in `conten.config.ts`.
