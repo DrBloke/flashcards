@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { deckSchema } from "../schemas/deck";
 
 const decks = await getCollection("decks");
+decks.forEach((deck) => deckSchema.parse(deck.data));
 
 const title = "Italian vocabulary";
 ---

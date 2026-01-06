@@ -28,11 +28,9 @@
 - [x] Don't reshow cards if correct on first attempt (optional)
 - [x] Convert deck info to single JSON object. Use ID.
 - [x] Zod parsing
-- [ ] Learning log - single deck
-- [ ] Learning log - set
 - [ ] Look good on desktop
 - [ ] Colours
-- [ ] Markdown content¬
+- [ ] Markdown content
 - [ ] Maths, chemistry and diagrams
 - [ ] Hierarchical menus
 - [ ] Timer for session
@@ -40,8 +38,10 @@
 - [ ] isReversible - not all decks are
 - [ ] Playwright tests
 - [ ] Add meta description for SEO
-- [ ] Animations and swiping
 - [ ] Hydration of lit components
+- [ ] Learning log - single deck
+- [ ] Learning log - set
+- [ ] Animations and swiping
 - [ ] PWA
 - [ ] Images
 - [ ] Voice
@@ -73,6 +73,8 @@
 
 ## Review
 
-In `index.astro`, deck-id, deck-title and cards should be combined into a single object called deck. This should be validated by Zod, using the schema in `conten.config.ts`.
+- [x] In `index.astro`, deck-id, deck-title and cards should be combined into a single object called deck. This should be validated by Zod, using the schema in `content.config.ts`.
 
-This will require a change to the flashcard component to accept a deck object instead of deck-id, deck-title and cards. This should be validated by Zod, using the schema in `conten.config.ts`.
+- [x] This will require a change to the flashcard component to accept a deck object instead of deck-id, deck-title and cards. This should be validated by Zod, using the schema in `content.config.ts`.
+
+- [ ] Initialise session looks a little over-complicated in `Flashcard.ts`. Also the `willUpdate` lifecycle method is not called when the component is first rendered. Is the right course of action?

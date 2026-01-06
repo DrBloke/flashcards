@@ -1,6 +1,7 @@
 import { LitElement, css, html, type PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
-import { z } from "astro:content";
+import { z } from "zod";
+import { deckSchema } from "../../schemas/deck";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
@@ -53,11 +54,8 @@ export class FlashcardDeck extends LitElement {
     }
   `;
 
-  @property({ type: Number, attribute: "deck-id" })
-  deckId: number = 0;
-
-  @property({ attribute: "deck-title" })
-  deckTitle: string = "Title";
+  @property({ type: Object })
+  deck?: z.infer<typeof deckSchema>;
 
   @property({ attribute: "home-route" })
   homeRoute: string = "/";
@@ -65,17 +63,14 @@ export class FlashcardDeck extends LitElement {
   @property({ type: Boolean })
   deckIsReversed = false;
 
-  @property({ type: Array })
-  cards: { id: number; side1: string; side2: string }[] = [];
-
   @property({ type: Number })
   totalRounds = 3;
 
   @state()
-  private _remainingCards: typeof this.cards = [];
+  private _remainingCards: z.infer<typeof deckSchema>["cards"] = [];
 
   @state()
-  private _doneCards: typeof this.cards = [];
+  private _doneCards: z.infer<typeof deckSchema>["cards"] = [];
 
   @state()
   private _wrongFirstTime: number[] = [];
@@ -93,43 +88,39 @@ export class FlashcardDeck extends LitElement {
   toolbar!: HTMLSpanElement;
 
   willUpdate(changedProperties: PropertyValues<this>) {
-    if (
-      changedProperties.has("cards") ||
-      changedProperties.has("deckTitle") ||
-      changedProperties.has("deckId")
-    ) {
-      // Initialize session only when we have actual cards, a non-default title and a deckId
-      if (
-        this.cards.length > 0 &&
-        this.deckTitle !== "Title" &&
-        this.deckId !== 0 &&
-        !this._sessionInitialized
-      ) {
+    if (changedProperties.has("deck") && this.deck) {
+      const result = deckSchema.safeParse(this.deck);
+      if (result.success && !this._sessionInitialized) {
         this._initializeSession();
         this._sessionInitialized = true;
+      } else if (!result.success) {
+        console.error("Invalid deck data:", result.error);
       }
     }
   }
 
   private _saveSession() {
+    if (!this.deck) return;
     const deckData = {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
     };
-    localStorage.setItem(`deck-${this.deckId}`, JSON.stringify(deckData));
+    localStorage.setItem(`deck-${this.deck.id}`, JSON.stringify(deckData));
   }
 
   private _clearSession() {
-    localStorage.removeItem(`deck-${this.deckId}`);
+    if (!this.deck) return;
+    localStorage.removeItem(`deck-${this.deck.id}`);
   }
 
   private _initializeSession() {
+    if (!this.deck) return;
     // Load settings
     this.deckIsReversed = localStorage.getItem("reverseDeck") === "true";
     this._side = this.deckIsReversed ? "side2" : "side1";
 
     // Load progress
-    const savedData = localStorage.getItem(`deck-${this.deckId}`);
+    const savedData = localStorage.getItem(`deck-${this.deck.id}`);
     const savedTotalRounds = localStorage.getItem("totalRounds");
 
     if (savedData) {
@@ -159,7 +150,7 @@ export class FlashcardDeck extends LitElement {
     }
 
     // Initialize cards
-    let initialCards = [...this.cards];
+    let initialCards = [...this.deck.cards];
 
     // Apply filtering for rounds > 1
     if (this._currentRound > 0) {
@@ -194,7 +185,7 @@ export class FlashcardDeck extends LitElement {
     });
   }
 
-  shuffle(array: typeof this.cards) {
+  shuffle(array: z.infer<typeof deckSchema>["cards"]) {
     const newArray = [...array];
     let currentIndex = newArray.length,
       randomIndex;
@@ -221,7 +212,7 @@ export class FlashcardDeck extends LitElement {
       >
         <wa-icon name="house" label="Home"></wa-icon>
       </wa-button>
-      <h1>${this.deckTitle}</h1>`;
+      <h1>${this.deck?.title}</h1>`;
   }
 
   footerTemplate() {

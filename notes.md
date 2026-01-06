@@ -463,3 +463,7 @@ gh - equivalent to hovering your mouse over wherever the cursor is. Handy for se
 leader=space
 leader leader s = easymotion
 `s<char1><char2>` = sneak. finds firs occurrence of `<char1><char2>`
+
+## Astro schemas and component schemas
+
+I wanted my components to use the astro content schema to validate their props. However, the components don't have access to Astro schema. So I moved the schema to a separate file and imported it into both the component and the astro `content.config.ts` file.

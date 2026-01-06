@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { deckSchema } from "../schemas/deck";
 
 export async function getStaticPaths() {
   const decks = await getCollection("decks");
@@ -10,14 +11,13 @@ export async function getStaticPaths() {
   }));
 }
 const { deck } = Astro.props;
+deckSchema.parse(deck.data);
 ---
 
 <BaseLayout pageTitle={deck.data.title}>
   <flashcard-deck
-    deck-id={deck.data.id}
-    deck-title={deck.data.title}
-    home-route={import.meta.env.BASE_URL}
-    cards={JSON.stringify(deck.data.cards)}></flashcard-deck>
+    deck={JSON.stringify(deck.data)}
+    home-route={import.meta.env.BASE_URL}></flashcard-deck>
 </BaseLayout>
 
 <script>
