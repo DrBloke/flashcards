@@ -28,24 +28,23 @@
 - [x] Don't reshow cards if correct on first attempt (optional)
 - [x] Convert deck info to single JSON object. Use ID.
 - [x] Zod parsing
-- [ ] Look good on desktop
-- [ ] Colours
+- [x] Look good on desktop
 - [ ] Markdown content
-- [ ] Maths, chemistry and diagrams
-- [ ] Hierarchical menus
-- [ ] Timer for session
-- [ ] Smaller font option for when you have a lot of text
-- [ ] isReversible - not all decks are
 - [ ] Playwright tests
-- [ ] Add meta description for SEO
-- [ ] Hydration of lit components
+- [ ] Smaller font option for when you have a lot of text
+- [ ] Maths, chemistry, code and diagrams
+- [ ] Timer for session
 - [ ] Learning log - single deck
 - [ ] Learning log - set
+- [ ] isReversible - not all decks are
+- [ ] Colours
+- [ ] Dark mode
+- [ ] Hierarchical menus
+- [ ] Add meta description for SEO
+- [ ] Hydration of lit components
 - [ ] Animations and swiping
 - [ ] PWA
-- [ ] Images
 - [ ] Voice
-- [ ] Diagrams
 
 ## Nice to have
 

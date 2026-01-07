@@ -35,8 +35,8 @@ export class FlashcardDeck extends LitElement {
         max-height: 600px;
         width: 100%;
         max-width: 600px;
-        border-radius: var(--wa-border-radius-xl);
-        box-shadow: var(--wa-shadow-2xl);
+        border-radius: var(--wa-border-radius-l);
+        box-shadow: var(--wa-shadow-l);
         overflow: hidden;
         border: 1px solid var(--wa-color-gray-80);
         background-color: var(--wa-color-surface-default);
@@ -54,7 +54,7 @@ export class FlashcardDeck extends LitElement {
       justify-content: space-between;
       align-items: center;
       padding: var(--wa-space-m);
-      border-bottom: 1px solid var(--wa-color-gray-100);
+      border-bottom: 1px solid var(--wa-color-gray-90);
       background-color: var(--wa-color-surface-default);
       z-index: 1;
     }
@@ -94,7 +94,7 @@ export class FlashcardDeck extends LitElement {
       justify-content: space-between;
       align-items: center;
       padding: var(--wa-space-m);
-      border-top: 1px solid var(--wa-color-gray-100);
+      border-top: 1px solid var(--wa-color-gray-90);
       background-color: var(--wa-color-surface-default);
       z-index: 1;
     }
@@ -103,7 +103,7 @@ export class FlashcardDeck extends LitElement {
       flex-direction: column;
       gap: var(--wa-space-3xs);
       font-size: var(--wa-font-size-s);
-      color: var(--wa-color-gray-600);
+      color: var(--wa-color-gray-60);
     }
     span.toolbar-right {
       display: flex;
