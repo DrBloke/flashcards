@@ -82,10 +82,12 @@ export class FlashcardDeck extends LitElement {
     }
     #content {
       font-size: var(--wa-font-size-4xl);
-      text-align: center;
-      width: 100%;
+      text-align: left;
+      width: fit-content;
+      max-width: 100%;
       word-wrap: break-word;
       overflow-wrap: break-word;
+      white-space: pre-wrap;
       hyphens: auto;
     }
     footer {
