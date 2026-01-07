@@ -77,3 +77,7 @@
 - [x] This will require a change to the flashcard component to accept a deck object instead of deck-id, deck-title and cards. This should be validated by Zod, using the schema in `content.config.ts`.
 
 - [ ] Initialise session looks a little over-complicated in `Flashcard.ts`. Also the `willUpdate` lifecycle method is not called when the component is first rendered. Is the right course of action?
+
+## What next?
+
+Handle multiple decks. That would enable construction of a test deck that will help with then doing markdown and then chem and math and code.
