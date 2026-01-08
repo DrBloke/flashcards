@@ -29,7 +29,8 @@
 - [x] Convert deck info to single JSON object. Use ID.
 - [x] Zod parsing
 - [x] Look good on desktop
-- [ ] Need to scope stored data to a particular set
+- [x] Need to scope stored data to a particular set
+- [x] Flashcard.ts is not very DRY when accessing stored data
 - [ ] Markdown content
 - [ ] Playwright tests
 - [ ] Smaller font option for when you have a lot of text

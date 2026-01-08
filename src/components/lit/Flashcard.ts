@@ -154,6 +154,13 @@ export class FlashcardDeck extends LitElement {
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
 
+  private _getStoredData(): z.infer<typeof flashcardsStorageSchema> {
+    const rawData = localStorage.getItem("flashcards-data");
+    const parsed = rawData ? JSON.parse(rawData) : {};
+    const result = flashcardsStorageSchema.safeParse(parsed);
+    return result.success ? result.data : {};
+  }
+
   willUpdate(changedProperties: PropertyValues<this>) {
     if (changedProperties.has("deck") && this.deck) {
       const result = deckSchema.safeParse(this.deck);
@@ -172,10 +179,7 @@ export class FlashcardDeck extends LitElement {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
     };
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    const allData = result.success ? result.data : {};
+    const allData = this._getStoredData();
 
     if (!allData[this.setPath]) {
       allData[this.setPath] = { settings: {}, decks: {} };
@@ -189,10 +193,7 @@ export class FlashcardDeck extends LitElement {
 
   private _clearSession() {
     if (!this.deck || !this.setPath) return;
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    const allData = result.success ? result.data : {};
+    const allData = this._getStoredData();
 
     if (allData[this.setPath]?.decks) {
       delete allData[this.setPath].decks![this.deck.id];
@@ -202,10 +203,7 @@ export class FlashcardDeck extends LitElement {
 
   private _initializeSession() {
     if (!this.deck || !this.setPath) return;
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    const allData = result.success ? result.data : {};
+    const allData = this._getStoredData();
     const setData = allData[this.setPath] || { settings: {}, decks: {} };
 
     // Load settings
@@ -390,10 +388,7 @@ export class FlashcardDeck extends LitElement {
       this._remainingCards =
         this._currentRound > 0 ? nextRoundCards : this._doneCards;
 
-      const rawData = localStorage.getItem("flashcards-data");
-      const parsed = rawData ? JSON.parse(rawData) : {};
-      const result = flashcardsStorageSchema.safeParse(parsed);
-      const allData = result.success ? result.data : {};
+      const allData = this._getStoredData();
       const isShuffled = allData[this.setPath]?.settings?.shuffleDeck === true;
       if (isShuffled) {
         this._remainingCards = this.shuffle(this._remainingCards);
