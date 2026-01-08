@@ -29,6 +29,7 @@
 - [x] Convert deck info to single JSON object. Use ID.
 - [x] Zod parsing
 - [x] Look good on desktop
+- [ ] Need to scope stored data to a particular set
 - [ ] Markdown content
 - [ ] Playwright tests
 - [ ] Smaller font option for when you have a lot of text
@@ -40,7 +41,8 @@
 - [ ] Colours
 - [ ] Dark mode
 - [ ] Hierarchical menus
-- [ ] Add meta description for SEO
+- [ ] Redirect to home is unsafe
+- [ ] Add meta description for SEO - get from `set.json`
 - [ ] Hydration of lit components
 - [ ] Animations and swiping
 - [ ] PWA

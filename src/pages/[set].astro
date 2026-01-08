@@ -25,7 +25,7 @@ const title = set.title;
 ---
 
 <BaseLayout pageTitle={title}>
-  <main>
+  <main data-set-path={set.path}>
     <h1>{title}</h1>
     <wa-switch id="reverse-deck-switch">Reverse Decks</wa-switch>
     <wa-switch id="shuffle-deck-switch">Shuffle</wa-switch>
@@ -46,36 +46,62 @@ const title = set.title;
 
 <script>
   import "@awesome.me/webawesome/dist/components/switch/switch.js";
+  import { flashcardsStorageSchema } from "../schemas/storage";
 
   await customElements.whenDefined("wa-switch");
+
+  const main = document.querySelector("main");
+  const setPath = main?.getAttribute("data-set-path");
+
+  // Load state from localStorage
+  const rawData = localStorage.getItem("flashcards-data");
+  const parsed = rawData ? JSON.parse(rawData) : {};
+  const result = flashcardsStorageSchema.safeParse(parsed);
+  const allData = result.success ? result.data : {};
+
+  const setData = setPath ? allData[setPath] : null;
+  const isReversed = setData?.settings?.reverseDeck === true;
+  const isShuffled = setData?.settings?.shuffleDeck === true;
 
   const reverseDeckSwitch = document.getElementById("reverse-deck-switch");
   const shuffleDeckSwitch = document.getElementById("shuffle-deck-switch");
 
-  // Load state from localStorage
-  const isReversed = localStorage.getItem("reverseDeck") === "true";
-  const isShuffled = localStorage.getItem("shuffleDeck") === "true";
-
-  if (reverseDeckSwitch) {
+  if (reverseDeckSwitch && setPath) {
     (reverseDeckSwitch as HTMLElement & { checked: boolean }).checked =
       isReversed;
 
-    reverseDeckSwitch.addEventListener("change", (event) => {
+    reverseDeckSwitch.addEventListener("change", (event: Event) => {
       const target = event.target as HTMLElement & { checked: boolean };
       if (target) {
-        localStorage.setItem("reverseDeck", String(target.checked));
+        const rawData = localStorage.getItem("flashcards-data");
+        const parsed = rawData ? JSON.parse(rawData) : {};
+        const result = flashcardsStorageSchema.safeParse(parsed);
+        const currentData = result.success ? result.data : {};
+
+        if (!currentData[setPath]) currentData[setPath] = { settings: {} };
+        if (!currentData[setPath].settings) currentData[setPath].settings = {};
+        currentData[setPath].settings.reverseDeck = target.checked;
+        localStorage.setItem("flashcards-data", JSON.stringify(currentData));
       }
     });
   }
 
-  if (shuffleDeckSwitch) {
+  if (shuffleDeckSwitch && setPath) {
     (shuffleDeckSwitch as HTMLElement & { checked: boolean }).checked =
       isShuffled;
 
-    shuffleDeckSwitch.addEventListener("change", (event) => {
+    shuffleDeckSwitch.addEventListener("change", (event: Event) => {
       const target = event.target as HTMLElement & { checked: boolean };
       if (target) {
-        localStorage.setItem("shuffleDeck", String(target.checked));
+        const rawData = localStorage.getItem("flashcards-data");
+        const parsed = rawData ? JSON.parse(rawData) : {};
+        const result = flashcardsStorageSchema.safeParse(parsed);
+        const currentData = result.success ? result.data : {};
+
+        if (!currentData[setPath]) currentData[setPath] = { settings: {} };
+        if (!currentData[setPath].settings) currentData[setPath].settings = {};
+        currentData[setPath].settings.shuffleDeck = target.checked;
+        localStorage.setItem("flashcards-data", JSON.stringify(currentData));
       }
     });
   }

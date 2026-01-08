@@ -2,6 +2,7 @@ import { LitElement, css, html, type PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { z } from "zod";
 import { deckSchema } from "../../schemas/deck";
+import { flashcardsStorageSchema } from "../../schemas/storage";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
@@ -120,6 +121,9 @@ export class FlashcardDeck extends LitElement {
   @property({ type: Object })
   deck?: z.infer<typeof deckSchema>;
 
+  @property({ attribute: "set-path" })
+  setPath: string = "";
+
   @property({ attribute: "home-route" })
   homeRoute: string = "/";
 
@@ -163,53 +167,60 @@ export class FlashcardDeck extends LitElement {
   }
 
   private _saveSession() {
-    if (!this.deck) return;
+    if (!this.deck || !this.setPath) return;
     const deckData = {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
     };
-    localStorage.setItem(`deck-${this.deck.id}`, JSON.stringify(deckData));
+    const rawData = localStorage.getItem("flashcards-data");
+    const parsed = rawData ? JSON.parse(rawData) : {};
+    const result = flashcardsStorageSchema.safeParse(parsed);
+    const allData = result.success ? result.data : {};
+
+    if (!allData[this.setPath]) {
+      allData[this.setPath] = { settings: {}, decks: {} };
+    }
+    if (!allData[this.setPath].decks) {
+      allData[this.setPath].decks = {};
+    }
+    allData[this.setPath].decks![this.deck.id] = deckData;
+    localStorage.setItem("flashcards-data", JSON.stringify(allData));
   }
 
   private _clearSession() {
-    if (!this.deck) return;
-    localStorage.removeItem(`deck-${this.deck.id}`);
+    if (!this.deck || !this.setPath) return;
+    const rawData = localStorage.getItem("flashcards-data");
+    const parsed = rawData ? JSON.parse(rawData) : {};
+    const result = flashcardsStorageSchema.safeParse(parsed);
+    const allData = result.success ? result.data : {};
+
+    if (allData[this.setPath]?.decks) {
+      delete allData[this.setPath].decks![this.deck.id];
+      localStorage.setItem("flashcards-data", JSON.stringify(allData));
+    }
   }
 
   private _initializeSession() {
-    if (!this.deck) return;
+    if (!this.deck || !this.setPath) return;
+    const rawData = localStorage.getItem("flashcards-data");
+    const parsed = rawData ? JSON.parse(rawData) : {};
+    const result = flashcardsStorageSchema.safeParse(parsed);
+    const allData = result.success ? result.data : {};
+    const setData = allData[this.setPath] || { settings: {}, decks: {} };
+
     // Load settings
-    this.deckIsReversed = localStorage.getItem("reverseDeck") === "true";
+    this.deckIsReversed = setData.settings?.reverseDeck === true;
     this._side = this.deckIsReversed ? "side2" : "side1";
+    this.totalRounds = setData.settings?.totalRounds ?? 3;
+
+    const isShuffled = setData.settings?.shuffleDeck === true;
 
     // Load progress
-    const savedData = localStorage.getItem(`deck-${this.deck.id}`);
-    const savedTotalRounds = localStorage.getItem("totalRounds");
+    const savedData = setData.decks?.[this.deck.id];
 
     if (savedData) {
-      try {
-        const parsed = JSON.parse(savedData);
-        const schema = z.object({
-          currentRound: z.number(),
-          wrongFirstTime: z.array(z.number()),
-        });
-        const result = schema.safeParse(parsed);
-
-        if (result.success) {
-          this._currentRound = result.data.currentRound;
-          this._wrongFirstTime = result.data.wrongFirstTime;
-        } else {
-          console.error("Invalid session data in localStorage:", result.error);
-          this._clearSession();
-        }
-      } catch (e) {
-        console.error("Error parsing session data:", e);
-        this._clearSession();
-      }
-    }
-
-    if (savedTotalRounds !== null) {
-      this.totalRounds = parseInt(savedTotalRounds, 10);
+      this._currentRound = savedData.currentRound;
+      this._wrongFirstTime = savedData.wrongFirstTime;
     }
 
     // Initialize cards
@@ -230,7 +241,6 @@ export class FlashcardDeck extends LitElement {
       }
     }
 
-    const isShuffled = localStorage.getItem("shuffleDeck") === "true";
     if (isShuffled) {
       initialCards = this.shuffle(initialCards);
     }
@@ -380,7 +390,11 @@ export class FlashcardDeck extends LitElement {
       this._remainingCards =
         this._currentRound > 0 ? nextRoundCards : this._doneCards;
 
-      const isShuffled = localStorage.getItem("shuffleDeck") === "true";
+      const rawData = localStorage.getItem("flashcards-data");
+      const parsed = rawData ? JSON.parse(rawData) : {};
+      const result = flashcardsStorageSchema.safeParse(parsed);
+      const allData = result.success ? result.data : {};
+      const isShuffled = allData[this.setPath]?.settings?.shuffleDeck === true;
       if (isShuffled) {
         this._remainingCards = this.shuffle(this._remainingCards);
       }
