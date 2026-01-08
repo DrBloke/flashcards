@@ -3,6 +3,12 @@ import { customElement, property, query, state } from "lit/decorators.js";
 import { z } from "zod";
 import { deckSchema } from "../../schemas/deck";
 import { flashcardsStorageSchema } from "../../schemas/storage";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeSanitize from "rehype-sanitize";
+import rehypeStringify from "rehype-stringify";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
@@ -88,8 +94,22 @@ export class FlashcardDeck extends LitElement {
       max-width: 100%;
       word-wrap: break-word;
       overflow-wrap: break-word;
-      white-space: pre-wrap;
       hyphens: auto;
+    }
+    #content p {
+      margin: 0 0 var(--wa-space-m) 0;
+    }
+    #content p:last-child {
+      margin-bottom: 0;
+    }
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+      margin: 0 0 var(--wa-space-s) 0;
+      line-height: var(--wa-line-height-tight);
     }
     footer {
       flex-shrink: 0;
@@ -342,11 +362,21 @@ export class FlashcardDeck extends LitElement {
     if (this._remainingCards.length === 0) {
       return html`<div>No cards available</div>`;
     }
+
+    const rawContent = this._remainingCards[0][this._side];
+    const htmlContent = unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeSanitize)
+      .use(rehypeStringify)
+      .processSync(rawContent)
+      .toString();
+
     return html`
       <div id="wrapper">
         <header>${this.headerTemplate()}</header>
         <main>
-          <div id="content">${this._remainingCards[0][this._side]}</div>
+          <div id="content">${unsafeHTML(htmlContent)}</div>
         </main>
         <footer>${this.footerTemplate()}</footer>
       </div>

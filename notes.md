@@ -467,3 +467,13 @@ leader leader s = easymotion
 ## Astro schemas and component schemas
 
 I wanted my components to use the astro content schema to validate their props. However, the components don't have access to Astro schema. So I moved the schema to a separate file and imported it into both the component and the astro `content.config.ts` file.
+
+## Markdown sanitization
+
+I have added rehype-sanitize to the markdown processing pipeline.
+
+### How this makes it secure:
+
+- Strip Scripts: Any <script> tags or inline event handlers (like onclick) are automatically stripped.
+- Protocol Filtering: It ensures that links only use safe protocols (e.g., http:, https:, mailto:, tel:) and prevents javascript: links.
+- Allowed Elements: It limits the HTML to a safe subset (similar to what GitHub allows), so even if the input string contains complex raw HTML, only the safe parts will reach unsafeHTML.
