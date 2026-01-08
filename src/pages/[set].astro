@@ -1,24 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import { deckSchema } from "../schemas/deck";
+import { getCollection, type CollectionKey } from "astro:content";
+import { deckSchema, type Deck } from "../schemas/deck";
+import { setsSchema, type SetInfo } from "../schemas/sets";
+import rawSets from "../sets.json";
 
-const decks = await getCollection("decks");
-decks.forEach((deck) => deckSchema.parse(deck.data));
+export async function getStaticPaths() {
+  const sets = setsSchema.parse(rawSets);
+  return sets.map((set) => ({
+    params: { set: set.path },
+    props: { set },
+  }));
+}
 
-const title = "Italian vocabulary";
+type Props = { set: SetInfo };
+const { set } = Astro.props;
+const entries = await getCollection(set.path as CollectionKey);
+const decks = entries.map((entry) => ({
+  id: entry.id,
+  data: deckSchema.parse(entry.data) as Deck,
+}));
+
+const title = set.title;
 ---
 
 <BaseLayout pageTitle={title}>
   <main>
     <h1>{title}</h1>
-    <wa-switch id="reverse-deck-switch">Reverse Deck</wa-switch>
-    <wa-switch id="shuffle-deck-switch">Shuffle Decks</wa-switch>
+    <wa-switch id="reverse-deck-switch">Reverse Decks</wa-switch>
+    <wa-switch id="shuffle-deck-switch">Shuffle</wa-switch>
+    <p><a href={import.meta.env.BASE_URL}>Back to Home</a></p>
     <ul>
       {
         decks.map((deck) => (
           <li>
-            <a href={import.meta.env.BASE_URL + deck.id}>{deck.data.title}</a>
+            <a href={import.meta.env.BASE_URL + set.path + "/" + deck.id}>
+              {deck.data.title}
+            </a>
           </li>
         ))
       }

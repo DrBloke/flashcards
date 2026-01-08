@@ -1,23 +1,38 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import { deckSchema } from "../schemas/deck";
+import { getCollection, type CollectionKey } from "astro:content";
+import { deckSchema, type Deck } from "../schemas/deck";
+import { setsSchema } from "../schemas/sets";
+import rawSets from "../sets.json";
 
 export async function getStaticPaths() {
-  const decks = await getCollection("decks");
-  return decks.map((deck) => ({
-    params: { id: deck.id },
-    props: { deck },
-  }));
+  const sets = setsSchema.parse(rawSets);
+  const allPaths = [];
+
+  for (const set of sets) {
+    const decks = await getCollection(set.path as CollectionKey);
+    allPaths.push(
+      ...decks.map((deck) => ({
+        params: { id: `${set.path}/${deck.id}` },
+        props: { deck, setPath: set.path },
+      })),
+    );
+  }
+
+  return allPaths;
 }
-const { deck } = Astro.props;
+
+const { deck, setPath } = Astro.props as {
+  deck: { id: string; data: Deck };
+  setPath: string;
+};
 deckSchema.parse(deck.data);
 ---
 
 <BaseLayout pageTitle={deck.data.title}>
   <flashcard-deck
     deck={JSON.stringify(deck.data)}
-    home-route={import.meta.env.BASE_URL}></flashcard-deck>
+    home-route={import.meta.env.BASE_URL + setPath}></flashcard-deck>
 </BaseLayout>
 
 <script>

@@ -1,0 +1,12 @@
+{
+  "id": 1001,
+  "title": "Test Deck 1",
+  "cards": [
+    {
+      "id": 1,
+      "side1": "Side 1",
+      "side2": "Side 2"
+    }
+  ],
+  "tags": ["test"]
+}

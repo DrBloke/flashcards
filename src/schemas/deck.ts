@@ -12,3 +12,4 @@ export const deckSchema = z.object({
   ),
   tags: z.array(z.string()),
 });
+export type Deck = z.infer<typeof deckSchema>;
