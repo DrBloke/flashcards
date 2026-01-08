@@ -136,6 +136,17 @@ export class FlashcardDeck extends LitElement {
       width: auto;
       padding: 0 var(--wa-space-s);
     }
+    .completed-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--wa-space-m);
+    }
+    .completed-icon {
+      font-size: 4rem;
+      color: var(--wa-color-success-60);
+    }
   `;
 
   @property({ type: Object })
@@ -170,6 +181,9 @@ export class FlashcardDeck extends LitElement {
 
   @state()
   private _sessionInitialized = false;
+
+  @state()
+  private _sessionCompleted = false;
 
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
@@ -314,14 +328,18 @@ export class FlashcardDeck extends LitElement {
           >Cards: ${completedCards}/${totalInRound}</span
         >
         <span class="rounds-progress"
-          >Round: ${this._currentRound + 1}/${this.totalRounds}</span
+          >Round:
+          ${Math.min(this._currentRound + 1, this.totalRounds)}/${this
+            .totalRounds}</span
         >
       </span>
       <span class="toolbar-right">
-        ${(this._side === "side1" && !this.deckIsReversed) ||
-        (this._side === "side2" && this.deckIsReversed)
-          ? this.flipTemplate()
-          : this.correctTemplate()}
+        ${this._sessionCompleted
+          ? ""
+          : (this._side === "side1" && !this.deckIsReversed) ||
+              (this._side === "side2" && this.deckIsReversed)
+            ? this.flipTemplate()
+            : this.correctTemplate()}
       </span>`;
   }
 
@@ -359,6 +377,25 @@ export class FlashcardDeck extends LitElement {
   }
 
   render() {
+    if (this._sessionCompleted) {
+      return html`
+        <div id="wrapper">
+          <header>${this.headerTemplate()}</header>
+          <main>
+            <div id="content" class="completed-content">
+              <wa-icon
+                name="circle-check"
+                label="Completed"
+                class="completed-icon"
+              ></wa-icon>
+              <div>Deck completed</div>
+            </div>
+          </main>
+          <footer>${this.footerTemplate()}</footer>
+        </div>
+      `;
+    }
+
     if (this._remainingCards.length === 0) {
       return html`<div>No cards available</div>`;
     }
@@ -398,8 +435,7 @@ export class FlashcardDeck extends LitElement {
       this._currentRound++;
 
       if (this._currentRound === this.totalRounds) {
-        this._clearSession();
-        window.location.href = this.homeRoute;
+        this._completeSession();
         return;
       }
 
@@ -410,8 +446,7 @@ export class FlashcardDeck extends LitElement {
       );
 
       if (this._currentRound > 0 && nextRoundCards.length === 0) {
-        this._clearSession();
-        window.location.href = this.homeRoute;
+        this._completeSession();
         return;
       }
 
@@ -450,5 +485,15 @@ export class FlashcardDeck extends LitElement {
     } else {
       this._side = flipDirection === "forward" ? "side1" : "side2";
     }
+  }
+
+  private _completeSession() {
+    this._clearSession();
+    this._sessionCompleted = true;
+    setTimeout(() => {
+      if (this.isConnected) {
+        window.location.href = this.homeRoute;
+      }
+    }, 2000);
   }
 }

@@ -31,8 +31,8 @@
 - [x] Look good on desktop
 - [x] Need to scope stored data to a particular set
 - [x] Flashcard.ts is not very DRY when accessing stored data
-- [ ] Markdown content
-- [ ] Flicker when completing deck in production. Says "No cards found" briefly.
+- [x] Markdown content
+- [x] Flicker when completing deck in production. Says "No cards found" briefly.
 - [ ] Playwright tests
 - [ ] Smaller font option for when you have a lot of text
 - [ ] Maths, chemistry, code and diagrams
