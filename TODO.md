@@ -45,15 +45,18 @@
 - [ ] Hierarchical menus
 - [ ] Redirect to home is unsafe
 - [ ] Add meta description for SEO - get from `set.json`
+
+## Phase 2
+
 - [ ] Hydration of lit components
 - [ ] Animations and swiping
 - [ ] PWA
 - [ ] Voice
+- [ ] Remote persistence and syncing
+- [ ] Editable card decks
 
 ## Nice to have
 
-- [ ] Remote persistence and syncing
-- [ ] Editable card decks
 - [ ] AI scanning of decks - Could use NotebookLM
 - [ ] Advance/Previous buttons
 - [ ] Default.css being imported in dev app is 64kB. I think this can be minimised by making specific CSS files and importing different ones into each page without excess styles.
