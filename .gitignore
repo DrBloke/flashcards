@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # AI agents
 .agent/
+
+# playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
