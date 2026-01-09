@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
+import { AxeBuilder } from "@axe-core/playwright";
 
 test("Index page is accessible and showing the decks", async ({ page }) => {
   await page.goto("/flashcards/test");

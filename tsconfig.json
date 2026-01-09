@@ -7,7 +7,7 @@
   ],
   "exclude": ["dist"],
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "plugins": [
