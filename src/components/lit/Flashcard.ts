@@ -376,45 +376,44 @@ export class FlashcardDeck extends LitElement {
     </wa-button-group>`;
   }
 
-  render() {
-    if (this._sessionCompleted) {
-      return html`
-        <div id="wrapper">
-          <header>${this.headerTemplate()}</header>
-          <main>
-            <div id="content" class="completed-content">
-              <wa-icon
-                name="circle-check"
-                label="Completed"
-                class="completed-icon"
-              ></wa-icon>
-              <div>Deck completed</div>
-            </div>
-          </main>
-          <footer>${this.footerTemplate()}</footer>
-        </div>
-      `;
-    }
+  completedTemplate() {
+    return html`
+      <div id="content" class="completed-content">
+        <wa-icon
+          name="circle-check"
+          label="Completed"
+          class="completed-icon"
+        ></wa-icon>
+        <div>Deck completed</div>
+      </div>
+    `;
+  }
 
-    if (this._remainingCards.length === 0) {
+  render() {
+    if (!this._sessionCompleted && this._remainingCards.length === 0) {
       return html`<div>No cards available</div>`;
     }
 
-    const rawContent = this._remainingCards[0][this._side];
-    const htmlContent = unified()
-      .use(remarkParse)
-      .use(remarkRehype)
-      .use(rehypeSanitize)
-      .use(rehypeStringify)
-      .processSync(rawContent)
-      .toString();
+    let mainContent;
+
+    if (this._sessionCompleted) {
+      mainContent = this.completedTemplate();
+    } else {
+      const rawContent = this._remainingCards[0][this._side];
+      const htmlContent = unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeSanitize)
+        .use(rehypeStringify)
+        .processSync(rawContent)
+        .toString();
+      mainContent = html`<div id="content">${unsafeHTML(htmlContent)}</div>`;
+    }
 
     return html`
       <div id="wrapper">
         <header>${this.headerTemplate()}</header>
-        <main>
-          <div id="content">${unsafeHTML(htmlContent)}</div>
-        </main>
+        <main>${mainContent}</main>
         <footer>${this.footerTemplate()}</footer>
       </div>
     `;
