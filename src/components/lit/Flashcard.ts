@@ -126,7 +126,7 @@ export class FlashcardDeck extends LitElement {
       flex-direction: column;
       gap: var(--wa-space-3xs);
       font-size: var(--wa-font-size-s);
-      color: var(--wa-color-gray-60);
+      color: var(--wa-color-gray-20);
     }
     span.toolbar-right {
       display: flex;

@@ -477,3 +477,7 @@ I have added rehype-sanitize to the markdown processing pipeline.
 - Strip Scripts: Any <script> tags or inline event handlers (like onclick) are automatically stripped.
 - Protocol Filtering: It ensures that links only use safe protocols (e.g., http:, https:, mailto:, tel:) and prevents javascript: links.
 - Allowed Elements: It limits the HTML to a safe subset (similar to what GitHub allows), so even if the input string contains complex raw HTML, only the safe parts will reach unsafeHTML.
+
+## Compilation target
+
+I changed the target to ESNext to get the latest features. In particular I needed async await in the Playwright tests.
