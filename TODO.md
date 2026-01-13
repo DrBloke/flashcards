@@ -33,18 +33,21 @@
 - [x] Flashcard.ts is not very DRY when accessing stored data
 - [x] Markdown content
 - [x] Flicker when completing deck in production. Says "No cards found" briefly.
-- [ ] Playwright tests
-- [ ] Smaller font option for when you have a lot of text
-- [ ] Maths, chemistry, code and diagrams
+- [x] Playwright tests
+- [ ] Get rid of auto redirect to home on completion
+- [ ] Redirect to home is unsafe
 - [ ] Timer for session
 - [ ] Learning log - single deck
 - [ ] Learning log - set
-- [ ] isReversible - not all decks are
+- [ ] Maths, chemistry, code and diagrams
+- [ ] Header and footer are too large on mobile portrait mode
 - [ ] Colours
 - [ ] Dark mode
 - [ ] Hierarchical menus
-- [ ] Redirect to home is unsafe
 - [ ] Add meta description for SEO - get from `set.json`
+- [ ] Multiple side 2s for worked examples
+- [ ] Smaller font option for when you have a lot of text - at card level JSON
+- [ ] isReversible - not all decks are
 
 ## Phase 2
 
@@ -54,6 +57,7 @@
 - [ ] Voice
 - [ ] Remote persistence and syncing
 - [ ] Editable card decks
+- [ ] Printable
 
 ## Nice to have
 
@@ -74,8 +78,7 @@
 
 ## Issues
 
-- [ ] Mark correct on last round re-renders first card before relocating. Render a success message instead.
-- [ ] I think the use of side1 and side2 may be a poor choice. It should instead be an array. This would help when I have cards with more than two sides.
+- [x] Mark correct on last round re-renders first card before relocating. Render a success message instead.
 
 ## Review
 

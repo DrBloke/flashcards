@@ -3,6 +3,8 @@ import { z } from "zod";
 export const deckSessionSchema = z.object({
   currentRound: z.number(),
   wrongFirstTime: z.array(z.number()),
+  startTime: z.number().optional(),
+  duration: z.number().optional(),
 });
 
 export const setSettingsSchema = z.object({

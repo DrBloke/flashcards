@@ -481,3 +481,17 @@ I have added rehype-sanitize to the markdown processing pipeline.
 ## Compilation target
 
 I changed the target to ESNext to get the latest features. In particular I needed async await in the Playwright tests.
+
+## Current code review
+
+Start time should not be loaded from saved data. It should be set to the current time when the session starts.
+The duration should be calculated as the time between the start time and the end time.
+Should not be saving start time ever. Should save end time upon completion of a session.
+But what about if quit while a session is in progress?
+If you quit a sesssion before completion then start time should be set to null.
+
+## Spaced repetition
+
+- Straight after a lesson: The first step for effective retention is to summarise the key points in your own words, create a study guide, or make flashcards.
+- Solidification: Reviewing content immediately after a class is significantly more effective for moving information into long-term memory than procrastinating or "cramming" later.
+- Intermediate Lags: Intervals like one hour are often considered optimal because they allow a balance: the original experience is still successfully retrieved, but enough time has passed to allow for an encoding state that strengthens the memory trace

@@ -79,13 +79,15 @@ export class FlashcardDeck extends LitElement {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       overflow-y: auto;
       overflow-x: hidden;
       padding: var(--wa-space-xl);
       min-height: 0;
       background-color: var(--wa-color-surface-default);
+    }
+    main > * {
+      margin: auto 0;
     }
     #content {
       font-size: var(--wa-font-size-4xl);
@@ -147,6 +149,19 @@ export class FlashcardDeck extends LitElement {
       font-size: 4rem;
       color: var(--wa-color-success-60);
     }
+    .completed-title {
+      font-size: var(--wa-font-size-2xl);
+      font-weight: var(--wa-font-weight-bold);
+      color: var(--wa-color-gray-10);
+    }
+    .completed-stats {
+      font-size: var(--wa-font-size-l);
+      color: var(--wa-color-gray-30);
+      margin-bottom: var(--wa-space-m);
+    }
+    .completed-stats p {
+      margin: var(--wa-space-2xs) 0;
+    }
   `;
 
   @property({ type: Object })
@@ -185,6 +200,15 @@ export class FlashcardDeck extends LitElement {
   @state()
   private _sessionCompleted = false;
 
+  @state()
+  private _startTime: number = 0;
+
+  @state()
+  private _endTime: number = 0;
+
+  @state()
+  private _duration: number = 0;
+
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
 
@@ -207,11 +231,13 @@ export class FlashcardDeck extends LitElement {
     }
   }
 
-  private _saveSession() {
+  private _saveSession(duration?: number) {
     if (!this.deck || !this.setPath) return;
     const deckData = {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
+      startTime: this._startTime,
+      duration: duration,
     };
     const allData = this._getStoredData();
 
@@ -253,6 +279,10 @@ export class FlashcardDeck extends LitElement {
     if (savedData) {
       this._currentRound = savedData.currentRound;
       this._wrongFirstTime = savedData.wrongFirstTime;
+      this._startTime = savedData.startTime || Date.now();
+      this._duration = savedData.duration || 0;
+    } else {
+      this._startTime = Date.now();
     }
 
     // Initialize cards
@@ -377,6 +407,12 @@ export class FlashcardDeck extends LitElement {
   }
 
   completedTemplate() {
+    const elapsed = this._duration || this._endTime - this._startTime;
+    const totalSeconds = Math.floor(elapsed / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    const struggling = this._wrongFirstTime.length;
+
     return html`
       <div id="content" class="completed-content">
         <wa-icon
@@ -384,19 +420,37 @@ export class FlashcardDeck extends LitElement {
           label="Completed"
           class="completed-icon"
         ></wa-icon>
-        <div>Deck completed</div>
+        <div class="completed-title">Deck completed!</div>
+        <div class="completed-stats">
+          <p>Time spent: ${minutes}m ${seconds}s</p>
+          <p>Cards struggling with: ${struggling}</p>
+        </div>
+        <wa-button
+          id="back-to-home"
+          href=${this.homeRoute}
+          title="Back to Home"
+          variant="brand"
+          appearance="filled"
+        >
+          <wa-icon name="house" label="Home"></wa-icon>
+          &nbsp;&nbsp;Back to Home
+        </wa-button>
       </div>
     `;
   }
 
   render() {
-    if (!this._sessionCompleted && this._remainingCards.length === 0) {
+    const isCompleted =
+      this._sessionCompleted ||
+      (this._currentRound >= this.totalRounds && this.totalRounds > 0);
+
+    if (!isCompleted && this._remainingCards.length === 0) {
       return html`<div>No cards available</div>`;
     }
 
     let mainContent;
 
-    if (this._sessionCompleted) {
+    if (isCompleted) {
       mainContent = this.completedTemplate();
     } else {
       const rawContent = this._remainingCards[0][this._side];
@@ -428,6 +482,7 @@ export class FlashcardDeck extends LitElement {
   async markCorrect() {
     this.flip("back");
     const card = this._remainingCards[0];
+
     this._doneCards = [...this._doneCards, card];
     this._remainingCards = this._remainingCards.slice(1);
     if (this._remainingCards.length === 0) {
@@ -487,12 +542,9 @@ export class FlashcardDeck extends LitElement {
   }
 
   private _completeSession() {
-    this._clearSession();
+    this._endTime = Date.now();
+    this._duration = this._endTime - this._startTime;
+    this._saveSession(this._duration);
     this._sessionCompleted = true;
-    setTimeout(() => {
-      if (this.isConnected) {
-        window.location.href = this.homeRoute;
-      }
-    }, 2000);
   }
 }

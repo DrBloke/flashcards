@@ -78,14 +78,19 @@ test.describe("Flashcard deck", () => {
     await expect(cardContent).toContainText("Header");
     await page.locator("#correct").click();
 
-    // Assert that Deck completed is shown and page navigates back to index
+    // Assert that Deck completed is shown
     await expect(page.locator(".completed-content")).toBeVisible();
     await expect(page.locator(".completed-content")).toContainText(
       "Deck completed",
     );
+    await expect(page.locator(".completed-stats")).toContainText("Time spent:");
+    await expect(page.locator(".completed-stats")).toContainText(
+      "Cards struggling with: 0",
+    );
 
-    // Wait for navigation back to index (timeout in Flashcard.ts is 2000ms)
-    await expect(page).toHaveURL(/\/flashcards\/test$/, { timeout: 5000 });
+    // Click back to home
+    await page.locator("#back-to-home").click();
+    await expect(page).toHaveURL(/\/flashcards\/test$/);
   });
 
   test("Card filtering in multiple rounds", async ({ page }) => {
@@ -143,7 +148,11 @@ test.describe("Flashcard deck", () => {
 
     // Assert completion
     await expect(page.locator(".completed-content")).toBeVisible();
-    await expect(page).toHaveURL(/\/flashcards\/test$/, { timeout: 5000 });
+    await expect(page.locator(".completed-stats")).toContainText(
+      "Cards struggling with: 1",
+    );
+    await page.locator("#back-to-home").click();
+    await expect(page).toHaveURL(/\/flashcards\/test$/);
   });
 
   test("Markdown rendering", async ({ page }) => {
@@ -171,5 +180,69 @@ test.describe("Flashcard deck", () => {
 
     const paragraph = cardContent.locator("p");
     await expect(paragraph).toContainText("This is a paragraph.");
+  });
+
+  test("Restarting a completed deck", async ({ page }) => {
+    // Go to the index page
+    await page.goto("/flashcards/test");
+
+    // Click through to deck 1
+    await page.getByRole("link", { name: "Test Deck 1" }).click();
+    await expect(page).toHaveTitle("Test Deck 1");
+
+    // Round 1: Mark Card 1 incorrect, Card 2 correct
+    await page.locator("#flip").click();
+    await page.locator("#incorrect").click(); // Card 1 incorrect
+    await page.locator("#flip").click();
+    await page.locator("#correct").click(); // Card 2 correct
+
+    // Finish Round 1: Card 1 correct
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // Round 2: Mark Card 1 correct
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // Round 3: Mark Card 1 correct
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // Assert completion screen is shown
+    await expect(page.locator(".completed-content")).toBeVisible();
+
+    // Go back to home
+    await page.locator("#back-to-home").click();
+    await expect(page).toHaveURL(/\/flashcards\/test$/);
+
+    // Enter the same deck again
+    await page.getByRole("link", { name: "Test Deck 1" }).click();
+    await expect(page).toHaveTitle("Test Deck 1");
+
+    // It should start a new session (Round 1, "Side 1" visible).
+    await expect(page.locator(".completed-content")).not.toBeVisible();
+    await expect(page.locator("#content")).toContainText("Side 1");
+    await expect(page.locator(".rounds-progress")).toContainText("Round: 1/3");
+
+    // Complete it again (all correct this time)
+    // Round 1
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // Round 2 (Struggling card from previous session should appear)
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // Round 3
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // The statistics should show the struggling card from the PREVIOUS session
+    // (since it wasn't reset)
+    await expect(page.locator(".completed-stats")).toContainText(
+      "Cards struggling with: 1",
+    );
   });
 });
