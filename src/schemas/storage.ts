@@ -3,7 +3,7 @@ import { z } from "zod";
 export const deckSessionSchema = z.object({
   currentRound: z.number(),
   wrongFirstTime: z.array(z.number()),
-  startTime: z.number().optional(),
+  endTime: z.number().nullable().optional(),
   duration: z.number().optional(),
 });
 

@@ -2,7 +2,10 @@ import { LitElement, css, html, type PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { z } from "zod";
 import { deckSchema } from "../../schemas/deck";
-import { flashcardsStorageSchema } from "../../schemas/storage";
+import {
+  flashcardsStorageSchema,
+  deckSessionSchema,
+} from "../../schemas/storage";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -231,13 +234,13 @@ export class FlashcardDeck extends LitElement {
     }
   }
 
-  private _saveSession(duration?: number) {
+  private _saveSession() {
     if (!this.deck || !this.setPath) return;
-    const deckData = {
+    const deckData: z.infer<typeof deckSessionSchema> = {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
-      startTime: this._startTime,
-      duration: duration,
+      endTime: this._endTime || null,
+      duration: this._duration || undefined,
     };
     const allData = this._getStoredData();
 
@@ -276,13 +279,17 @@ export class FlashcardDeck extends LitElement {
     // Load progress
     const savedData = setData.decks?.[this.deck.id];
 
+    this._startTime = Date.now();
+    this._endTime = 0;
+    this._duration = 0;
+
     if (savedData) {
-      this._currentRound = savedData.currentRound;
+      if (savedData.endTime) {
+        this._currentRound = 0;
+      } else {
+        this._currentRound = savedData.currentRound;
+      }
       this._wrongFirstTime = savedData.wrongFirstTime;
-      this._startTime = savedData.startTime || Date.now();
-      this._duration = savedData.duration || 0;
-    } else {
-      this._startTime = Date.now();
     }
 
     // Initialize cards
@@ -407,7 +414,7 @@ export class FlashcardDeck extends LitElement {
   }
 
   completedTemplate() {
-    const elapsed = this._duration || this._endTime - this._startTime;
+    const elapsed = this._duration;
     const totalSeconds = Math.floor(elapsed / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
@@ -544,7 +551,7 @@ export class FlashcardDeck extends LitElement {
   private _completeSession() {
     this._endTime = Date.now();
     this._duration = this._endTime - this._startTime;
-    this._saveSession(this._duration);
+    this._saveSession();
     this._sessionCompleted = true;
   }
 }
