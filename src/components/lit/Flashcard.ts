@@ -253,6 +253,9 @@ export class FlashcardDeck extends LitElement {
   @state()
   private _sessionMissedCount = 0;
 
+  @state()
+  private _isFilterMissedOnly = false;
+
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
 
@@ -344,7 +347,14 @@ export class FlashcardDeck extends LitElement {
         } else {
           const currentGroup = schedule[lastEntry.sessionGroupIndex];
 
-          if (lastEntry.sessionIndex < currentGroup.numberOfSessions - 1) {
+          if (lastEntry.isExtra) {
+            // Stay at same index for the "real" session
+            this._sessionGroupIndex = lastEntry.sessionGroupIndex;
+            this._sessionIndex = lastEntry.sessionIndex;
+          } else if (
+            lastEntry.sessionIndex <
+            currentGroup.numberOfSessions - 1
+          ) {
             // Next session in same group
             this._sessionGroupIndex = lastEntry.sessionGroupIndex;
             this._sessionIndex = lastEntry.sessionIndex + 1;
@@ -358,8 +368,12 @@ export class FlashcardDeck extends LitElement {
           }
 
           const now = Date.now();
-          this._isDue =
-            lastEntry.nextReview === null || now >= lastEntry.nextReview;
+          if (!this._isExtraSession) {
+            this._isDue =
+              lastEntry.nextReview === null || now >= lastEntry.nextReview;
+          } else {
+            this._isDue = true;
+          }
         }
       }
     } else {
@@ -374,14 +388,17 @@ export class FlashcardDeck extends LitElement {
     // Initialize cards
     let initialCards = [...this.deck.cards];
 
-    // Apply filtering for rounds > 0
-    if (this._currentRound > 0) {
+    // Apply filtering for rounds > 0 OR if specifically requested for extra session
+    if (
+      this._currentRound > 0 ||
+      (this._isExtraSession && this._isFilterMissedOnly)
+    ) {
       const filtered = initialCards.filter((card) =>
         this._wrongFirstTime.includes(card.id),
       );
       if (filtered.length > 0) {
         initialCards = filtered;
-      } else {
+      } else if (this._currentRound > 0) {
         this._currentRound = 0;
         this._saveSession();
       }
@@ -457,16 +474,20 @@ export class FlashcardDeck extends LitElement {
       </span>`;
   }
 
-  startAnyway() {
+  startAnyway(missedOnly = false) {
+    this._isFilterMissedOnly =
+      typeof missedOnly === "boolean" ? missedOnly : false;
     this._isExtraSession = true;
     this._isDue = true;
     this._startTime = Date.now();
+    this._initializeSession();
   }
 
   _retryGroup() {
     this._showDemotionChoice = false;
     this._sessionCompleted = false;
     this._isDue = true;
+    this._wrongFirstTime = [];
     this._initializeSession();
   }
 
@@ -486,6 +507,7 @@ export class FlashcardDeck extends LitElement {
 
       this._sessionCompleted = false;
       this._isDue = true;
+      this._wrongFirstTime = [];
       this._initializeSession();
     }
   }
@@ -614,13 +636,26 @@ export class FlashcardDeck extends LitElement {
             Studying now will reset your review schedule.
           </p>
         </div>
-        <div style="display: flex; gap: var(--wa-space-m)">
+        <div
+          style="display: flex; gap: var(--wa-space-m); flex-wrap: wrap; justify-content: center"
+        >
           <wa-button
-            @click=${this.startAnyway}
+            @click=${() => this.startAnyway(false)}
             variant="danger"
             appearance="outlined"
-            >Study Anyway</wa-button
+            >Study All Cards</wa-button
           >
+          ${this._wrongFirstTime.length > 0
+            ? html`
+                <wa-button
+                  @click=${() => this.startAnyway(true)}
+                  variant="warning"
+                  appearance="outlined"
+                  >Study Stumbles Only
+                  (${this._wrongFirstTime.length})</wa-button
+                >
+              `
+            : ""}
           <wa-button href=${this.homeRoute} variant="brand"
             >Come Back Later</wa-button
           >
@@ -814,14 +849,19 @@ export class FlashcardDeck extends LitElement {
       // by making the last entry look like the end of the previous group.
       newEntry.sessionGroupIndex = this._sessionGroupIndex - 1;
       newEntry.sessionIndex = 999;
+      isRepeatingGroup = true;
     }
 
     this._learningLog = [...this._learningLog, newEntry];
 
-    // Reset session-specific state for the next session
     this._sessionMissedCount = missedCount;
-    this._wrongFirstTime = [];
     this._currentRound = 0;
+    this._isFilterMissedOnly = false;
+
+    // Reset wrong cards ONLY if we moved group or are specifically repeating group
+    if (nextGroupIndex > this._sessionGroupIndex || isRepeatingGroup) {
+      this._wrongFirstTime = [];
+    }
 
     this._saveSession();
     this._sessionCompleted = true;
