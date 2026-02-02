@@ -488,10 +488,70 @@ Start time should not be loaded from saved data. It should be set to the current
 The duration should be calculated as the time between the start time and the end time.
 Should not be saving start time ever. Should save end time upon completion of a session.
 But what about if quit while a session is in progress?
-If you quit a sesssion before completion then start time should be set to null.
+If you quit a sesssion before completion then end time should be set to null. Timing should then start again when a new session is started.
+
+Maybe have a wrong this time and wrong all time field. Or better a wrong this round.
 
 ## Spaced repetition
 
 - Straight after a lesson: The first step for effective retention is to summarise the key points in your own words, create a study guide, or make flashcards.
 - Solidification: Reviewing content immediately after a class is significantly more effective for moving information into long-term memory than procrastinating or "cramming" later.
 - Intermediate Lags: Intervals like one hour are often considered optimal because they allow a balance: the original experience is still successfully retrieved, but enough time has passed to allow for an encoding state that strengthens the memory trace
+- The "Just Before Forgetting" Rule: In some contexts, particularly for infants or novice learners, the optimal space is suggested to be just before a memory is forgotten
+- The Pimsleur Scale: Particularly used in language learning, this method recommends intervals of 5 seconds, 25 seconds, 2 minutes, 10 minutes, 1 hour, and 5 hours before moving to the one-day mark
+- After the initial first-day reviews, the 2357 method and other spaced repetition algorithms suggest moving to the next review exactly one day later
+
+Add a new field to the setSettingsSchema called learningSchedule. It should have a structure like this:
+
+```ts
+learningSchedule: [{
+  numberOfSessions: number;
+  minTimeSinceLastRound: number
+  minTimeBetweenSessions: number;
+  maxTimeBetweenSessions: number;
+}]
+```
+
+There are rounds and there are sessions and there are groups of sessions. You need to wait the min time between sessions for it to be useful. You need to study before the max time to not forget everything. Here is the learning schedule, which is an array of grouped sessions e.g. the first group has 5 sessions, the second has 3 sessions, etc.:
+
+```JSON
+[{ minTimeSinceLastRound = 0, numberOfSessions = 5, minTimeBetweenSessions = 3600, maxTimeBetweenSessions = 10800 },
+ { minTimeSinceLastRound = 28800, numberOfSessions = 3, minTimeBetweenSessions = 3600, maxTimeBetweenSessions = 18000 },
+ { minTimeSinceLastRound = 115200, numberOfSessions = 2, minTimeBetweenSessions = 3600, maxTimeBetweenSessions = 36000 },
+ { minTimeSinceLastRound = 172800, numberOfSessions = 1, minTimeBetweenSessions = null, maxTimeBetweenSessions = null },
+ { minTimeSinceLastRound = 259200, numberOfSessions = 1, minTimeBetweenSessions = null, maxTimeBetweenSessions = null },
+ { minTimeSinceLastRound = 604800, numberOfSessions = 1, minTimeBetweenSessions = null, maxTimeBetweenSessions = null },
+ { minTimeSinceLastRound = 1209600, numberOfSessions = 1, minTimeBetweenSessions = null, maxTimeBetweenSessions = null },
+ { minTimeSinceLastRound = 2592000, numberOfSessions = 1, minTimeBetweenSessions = null, maxTimeBetweenSessions = null },
+ ]
+```
+
+Define a schema for the learning schedule and store it in @/schemas/learningSchedule.ts
+
+Change @/schemas/storage.ts deckSessionSchema to include field called learningLog. This should be an array with the following structure:
+
+```JSON
+ [ { sessionGroupIndex: number, sessionIndex: number, startTime: Date, endTime: Date, nextReview: Date | null }]
+```
+
+Get rid of the current fields in deckSessionSchema called endTime and duration. (Where these are used, @flashcard.ts should calculate them from the learningLog)
+
+This learningLog enables working out which is the current session group and session index. It also enables working out if the session is due or overdue
+
+@flashcard.ts should check if there is a learning schedule defined in settings. If not, it should use the default learning schedule. It should then look at the learning log and deduce the current state (first item in the array) to see if the current session and session group has been completed. If it has, it should use the nextReview date to determine if the session is due. If it is due, it should start the session. If the learning log is empty, it should start the first session group. Timing of the session should start and the start time should be stored in memory so that it can be stored when the session is completed. When the session is completed, the learning log should be updated. Note that if a session group has been completed but the next one has not been started then the due date is calculated using minTimeSinceLastRound from the learning schedule.
+
+@flashcard.ts should also check if the session or session group is due. If it is not due, then the user should be given the option to start the session anyway, but with a warning that it is not due and that the wait time will be reset. That is, the nextReview will be calculated using the end time of the session. If studying anyway when not due then nothing should be added to the learning log at the end of the session.
+
+When a new session group is started, wrongFirstTime should be reset to an empty array.
+
+On successfully completing a session, the learning log should be updated with the end time and nextReview date. The sessionIndex should be incremented. If all the sessions in a session group have been completed then the a new item will be added to the learning log with the sessionGroupIndex incremented by 1 at the end of this session.
+
+3600 = 1 hour
+86400 = 1 day
+172800 = 2 days
+259200 = 4 days
+604800 = 7 days
+1209600 = 14 days
+2592000 = 30 days
+5184000 = 60 days
+10368000 = 90 days

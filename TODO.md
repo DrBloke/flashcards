@@ -48,6 +48,7 @@
 - [ ] Multiple side 2s for worked examples
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
+- [ ] Magic date input parser for learning schedule
 
 ## Phase 2
 
