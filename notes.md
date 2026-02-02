@@ -555,3 +555,44 @@ On successfully completing a session, the learning log should be updated with th
 2592000 = 30 days
 5184000 = 60 days
 10368000 = 90 days
+
+## Refined prompt
+
+1. Refined Data Structures
+   learningSchedule.ts: Will define the array of session groups. I'll use minTimeSinceLastSessionGroup (initial delay for the group) and minTimeBetweenSessions (gaps within the group).
+   learningLog: Each entry will look like:
+   {
+   sessionGroupIndex: number,
+   sessionIndex: number, // 0-indexed within the group
+   startTime: Date,
+   endTime: Date,
+   nextReview: Date | null,
+   isExtra?: boolean // Set to true if studied before nextReview
+   }
+2. State & Progression Logic
+   Current State: Derived from the last entry in the log.
+   If no log: Start sessionGroupIndex: 0, sessionIndex: 0.
+   If last entry has sessionIndex < group.numberOfSessions - 1: Next is sessionIndex + 1 in the same group.
+   If last entry has sessionIndex == group.numberOfSessions - 1: Next is sessionIndex: 0 in sessionGroupIndex + 1.
+   "Due" Check:
+   Due = currentTime >= lastEntry.nextReview.
+   Overdue = currentTime > lastEntry.endTime + group.maxTimeBetweenSessions (if defined).
+   Early Study (The "Extra Session"):
+   If the user studies when not due, we add an extraSession entry.
+   It does not increment the sessionIndex. It's essentially a "bonus" repetition.
+   It does reset the nextReview timer for the current pending session index.
+   New Group Reset: wrongFirstTime is cleared whenever sessionGroupIndex increments, allowing a fresh assessment of struggling cards for that group's repetition cycle.
+3. Session Start logic
+   If no log exists, the first session is "Ready" but not "Overdue" (since no clock was ticking yet).
+   Start time is captured when the first card is shown, and the entry is saved only when the deck is completed.
+   I believe this is logically consistent and covers the edge cases we discussed. I'll proceed with the following steps:
+
+Create src/schemas/learningSchedule.ts.
+Update
+
+src/schemas/storage.ts
+to include the learningLog and the new settings.
+Modify
+
+src/components/lit/Flashcard.ts
+to implement the new SRS logic, session initialization, and log updates.

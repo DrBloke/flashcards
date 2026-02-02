@@ -5,7 +5,9 @@ import { deckSchema } from "../../schemas/deck";
 import {
   flashcardsStorageSchema,
   deckSessionSchema,
+  type LearningLogEntry,
 } from "../../schemas/storage";
+import { DEFAULT_LEARNING_SCHEDULE } from "../../schemas/learningSchedule";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -165,6 +167,21 @@ export class FlashcardDeck extends LitElement {
     .completed-stats p {
       margin: var(--wa-space-2xs) 0;
     }
+    .demotion-choices {
+      display: flex;
+      flex-direction: column;
+      gap: var(--wa-space-s);
+      margin-top: var(--wa-space-m);
+      padding: var(--wa-space-m);
+      background-color: var(--wa-color-gray-95);
+      border-radius: var(--wa-border-radius-m);
+      border: 1px solid var(--wa-color-gray-80);
+    }
+    .demotion-choices p {
+      margin: 0 0 var(--wa-space-xs) 0;
+      font-weight: var(--wa-font-weight-bold);
+      color: var(--wa-color-danger-70);
+    }
   `;
 
   @property({ type: Object })
@@ -212,6 +229,30 @@ export class FlashcardDeck extends LitElement {
   @state()
   private _duration: number = 0;
 
+  @state()
+  private _learningLog: LearningLogEntry[] = [];
+
+  @state()
+  private _sessionGroupIndex = 0;
+
+  @state()
+  private _sessionIndex = 0;
+
+  @state()
+  private _isDue = true;
+
+  @state()
+  private _isExtraSession = false;
+
+  @state()
+  private _score = 0;
+
+  @state()
+  private _showDemotionChoice = false;
+
+  @state()
+  private _sessionMissedCount = 0;
+
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
 
@@ -239,8 +280,7 @@ export class FlashcardDeck extends LitElement {
     const deckData: z.infer<typeof deckSessionSchema> = {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
-      endTime: this._endTime || null,
-      duration: this._duration || undefined,
+      learningLog: this._learningLog,
     };
     const allData = this._getStoredData();
 
@@ -275,27 +315,66 @@ export class FlashcardDeck extends LitElement {
     this.totalRounds = setData.settings?.totalRounds ?? 3;
 
     const isShuffled = setData.settings?.shuffleDeck === true;
+    const schedule =
+      setData.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
 
     // Load progress
     const savedData = setData.decks?.[this.deck.id];
 
-    this._startTime = Date.now();
+    this._startTime = 0; // Will be set on first interaction
     this._endTime = 0;
-    this._duration = 0;
 
     if (savedData) {
-      if (savedData.endTime) {
-        this._currentRound = 0;
+      this._learningLog = savedData.learningLog || [];
+      this._wrongFirstTime = savedData.wrongFirstTime || [];
+      this._currentRound = savedData.currentRound || 0;
+
+      // Deduce current state from log
+      if (this._learningLog.length === 0) {
+        this._sessionGroupIndex = 0;
+        this._sessionIndex = 0;
+        this._isDue = true;
       } else {
-        this._currentRound = savedData.currentRound;
+        const lastEntry = this._learningLog[this._learningLog.length - 1];
+
+        if (lastEntry.sessionGroupIndex === -1) {
+          this._sessionGroupIndex = 0;
+          this._sessionIndex = 0;
+          this._isDue = true;
+        } else {
+          const currentGroup = schedule[lastEntry.sessionGroupIndex];
+
+          if (lastEntry.sessionIndex < currentGroup.numberOfSessions - 1) {
+            // Next session in same group
+            this._sessionGroupIndex = lastEntry.sessionGroupIndex;
+            this._sessionIndex = lastEntry.sessionIndex + 1;
+          } else {
+            // Move to next group (or stay at last)
+            this._sessionGroupIndex = Math.min(
+              lastEntry.sessionGroupIndex + 1,
+              schedule.length - 1,
+            );
+            this._sessionIndex = 0;
+          }
+
+          const now = Date.now();
+          this._isDue =
+            lastEntry.nextReview === null || now >= lastEntry.nextReview;
+        }
       }
-      this._wrongFirstTime = savedData.wrongFirstTime;
+    } else {
+      this._learningLog = [];
+      this._wrongFirstTime = [];
+      this._currentRound = 0;
+      this._sessionGroupIndex = 0;
+      this._sessionIndex = 0;
+      this._isDue = true;
     }
 
     // Initialize cards
     let initialCards = [...this.deck.cards];
 
-    // Apply filtering for rounds > 1
+    // Apply filtering for rounds > 0
     if (this._currentRound > 0) {
       const filtered = initialCards.filter((card) =>
         this._wrongFirstTime.includes(card.id),
@@ -303,8 +382,6 @@ export class FlashcardDeck extends LitElement {
       if (filtered.length > 0) {
         initialCards = filtered;
       } else {
-        // Fallback: If resume data is inconsistent (e.g. round > 0 but no wrong cards recorded)
-        // Reset to round 0 to avoid "No cards available"
         this._currentRound = 0;
         this._saveSession();
       }
@@ -380,6 +457,39 @@ export class FlashcardDeck extends LitElement {
       </span>`;
   }
 
+  startAnyway() {
+    this._isExtraSession = true;
+    this._isDue = true;
+    this._startTime = Date.now();
+  }
+
+  _retryGroup() {
+    this._showDemotionChoice = false;
+    this._sessionCompleted = false;
+    this._isDue = true;
+    this._initializeSession();
+  }
+
+  _demoteToPreviousGroup() {
+    if (!this.deck || !this.setPath) return;
+    this._showDemotionChoice = false;
+
+    const lastEntry = this._learningLog[this._learningLog.length - 1];
+    if (lastEntry) {
+      // To go back to [G-1, S=0], we make the last entry look like the end of [G-2]
+      const targetGroupIndex = this._sessionGroupIndex - 1;
+
+      lastEntry.sessionGroupIndex = targetGroupIndex - 1;
+      lastEntry.sessionIndex = 999; // Represents "finished group"
+      lastEntry.nextReview = Date.now(); // Available immediately
+      this._saveSession();
+
+      this._sessionCompleted = false;
+      this._isDue = true;
+      this._initializeSession();
+    }
+  }
+
   flipTemplate() {
     return html` <wa-button
       id="flip"
@@ -418,30 +528,103 @@ export class FlashcardDeck extends LitElement {
     const totalSeconds = Math.floor(elapsed / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    const struggling = this._wrongFirstTime.length;
+
+    const scorePercent = Math.round(this._score * 100);
 
     return html`
       <div id="content" class="completed-content">
         <wa-icon
-          name="circle-check"
+          name=${this._score >= 0.9 ? "circle-check" : "circle-exclamation"}
           label="Completed"
           class="completed-icon"
+          style="color: ${this._score >= 0.9
+            ? "var(--wa-color-success-60)"
+            : "var(--wa-color-warning-60)"}"
         ></wa-icon>
-        <div class="completed-title">Deck completed!</div>
-        <div class="completed-stats">
-          <p>Time spent: ${minutes}m ${seconds}s</p>
-          <p>Cards struggling with: ${struggling}</p>
+        <div class="completed-title">
+          ${this._score >= 0.9
+            ? "Mastered!"
+            : scorePercent >= 40
+              ? "Deck Completed"
+              : "Needs Review"}
         </div>
-        <wa-button
-          id="back-to-home"
-          href=${this.homeRoute}
-          title="Back to Home"
-          variant="brand"
-          appearance="filled"
-        >
-          <wa-icon name="house" label="Home"></wa-icon>
-          &nbsp;&nbsp;Back to Home
-        </wa-button>
+        <div class="completed-stats">
+          <p>Score: ${scorePercent}%</p>
+          <p>Time spent: ${minutes}m ${seconds}s</p>
+          ${this._score < 0.9
+            ? html`<p>Cards to focus on: ${this._sessionMissedCount}</p>`
+            : ""}
+        </div>
+
+        ${this._showDemotionChoice
+          ? html`
+              <div class="demotion-choices">
+                <p>
+                  Your score was low (${scorePercent}%). What would you like to
+                  do?
+                </p>
+                <wa-button @click=${this._retryGroup} variant="brand"
+                  >Retry Current Group</wa-button
+                >
+                ${this._sessionGroupIndex > 0
+                  ? html`<wa-button
+                      @click=${this._demoteToPreviousGroup}
+                      variant="danger"
+                      >Go Back to Previous Group</wa-button
+                    >`
+                  : ""}
+              </div>
+            `
+          : html`
+              <wa-button
+                id="back-to-home"
+                href=${this.homeRoute}
+                title="Back to Home"
+                variant="brand"
+                appearance="filled"
+              >
+                <wa-icon name="house" label="Home"></wa-icon>
+                &nbsp;&nbsp;Back to Home
+              </wa-button>
+            `}
+      </div>
+    `;
+  }
+
+  notDueTemplate() {
+    const lastEntry = this._learningLog[this._learningLog.length - 1];
+    const nextReview = lastEntry?.nextReview
+      ? new Date(lastEntry.nextReview).toLocaleString()
+      : "Soon";
+
+    return html`
+      <div id="content" class="completed-content">
+        <wa-icon
+          name="clock"
+          label="Not Due"
+          class="completed-icon"
+          style="color: var(--wa-color-gray-40)"
+        ></wa-icon>
+        <div class="completed-title">Not due yet</div>
+        <div class="completed-stats">
+          <p>Next review scheduled for: ${nextReview}</p>
+          <p
+            style="font-size: var(--wa-font-size-s); color: var(--wa-color-danger-60); margin-top: var(--wa-space-m)"
+          >
+            Studying now will reset your review schedule.
+          </p>
+        </div>
+        <div style="display: flex; gap: var(--wa-space-m)">
+          <wa-button
+            @click=${this.startAnyway}
+            variant="danger"
+            appearance="outlined"
+            >Study Anyway</wa-button
+          >
+          <wa-button href=${this.homeRoute} variant="brand"
+            >Come Back Later</wa-button
+          >
+        </div>
       </div>
     `;
   }
@@ -459,6 +642,8 @@ export class FlashcardDeck extends LitElement {
 
     if (isCompleted) {
       mainContent = this.completedTemplate();
+    } else if (!this._isDue) {
+      mainContent = this.notDueTemplate();
     } else {
       const rawContent = this._remainingCards[0][this._side];
       const htmlContent = unified()
@@ -481,6 +666,7 @@ export class FlashcardDeck extends LitElement {
   }
 
   async flipCard() {
+    if (this._startTime === 0) this._startTime = Date.now();
     this.flip("forward");
     await this.updateComplete;
     this.shadowRoot?.getElementById("correct")?.focus();
@@ -494,13 +680,12 @@ export class FlashcardDeck extends LitElement {
     this._remainingCards = this._remainingCards.slice(1);
     if (this._remainingCards.length === 0) {
       this._currentRound++;
+      this._saveSession();
 
-      if (this._currentRound === this.totalRounds) {
+      if (this._currentRound >= this.totalRounds) {
         this._completeSession();
         return;
       }
-
-      this._saveSession();
 
       const nextRoundCards = this._doneCards.filter((card) =>
         this._wrongFirstTime.includes(card.id),
@@ -549,8 +734,95 @@ export class FlashcardDeck extends LitElement {
   }
 
   private _completeSession() {
+    if (!this.deck || !this.setPath) return;
     this._endTime = Date.now();
     this._duration = this._endTime - this._startTime;
+
+    const totalCards = this.deck.cards.length;
+    const missedCount = this._wrongFirstTime.length;
+    this._score = totalCards > 0 ? (totalCards - missedCount) / totalCards : 1;
+
+    const allData = this._getStoredData();
+    const setData = allData[this.setPath] || { settings: {}, decks: {} };
+    const schedule =
+      setData.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
+
+    let nextGroupIndex = this._sessionGroupIndex;
+    let isRepeatingGroup = false;
+
+    // Progression logic at the end of a session group
+    const currentGroup = schedule[this._sessionGroupIndex];
+    const isEndOfGroup =
+      this._sessionIndex === currentGroup.numberOfSessions - 1;
+
+    if (isEndOfGroup) {
+      if (this._score >= 0.9) {
+        // Mastered - move to next group
+        nextGroupIndex = Math.min(
+          this._sessionGroupIndex + 1,
+          schedule.length - 1,
+        );
+      } else if (this._score >= 0.4) {
+        // Passing but not mastered - repeat group
+        isRepeatingGroup = true;
+      } else {
+        // Failed - show demotion choice (this will be handled by UI)
+        this._showDemotionChoice = true;
+        // For now, we don't finalize the log entry until they choose?
+        // Actually, let's just complete the session and show the choices in completedTemplate.
+      }
+    } else {
+      // mid-group progression
+    }
+
+    // Calculate nextReview
+    let nextReview: number | null = null;
+    const nextGroup = schedule[nextGroupIndex];
+
+    if (nextGroupIndex > this._sessionGroupIndex) {
+      // Moving to next group
+      if (nextGroup.minTimeSinceLastSessionGroup !== null) {
+        nextReview =
+          this._endTime + nextGroup.minTimeSinceLastSessionGroup * 1000;
+      }
+    } else if (isRepeatingGroup) {
+      // Repeating group
+      if (nextGroup.minTimeSinceLastSessionGroup !== null) {
+        nextReview =
+          this._endTime + nextGroup.minTimeSinceLastSessionGroup * 1000;
+      }
+    } else {
+      // Next session in same group
+      if (currentGroup.minTimeBetweenSessions !== null) {
+        nextReview = this._endTime + currentGroup.minTimeBetweenSessions * 1000;
+      }
+    }
+
+    // Update log
+    const newEntry: LearningLogEntry = {
+      sessionGroupIndex: this._sessionGroupIndex,
+      sessionIndex: this._sessionIndex,
+      startTime: this._startTime,
+      endTime: this._endTime,
+      nextReview: nextReview,
+      isExtra: this._isExtraSession,
+      missedCount: missedCount,
+    };
+
+    if (isEndOfGroup && this._score < 0.9) {
+      // If we didn't master the group, repeat it by default
+      // by making the last entry look like the end of the previous group.
+      newEntry.sessionGroupIndex = this._sessionGroupIndex - 1;
+      newEntry.sessionIndex = 999;
+    }
+
+    this._learningLog = [...this._learningLog, newEntry];
+
+    // Reset session-specific state for the next session
+    this._sessionMissedCount = missedCount;
+    this._wrongFirstTime = [];
+    this._currentRound = 0;
+
     this._saveSession();
     this._sessionCompleted = true;
   }
