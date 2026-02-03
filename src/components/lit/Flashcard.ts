@@ -491,7 +491,7 @@ export class FlashcardDeck extends LitElement {
         >
       </span>
       <span class="toolbar-right">
-        ${this._sessionCompleted
+        ${this._sessionCompleted || !this._isDue
           ? ""
           : (this._side === "side1" && !this.deckIsReversed) ||
               (this._side === "side2" && this.deckIsReversed)

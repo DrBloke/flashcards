@@ -34,6 +34,7 @@
 - [x] Markdown content
 - [x] Flicker when completing deck in production. Says "No cards found" briefly.
 - [x] Playwright tests
+- [x] Main in the component is an accessibility issue, also H1 tag. Hydration of the component could solve this? Yes there is Declerative Shadow DOM syntax, but you also need to use slots.
 - [ ] Get rid of auto redirect to home on completion
 - [ ] Redirect to home is unsafe
 - [ ] Timer for session
@@ -49,7 +50,6 @@
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
 - [ ] Magic date input parser for learning schedule
-- [x] Main in the component is an accessibility issue, also H1 tag. Hydration of the component could solve this? Yes there is Declerative Shadow DOM syntax, but you also need to use slots.
 
 ## Phase 2
 
@@ -60,6 +60,7 @@
 - [ ] Remote persistence and syncing
 - [ ] Editable card decks
 - [ ] Printable
+- [ ] Push notifications
 
 ## Nice to have
 

@@ -410,4 +410,43 @@ test.describe("Spaced Repetition and Learning Log", () => {
     // Check for "11:" to be somewhat sure it's the right time
     await expect(page.locator(".completed-stats")).toContainText("11:");
   });
+
+  test("should not show Flip button on 'Not due yet' screen", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    const initialData = {
+      test: {
+        settings: { totalRounds: 1 },
+        decks: {
+          "1": {
+            currentRound: 0,
+            wrongFirstTime: [],
+            learningLog: [
+              {
+                sessionGroupIndex: 0,
+                sessionIndex: 0,
+                startTime: now - 120000,
+                endTime: now - 60000,
+                nextReview: now + 3600000,
+                missedCount: 0,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+    await expect(page.locator(".completed-title")).toContainText("Not due yet");
+
+    // Flip button should NOT be visible
+    await expect(page.locator("#flip")).not.toBeVisible();
+  });
 });
