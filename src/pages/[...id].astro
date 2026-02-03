@@ -33,7 +33,13 @@ deckSchema.parse(deck.data);
   <flashcard-deck
     deck={JSON.stringify(deck.data)}
     set-path={setPath}
-    home-route={import.meta.env.BASE_URL + setPath}></flashcard-deck>
+    home-route={import.meta.env.BASE_URL + setPath}
+  >
+    <h1 slot="header" id="ssr-header">{deck.data.title}</h1>
+    <div id="content">
+      {deck.data.cards[0]?.side1}
+    </div>
+  </flashcard-deck>
 </BaseLayout>
 
 <script>

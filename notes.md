@@ -597,20 +597,23 @@ Modify
 src/components/lit/Flashcard.ts
 to implement the new SRS logic, session initialization, and log updates.
 
-## Check
+## Lit components and accessibility and SEO
 
-If you fail, do you get in a stuck state because wrongFirstTime is not reset?
+There is a slight issue using webcomponents. We want there to be a main, header and footer component and h1 tag in the shadow DOM. This creates accessibility and SEO issues. The recommended solution is to use slots, as per this pattern:
 
-```JS
-  // Reset wrongFirstTime if we are starting a fresh normal session
-    if (
-      this._isDue &&
-      this._currentRound === 0 &&
-      !this._isFilterMissedOnly &&
-      !this._sessionCompleted
-    ) {
-      this._wrongFirstTime = [];
-    }
+```JSX
+<app-shell>
+  <template shadowrootmode="open">
+     <header role="banner"><slot name="header"></slot></header>
+     <main role="main"><slot></slot></main>
+     <footer role="contentinfo"><slot name="footer"></slot></footer>
+  </template>
+
+  <h1 slot="header">My Accessible H1</h1>
+  <p>Content is here immediately!</p>
+</app-shell>
 ```
 
-The footer and header buttons should be disabled when the completed content div is shown
+## Question
+
+Is the wrongFirstTime array being reset every new round, every session or what? Do extra study sessions affect it?

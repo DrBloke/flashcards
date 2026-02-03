@@ -182,6 +182,25 @@ export class FlashcardDeck extends LitElement {
       font-weight: var(--wa-font-weight-bold);
       color: var(--wa-color-danger-70);
     }
+    ::slotted(h1[slot="header"]) {
+      font-size: var(--wa-font-size-xl);
+      color: var(--wa-color-brand-on-quiet);
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      text-align: right;
+    }
+    ::slotted(#content) {
+      font-size: var(--wa-font-size-4xl);
+      text-align: left;
+      width: fit-content;
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
   `;
 
   @property({ type: Object })
@@ -255,6 +274,9 @@ export class FlashcardDeck extends LitElement {
 
   @state()
   private _isFilterMissedOnly = false;
+
+  @state()
+  private _isHydrated = false;
 
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
@@ -416,6 +438,10 @@ export class FlashcardDeck extends LitElement {
   }
 
   firstUpdated() {
+    this._isHydrated = true;
+    // Clear light DOM content (SSR) so that shadow DOM content takes over
+    // and we avoid duplicate IDs (e.g. #content) between light and shadow DOM.
+    this.innerHTML = "";
     requestAnimationFrame(() => {
       this.shadowRoot?.getElementById("flip")?.focus();
     });
@@ -693,9 +719,13 @@ export class FlashcardDeck extends LitElement {
 
     return html`
       <div id="wrapper">
-        <header role="banner">${this.headerTemplate()}</header>
-        <main role="main">${mainContent}</main>
-        <footer role="contentinfo">${this.footerTemplate()}</footer>
+        <header role="banner">
+          <slot name="header">${this.headerTemplate()}</slot>
+        </header>
+        <main role="main"><slot></slot>${mainContent}</main>
+        <footer role="contentinfo">
+          <slot name="footer">${this.footerTemplate()}</slot>
+        </footer>
       </div>
     `;
   }
