@@ -596,3 +596,7 @@ Modify
 
 src/components/lit/Flashcard.ts
 to implement the new SRS logic, session initialization, and log updates.
+
+## Check
+
+If you fail, do you get in a stuck state because wrongFirstTime is not reset?
