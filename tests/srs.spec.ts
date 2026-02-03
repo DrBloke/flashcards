@@ -372,4 +372,42 @@ test.describe("Spaced Repetition and Learning Log", () => {
       "Your score was low",
     );
   });
+
+  test("should show next review time on completion screen", async ({
+    page,
+  }) => {
+    const startTime = new Date("2026-02-02T10:00:00Z");
+    await page.clock.setFixedTime(startTime);
+
+    // Set totalRounds to 1 for faster testing
+    await page.addInitScript(() => {
+      const data = {
+        test: {
+          settings: { totalRounds: 1 },
+          decks: {},
+        },
+      };
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    });
+
+    // Go to the deck page
+    await page.goto("/flashcards/test/01-test-deck");
+
+    // Complete session
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    // Should be completed
+    await expect(page.locator(".completed-content")).toBeVisible();
+
+    // Default schedule Group 0 Session 0 has 1 hour wait (3600s)
+    // 2026-02-02T10:00:00Z + 1 hour = 11:00:00
+    await expect(page.locator(".completed-stats")).toContainText(
+      "Next review scheduled for:",
+    );
+    // Check for "11:" to be somewhat sure it's the right time
+    await expect(page.locator(".completed-stats")).toContainText("11:");
+  });
 });

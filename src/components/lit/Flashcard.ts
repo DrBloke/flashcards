@@ -602,6 +602,15 @@ export class FlashcardDeck extends LitElement {
           ${this._score < 0.9
             ? html`<p>Cards to focus on: ${this._sessionMissedCount}</p>`
             : ""}
+          ${this._learningLog[this._learningLog.length - 1]?.nextReview
+            ? html`<p>
+                Next review scheduled for:
+                ${new Date(
+                  this._learningLog[this._learningLog.length - 1]
+                    .nextReview as number,
+                ).toLocaleString()}
+              </p>`
+            : ""}
         </div>
 
         ${this._showDemotionChoice
