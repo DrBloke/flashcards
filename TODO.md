@@ -35,16 +35,18 @@
 - [x] Flicker when completing deck in production. Says "No cards found" briefly.
 - [x] Playwright tests
 - [x] Main in the component is an accessibility issue, also H1 tag. Hydration of the component could solve this? Yes there is Declerative Shadow DOM syntax, but you also need to use slots.
-- [ ] Get rid of auto redirect to home on completion
-- [ ] Redirect to home is unsafe
-- [ ] Timer for session
-- [ ] Learning log - single deck
-- [ ] Learning log - set
+- [x] Get rid of auto redirect to home on completion
+- [x] Redirect to home is unsafe
+- [x] Timer for session
+- [x] Learning log - single deck
+- [x] Learning log - set
+- [ ] Temp version showing which decks are due
 - [ ] Maths, chemistry, code and diagrams
+- [ ] Display learning log on index page. Make configurable too.
+- [ ] Hierarchical menus
 - [ ] Header and footer are too large on mobile portrait mode
 - [ ] Colours
 - [ ] Dark mode
-- [ ] Hierarchical menus
 - [ ] Add meta description for SEO - get from `set.json`
 - [ ] Multiple side 2s for worked examples
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
