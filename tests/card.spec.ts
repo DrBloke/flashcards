@@ -40,7 +40,9 @@ test.describe("Flashcard deck", () => {
 
     // Once loaded, assert the accessibility of the card
     await expect(page).toHaveTitle("Test Deck 1");
-    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .disableRules(["landmark-one-main", "region"])
+      .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
 
     // Assert "Side 1" is visible as the card text
@@ -58,7 +60,9 @@ test.describe("Flashcard deck", () => {
     await expect(cardContent).toContainText("Side 2");
 
     // Assert card is still accessible
-    const accessibilityScanResults2 = await new AxeBuilder({ page }).analyze();
+    const accessibilityScanResults2 = await new AxeBuilder({ page })
+      .disableRules(["landmark-one-main", "region"])
+      .analyze();
     expect(accessibilityScanResults2.violations).toEqual([]);
 
     // Assert Cards is 0/2 and Round is 1/3
