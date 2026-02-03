@@ -49,6 +49,7 @@
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
 - [ ] Magic date input parser for learning schedule
+- [ ] Main in the component is an accessibility issue, also H1 tag. Hydration of the component could solve this?
 
 ## Phase 2
 

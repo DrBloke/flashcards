@@ -693,9 +693,9 @@ export class FlashcardDeck extends LitElement {
 
     return html`
       <div id="wrapper">
-        <header>${this.headerTemplate()}</header>
-        <main>${mainContent}</main>
-        <footer>${this.footerTemplate()}</footer>
+        <header role="banner">${this.headerTemplate()}</header>
+        <main role="main">${mainContent}</main>
+        <footer role="contentinfo">${this.footerTemplate()}</footer>
       </div>
     `;
   }

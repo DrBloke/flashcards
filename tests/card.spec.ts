@@ -78,15 +78,10 @@ test.describe("Flashcard deck", () => {
     await expect(cardContent).toContainText("Header");
     await page.locator("#correct").click();
 
-    // Assert that Deck completed is shown
+    // Assert that Deck completed message is shown
     await expect(page.locator(".completed-content")).toBeVisible();
-    await expect(page.locator(".completed-content")).toContainText(
-      "Deck completed",
-    );
+    await expect(page.locator(".completed-content")).toContainText("Mastered");
     await expect(page.locator(".completed-stats")).toContainText("Time spent:");
-    await expect(page.locator(".completed-stats")).toContainText(
-      "Cards struggling with: 0",
-    );
 
     // Click back to home
     await page.locator("#back-to-home").click();
@@ -148,8 +143,10 @@ test.describe("Flashcard deck", () => {
 
     // Assert completion
     await expect(page.locator(".completed-content")).toBeVisible();
+    await expect(page.locator(".completed-stats")).toContainText("Score: 50%");
+    await expect(page.locator(".completed-stats")).toContainText("Time spent:");
     await expect(page.locator(".completed-stats")).toContainText(
-      "Cards struggling with: 1",
+      "Cards to focus on: 1",
     );
     await page.locator("#back-to-home").click();
     await expect(page).toHaveURL(/\/flashcards\/test$/);
@@ -220,14 +217,21 @@ test.describe("Flashcard deck", () => {
     await expect(page).toHaveTitle("Test Deck 1");
 
     // It should start a new session (Round 1, "Side 1" visible).
-    await expect(page.locator(".completed-content")).not.toBeVisible();
+    await expect(page.locator(".completed-content")).toContainText(
+      "Not due yet",
+    );
+    await expect(
+      page.getByRole("button", { name: "Study All Cards" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Study Stumbles Only (1)" }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: /Study Stumbles Only/ }).click();
     await expect(page.locator("#content")).toContainText("Side 1");
     await expect(page.locator(".rounds-progress")).toContainText("Round: 1/3");
 
     // Complete it again (all correct this time)
     // Round 1
-    await page.locator("#flip").click();
-    await page.locator("#correct").click();
     await page.locator("#flip").click();
     await page.locator("#correct").click();
 
@@ -242,7 +246,23 @@ test.describe("Flashcard deck", () => {
     // The statistics should show the struggling card from the PREVIOUS session
     // (since it wasn't reset)
     await expect(page.locator(".completed-stats")).toContainText(
-      "Cards struggling with: 1",
+      "Cards to focus on: 1",
     );
+    await expect(page.locator(".completed-content")).toBeVisible();
+    await expect(page.locator(".completed-content")).toContainText(
+      "Deck Completed",
+    );
+    await expect(page.locator(".completed-content")).toContainText(
+      "Score: 50%",
+    );
+    await expect(page.locator(".completed-stats")).toContainText("Time spent:");
+    await expect(page.locator(".completed-content")).toContainText(
+      "Cards to focus on: 1",
+    );
+    await expect(
+      page.getByRole("link", { name: /Back to Home/ }),
+    ).toBeVisible();
+    await page.getByRole("link", { name: /Back to Home/ }).click();
+    await expect(page).toHaveURL(/\/flashcards\/test$/);
   });
 });

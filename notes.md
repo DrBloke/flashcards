@@ -600,3 +600,17 @@ to implement the new SRS logic, session initialization, and log updates.
 ## Check
 
 If you fail, do you get in a stuck state because wrongFirstTime is not reset?
+
+```JS
+  // Reset wrongFirstTime if we are starting a fresh normal session
+    if (
+      this._isDue &&
+      this._currentRound === 0 &&
+      !this._isFilterMissedOnly &&
+      !this._sessionCompleted
+    ) {
+      this._wrongFirstTime = [];
+    }
+```
+
+The footer and header buttons should be disabled when the completed content div is shown
