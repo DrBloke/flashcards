@@ -149,12 +149,14 @@ test.describe("Spaced Repetition and Learning Log", () => {
     // Click Study All
     await page.getByRole("button", { name: "Study All Cards" }).click();
 
-    // Should start session with all cards (2 cards)
+    // Should start session with all cards (2 deck cards + 1 stumble)
     await expect(page.locator(".cards-progress")).toContainText(
-      /Cards:\s+0\/2/,
+      /Cards:\s+0\/3/,
     );
 
     // Complete session
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
     await page.locator("#flip").click();
     await page.locator("#correct").click();
     await page.locator("#flip").click();
@@ -218,7 +220,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await page.locator("#correct").click();
 
     await expect(page.locator(".completed-content")).toBeVisible();
-    await expect(page.locator(".completed-stats")).toContainText("Score: 50%");
+    await expect(page.locator(".completed-stats")).toContainText("Score: 100%");
   });
 
   test("should progress to next session index within a group", async ({
@@ -448,5 +450,70 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     // Flip button should NOT be visible
     await expect(page.locator("#flip")).not.toBeVisible();
+  });
+
+  test("should clear wrongFirstTime between sessions to avoid getting stuck", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    // Initial state: User has already done one session and got everything wrong.
+    // In previous versions, wrongFirstTime would have [1, 2] and it would persist.
+    // We are now at sessionIndex: 1 (second session of group 0).
+    const initialData = {
+      test: {
+        settings: { totalRounds: 1 },
+        decks: {
+          "01-test-deck": {
+            currentRound: 0,
+            wrongFirstTime: [1, 2],
+            learningLog: [
+              {
+                sessionGroupIndex: 0,
+                sessionIndex: 0,
+                startTime: now - 7200000,
+                endTime: now - 7000000,
+                nextReview: now - 3600000, // Due
+                missedCount: 2,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+
+    // NEW EXPECTATION: Round 0 should have 4 cards (2 regular + 2 stumbles)
+    await expect(page.locator(".cards-progress")).toContainText(
+      /Cards:\s+0\/4/,
+    );
+
+    // Complete the session and get everything RIGHT this time.
+    for (let i = 0; i < 4; i++) {
+      await page.locator("#flip").click();
+      await page.locator("#correct").click();
+    }
+
+    // Should be completed and MASTERED!
+    await expect(page.locator(".completed-content")).toBeVisible();
+    await expect(page.locator(".completed-title")).toContainText("Mastered!");
+
+    // Verify localStorage: wrongFirstTime should be empty for the next session
+    const storage = await page.evaluate(() => {
+      return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
+    });
+
+    const deckData = storage["test"]?.decks?.["01-test-deck"];
+    expect(deckData.wrongFirstTime).toEqual([]);
+
+    // The last log entry should have missedCount: 0
+    const log = deckData.learningLog;
+    expect(log[log.length - 1].missedCount).toBe(0);
   });
 });

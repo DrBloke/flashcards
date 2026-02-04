@@ -230,43 +230,28 @@ test.describe("Flashcard deck", () => {
     await expect(
       page.getByRole("button", { name: "Study Stumbles Only (1)" }),
     ).toBeVisible();
-    await page.getByRole("button", { name: /Study Stumbles Only/ }).click();
-    await expect(page.locator("#content")).toContainText("Side 1");
+
+    // Study All Cards - Should now have 3 cards (2 deck + 1 previous stumble)
+    await page.getByRole("button", { name: "Study All Cards" }).click();
+    await expect(page.locator(".cards-progress")).toContainText("Cards: 0/3");
     await expect(page.locator(".rounds-progress")).toContainText("Round: 1/3");
 
-    // Complete it again (all correct this time)
-    // Round 1
-    await page.locator("#flip").click();
-    await page.locator("#correct").click();
+    // Complete session (all correct this time)
+    // Round 1 (3 cards)
+    for (let i = 0; i < 3; i++) {
+      await page.locator("#flip").click();
+      await page.locator("#correct").click();
+    }
 
-    // Round 2 (Struggling card from previous session should appear)
-    await page.locator("#flip").click();
-    await page.locator("#correct").click();
-
-    // Round 3
-    await page.locator("#flip").click();
-    await page.locator("#correct").click();
-
-    // The statistics should show the struggling card from the PREVIOUS session
-    // (since it wasn't reset)
-    await expect(page.locator(".completed-stats")).toContainText(
-      "Cards to focus on: 1",
-    );
+    // Since everything was correct in Round 1, session should be completed and mastered
     await expect(page.locator(".completed-content")).toBeVisible();
-    await expect(page.locator(".completed-content")).toContainText(
-      "Deck Completed",
+    await expect(page.locator(".completed-title")).toContainText("Mastered!");
+    await expect(page.locator(".completed-stats")).toContainText("Score: 100%");
+    await expect(page.locator(".completed-stats")).not.toContainText(
+      "Cards to focus on:",
     );
-    await expect(page.locator(".completed-content")).toContainText(
-      "Score: 50%",
-    );
-    await expect(page.locator(".completed-stats")).toContainText("Time spent:");
-    await expect(page.locator(".completed-content")).toContainText(
-      "Cards to focus on: 1",
-    );
-    await expect(
-      page.getByRole("link", { name: /Back to Home/ }),
-    ).toBeVisible();
-    await page.getByRole("link", { name: /Back to Home/ }).click();
+
+    await page.locator("#back-to-home").click();
     await expect(page).toHaveURL(/\/flashcards\/test$/);
   });
 });

@@ -413,6 +413,22 @@ export class FlashcardDeck extends LitElement {
     // Initialize cards
     let initialCards = [...this.deck.cards];
 
+    // When a new session group starts, wrongFirstTime should always be set to empty.
+    if (this._sessionIndex === 0 && this._currentRound === 0 && this._isDue) {
+      this._wrongFirstTime = [];
+    }
+
+    // If starting a fresh session (Round 0) and not filtering, add previous stumbles to Round 0 pool
+    if (this._currentRound === 0 && !this._isFilterMissedOnly && this._isDue) {
+      const stumbleIds = [...this._wrongFirstTime];
+      if (stumbleIds.length > 0) {
+        const stumbles = initialCards.filter((card) =>
+          stumbleIds.includes(card.id),
+        );
+        initialCards = [...initialCards, ...stumbles];
+      }
+    }
+
     // Apply filtering for rounds > 0 OR if specifically requested for extra session
     if (
       this._currentRound > 0 ||
@@ -427,6 +443,12 @@ export class FlashcardDeck extends LitElement {
         this._currentRound = 0;
         this._saveSession();
       }
+    }
+
+    // Now clear wrongFirstTime for the new session's first round
+    if (this._currentRound === 0 && this._isDue) {
+      this._wrongFirstTime = [];
+      this._saveSession();
     }
 
     if (isShuffled) {
