@@ -206,6 +206,9 @@ export class FlashcardDeck extends LitElement {
   @property({ type: Object })
   deck?: z.infer<typeof deckSchema>;
 
+  @property({ attribute: "deck-id" })
+  deckId: string = "";
+
   @property({ attribute: "set-path" })
   setPath: string = "";
 
@@ -315,16 +318,16 @@ export class FlashcardDeck extends LitElement {
     if (!allData[this.setPath].decks) {
       allData[this.setPath].decks = {};
     }
-    allData[this.setPath].decks![this.deck.id] = deckData;
+    allData[this.setPath].decks![this.deckId] = deckData;
     localStorage.setItem("flashcards-data", JSON.stringify(allData));
   }
 
   private _clearSession() {
-    if (!this.deck || !this.setPath) return;
+    if (!this.deck || !this.setPath || !this.deckId) return;
     const allData = this._getStoredData();
 
     if (allData[this.setPath]?.decks) {
-      delete allData[this.setPath].decks![this.deck.id];
+      delete allData[this.setPath].decks![this.deckId];
       localStorage.setItem("flashcards-data", JSON.stringify(allData));
     }
   }
@@ -344,7 +347,7 @@ export class FlashcardDeck extends LitElement {
       setData.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
 
     // Load progress
-    const savedData = setData.decks?.[this.deck.id];
+    const savedData = setData.decks?.[this.deckId];
 
     this._startTime = 0; // Will be set on first interaction
     this._endTime = 0;

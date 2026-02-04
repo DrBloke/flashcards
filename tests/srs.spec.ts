@@ -50,7 +50,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
     });
 
-    const log = storage["test"]?.decks?.["1"]?.learningLog;
+    const log = storage["test"]?.decks?.["01-test-deck"]?.learningLog;
     expect(log).toBeDefined();
     expect(log.length).toBe(1);
     expect(log[0].sessionGroupIndex).toBe(0);
@@ -76,7 +76,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 },
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [],
             learningLog: [
@@ -121,7 +121,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 },
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [1], // One card missed previously
             learningLog: [
@@ -166,7 +166,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
     });
 
-    const log = storage["test"]?.decks?.["1"]?.learningLog;
+    const log = storage["test"]?.decks?.["01-test-deck"]?.learningLog;
     expect(log.length).toBe(2);
     expect(log[1].isExtra).toBe(true);
   });
@@ -181,7 +181,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 },
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [1], // Card 1 missed previously
             learningLog: [
@@ -231,7 +231,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 },
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [],
             learningLog: [
@@ -266,7 +266,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
     });
 
-    const log = storage["test"]?.decks?.["1"]?.learningLog;
+    const log = storage["test"]?.decks?.["01-test-deck"]?.learningLog;
     expect(log[1].sessionIndex).toBe(1); // Progressed to session 1
   });
 
@@ -280,7 +280,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 },
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [],
             learningLog: [
@@ -315,7 +315,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
     });
 
-    const log = storage["test"]?.decks?.["1"]?.learningLog;
+    const log = storage["test"]?.decks?.["01-test-deck"]?.learningLog;
     expect(log[1].sessionGroupIndex).toBe(1);
     expect(log[1].sessionIndex).toBe(0);
   });
@@ -330,7 +330,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 }, // Important: set to 1 to finish immediately
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [],
             learningLog: [
@@ -421,7 +421,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
       test: {
         settings: { totalRounds: 1 },
         decks: {
-          "1": {
+          "01-test-deck": {
             currentRound: 0,
             wrongFirstTime: [],
             learningLog: [
