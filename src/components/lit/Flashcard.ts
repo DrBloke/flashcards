@@ -276,10 +276,19 @@ export class FlashcardDeck extends LitElement {
   private _sessionMissedCount = 0;
 
   @state()
-  private _isFilterMissedOnly = false;
+  private _isHydrated = false;
 
   @state()
-  private _isHydrated = false;
+  private _sessionStarted = false;
+
+  @state()
+  private _studyMode: "all" | "struggling" = "all";
+
+  @state()
+  private _isNewGroup = false;
+
+  @state()
+  private _strugglingCount = 0;
 
   @query("#toolbar")
   toolbar!: HTMLSpanElement;
@@ -342,14 +351,13 @@ export class FlashcardDeck extends LitElement {
     this._side = this.deckIsReversed ? "side2" : "side1";
     this.totalRounds = setData.settings?.totalRounds ?? 3;
 
-    const isShuffled = setData.settings?.shuffleDeck === true;
     const schedule =
       setData.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
 
     // Load progress
     const savedData = setData.decks?.[this.deckId];
 
-    this._startTime = 0; // Will be set on first interaction
+    this._startTime = 0;
     this._endTime = 0;
 
     if (savedData) {
@@ -357,7 +365,6 @@ export class FlashcardDeck extends LitElement {
       this._wrongFirstTime = savedData.wrongFirstTime || [];
       this._currentRound = savedData.currentRound || 0;
 
-      // Deduce current state from log
       if (this._learningLog.length === 0) {
         this._sessionGroupIndex = 0;
         this._sessionIndex = 0;
@@ -373,18 +380,15 @@ export class FlashcardDeck extends LitElement {
           const currentGroup = schedule[lastEntry.sessionGroupIndex];
 
           if (lastEntry.isExtra) {
-            // Stay at same index for the "real" session
             this._sessionGroupIndex = lastEntry.sessionGroupIndex;
             this._sessionIndex = lastEntry.sessionIndex;
           } else if (
             lastEntry.sessionIndex <
             currentGroup.numberOfSessions - 1
           ) {
-            // Next session in same group
             this._sessionGroupIndex = lastEntry.sessionGroupIndex;
             this._sessionIndex = lastEntry.sessionIndex + 1;
           } else {
-            // Move to next group (or stay at last)
             this._sessionGroupIndex = Math.min(
               lastEntry.sessionGroupIndex + 1,
               schedule.length - 1,
@@ -393,12 +397,8 @@ export class FlashcardDeck extends LitElement {
           }
 
           const now = Date.now();
-          if (!this._isExtraSession) {
-            this._isDue =
-              lastEntry.nextReview === null || now >= lastEntry.nextReview;
-          } else {
-            this._isDue = true;
-          }
+          this._isDue =
+            lastEntry.nextReview === null || now >= lastEntry.nextReview;
         }
       }
     } else {
@@ -410,47 +410,51 @@ export class FlashcardDeck extends LitElement {
       this._isDue = true;
     }
 
-    // Initialize cards
+    this._isNewGroup = this._sessionIndex === 0;
+    this._strugglingCount = this._wrongFirstTime.length;
+
+    // If session is already in progress, start it automatically
+    if (this._currentRound > 0) {
+      this._startSession("all"); // Or maybe we need to save the study mode too? For now default to 'all'
+    }
+  }
+
+  private _startSession(mode: "all" | "struggling") {
+    if (!this.deck || !this.setPath) return;
+    this._studyMode = mode;
+    this._sessionStarted = true;
+    this._startTime = Date.now();
+
+    if (this._isDue) {
+      this._isExtraSession = false;
+      if (this._currentRound === 0 && (this._isNewGroup || mode === "all")) {
+        this._wrongFirstTime = [];
+      }
+    } else {
+      this._isExtraSession = true;
+      // Regardless of choice, wrongFirstTime NOT reset for extra session
+    }
+
+    this._saveSession();
+
     let initialCards = [...this.deck.cards];
-
-    // When a new session group starts, wrongFirstTime should always be set to empty.
-    if (this._sessionIndex === 0 && this._currentRound === 0 && this._isDue) {
-      this._wrongFirstTime = [];
-    }
-
-    // If starting a fresh session (Round 0) and not filtering, add previous stumbles to Round 0 pool
-    if (this._currentRound === 0 && !this._isFilterMissedOnly && this._isDue) {
-      const stumbleIds = [...this._wrongFirstTime];
-      if (stumbleIds.length > 0) {
-        const stumbles = initialCards.filter((card) =>
-          stumbleIds.includes(card.id),
-        );
-        initialCards = [...initialCards, ...stumbles];
-      }
-    }
-
-    // Apply filtering for rounds > 0 OR if specifically requested for extra session
-    if (
-      this._currentRound > 0 ||
-      (this._isExtraSession && this._isFilterMissedOnly)
-    ) {
-      const filtered = initialCards.filter((card) =>
-        this._wrongFirstTime.includes(card.id),
+    if (this._currentRound > 0 || mode === "struggling") {
+      initialCards = initialCards.filter((c) =>
+        this._wrongFirstTime.includes(c.id),
       );
-      if (filtered.length > 0) {
-        initialCards = filtered;
-      } else if (this._currentRound > 0) {
-        this._currentRound = 0;
-        this._saveSession();
+      if (initialCards.length === 0 && mode === "struggling") {
+        // Fallback if somehow empty and specifically requested struggling
+        initialCards = [...this.deck.cards];
+        this._studyMode = "all";
+      } else if (initialCards.length === 0 && this._currentRound > 0) {
+        // If we're resuming but no cards are wrong, complete the session
+        this._completeSession();
+        return;
       }
     }
 
-    // Now clear wrongFirstTime for the new session's first round
-    if (this._currentRound === 0 && this._isDue) {
-      this._wrongFirstTime = [];
-      this._saveSession();
-    }
-
+    const allData = this._getStoredData();
+    const isShuffled = allData[this.setPath]?.settings?.shuffleDeck === true;
     if (isShuffled) {
       initialCards = this.shuffle(initialCards);
     }
@@ -503,6 +507,9 @@ export class FlashcardDeck extends LitElement {
   }
 
   footerTemplate() {
+    if (!this._sessionStarted && !this._sessionCompleted) {
+      return html``;
+    }
     const totalInRound = this._remainingCards.length + this._doneCards.length;
     const completedCards = this._doneCards.length;
     return html`<span class="toolbar-left">
@@ -516,22 +523,13 @@ export class FlashcardDeck extends LitElement {
         >
       </span>
       <span class="toolbar-right">
-        ${this._sessionCompleted || !this._isDue
+        ${this._sessionCompleted
           ? ""
           : (this._side === "side1" && !this.deckIsReversed) ||
               (this._side === "side2" && this.deckIsReversed)
             ? this.flipTemplate()
             : this.correctTemplate()}
       </span>`;
-  }
-
-  startAnyway(missedOnly = false) {
-    this._isFilterMissedOnly =
-      typeof missedOnly === "boolean" ? missedOnly : false;
-    this._isExtraSession = true;
-    this._isDue = true;
-    this._startTime = Date.now();
-    this._initializeSession();
   }
 
   _retryGroup() {
@@ -673,55 +671,134 @@ export class FlashcardDeck extends LitElement {
     `;
   }
 
-  notDueTemplate() {
-    const lastEntry = this._learningLog[this._learningLog.length - 1];
-    const nextReview = lastEntry?.nextReview
-      ? new Date(lastEntry.nextReview).toLocaleString()
-      : "Soon";
+  startScreenTemplate() {
+    if (this._isDue) {
+      if (this._isNewGroup) {
+        // Find current group schedule
+        const allData = this._getStoredData();
+        const schedule =
+          allData[this.setPath]?.settings?.learningSchedule ||
+          DEFAULT_LEARNING_SCHEDULE;
+        const group = schedule[this._sessionGroupIndex];
 
-    return html`
-      <div id="content" class="completed-content">
-        <wa-icon
-          name="clock"
-          label="Not Due"
-          class="completed-icon"
-          style="color: var(--wa-color-gray-40)"
-        ></wa-icon>
-        <div class="completed-title">Not due yet</div>
-        <div class="completed-stats">
-          <p>Next review scheduled for: ${nextReview}</p>
-          <p
-            style="font-size: var(--wa-font-size-s); color: var(--wa-color-danger-60); margin-top: var(--wa-space-m)"
+        return html`
+          <div id="content" class="completed-content">
+            <wa-icon
+              name="calendar-check"
+              label="New Session Group"
+              class="completed-icon"
+              style="color: var(--wa-color-brand-60)"
+            ></wa-icon>
+            <div class="completed-title">New Session Group</div>
+            <div class="completed-stats">
+              <p>Schedule for this group:</p>
+              <p>
+                ${group.numberOfSessions} sessions
+                ${group.minTimeBetweenSessions
+                  ? html`, ${group.minTimeBetweenSessions / 3600} hours apart`
+                  : ""}
+              </p>
+            </div>
+            <wa-button @click=${() => this._startSession("all")} variant="brand"
+              >Start Group</wa-button
+            >
+          </div>
+        `;
+      } else {
+        // Subsequent session in group
+        return html`
+          <div id="content" class="completed-content">
+            <wa-icon
+              name="arrows-rotate"
+              label="Continue Session"
+              class="completed-icon"
+              style="color: var(--wa-color-brand-60)"
+            ></wa-icon>
+            <div class="completed-title">Session ${this._sessionIndex + 1}</div>
+            ${this._strugglingCount > 0
+              ? html`
+                  <div class="completed-stats">
+                    <p>There are ${this._strugglingCount} struggling words.</p>
+                  </div>
+                  <div
+                    style="display: flex; gap: var(--wa-space-m); flex-wrap: wrap; justify-content: center"
+                  >
+                    <wa-button
+                      @click=${() => this._startSession("struggling")}
+                      variant="warning"
+                      appearance="outlined"
+                      >Study Struggling Only</wa-button
+                    >
+                    <wa-button
+                      @click=${() => this._startSession("all")}
+                      variant="brand"
+                      >Study All Words</wa-button
+                    >
+                  </div>
+                `
+              : html`
+                  <div class="completed-stats">
+                    <p>No struggling words yet.</p>
+                  </div>
+                  <wa-button
+                    @click=${() => this._startSession("all")}
+                    variant="brand"
+                    >Start Session</wa-button
+                  >
+                `}
+          </div>
+        `;
+      }
+    } else {
+      // Extra session (not due)
+      const lastEntry = this._learningLog[this._learningLog.length - 1];
+      const nextReview = lastEntry?.nextReview
+        ? new Date(lastEntry.nextReview).toLocaleString()
+        : "Soon";
+
+      return html`
+        <div id="content" class="completed-content">
+          <wa-icon
+            name="clock"
+            label="Not Due"
+            class="completed-icon"
+            style="color: var(--wa-color-gray-40)"
+          ></wa-icon>
+          <div class="completed-title">Not due yet</div>
+          <div class="completed-stats">
+            <p>Next review scheduled for: ${nextReview}</p>
+            <p
+              style="font-size: var(--wa-font-size-s); color: var(--wa-color-danger-60); margin-top: var(--wa-space-m)"
+            >
+              Studying now will reset your review schedule.
+            </p>
+          </div>
+          <div
+            style="display: flex; gap: var(--wa-space-m); flex-wrap: wrap; justify-content: center"
           >
-            Studying now will reset your review schedule.
-          </p>
+            <wa-button
+              @click=${() => this._startSession("all")}
+              variant="danger"
+              appearance="outlined"
+              >Study All Cards</wa-button
+            >
+            ${this._strugglingCount > 0
+              ? html`
+                  <wa-button
+                    @click=${() => this._startSession("struggling")}
+                    variant="warning"
+                    appearance="outlined"
+                    >Study Struggling Only (${this._strugglingCount})</wa-button
+                  >
+                `
+              : ""}
+            <wa-button href=${this.homeRoute} variant="brand"
+              >Come Back Later</wa-button
+            >
+          </div>
         </div>
-        <div
-          style="display: flex; gap: var(--wa-space-m); flex-wrap: wrap; justify-content: center"
-        >
-          <wa-button
-            @click=${() => this.startAnyway(false)}
-            variant="danger"
-            appearance="outlined"
-            >Study All Cards</wa-button
-          >
-          ${this._wrongFirstTime.length > 0
-            ? html`
-                <wa-button
-                  @click=${() => this.startAnyway(true)}
-                  variant="warning"
-                  appearance="outlined"
-                  >Study Stumbles Only
-                  (${this._wrongFirstTime.length})</wa-button
-                >
-              `
-            : ""}
-          <wa-button href=${this.homeRoute} variant="brand"
-            >Come Back Later</wa-button
-          >
-        </div>
-      </div>
-    `;
+      `;
+    }
   }
 
   render() {
@@ -729,16 +806,14 @@ export class FlashcardDeck extends LitElement {
       this._sessionCompleted ||
       (this._currentRound >= this.totalRounds && this.totalRounds > 0);
 
-    if (!isCompleted && this._remainingCards.length === 0) {
-      return html`<div>No cards available</div>`;
-    }
-
     let mainContent;
 
     if (isCompleted) {
       mainContent = this.completedTemplate();
-    } else if (!this._isDue) {
-      mainContent = this.notDueTemplate();
+    } else if (!this._sessionStarted) {
+      mainContent = this.startScreenTemplate();
+    } else if (this._remainingCards.length === 0) {
+      return html`<div>No cards available</div>`;
     } else {
       const rawContent = this._remainingCards[0][this._side];
       const htmlContent = unified()
@@ -777,6 +852,18 @@ export class FlashcardDeck extends LitElement {
 
     this._doneCards = [...this._doneCards, card];
     this._remainingCards = this._remainingCards.slice(1);
+
+    if (
+      this._currentRound === 0 &&
+      !this._isExtraSession &&
+      this._studyMode === "struggling"
+    ) {
+      this._wrongFirstTime = this._wrongFirstTime.filter(
+        (id) => id !== card.id,
+      );
+      this._saveSession();
+    }
+
     if (this._remainingCards.length === 0) {
       this._currentRound++;
       this._saveSession();
@@ -797,7 +884,6 @@ export class FlashcardDeck extends LitElement {
 
       this._remainingCards =
         this._currentRound > 0 ? nextRoundCards : this._doneCards;
-
       const allData = this._getStoredData();
       const isShuffled = allData[this.setPath]?.settings?.shuffleDeck === true;
       if (isShuffled) {
@@ -812,11 +898,10 @@ export class FlashcardDeck extends LitElement {
   async markIncorrect() {
     this.flip("back");
     const currentCard = this._remainingCards[0];
-    if (this._currentRound === 0) {
-      if (!this._wrongFirstTime.includes(currentCard.id)) {
-        this._wrongFirstTime = [...this._wrongFirstTime, currentCard.id];
-        this._saveSession();
-      }
+
+    if (!this._wrongFirstTime.includes(currentCard.id)) {
+      this._wrongFirstTime = [...this._wrongFirstTime, currentCard.id];
+      this._saveSession();
     }
 
     this._remainingCards = this._remainingCards.slice(1).concat([currentCard]);
@@ -920,12 +1005,6 @@ export class FlashcardDeck extends LitElement {
 
     this._sessionMissedCount = missedCount;
     this._currentRound = 0;
-    this._isFilterMissedOnly = false;
-
-    // Reset wrong cards ONLY if we moved group or are specifically repeating group
-    if (nextGroupIndex > this._sessionGroupIndex || isRepeatingGroup) {
-      this._wrongFirstTime = [];
-    }
 
     this._saveSession();
     this._sessionCompleted = true;

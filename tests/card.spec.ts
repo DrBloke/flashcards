@@ -37,6 +37,7 @@ test.describe("Flashcard deck", () => {
 
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
+    await page.getByRole("button", { name: "Start Group" }).click();
 
     // Once loaded, assert the accessibility of the card
     await expect(page).toHaveTitle("Test Deck 1");
@@ -111,6 +112,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
+    await page.getByRole("button", { name: "Start Group" }).click();
 
     // Round 1 - Card 1: Mark Incorrect
     await expect(cardContent).toContainText("Side 1");
@@ -163,6 +165,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
+    await page.getByRole("button", { name: "Start Group" }).click();
 
     // Move to second card (which has markdown)
     await page.locator("#flip").click();
@@ -190,6 +193,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
+    await page.getByRole("button", { name: "Start Group" }).click();
 
     // Round 1: Mark Card 1 incorrect, Card 2 correct
     await page.locator("#flip").click();
@@ -228,27 +232,36 @@ test.describe("Flashcard deck", () => {
       page.getByRole("button", { name: "Study All Cards" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("button", { name: "Study Stumbles Only (1)" }),
+      page.getByRole("button", { name: "Study Struggling Only (1)" }),
     ).toBeVisible();
 
-    // Study All Cards - Should now have 3 cards (2 deck + 1 previous stumble)
+    // Study All Cards - Should now have 2 cards (deck cards)
     await page.getByRole("button", { name: "Study All Cards" }).click();
-    await expect(page.locator(".cards-progress")).toContainText("Cards: 0/3");
+    await expect(page.locator(".cards-progress")).toContainText("Cards: 0/2");
     await expect(page.locator(".rounds-progress")).toContainText("Round: 1/3");
 
     // Complete session (all correct this time)
-    // Round 1 (3 cards)
-    for (let i = 0; i < 3; i++) {
+    // Round 1 (2 cards)
+    for (let i = 0; i < 2; i++) {
       await page.locator("#flip").click();
       await page.locator("#correct").click();
     }
+    // Round 2 (1 card - the persistent stumble)
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+    // Round 3 (1 card - the persistent stumble)
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
 
-    // Since everything was correct in Round 1, session should be completed and mastered
+    // Since everything was correct in this session, but Card 1 was a stumble in history
+    // the score will be 50% (1/2) because stumbles are not cleared in extra sessions.
     await expect(page.locator(".completed-content")).toBeVisible();
-    await expect(page.locator(".completed-title")).toContainText("Mastered!");
-    await expect(page.locator(".completed-stats")).toContainText("Score: 100%");
-    await expect(page.locator(".completed-stats")).not.toContainText(
-      "Cards to focus on:",
+    await expect(page.locator(".completed-title")).toContainText(
+      "Deck Completed",
+    );
+    await expect(page.locator(".completed-stats")).toContainText("Score: 50%");
+    await expect(page.locator(".completed-stats")).toContainText(
+      "Cards to focus on: 1",
     );
 
     await page.locator("#back-to-home").click();

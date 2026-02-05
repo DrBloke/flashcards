@@ -52,6 +52,8 @@
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
 - [ ] Magic date input parser for learning schedule
+- [ ] When communicating the goup details at start the time is not humanised, e.g. 1 day 1 hours apart. And is not in appropriate units. e.g -.0000000007 hours
+- [ ] If a session group is completed then give a different message to the user. Maybe congratualate them and describe the next session.
 
 ## Phase 2
 

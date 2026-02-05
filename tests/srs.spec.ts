@@ -32,6 +32,8 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await page.goto("/flashcards/test/01-test-deck");
     await expect(page).toHaveTitle("Test Deck 1");
 
+    await page.getByRole("button", { name: "Start Group" }).click();
+
     // Start interacting (start time is recorded on first interaction)
     // Round 1 - Card 1 (Correct)
     await page.locator("#flip").click();
@@ -148,15 +150,14 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     // Click Study All
     await page.getByRole("button", { name: "Study All Cards" }).click();
+    await page.locator("#flip").waitFor();
 
-    // Should start session with all cards (2 deck cards + 1 stumble)
+    // Should start session with all cards (2 deck cards)
     await expect(page.locator(".cards-progress")).toContainText(
-      /Cards:\s+0\/3/,
+      /Cards:\s+0\/2/,
     );
 
     // Complete session
-    await page.locator("#flip").click();
-    await page.locator("#correct").click();
     await page.locator("#flip").click();
     await page.locator("#correct").click();
     await page.locator("#flip").click();
@@ -207,8 +208,8 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     await page.goto("/flashcards/test/01-test-deck");
 
-    // Click Study Stumbles Only
-    await page.getByRole("button", { name: /Study Stumbles Only/ }).click();
+    // Click Study Struggling Only
+    await page.getByRole("button", { name: /Study Struggling Only/ }).click();
 
     // Should only have 1 card (Card 1)
     await expect(page.locator(".cards-progress")).toContainText(
@@ -220,7 +221,8 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await page.locator("#correct").click();
 
     await expect(page.locator(".completed-content")).toBeVisible();
-    await expect(page.locator(".completed-stats")).toContainText("Score: 100%");
+    // In extra session, stumbles are NOT removed, so score reflects remaining stumbles (1/2 = 50%)
+    await expect(page.locator(".completed-stats")).toContainText("Score: 50%");
   });
 
   test("should progress to next session index within a group", async ({
@@ -256,6 +258,8 @@ test.describe("Spaced Repetition and Learning Log", () => {
     }, initialData);
 
     await page.goto("/flashcards/test/01-test-deck");
+
+    await page.getByRole("button", { name: "Start Session" }).click();
 
     // Complete session
     await page.locator("#flip").click();
@@ -305,6 +309,9 @@ test.describe("Spaced Repetition and Learning Log", () => {
     }, initialData);
 
     await page.goto("/flashcards/test/01-test-deck");
+
+    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.locator("#flip").waitFor();
 
     // Complete session
     await page.locator("#flip").click();
@@ -356,6 +363,9 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     await page.goto("/flashcards/test/01-test-deck");
 
+    await page.getByRole("button", { name: "Start Session" }).click();
+    await page.locator("#flip").waitFor();
+
     // Fail all cards
     await page.locator("#flip").click();
     await page.locator("#incorrect").click();
@@ -394,6 +404,8 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     // Go to the deck page
     await page.goto("/flashcards/test/01-test-deck");
+
+    await page.getByRole("button", { name: "Start Group" }).click();
 
     // Complete session
     await page.locator("#flip").click();
@@ -489,13 +501,16 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     await page.goto("/flashcards/test/01-test-deck");
 
-    // NEW EXPECTATION: Round 0 should have 4 cards (2 regular + 2 stumbles)
+    // Click Study All Words
+    await page.getByRole("button", { name: "Study All Words" }).click();
+
+    // NEW EXPECTATION: Round 0 should have 2 cards because "Study All" resets stumbles
     await expect(page.locator(".cards-progress")).toContainText(
-      /Cards:\s+0\/4/,
+      /Cards:\s+0\/2/,
     );
 
     // Complete the session and get everything RIGHT this time.
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 2; i++) {
       await page.locator("#flip").click();
       await page.locator("#correct").click();
     }

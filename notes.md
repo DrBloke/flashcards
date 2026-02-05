@@ -617,3 +617,17 @@ There is a slight issue using webcomponents. We want there to be a main, header 
 ## Question
 
 Is the wrongFirstTime array being reset every new round, every session or what? Do extra study sessions affect it?
+
+## Learning log
+
+I still don't like the way the learning log is working. Let me define desired behaviour from scratch:
+
+Assume this is not an extra session (we'll deal with that later). In other words a learning session is due, overdue or ready.
+
+If it is a new session group, then wrongFirstTime should be reset. In this case, at the start of the session, it should be communicated to the user the schedule for the session group - show a message and a start button. If any words are guessed incorrectly in any of the rounds in this session then the words should be added to the wrongFirstTime array.
+
+If it is a subsequent session in the same session group, then the wrongFirstTime array should not be reset immediately. Give a message to the user that there are n struggling words, where n is the length of the wrongFirstTime array, that need to be reviewed and give them the choice to just study these or study all the words. If they choose to study all the words then the wrongFirstTime array should be reset. If they choose to just study the struggling words then the wrongFirstTime array should not be reset. If they choose to study the struggling words only then if they guess these correctly in the first round they should be removed from the wrongFirstTime array. If the wrongFirstTime array is empty, then the session should proceed, that is showing all the cards in the first round.
+
+Extra sessions:
+
+If the learning session is not due, then the user should be given the option to start the session anyway, but with a warning that it is not due and that the wait time will be reset. That is, the nextReview will be calculated using the end time of the session. The user should be given the choice to study the struggling words only or all the words. Regardless or what they choose, the wrongFirstTime array should not be reset. The remaining cards should be calculated depending on their choice, so they are either tested on the struggling words only or all the words. If they get any of the struggling words right in the first round they should not be removed from the wrongFirstTime array in this case where we are doing an extra session. Any words guessed incorrectly in any of the rounds in this session should be added to the wrongFirstTime array.
