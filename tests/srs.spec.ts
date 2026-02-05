@@ -502,7 +502,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await page.goto("/flashcards/test/01-test-deck");
 
     // Click Study All Words
-    await page.getByRole("button", { name: "Study All Words" }).click();
+    await page.getByRole("button", { name: "Study All Cards" }).click();
 
     // NEW EXPECTATION: Round 0 should have 2 cards because "Study All" resets stumbles
     await expect(page.locator(".cards-progress")).toContainText(
@@ -530,5 +530,246 @@ test.describe("Spaced Repetition and Learning Log", () => {
     // The last log entry should have missedCount: 0
     const log = deckData.learningLog;
     expect(log[log.length - 1].missedCount).toBe(0);
+  });
+
+  test("scheduled session: 'Struggling Only' choice should remove correctly guessed cards from wrongFirstTime", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    const initialData = {
+      test: {
+        settings: { totalRounds: 1 },
+        decks: {
+          "01-test-deck": {
+            currentRound: 0,
+            wrongFirstTime: [1], // Card 1 is struggling
+            learningLog: [
+              {
+                sessionGroupIndex: 0,
+                sessionIndex: 0,
+                startTime: now - 7200000,
+                endTime: now - 7000000,
+                nextReview: now - 1000, // Due
+                missedCount: 1,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+
+    // Choose Study Struggling Only
+    await page.getByRole("button", { name: /Study Struggling Only/ }).click();
+
+    // Only 1 card should be present
+    await expect(page.locator(".cards-progress")).toContainText("Cards: 0/1");
+
+    // Correctly guess it
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    await expect(page.locator(".completed-content")).toBeVisible();
+
+    // Verify wrongFirstTime is cleared
+    const storage = await page.evaluate(() => {
+      return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
+    });
+    expect(storage["test"].decks["01-test-deck"].wrongFirstTime).toEqual([]);
+  });
+
+  test("extra session: correctly guessed struggling cards should NOT be removed from wrongFirstTime", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    const initialData = {
+      test: {
+        settings: { totalRounds: 1 },
+        decks: {
+          "01-test-deck": {
+            currentRound: 0,
+            wrongFirstTime: [1],
+            learningLog: [
+              {
+                sessionGroupIndex: 0,
+                sessionIndex: 0,
+                startTime: now - 120000,
+                endTime: now - 60000,
+                nextReview: now + 3600000, // Not due
+                missedCount: 1,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+    await page.getByRole("button", { name: /Study Struggling Only/ }).click();
+
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    await expect(page.locator(".completed-content")).toBeVisible();
+
+    // Verify wrongFirstTime STILL HAS the card
+    const storage = await page.evaluate(() => {
+      return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
+    });
+    expect(storage["test"].decks["01-test-deck"].wrongFirstTime).toEqual([1]);
+  });
+
+  test("should add cards to wrongFirstTime if missed in later rounds", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    const initialData = {
+      test: {
+        settings: { totalRounds: 2 }, // 2 rounds
+        decks: {
+          "01-test-deck": {
+            currentRound: 0,
+            wrongFirstTime: [],
+            learningLog: [],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+    await page.getByRole("button", { name: "Start Group" }).click();
+
+    // Round 1 (0): Card 1 Correct, Card 2 Incorrect
+    await page.locator("#flip").click();
+    await page.locator("#correct").click();
+
+    await page.locator("#flip").click();
+    await page.locator("#incorrect").click(); // Card 2 missed, moved to end
+
+    await page.locator("#flip").click();
+    await page.locator("#correct").click(); // Card 2 correct, finishes round 1
+
+    // Round 2 (1): Card 2 Incorrect (missed in a later round)
+    await expect(page.locator(".rounds-progress")).toContainText("Round: 2/2");
+    await page.locator("#flip").click();
+    await page.locator("#incorrect").click();
+
+    // Check storage
+    const storage = await page.evaluate(() => {
+      return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
+    });
+    // Card 2 ID is 2
+    expect(storage["test"].decks["01-test-deck"].wrongFirstTime).toContain(2);
+  });
+
+  test("scheduled session: should skip choice and show 'Start Session' if no stumbles exist", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    const initialData = {
+      test: {
+        settings: { totalRounds: 1 },
+        decks: {
+          "01-test-deck": {
+            currentRound: 0,
+            wrongFirstTime: [],
+            learningLog: [
+              {
+                sessionGroupIndex: 0,
+                sessionIndex: 0,
+                startTime: now - 7200000,
+                endTime: now - 7000000,
+                nextReview: now - 1000, // Due
+                missedCount: 0,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+
+    // Should NOT see choice buttons
+    await expect(
+      page.getByRole("button", { name: /Study Struggling Only/ }),
+    ).not.toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Study All Cards" }),
+    ).not.toBeVisible();
+
+    // Should see Start Session
+    const startBtn = page.getByRole("button", { name: "Start Session" });
+    await expect(startBtn).toBeVisible();
+
+    await startBtn.click();
+    await expect(page.locator(".cards-progress")).toContainText("Cards: 0/2");
+  });
+
+  test("extra session: 'Study All Words' should NOT clear wrongFirstTime", async ({
+    page,
+  }) => {
+    const now = new Date("2026-02-02T10:00:00Z").getTime();
+    await page.clock.setFixedTime(now);
+
+    const initialData = {
+      test: {
+        settings: { totalRounds: 1 },
+        decks: {
+          "01-test-deck": {
+            currentRound: 0,
+            wrongFirstTime: [1],
+            learningLog: [
+              {
+                sessionGroupIndex: 0,
+                sessionIndex: 0,
+                startTime: now - 120000,
+                endTime: now - 60000,
+                nextReview: now + 3600000, // Not due
+                missedCount: 1,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    await page.addInitScript((data) => {
+      window.localStorage.setItem("flashcards-data", JSON.stringify(data));
+    }, initialData);
+
+    await page.goto("/flashcards/test/01-test-deck");
+    await page.getByRole("button", { name: "Study All Cards" }).click();
+
+    // Verify wrongFirstTime STILL HAS the card
+    const storage = await page.evaluate(() => {
+      return JSON.parse(localStorage.getItem("flashcards-data") || "{}");
+    });
+    expect(storage["test"].decks["01-test-deck"].wrongFirstTime).toEqual([1]);
   });
 });

@@ -235,7 +235,7 @@ test.describe("Flashcard deck", () => {
       page.getByRole("button", { name: "Study Struggling Only (1)" }),
     ).toBeVisible();
 
-    // Study All Cards - Should now have 2 cards (deck cards)
+    // Study All Words - Should now have 2 cards (deck cards)
     await page.getByRole("button", { name: "Study All Cards" }).click();
     await expect(page.locator(".cards-progress")).toContainText("Cards: 0/2");
     await expect(page.locator(".rounds-progress")).toContainText("Round: 1/3");

@@ -732,7 +732,7 @@ export class FlashcardDeck extends LitElement {
                     <wa-button
                       @click=${() => this._startSession("all")}
                       variant="brand"
-                      >Study All Words</wa-button
+                      >Study All Cards</wa-button
                     >
                   </div>
                 `
