@@ -32,7 +32,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await page.goto("/flashcards/test/01-test-deck");
     await expect(page).toHaveTitle("Test Deck 1");
 
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Start interacting (start time is recorded on first interaction)
     // Round 1 - Card 1 (Correct)
@@ -55,7 +55,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     const log = storage["test"]?.decks?.["01-test-deck"]?.learningLog;
     expect(log).toBeDefined();
     expect(log.length).toBe(1);
-    expect(log[0].sessionGroupIndex).toBe(0);
+    expect(log[0].milestoneIndex).toBe(0);
     expect(log[0].sessionIndex).toBe(0);
     expect(log[0].missedCount).toBe(0);
 
@@ -83,7 +83,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: tenMinsAgo - 60000,
                 endTime: tenMinsAgo,
@@ -128,7 +128,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [1], // One card missed previously
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 120000,
                 endTime: now - 60000,
@@ -189,7 +189,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [1], // Card 1 missed previously
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 120000,
                 endTime: now - 60000,
@@ -240,7 +240,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0, // Finished session 0
                 startTime: now - 7200000, // 2 hours ago
                 endTime: now - 7000000,
@@ -291,7 +291,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 4,
                 startTime: 0,
                 endTime: 1000,
@@ -310,7 +310,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     await page.goto("/flashcards/test/01-test-deck");
 
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
     await page.locator("#flip").waitFor();
 
     // Complete session
@@ -325,7 +325,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     });
 
     const log = storage["test"]?.decks?.["01-test-deck"]?.learningLog;
-    expect(log[1].sessionGroupIndex).toBe(1);
+    expect(log[1].milestoneIndex).toBe(1);
     expect(log[1].sessionIndex).toBe(0);
   });
 
@@ -344,7 +344,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [],
             learningLog: [
               {
-                sessionGroupIndex: 1,
+                milestoneIndex: 1,
                 sessionIndex: 1,
                 startTime: 0,
                 endTime: 1000,
@@ -405,7 +405,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     // Go to the deck page
     await page.goto("/flashcards/test/01-test-deck");
 
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Complete session
     await page.locator("#flip").click();
@@ -440,7 +440,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 120000,
                 endTime: now - 60000,
@@ -482,7 +482,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [1, 2],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 7200000,
                 endTime: now - 7000000,
@@ -547,7 +547,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [1], // Card 1 is struggling
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 7200000,
                 endTime: now - 7000000,
@@ -600,7 +600,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [1],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 120000,
                 endTime: now - 60000,
@@ -656,7 +656,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     }, initialData);
 
     await page.goto("/flashcards/test/01-test-deck");
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Round 1 (0): Card 1 Correct, Card 2 Incorrect
     await page.locator("#flip").click();
@@ -696,7 +696,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 7200000,
                 endTime: now - 7000000,
@@ -746,7 +746,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
             wrongFirstTime: [1],
             learningLog: [
               {
-                sessionGroupIndex: 0,
+                milestoneIndex: 0,
                 sessionIndex: 0,
                 startTime: now - 120000,
                 endTime: now - 60000,

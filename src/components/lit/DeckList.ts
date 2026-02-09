@@ -137,7 +137,7 @@ export class DeckList extends LitElement {
       return {
         state: "new" as const,
         label: "Ready",
-        groupIndex: 0,
+        milestoneIndex: 0,
         sessionIndex: 0,
         problemCards: 0,
         nextReview: null,
@@ -150,33 +150,36 @@ export class DeckList extends LitElement {
     const isDue = nextReview === null || now >= nextReview;
 
     // Determine the group and session we are waiting for
-    let targetGroupIndex = lastEntry.sessionGroupIndex;
+    let targetMilestoneIndex = lastEntry.milestoneIndex;
     let targetSessionIndex = lastEntry.sessionIndex;
 
-    if (targetGroupIndex === -1) {
-      targetGroupIndex = 0;
+    if (targetMilestoneIndex === -1) {
+      targetMilestoneIndex = 0;
       targetSessionIndex = 0;
     } else if (lastEntry.isExtra) {
       // Stay at same index
     } else if (
       targetSessionIndex <
-      schedule[targetGroupIndex].numberOfSessions - 1
+      schedule[targetMilestoneIndex].numberOfSessions - 1
     ) {
       targetSessionIndex++;
     } else {
-      targetGroupIndex = Math.min(targetGroupIndex + 1, schedule.length - 1);
+      targetMilestoneIndex = Math.min(
+        targetMilestoneIndex + 1,
+        schedule.length - 1,
+      );
       targetSessionIndex = 0;
     }
 
     // Determine if overdue
     let isOverdue = false;
-    const currentGroup = schedule[lastEntry.sessionGroupIndex];
-    if (currentGroup && !lastEntry.isExtra) {
-      if (lastEntry.sessionIndex < currentGroup.numberOfSessions - 1) {
+    const currentMilestone = schedule[lastEntry.milestoneIndex];
+    if (currentMilestone && !lastEntry.isExtra) {
+      if (lastEntry.sessionIndex < currentMilestone.numberOfSessions - 1) {
         // Within a group
-        if (currentGroup.maxTimeBetweenSessions !== null) {
+        if (currentMilestone.maxTimeBetweenSessions !== null) {
           const overdueTime =
-            lastEntry.endTime + currentGroup.maxTimeBetweenSessions * 1000;
+            lastEntry.endTime + currentMilestone.maxTimeBetweenSessions * 1000;
           if (now > overdueTime) isOverdue = true;
         }
       }
@@ -189,7 +192,7 @@ export class DeckList extends LitElement {
       state,
       label:
         state === "due" ? "Due" : state === "overdue" ? "Overdue" : "Scheduled",
-      groupIndex: targetGroupIndex,
+      milestoneIndex: targetMilestoneIndex,
       sessionIndex: targetSessionIndex,
       problemCards: deckData.wrongFirstTime.length,
       nextReview: nextReview,
@@ -225,14 +228,14 @@ export class DeckList extends LitElement {
                   <div class="progress-bar">
                     ${schedule.map((_, i) => {
                       let dotClass = "";
-                      if (i < status.groupIndex) dotClass = "completed";
-                      else if (i === status.groupIndex)
+                      if (i < status.milestoneIndex) dotClass = "completed";
+                      else if (i === status.milestoneIndex)
                         dotClass = `current ${status.state}`;
 
                       return html`
                         <div
                           class="progress-dot ${dotClass}"
-                          title="Group ${i + 1}${i === status.groupIndex
+                          title="Milestone ${i + 1}${i === status.milestoneIndex
                             ? ` (${status.label})`
                             : ""}"
                         ></div>

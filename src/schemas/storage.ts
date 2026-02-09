@@ -2,7 +2,7 @@ import { z } from "zod";
 import { learningScheduleSchema } from "./learningSchedule";
 
 export const learningLogEntrySchema = z.object({
-  sessionGroupIndex: z.number(),
+  milestoneIndex: z.number(),
   sessionIndex: z.number(),
   startTime: z.number(),
   endTime: z.number(),

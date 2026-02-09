@@ -255,7 +255,7 @@ export class FlashcardDeck extends LitElement {
   private _learningLog: LearningLogEntry[] = [];
 
   @state()
-  private _sessionGroupIndex = 0;
+  private _milestoneIndex = 0;
 
   @state()
   private _sessionIndex = 0;
@@ -366,31 +366,31 @@ export class FlashcardDeck extends LitElement {
       this._currentRound = savedData.currentRound || 0;
 
       if (this._learningLog.length === 0) {
-        this._sessionGroupIndex = 0;
+        this._milestoneIndex = 0;
         this._sessionIndex = 0;
         this._isDue = true;
       } else {
         const lastEntry = this._learningLog[this._learningLog.length - 1];
 
-        if (lastEntry.sessionGroupIndex === -1) {
-          this._sessionGroupIndex = 0;
+        if (lastEntry.milestoneIndex === -1) {
+          this._milestoneIndex = 0;
           this._sessionIndex = 0;
           this._isDue = true;
         } else {
-          const currentGroup = schedule[lastEntry.sessionGroupIndex];
+          const currentMilestone = schedule[lastEntry.milestoneIndex];
 
           if (lastEntry.isExtra) {
-            this._sessionGroupIndex = lastEntry.sessionGroupIndex;
+            this._milestoneIndex = lastEntry.milestoneIndex;
             this._sessionIndex = lastEntry.sessionIndex;
           } else if (
             lastEntry.sessionIndex <
-            currentGroup.numberOfSessions - 1
+            currentMilestone.numberOfSessions - 1
           ) {
-            this._sessionGroupIndex = lastEntry.sessionGroupIndex;
+            this._milestoneIndex = lastEntry.milestoneIndex;
             this._sessionIndex = lastEntry.sessionIndex + 1;
           } else {
-            this._sessionGroupIndex = Math.min(
-              lastEntry.sessionGroupIndex + 1,
+            this._milestoneIndex = Math.min(
+              lastEntry.milestoneIndex + 1,
               schedule.length - 1,
             );
             this._sessionIndex = 0;
@@ -405,7 +405,7 @@ export class FlashcardDeck extends LitElement {
       this._learningLog = [];
       this._wrongFirstTime = [];
       this._currentRound = 0;
-      this._sessionGroupIndex = 0;
+      this._milestoneIndex = 0;
       this._sessionIndex = 0;
       this._isDue = true;
     }
@@ -547,9 +547,9 @@ export class FlashcardDeck extends LitElement {
     const lastEntry = this._learningLog[this._learningLog.length - 1];
     if (lastEntry) {
       // To go back to [G-1, S=0], we make the last entry look like the end of [G-2]
-      const targetGroupIndex = this._sessionGroupIndex - 1;
+      const targetMilestoneIndex = this._milestoneIndex - 1;
 
-      lastEntry.sessionGroupIndex = targetGroupIndex - 1;
+      lastEntry.milestoneIndex = targetMilestoneIndex - 1;
       lastEntry.sessionIndex = 999; // Represents "finished group"
       lastEntry.nextReview = Date.now(); // Available immediately
       this._saveSession();
@@ -644,13 +644,13 @@ export class FlashcardDeck extends LitElement {
                   do?
                 </p>
                 <wa-button @click=${this._retryGroup} variant="brand"
-                  >Retry Current Group</wa-button
+                  >Retry Current Milestone</wa-button
                 >
-                ${this._sessionGroupIndex > 0
+                ${this._milestoneIndex > 0
                   ? html`<wa-button
                       @click=${this._demoteToPreviousGroup}
                       variant="danger"
-                      >Go Back to Previous Group</wa-button
+                      >Go Back to Previous Milestone</wa-button
                     >`
                   : ""}
               </div>
@@ -679,19 +679,19 @@ export class FlashcardDeck extends LitElement {
         const schedule =
           allData[this.setPath]?.settings?.learningSchedule ||
           DEFAULT_LEARNING_SCHEDULE;
-        const group = schedule[this._sessionGroupIndex];
+        const group = schedule[this._milestoneIndex];
 
         return html`
           <div id="content" class="completed-content">
             <wa-icon
               name="calendar-check"
-              label="New Session Group"
+              label="New Milestone"
               class="completed-icon"
               style="color: var(--wa-color-brand-60)"
             ></wa-icon>
-            <div class="completed-title">New Session Group</div>
+            <div class="completed-title">New Milestone</div>
             <div class="completed-stats">
-              <p>Schedule for this group:</p>
+              <p>Schedule for this milestone:</p>
               <p>
                 ${group.numberOfSessions} sessions
                 ${group.minTimeBetweenSessions
@@ -700,7 +700,7 @@ export class FlashcardDeck extends LitElement {
               </p>
             </div>
             <wa-button @click=${() => this._startSession("all")} variant="brand"
-              >Start Group</wa-button
+              >Start Milestone</wa-button
             >
           </div>
         `;
@@ -931,24 +931,24 @@ export class FlashcardDeck extends LitElement {
     const schedule =
       setData.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
 
-    let nextGroupIndex = this._sessionGroupIndex;
-    let isRepeatingGroup = false;
+    let nextMilestoneIndex = this._milestoneIndex;
+    let isRepeatingMilestone = false;
 
-    // Progression logic at the end of a session group
-    const currentGroup = schedule[this._sessionGroupIndex];
-    const isEndOfGroup =
-      this._sessionIndex === currentGroup.numberOfSessions - 1;
+    // Progression logic at the end of a milestone
+    const currentMilestone = schedule[this._milestoneIndex];
+    const isEndOfMilestone =
+      this._sessionIndex === currentMilestone.numberOfSessions - 1;
 
-    if (isEndOfGroup) {
+    if (isEndOfMilestone) {
       if (this._score >= 0.9) {
         // Mastered - move to next group
-        nextGroupIndex = Math.min(
-          this._sessionGroupIndex + 1,
+        nextMilestoneIndex = Math.min(
+          this._milestoneIndex + 1,
           schedule.length - 1,
         );
       } else if (this._score >= 0.4) {
         // Passing but not mastered - repeat group
-        isRepeatingGroup = true;
+        isRepeatingMilestone = true;
       } else {
         // Failed - show demotion choice (this will be handled by UI)
         this._showDemotionChoice = true;
@@ -961,30 +961,31 @@ export class FlashcardDeck extends LitElement {
 
     // Calculate nextReview
     let nextReview: number | null = null;
-    const nextGroup = schedule[nextGroupIndex];
+    const nextMilestone = schedule[nextMilestoneIndex];
 
-    if (nextGroupIndex > this._sessionGroupIndex) {
+    if (nextMilestoneIndex > this._milestoneIndex) {
       // Moving to next group
-      if (nextGroup.minTimeSinceLastSessionGroup !== null) {
+      if (nextMilestone.minTimeSinceLastMilestone !== null) {
         nextReview =
-          this._endTime + nextGroup.minTimeSinceLastSessionGroup * 1000;
+          this._endTime + nextMilestone.minTimeSinceLastMilestone * 1000;
       }
-    } else if (isRepeatingGroup) {
+    } else if (isRepeatingMilestone) {
       // Repeating group
-      if (nextGroup.minTimeSinceLastSessionGroup !== null) {
+      if (nextMilestone.minTimeSinceLastMilestone !== null) {
         nextReview =
-          this._endTime + nextGroup.minTimeSinceLastSessionGroup * 1000;
+          this._endTime + nextMilestone.minTimeSinceLastMilestone * 1000;
       }
     } else {
       // Next session in same group
-      if (currentGroup.minTimeBetweenSessions !== null) {
-        nextReview = this._endTime + currentGroup.minTimeBetweenSessions * 1000;
+      if (currentMilestone.minTimeBetweenSessions !== null) {
+        nextReview =
+          this._endTime + currentMilestone.minTimeBetweenSessions * 1000;
       }
     }
 
     // Update log
     const newEntry: LearningLogEntry = {
-      sessionGroupIndex: this._sessionGroupIndex,
+      milestoneIndex: this._milestoneIndex,
       sessionIndex: this._sessionIndex,
       startTime: this._startTime,
       endTime: this._endTime,
@@ -993,12 +994,12 @@ export class FlashcardDeck extends LitElement {
       missedCount: missedCount,
     };
 
-    if (isEndOfGroup && this._score < 0.9) {
+    if (isEndOfMilestone && this._score < 0.9) {
       // If we didn't master the group, repeat it by default
       // by making the last entry look like the end of the previous group.
-      newEntry.sessionGroupIndex = this._sessionGroupIndex - 1;
+      newEntry.milestoneIndex = this._milestoneIndex - 1;
       newEntry.sessionIndex = 999;
-      isRepeatingGroup = true;
+      isRepeatingMilestone = true;
     }
 
     this._learningLog = [...this._learningLog, newEntry];

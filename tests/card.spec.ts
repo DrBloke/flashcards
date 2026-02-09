@@ -37,7 +37,7 @@ test.describe("Flashcard deck", () => {
 
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Once loaded, assert the accessibility of the card
     await expect(page).toHaveTitle("Test Deck 1");
@@ -112,7 +112,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Round 1 - Card 1: Mark Incorrect
     await expect(cardContent).toContainText("Side 1");
@@ -165,7 +165,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Move to second card (which has markdown)
     await page.locator("#flip").click();
@@ -193,7 +193,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
-    await page.getByRole("button", { name: "Start Group" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
 
     // Round 1: Mark Card 1 incorrect, Card 2 correct
     await page.locator("#flip").click();

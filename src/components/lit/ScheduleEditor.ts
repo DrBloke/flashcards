@@ -158,7 +158,7 @@ export class ScheduleEditor extends LitElement {
     this._schedule = [
       ...this._schedule,
       {
-        minTimeSinceLastSessionGroup: 86400,
+        minTimeSinceLastMilestone: 86400,
         numberOfSessions: 1,
         minTimeBetweenSessions: null,
         maxTimeBetweenSessions: null,
@@ -206,15 +206,15 @@ export class ScheduleEditor extends LitElement {
           (step, i) => html`
             <div class="schedule-item">
               <div class="field-group">
-                <span class="field-label">Wait (Group)</span>
+                <span class="field-label">Wait (Milestone)</span>
                 <wa-input
                   type="number"
                   size="small"
-                  .value=${step.minTimeSinceLastSessionGroup?.toString() || ""}
+                  .value=${step.minTimeSinceLastMilestone?.toString() || ""}
                   @input=${(e: Event) =>
                     this._updateField(
                       i,
-                      "minTimeSinceLastSessionGroup",
+                      "minTimeSinceLastMilestone",
                       (e.target as HTMLInputElement).value,
                     )}
                 ></wa-input>

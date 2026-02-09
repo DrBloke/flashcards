@@ -531,20 +531,20 @@ Define a schema for the learning schedule and store it in @/schemas/learningSche
 Change @/schemas/storage.ts deckSessionSchema to include field called learningLog. This should be an array with the following structure:
 
 ```JSON
- [ { sessionGroupIndex: number, sessionIndex: number, startTime: Date, endTime: Date, nextReview: Date | null }]
+ [ { milestoneIndex: number, sessionIndex: number, startTime: Date, endTime: Date, nextReview: Date | null }]
 ```
 
 Get rid of the current fields in deckSessionSchema called endTime and duration. (Where these are used, @flashcard.ts should calculate them from the learningLog)
 
-This learningLog enables working out which is the current session group and session index. It also enables working out if the session is due or overdue
+This learningLog enables working out which is the current milestone and session index. It also enables working out if the session is due or overdue
 
-@flashcard.ts should check if there is a learning schedule defined in settings. If not, it should use the default learning schedule. It should then look at the learning log and deduce the current state (first item in the array) to see if the current session and session group has been completed. If it has, it should use the nextReview date to determine if the session is due. If it is due, it should start the session. If the learning log is empty, it should start the first session group. Timing of the session should start and the start time should be stored in memory so that it can be stored when the session is completed. When the session is completed, the learning log should be updated. Note that if a session group has been completed but the next one has not been started then the due date is calculated using minTimeSinceLastRound from the learning schedule.
+@flashcard.ts should check if there is a learning schedule defined in settings. If not, it should use the default learning schedule. It should then look at the learning log and deduce the current state (first item in the array) to see if the current session and milestone has been completed. If it has, it should use the nextReview date to determine if the session is due. If it is due, it should start the session. If the learning log is empty, it should start the first milestone. Timing of the session should start and the start time should be stored in memory so that it can be stored when the session is completed. When the session is completed, the learning log should be updated. Note that if a milestone has been completed but the next one has not been started then the due date is calculated using minTimeSinceLastRound from the learning schedule.
 
-@flashcard.ts should also check if the session or session group is due. If it is not due, then the user should be given the option to start the session anyway, but with a warning that it is not due and that the wait time will be reset. That is, the nextReview will be calculated using the end time of the session. If studying anyway when not due then nothing should be added to the learning log at the end of the session.
+@flashcard.ts should also check if the session or milestone is due. If it is not due, then the user should be given the option to start the session anyway, but with a warning that it is not due and that the wait time will be reset. That is, the nextReview will be calculated using the end time of the session. If studying anyway when not due then nothing should be added to the learning log at the end of the session.
 
-When a new session group is started, wrongFirstTime should be reset to an empty array.
+When a new milestone is started, wrongFirstTime should be reset to an empty array.
 
-On successfully completing a session, the learning log should be updated with the end time and nextReview date. The sessionIndex should be incremented. If all the sessions in a session group have been completed then the a new item will be added to the learning log with the sessionGroupIndex incremented by 1 at the end of this session.
+On successfully completing a session, the learning log should be updated with the end time and nextReview date. The sessionIndex should be incremented. If all the sessions in a milestone have been completed then the a new item will be added to the learning log with the milestoneIndex incremented by 1 at the end of this session.
 
 3600 = 1 hour
 86400 = 1 day
@@ -559,10 +559,10 @@ On successfully completing a session, the learning log should be updated with th
 ## Refined prompt
 
 1. Refined Data Structures
-   learningSchedule.ts: Will define the array of session groups. I'll use minTimeSinceLastSessionGroup (initial delay for the group) and minTimeBetweenSessions (gaps within the group).
+   learningSchedule.ts: Will define the array of milestones. I'll use minTimeSinceLastMilestone (initial delay for the group) and minTimeBetweenSessions (gaps within the group).
    learningLog: Each entry will look like:
    {
-   sessionGroupIndex: number,
+   milestoneIndex: number,
    sessionIndex: number, // 0-indexed within the group
    startTime: Date,
    endTime: Date,
@@ -571,9 +571,9 @@ On successfully completing a session, the learning log should be updated with th
    }
 2. State & Progression Logic
    Current State: Derived from the last entry in the log.
-   If no log: Start sessionGroupIndex: 0, sessionIndex: 0.
+   If no log: Start milestoneIndex: 0, sessionIndex: 0.
    If last entry has sessionIndex < group.numberOfSessions - 1: Next is sessionIndex + 1 in the same group.
-   If last entry has sessionIndex == group.numberOfSessions - 1: Next is sessionIndex: 0 in sessionGroupIndex + 1.
+   If last entry has sessionIndex == group.numberOfSessions - 1: Next is sessionIndex: 0 in milestoneIndex + 1.
    "Due" Check:
    Due = currentTime >= lastEntry.nextReview.
    Overdue = currentTime > lastEntry.endTime + group.maxTimeBetweenSessions (if defined).
@@ -581,7 +581,7 @@ On successfully completing a session, the learning log should be updated with th
    If the user studies when not due, we add an extraSession entry.
    It does not increment the sessionIndex. It's essentially a "bonus" repetition.
    It does reset the nextReview timer for the current pending session index.
-   New Group Reset: wrongFirstTime is cleared whenever sessionGroupIndex increments, allowing a fresh assessment of struggling cards for that group's repetition cycle.
+   New Group Reset: wrongFirstTime is cleared whenever milestoneIndex increments, allowing a fresh assessment of struggling cards for that group's repetition cycle.
 3. Session Start logic
    If no log exists, the first session is "Ready" but not "Overdue" (since no clock was ticking yet).
    Start time is captured when the first card is shown, and the entry is saved only when the deck is completed.
@@ -624,9 +624,9 @@ I still don't like the way the learning log is working. Let me define desired be
 
 Assume this is not an extra session (we'll deal with that later). In other words a learning session is due, overdue or ready.
 
-If it is a new session group, then wrongFirstTime should be reset. In this case, at the start of the session, it should be communicated to the user the schedule for the session group - show a message and a start button. If any words are guessed incorrectly in any of the rounds in this session then the words should be added to the wrongFirstTime array.
+If it is a new milestone, then wrongFirstTime should be reset. In this case, at the start of the session, it should be communicated to the user the schedule for the milestone - show a message and a start button. If any words are guessed incorrectly in any of the rounds in this session then the words should be added to the wrongFirstTime array.
 
-If it is a subsequent session in the same session group, then the wrongFirstTime array should not be reset immediately. Give a message to the user that there are n struggling words, where n is the length of the wrongFirstTime array, that need to be reviewed and give them the choice to just study these or study all the words. If they choose to study all the words then the wrongFirstTime array should be reset. If they choose to just study the struggling words then the wrongFirstTime array should not be reset. If they choose to study the struggling words only then if they guess these correctly in the first round they should be removed from the wrongFirstTime array. If the wrongFirstTime array is empty, then the session should proceed, that is showing all the cards in the first round.
+If it is a subsequent session in the same milestone, then the wrongFirstTime array should not be reset immediately. Give a message to the user that there are n struggling words, where n is the length of the wrongFirstTime array, that need to be reviewed and give them the choice to just study these or study all the words. If they choose to study all the words then the wrongFirstTime array should be reset. If they choose to just study the struggling words then the wrongFirstTime array should not be reset. If they choose to study the struggling words only then if they guess these correctly in the first round they should be removed from the wrongFirstTime array. If the wrongFirstTime array is empty, then the session should proceed, that is showing all the cards in the first round.
 
 Extra sessions:
 
