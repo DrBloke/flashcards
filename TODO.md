@@ -41,7 +41,9 @@
 - [x] Learning log - single deck
 - [x] Learning log - set
 - [x] Temp version showing which decks are due
+- [x] When communicating the milestone details at start the time is not humanised, e.g. 1 day 1 hours apart. And is not in appropriate units. e.g -.0000000007 hours
 - [ ] Maths, chemistry, code and diagrams
+- [ ] On milestones column, when hovering over a milestone, show the description.
 - [ ] Display learning log on index page. Make configurable too.
 - [ ] Hierarchical menus
 - [ ] Header and footer are too large on mobile portrait mode
@@ -51,10 +53,9 @@
 - [ ] Multiple side 2s for worked examples
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
-- [ ] Magic date input parser for learning schedule
-- [ ] When communicating the goup details at start the time is not humanised, e.g. 1 day 1 hours apart. And is not in appropriate units. e.g -.0000000007 hours
+- [ ] Magic date input parser for learning schedule. Allow use of "3 days" or "10 seconds" etc.
 - [ ] If a milestone is completed then give a different message to the user. Maybe congratualate them and describe the next session.a
-- [ ] Bugs in review: when you say go back to previous milestone it shows a bland screen; text for this is to big and requires scrolling; If you get over 40% then it resets session, but explanation is needed.
+- [ ] Bugs in review: when you say go back to previous milestone it shows a blank screen; text for this is to big and requires scrolling; If you get over 40% then it resets session, but explanation is needed.
 - [ ] Humanise date and time
 - [ ] Review text throughout
 
