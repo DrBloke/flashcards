@@ -40,7 +40,7 @@
 - [x] Timer for session
 - [x] Learning log - single deck
 - [x] Learning log - set
-- [ ] Temp version showing which decks are due
+- [x] Temp version showing which decks are due
 - [ ] Maths, chemistry, code and diagrams
 - [ ] Display learning log on index page. Make configurable too.
 - [ ] Hierarchical menus

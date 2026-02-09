@@ -14,6 +14,12 @@ import remarkRehype from "remark-rehype";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import {
+  formatDistance,
+  formatDistanceToNow,
+  formatDuration,
+  intervalToDuration,
+} from "date-fns";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
@@ -596,9 +602,7 @@ export class FlashcardDeck extends LitElement {
 
   completedTemplate() {
     const elapsed = this._duration;
-    const totalSeconds = Math.floor(elapsed / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
+    const timeSpent = formatDistance(0, elapsed, { includeSeconds: true });
 
     const scorePercent = Math.round(this._score * 100);
 
@@ -621,17 +625,18 @@ export class FlashcardDeck extends LitElement {
         </div>
         <div class="completed-stats">
           <p>Score: ${scorePercent}%</p>
-          <p>Time spent: ${minutes}m ${seconds}s</p>
+          <p>Time spent: ${timeSpent}</p>
           ${this._score < 0.9
             ? html`<p>Cards to focus on: ${this._sessionMissedCount}</p>`
             : ""}
           ${this._learningLog[this._learningLog.length - 1]?.nextReview
             ? html`<p>
                 Next review scheduled for:
-                ${new Date(
+                ${formatDistanceToNow(
                   this._learningLog[this._learningLog.length - 1]
                     .nextReview as number,
-                ).toLocaleString()}
+                  { addSuffix: true },
+                )}
               </p>`
             : ""}
         </div>
@@ -695,7 +700,14 @@ export class FlashcardDeck extends LitElement {
               <p>
                 ${group.numberOfSessions} sessions
                 ${group.minTimeBetweenSessions
-                  ? html`, ${group.minTimeBetweenSessions / 3600} hours apart`
+                  ? html`,
+                    ${formatDuration(
+                      intervalToDuration({
+                        start: 0,
+                        end: group.minTimeBetweenSessions * 1000,
+                      }),
+                    )}
+                    apart`
                   : ""}
               </p>
             </div>
@@ -753,7 +765,7 @@ export class FlashcardDeck extends LitElement {
       // Extra session (not due)
       const lastEntry = this._learningLog[this._learningLog.length - 1];
       const nextReview = lastEntry?.nextReview
-        ? new Date(lastEntry.nextReview).toLocaleString()
+        ? formatDistanceToNow(lastEntry.nextReview, { addSuffix: true })
         : "Soon";
 
       return html`

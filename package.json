@@ -19,6 +19,7 @@
     "@astrojs/ts-plugin": "^1.10.6",
     "@awesome.me/webawesome": "^3.2.1",
     "astro": "^5.16.8",
+    "date-fns": "^4.1.0",
     "lit": "^3.3.0",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.1",

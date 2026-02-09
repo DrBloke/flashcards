@@ -10,6 +10,11 @@ import "@awesome.me/webawesome/dist/components/badge/badge.js";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import "@awesome.me/webawesome/dist/components/tooltip/tooltip.js";
+import {
+  formatDistanceToNow,
+  formatDuration,
+  intervalToDuration,
+} from "date-fns";
 
 interface DeckEntry {
   id: string;
@@ -114,8 +119,11 @@ export class DeckList extends LitElement {
       gap: var(--wa-space-3xs);
     }
     .problem-cards {
-      color: var(--wa-color-danger-60);
       font-weight: var(--wa-font-weight-bold);
+      color: var(--wa-color-gray-40);
+    }
+    .problem-cards.has-problems {
+      color: var(--wa-color-danger-70);
     }
     .scheduled-date {
       display: block;
@@ -141,9 +149,14 @@ export class DeckList extends LitElement {
       margin-left: var(--wa-space-2xs);
       color: var(--wa-color-gray-50);
       transition: var(--wa-transition-fast) color;
-    }
-    .info-button:hover {
-      color: var(--wa-color-brand-60);
+      background: none;
+      border: none;
+      padding: var(--wa-space-3xs);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--wa-border-radius-small);
     }
     .info-button wa-icon {
       font-size: 1.1rem;
@@ -272,13 +285,17 @@ export class DeckList extends LitElement {
     let desc = `${numberOfSessions} session${numberOfSessions > 1 ? "s" : ""}`;
 
     if (numberOfSessions > 1 && minTimeBetweenSessions) {
-      const hours = minTimeBetweenSessions / 3600;
-      desc += ` with at least ${hours} ${hours === 1 ? "hour" : "hours"} between each`;
+      const waitTime = formatDuration(
+        intervalToDuration({ start: 0, end: minTimeBetweenSessions * 1000 }),
+      );
+      desc += ` with at least ${waitTime} between each`;
     }
 
     if (minTimeSinceLastMilestone && minTimeSinceLastMilestone > 0) {
-      const hours = minTimeSinceLastMilestone / 3600;
-      desc += ` (after ${hours}h wait)`;
+      const waitTime = formatDuration(
+        intervalToDuration({ start: 0, end: minTimeSinceLastMilestone * 1000 }),
+      );
+      desc += ` (after ${waitTime} wait)`;
     }
 
     return desc;
@@ -294,7 +311,6 @@ export class DeckList extends LitElement {
             <th>Current Milestone</th>
             <th>Status</th>
             <th>Problem Cards</th>
-          </tr>
           </tr>
         </thead>
         <tbody>
@@ -361,15 +377,13 @@ export class DeckList extends LitElement {
                           `;
                         },
                       )}
-                      <wa-button
+                      <button
                         id="info-${deck.id.replace(/\//g, "-")}"
-                        variant="text"
-                        size="small"
                         class="info-button"
-                        label="Milestone Info"
+                        aria-label="Milestone Info"
                       >
                         <wa-icon name="circle-info"></wa-icon>
-                      </wa-button>
+                      </button>
                       <wa-tooltip for="info-${deck.id.replace(/\//g, "-")}">
                         ${status.milestoneDescription}
                       </wa-tooltip>
@@ -378,7 +392,9 @@ export class DeckList extends LitElement {
                 </td>
                 <td
                   title="${status.nextReview
-                    ? new Date(status.nextReview).toLocaleString()
+                    ? formatDistanceToNow(status.nextReview, {
+                        addSuffix: true,
+                      })
                     : ""}"
                 >
                   <wa-badge
@@ -394,20 +410,18 @@ export class DeckList extends LitElement {
                   </wa-badge>
                   ${status.state === "scheduled" && status.nextReview
                     ? html`<span class="scheduled-date"
-                        >${new Date(status.nextReview).toLocaleString([], {
-                          month: "short",
-                          day: "numeric",
-                          hour: "2-digit",
-                          minute: "2-digit",
+                        >${formatDistanceToNow(status.nextReview, {
+                          addSuffix: true,
                         })}</span
                       >`
                     : ""}
                 </td>
                 <td>
-                  <span class="problem-cards"
-                    >${status.problemCards > 0
-                      ? status.problemCards
-                      : "-"}</span
+                  <span
+                    class="problem-cards ${status.problemCards > 0
+                      ? "has-problems"
+                      : ""}"
+                    >${status.problemCards}/${deck.totalCards}</span
                   >
                 </td>
               </tr>
