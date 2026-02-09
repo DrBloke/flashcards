@@ -53,7 +53,10 @@
 - [ ] isReversible - not all decks are
 - [ ] Magic date input parser for learning schedule
 - [ ] When communicating the goup details at start the time is not humanised, e.g. 1 day 1 hours apart. And is not in appropriate units. e.g -.0000000007 hours
-- [ ] If a milestone is completed then give a different message to the user. Maybe congratualate them and describe the next session.
+- [ ] If a milestone is completed then give a different message to the user. Maybe congratualate them and describe the next session.a
+- [ ] Bugs in review: when you say go back to previous milestone it shows a bland screen; text for this is to big and requires scrolling; If you get over 40% then it resets session, but explanation is needed.
+- [ ] Humanise date and time
+- [ ] Review text throughout
 
 ## Phase 2
 
