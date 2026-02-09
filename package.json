@@ -17,7 +17,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/ts-plugin": "^1.10.6",
-    "@awesome.me/webawesome": "^3.0.0",
+    "@awesome.me/webawesome": "^3.2.1",
     "astro": "^5.16.8",
     "lit": "^3.3.0",
     "rehype-sanitize": "^6.0.0",

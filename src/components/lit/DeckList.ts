@@ -2,8 +2,14 @@ import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { z } from "zod";
 import { flashcardsStorageSchema } from "../../schemas/storage";
-import { DEFAULT_LEARNING_SCHEDULE } from "../../schemas/learningSchedule";
+import {
+  DEFAULT_LEARNING_SCHEDULE,
+  type Milestone,
+} from "../../schemas/learningSchedule";
 import "@awesome.me/webawesome/dist/components/badge/badge.js";
+import "@awesome.me/webawesome/dist/components/button/button.js";
+import "@awesome.me/webawesome/dist/components/icon/icon.js";
+import "@awesome.me/webawesome/dist/components/tooltip/tooltip.js";
 
 interface DeckEntry {
   id: string;
@@ -58,30 +64,54 @@ export class DeckList extends LitElement {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: var(--wa-color-gray-90);
+      background-color: transparent;
+      border: 1px solid var(--wa-color-gray-80);
+      flex-shrink: 0;
     }
     .progress-dot.completed {
       background-color: var(--wa-color-success-60);
+      border-color: var(--wa-color-success-60);
     }
     .progress-dot.current {
       background-color: var(--wa-color-brand-60);
+      border-color: var(--wa-color-brand-60);
       box-shadow: 0 0 0 2px var(--wa-color-brand-90);
     }
     .progress-dot.current.new {
-      background-color: var(--wa-color-gray-90);
-      box-shadow: 0 0 0 2px var(--wa-color-gray-80);
+      background-color: transparent;
+      border-color: var(--wa-color-gray-80);
+      box-shadow: 0 0 0 2px var(--wa-color-gray-90);
     }
     .progress-dot.current.due {
       background-color: var(--wa-color-warning-60);
+      border-color: var(--wa-color-warning-60);
       box-shadow: 0 0 0 2px var(--wa-color-warning-90);
     }
     .progress-dot.current.overdue {
       background-color: var(--wa-color-danger-60);
+      border-color: var(--wa-color-danger-60);
       box-shadow: 0 0 0 2px var(--wa-color-danger-90);
     }
     .progress-dot.current.scheduled {
       background-color: var(--wa-color-brand-60);
+      border-color: var(--wa-color-brand-60);
       box-shadow: 0 0 0 2px var(--wa-color-brand-90);
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .progress-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--wa-space-3xs);
     }
     .problem-cards {
       color: var(--wa-color-danger-60);
@@ -92,6 +122,32 @@ export class DeckList extends LitElement {
       font-size: var(--wa-font-size-xs);
       color: var(--wa-color-gray-40);
       margin-top: var(--wa-space-3xs);
+    }
+    .milestone-info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--wa-space-3xs);
+    }
+    .milestone-session {
+      font-weight: var(--wa-font-weight-semibold);
+      color: var(--wa-color-gray-10);
+    }
+    .milestone-description {
+      font-size: var(--wa-font-size-xs);
+      color: var(--wa-color-gray-40);
+      line-height: 1.2;
+    }
+    .info-button {
+      margin-left: var(--wa-space-2xs);
+      color: var(--wa-color-gray-50);
+      transition: var(--wa-transition-fast) color;
+    }
+    .info-button:hover {
+      color: var(--wa-color-brand-60);
+    }
+    .info-button wa-icon {
+      font-size: 1.1rem;
+      display: block;
     }
   `;
 
@@ -134,11 +190,14 @@ export class DeckList extends LitElement {
       setData?.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
 
     if (!deckData || deckData.learningLog.length === 0) {
+      const currentMilestone = schedule[0];
       return {
         state: "new" as const,
         label: "Ready",
         milestoneIndex: 0,
         sessionIndex: 0,
+        totalSessions: currentMilestone.numberOfSessions,
+        milestoneDescription: this._getMilestoneDescription(currentMilestone),
         problemCards: 0,
         nextReview: null,
       };
@@ -173,13 +232,13 @@ export class DeckList extends LitElement {
 
     // Determine if overdue
     let isOverdue = false;
-    const currentMilestone = schedule[lastEntry.milestoneIndex];
-    if (currentMilestone && !lastEntry.isExtra) {
-      if (lastEntry.sessionIndex < currentMilestone.numberOfSessions - 1) {
+    const milestoneInLog = schedule[lastEntry.milestoneIndex];
+    if (milestoneInLog && !lastEntry.isExtra) {
+      if (lastEntry.sessionIndex < milestoneInLog.numberOfSessions - 1) {
         // Within a group
-        if (currentMilestone.maxTimeBetweenSessions !== null) {
+        if (milestoneInLog.maxTimeBetweenSessions !== null) {
           const overdueTime =
-            lastEntry.endTime + currentMilestone.maxTimeBetweenSessions * 1000;
+            lastEntry.endTime + milestoneInLog.maxTimeBetweenSessions * 1000;
           if (now > overdueTime) isOverdue = true;
         }
       }
@@ -188,15 +247,41 @@ export class DeckList extends LitElement {
     let state: "due" | "overdue" | "scheduled" = isDue ? "due" : "scheduled";
     if (isOverdue) state = "overdue";
 
+    const currentMilestone = schedule[targetMilestoneIndex];
+
     return {
       state,
       label:
         state === "due" ? "Due" : state === "overdue" ? "Overdue" : "Scheduled",
       milestoneIndex: targetMilestoneIndex,
       sessionIndex: targetSessionIndex,
+      totalSessions: currentMilestone.numberOfSessions,
+      milestoneDescription: this._getMilestoneDescription(currentMilestone),
       problemCards: deckData.wrongFirstTime.length,
       nextReview: nextReview,
     };
+  }
+
+  private _getMilestoneDescription(milestone: Milestone) {
+    const {
+      numberOfSessions,
+      minTimeBetweenSessions,
+      minTimeSinceLastMilestone,
+    } = milestone;
+
+    let desc = `${numberOfSessions} session${numberOfSessions > 1 ? "s" : ""}`;
+
+    if (numberOfSessions > 1 && minTimeBetweenSessions) {
+      const hours = minTimeBetweenSessions / 3600;
+      desc += ` with at least ${hours} ${hours === 1 ? "hour" : "hours"} between each`;
+    }
+
+    if (minTimeSinceLastMilestone && minTimeSinceLastMilestone > 0) {
+      const hours = minTimeSinceLastMilestone / 3600;
+      desc += ` (after ${hours}h wait)`;
+    }
+
+    return desc;
   }
 
   render() {
@@ -205,9 +290,11 @@ export class DeckList extends LitElement {
         <thead>
           <tr>
             <th>Deck</th>
-            <th>Progress</th>
+            <th>Milestones</th>
+            <th>Current Milestone</th>
             <th>Status</th>
             <th>Problem Cards</th>
+          </tr>
           </tr>
         </thead>
         <tbody>
@@ -228,19 +315,66 @@ export class DeckList extends LitElement {
                   <div class="progress-bar">
                     ${schedule.map((_, i) => {
                       let dotClass = "";
-                      if (i < status.milestoneIndex) dotClass = "completed";
-                      else if (i === status.milestoneIndex)
+                      let label = `Milestone ${i + 1}`;
+                      if (i < status.milestoneIndex) {
+                        dotClass = "completed";
+                        label += " (Completed)";
+                      } else if (i === status.milestoneIndex) {
                         dotClass = `current ${status.state}`;
+                        label += ` (Current: ${status.label})`;
+                      } else {
+                        label += " (Pending)";
+                      }
 
                       return html`
-                        <div
-                          class="progress-dot ${dotClass}"
-                          title="Milestone ${i + 1}${i === status.milestoneIndex
-                            ? ` (${status.label})`
-                            : ""}"
-                        ></div>
+                        <div class="progress-dot ${dotClass}" title="${label}">
+                          <span class="visually-hidden">${label}</span>
+                        </div>
                       `;
                     })}
+                  </div>
+                </td>
+                <td>
+                  <div class="milestone-info">
+                    <div class="progress-bar">
+                      ${Array.from({ length: status.totalSessions }).map(
+                        (_, i) => {
+                          let dotClass = "";
+                          let label = `Session ${i + 1}`;
+                          if (i < status.sessionIndex) {
+                            dotClass = "completed";
+                            label += " (Completed)";
+                          } else if (i === status.sessionIndex) {
+                            dotClass = `current ${status.state}`;
+                            label += ` (Current: ${status.label})`;
+                          } else {
+                            label += " (Pending)";
+                          }
+
+                          return html`
+                            <div
+                              class="progress-dot ${dotClass}"
+                              title="${label}"
+                            >
+                              <span class="visually-hidden">${label}</span>
+                            </div>
+                          `;
+                        },
+                      )}
+                      <wa-button
+                        id="info-${deck.id.replace(/\//g, "-")}"
+                        variant="text"
+                        size="small"
+                        class="info-button"
+                        label="Milestone Info"
+                        title="${status.milestoneDescription}"
+                      >
+                        <wa-icon name="circle-info"></wa-icon>
+                      </wa-button>
+                      <wa-tooltip for="info-${deck.id.replace(/\//g, "-")}">
+                        ${status.milestoneDescription}
+                      </wa-tooltip>
+                    </div>
                   </div>
                 </td>
                 <td
