@@ -367,7 +367,6 @@ export class DeckList extends LitElement {
                         size="small"
                         class="info-button"
                         label="Milestone Info"
-                        title="${status.milestoneDescription}"
                       >
                         <wa-icon name="circle-info"></wa-icon>
                       </wa-button>
