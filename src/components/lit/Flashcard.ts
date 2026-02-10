@@ -525,9 +525,9 @@ export class FlashcardDeck extends LitElement {
   _retryMilestone() {
     this._showDemotionChoice = false;
     this._sessionCompleted = false;
-    this._isDue = true;
     this._wrongFirstTime = [];
     this._initializeSession();
+    this._isDue = true; // Ensure it's due after initialization
   }
 
   _demoteToPreviousMilestone() {
@@ -615,12 +615,15 @@ export class FlashcardDeck extends LitElement {
             : ""}
           ${this._learningLog[this._learningLog.length - 1]?.nextReview
             ? html`<p>
-                Next review scheduled for:
-                ${formatDistanceToNow(
-                  this._learningLog[this._learningLog.length - 1]
-                    .nextReview as number,
-                  { addSuffix: true },
-                )}
+                ${this._learningLog[this._learningLog.length - 1]
+                  ?.sessionIndex === 999
+                  ? "Milestone requires more work so it has been reset. Ready to start again immediately."
+                  : html`Next review scheduled for:
+                    ${formatDistanceToNow(
+                      this._learningLog[this._learningLog.length - 1]
+                        .nextReview as number,
+                      { addSuffix: true },
+                    )}`}
               </p>`
             : ""}
         </div>
@@ -1020,11 +1023,8 @@ export class FlashcardDeck extends LitElement {
           this._endTime + nextMilestone.minTimeSinceLastMilestone * 1000;
       }
     } else if (isRepeatingMilestone) {
-      // Repeating milestone
-      if (nextMilestone.minTimeSinceLastMilestone !== null) {
-        nextReview =
-          this._endTime + nextMilestone.minTimeSinceLastMilestone * 1000;
-      }
+      // Repeating milestone - should be available immediately
+      nextReview = this._endTime;
     } else {
       // Next session in same milestone
       if (currentMilestone.minTimeBetweenSessions !== null) {
