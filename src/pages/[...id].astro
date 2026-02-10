@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection, type CollectionKey } from "astro:content";
-import { deckSchema, type Deck } from "../schemas/deck";
+import { type Deck } from "../schemas/deck";
 import { setsSchema } from "../schemas/sets";
 import rawSets from "../sets.json";
+import { renderMarkdown } from "../utils/markdown";
 
 export async function getStaticPaths() {
   const sets = setsSchema.parse(rawSets);
@@ -26,20 +27,31 @@ const { deck, setPath } = Astro.props as {
   deck: { id: string; data: Deck };
   setPath: string;
 };
-deckSchema.parse(deck.data);
+
+// Pre-render all cards
+const renderedCards = await Promise.all(
+  deck.data.cards.map(async (card) => ({
+    ...card,
+    side1: await renderMarkdown(card.side1),
+    side2: await renderMarkdown(card.side2),
+  })),
+);
+
+const preRenderedDeck = {
+  ...deck.data,
+  cards: renderedCards,
+};
 ---
 
 <BaseLayout pageTitle={deck.data.title}>
   <flashcard-deck
-    deck={JSON.stringify(deck.data)}
+    deck={JSON.stringify(preRenderedDeck)}
     deck-id={deck.id}
     set-path={setPath}
     home-route={import.meta.env.BASE_URL + setPath}
   >
     <h1 slot="header" id="ssr-header">{deck.data.title}</h1>
-    <div id="content">
-      {deck.data.cards[0]?.side1}
-    </div>
+    <div id="content" set:html={preRenderedDeck.cards[0]?.side1} />
   </flashcard-deck>
 </BaseLayout>
 

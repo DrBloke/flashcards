@@ -8,13 +8,6 @@ import {
   type LearningLogEntry,
 } from "../../schemas/storage";
 import { DEFAULT_LEARNING_SCHEDULE } from "../../schemas/learningSchedule";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkMath from "remark-math";
-import remarkRehype from "remark-rehype";
-import rehypeSanitize from "rehype-sanitize";
-import rehypeKatex from "rehype-katex";
-import rehypeStringify from "rehype-stringify";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import {
   formatDistance,
@@ -125,6 +118,28 @@ export class FlashcardDeck extends LitElement {
     #content h6 {
       margin: 0 0 var(--wa-space-s) 0;
       line-height: var(--wa-line-height-tight);
+    }
+    #content pre {
+      margin: var(--wa-space-m) 0;
+      padding: var(--wa-space-m);
+      border-radius: var(--wa-border-radius-m);
+      overflow-x: auto;
+      font-family: var(--wa-font-family-mono);
+      font-size: var(--wa-font-size-s);
+      line-height: var(--wa-line-height-normal);
+    }
+    #content code {
+      font-family: var(--wa-font-family-mono);
+      background-color: var(--wa-color-gray-95);
+      padding: 0.2em 0.4em;
+      border-radius: var(--wa-border-radius-s);
+      font-size: 0.9em;
+    }
+    #content pre code {
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
     }
     footer {
       flex-shrink: 0;
@@ -814,64 +829,7 @@ export class FlashcardDeck extends LitElement {
     } else if (this._remainingCards.length === 0) {
       return html`<div>No cards available</div>`;
     } else {
-      const rawContent = this._remainingCards[0][this._side];
-      const htmlContent = unified()
-        .use(remarkParse)
-        .use(remarkMath)
-        .use(remarkRehype)
-        .use(rehypeSanitize, {
-          tagNames: [
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-            "h5",
-            "h6",
-            "p",
-            "br",
-            "ul",
-            "ol",
-            "li",
-            "span",
-            "div",
-            "em",
-            "strong",
-            "del",
-            "code",
-            "pre",
-            "blockquote",
-            "hr",
-            "math",
-            "semantics",
-            "annotation",
-            "mrow",
-            "mi",
-            "mo",
-            "mn",
-            "msup",
-            "msub",
-            "mfrac",
-            "msqrt",
-            "mroot",
-            "mover",
-            "munder",
-            "munderover",
-            "mtable",
-            "mtr",
-            "mtd",
-            "mtext",
-            "mspace",
-          ],
-          attributes: {
-            "*": ["className", "style"],
-            math: ["xmlns", "display"],
-            annotation: ["encoding"],
-          },
-        })
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-        .processSync(rawContent)
-        .toString();
+      const htmlContent = this._remainingCards[0][this._side];
       mainContent = html`<div id="content">${unsafeHTML(htmlContent)}</div>`;
     }
 
