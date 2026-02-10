@@ -10,8 +10,10 @@ import {
 import { DEFAULT_LEARNING_SCHEDULE } from "../../schemas/learningSchedule";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
 import rehypeSanitize from "rehype-sanitize";
+import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import {
@@ -812,8 +814,58 @@ export class FlashcardDeck extends LitElement {
       const rawContent = this._remainingCards[0][this._side];
       const htmlContent = unified()
         .use(remarkParse)
+        .use(remarkMath)
         .use(remarkRehype)
-        .use(rehypeSanitize)
+        .use(rehypeSanitize, {
+          tagNames: [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "p",
+            "br",
+            "ul",
+            "ol",
+            "li",
+            "span",
+            "div",
+            "em",
+            "strong",
+            "del",
+            "code",
+            "pre",
+            "blockquote",
+            "hr",
+            "math",
+            "semantics",
+            "annotation",
+            "mrow",
+            "mi",
+            "mo",
+            "mn",
+            "msup",
+            "msub",
+            "mfrac",
+            "msqrt",
+            "mroot",
+            "mover",
+            "munder",
+            "munderover",
+            "mtable",
+            "mtr",
+            "mtd",
+            "mtext",
+            "mspace",
+          ],
+          attributes: {
+            "*": ["className", "style"],
+            math: ["xmlns", "display"],
+            annotation: ["encoding"],
+          },
+        })
+        .use(rehypeKatex)
         .use(rehypeStringify)
         .processSync(rawContent)
         .toString();
@@ -821,6 +873,10 @@ export class FlashcardDeck extends LitElement {
     }
 
     return html`
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+      />
       <div id="wrapper">
         <header role="banner">
           <slot name="header">${this.headerTemplate()}</slot>
