@@ -310,6 +310,9 @@ export class FlashcardDeck extends LitElement {
   @state()
   private _strugglingCount = 0;
 
+  @state()
+  private _cardFontSizes: Record<number, number> = {};
+
   private _getStoredData(): z.infer<typeof flashcardsStorageSchema> {
     const rawData = localStorage.getItem("flashcards-data");
     const parsed = rawData ? JSON.parse(rawData) : {};
@@ -335,6 +338,9 @@ export class FlashcardDeck extends LitElement {
       currentRound: this._currentRound,
       wrongFirstTime: this._wrongFirstTime,
       learningLog: this._learningLog,
+      cardFontSizes: Object.fromEntries(
+        Object.entries(this._cardFontSizes).map(([k, v]) => [k.toString(), v]),
+      ),
     };
     const allData = this._getStoredData();
 
@@ -371,6 +377,14 @@ export class FlashcardDeck extends LitElement {
       this._learningLog = savedData.learningLog || [];
       this._wrongFirstTime = savedData.wrongFirstTime || [];
       this._currentRound = savedData.currentRound || 0;
+      this._cardFontSizes = savedData.cardFontSizes
+        ? Object.fromEntries(
+            Object.entries(savedData.cardFontSizes).map(([k, v]) => [
+              Number(k),
+              v,
+            ]),
+          )
+        : {};
 
       if (this._learningLog.length === 0) {
         this._milestoneIndex = 0;
@@ -498,8 +512,30 @@ export class FlashcardDeck extends LitElement {
     return newArray;
   }
 
+  private _increaseFontSize() {
+    const cardId = this._remainingCards[0]?.id;
+    if (cardId === undefined) return;
+    const currentSize = this._cardFontSizes[cardId] || 2.25; // Default 4xl is ~2.25rem
+    this._cardFontSizes = {
+      ...this._cardFontSizes,
+      [cardId]: currentSize + 0.1,
+    };
+    this._saveSession();
+  }
+
+  private _decreaseFontSize() {
+    const cardId = this._remainingCards[0]?.id;
+    if (cardId === undefined) return;
+    const currentSize = this._cardFontSizes[cardId] || 2.25;
+    this._cardFontSizes = {
+      ...this._cardFontSizes,
+      [cardId]: Math.max(0.5, currentSize - 0.1),
+    };
+    this._saveSession();
+  }
+
   headerTemplate() {
-    return html`<wa-button
+    return html` <wa-button
         href=${this.homeRoute}
         id="home"
         title="home"
@@ -507,6 +543,32 @@ export class FlashcardDeck extends LitElement {
         appearance="filled"
       >
         <wa-icon name="house" label="Home"></wa-icon>
+      </wa-button>
+      <wa-button
+        id="decrease-font"
+        title="Decrease font size"
+        @click=${this._decreaseFontSize}
+        variant="brand"
+        appearance="filled"
+        style="margin-left: var(--wa-space-xs)"
+      >
+        <wa-icon
+          name="magnifying-glass-minus"
+          label="Decrease font size"
+        ></wa-icon>
+      </wa-button>
+      <wa-button
+        id="increase-font"
+        title="Increase font size"
+        @click=${this._increaseFontSize}
+        variant="brand"
+        appearance="filled"
+        style="margin-left: var(--wa-space-3xs)"
+      >
+        <wa-icon
+          name="magnifying-glass-plus"
+          label="Increase font size"
+        ></wa-icon>
       </wa-button>
       <h1>${this.deck?.title}</h1>`;
   }
@@ -829,8 +891,13 @@ export class FlashcardDeck extends LitElement {
     } else if (this._remainingCards.length === 0) {
       return html`<div>No cards available</div>`;
     } else {
-      const htmlContent = this._remainingCards[0][this._side];
-      mainContent = html`<div id="content">${unsafeHTML(htmlContent)}</div>`;
+      const card = this._remainingCards[0];
+      const htmlContent = card[this._side];
+      const fontSize = this._cardFontSizes[card.id];
+      const style = fontSize ? `font-size: ${fontSize}rem` : "";
+      mainContent = html`<div id="content" style=${style}>
+        ${unsafeHTML(htmlContent)}
+      </div>`;
     }
 
     return html`

@@ -15,6 +15,7 @@ export const deckSessionSchema = z.object({
   currentRound: z.number(),
   wrongFirstTime: z.array(z.number()),
   learningLog: z.array(learningLogEntrySchema).default([]),
+  cardFontSizes: z.record(z.string(), z.number()).optional(),
 });
 
 export const setSettingsSchema = z.object({
