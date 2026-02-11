@@ -186,6 +186,51 @@ test.describe("Flashcard deck", () => {
     await expect(paragraph).toContainText("This is a paragraph.");
   });
 
+  test("Math equation rendering", async ({ page }) => {
+    // Go to the math test deck
+    await page.goto("/flashcards/test");
+    await page.getByRole("link", { name: "A-Level Maths Test" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
+
+    // Flip the first card
+    await page.locator("#flip").click();
+
+    // Assert math equation is rendered (KaTeX)
+    // We expect a .katex element
+    const katex = cardContent.locator(".katex");
+    await expect(katex).toBeVisible();
+
+    // Check for another card with block math
+    await page.locator("#correct").click();
+    await page.locator("#flip").click();
+    const katexBlock = cardContent.locator(".katex");
+    await expect(katexBlock).toBeVisible();
+  });
+
+  test("Code block rendering", async ({ page }) => {
+    // Go to the code test deck
+    await page.goto("/flashcards/test");
+    await page.getByRole("link", { name: "Code Block Test" }).click();
+    await page.getByRole("button", { name: "Start Milestone" }).click();
+
+    // Flip the first card
+    await page.locator("#flip").click();
+
+    // Assert code block is rendered (Shiki)
+    // We expect a pre.shiki element
+    const codeBlock = cardContent.locator("pre.shiki");
+    await expect(codeBlock).toBeVisible();
+    await expect(codeBlock).toContainText("print");
+    await expect(codeBlock).toContainText("Hello World");
+
+    // Check second card
+    await page.locator("#correct").click();
+    await page.locator("#flip").click();
+    const codeBlock2 = cardContent.locator("pre.shiki");
+    await expect(codeBlock2).toBeVisible();
+    await expect(codeBlock2).toContainText("function");
+  });
+
   test("Restarting a completed deck", async ({ page }) => {
     // Go to the index page
     await page.goto("/flashcards/test");

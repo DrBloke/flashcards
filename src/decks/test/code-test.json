@@ -1,0 +1,17 @@
+{
+  "id": 101,
+  "title": "Code Block Test",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "How do you print 'Hello World' in Python?",
+      "side2": "```python\nprint('Hello World')\n```"
+    },
+    {
+      "id": 1,
+      "side1": "How do you define a function in JavaScript?",
+      "side2": "```javascript\nfunction hello() {\n  console.log('Hello');\n}\n```"
+    }
+  ],
+  "tags": ["test", "code"]
+}

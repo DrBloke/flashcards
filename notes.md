@@ -631,3 +631,7 @@ If it is a subsequent session in the same milestone, then the wrongFirstTime arr
 Extra sessions:
 
 If the learning session is not due, then the user should be given the option to start the session anyway, but with a warning that it is not due and that the wait time will be reset. That is, the nextReview will be calculated using the end time of the session. The user should be given the choice to study the struggling words only or all the words. Regardless or what they choose, the wrongFirstTime array should not be reset. The remaining cards should be calculated depending on their choice, so they are either tested on the struggling words only or all the words. If they get any of the struggling words right in the first round they should not be removed from the wrongFirstTime array in this case where we are doing an extra session. Any words guessed incorrectly in any of the rounds in this session should be added to the wrongFirstTime array.
+
+## Resizing
+
+Sometimes the default size of the text in the flashcards is too large. We should allow the user to resize the text in the flashcards. There should be a + and - button just to the right of the home button. Pressing these should change the size of the text in small increments. The resize should be persistent, so that the user can close the flashcard and come back to it later and the text size should be the same as the last time they resized it. The changed size should apply to that card only, not the whole deck.
