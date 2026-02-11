@@ -12,7 +12,9 @@
     "prepare": "husky",
     "test:e2e": "playwright test",
     "test:e2e:prod": "CI=1 playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "test:unit": "vitest run",
+    "test": "npm run test:unit && npm run test:e2e"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",

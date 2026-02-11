@@ -1,5 +1,5 @@
 import { expect, test, describe, beforeEach, afterEach, vi } from "vitest";
-import { FlashcardDeck } from "./components/lit/Flashcard";
+import { FlashcardDeck } from "../../src/components/lit/Flashcard";
 import { html } from "lit";
 
 // Mock localStorage
@@ -187,7 +187,6 @@ describe("Learning Progression Logic", () => {
     // @ts-expect-error accessing private field
     expect(deckElement._showDemotionChoice).toBe(true);
 
-    // @ts-expect-error accessing private method
     deckElement._demoteToPreviousMilestone();
     // @ts-expect-error accessing private field
     expect(deckElement._milestoneIndex).toBe(0);
@@ -204,7 +203,6 @@ describe("Learning Progression Logic", () => {
     }
     await completeSession(0.5);
 
-    // @ts-expect-error accessing private method
     deckElement._retryMilestone();
     // @ts-expect-error accessing private field
     expect(deckElement._isDue).toBe(true);
