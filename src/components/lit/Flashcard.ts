@@ -172,6 +172,7 @@ export class FlashcardDeck extends LitElement {
       flex-direction: column;
       align-items: center;
       gap: var(--wa-space-m);
+      font-size: 1rem;
     }
     .completed-icon {
       font-size: 4rem;
@@ -602,7 +603,9 @@ export class FlashcardDeck extends LitElement {
   _retryMilestone() {
     this._showDemotionChoice = false;
     this._sessionCompleted = false;
+    this._sessionStarted = false;
     this._wrongFirstTime = [];
+    this._saveSession();
     this._initializeSession();
     this._isDue = true; // Ensure it's due after initialization
   }
@@ -616,15 +619,18 @@ export class FlashcardDeck extends LitElement {
       // To go back to [G-1, S=0], we make the last entry look like the end of [G-2]
       const targetMilestoneIndex = this._milestoneIndex - 1;
 
-      lastEntry.milestoneIndex = targetMilestoneIndex - 1;
-      lastEntry.sessionIndex = 999; // Represents "finished milestone"
-      lastEntry.nextReview = Date.now(); // Available immediately
-      this._saveSession();
+      if (targetMilestoneIndex >= 0) {
+        lastEntry.milestoneIndex = targetMilestoneIndex - 1;
+        lastEntry.sessionIndex = 999; // Represents "finished milestone"
+        lastEntry.nextReview = Date.now(); // Available immediately
+        this._saveSession();
 
-      this._sessionCompleted = false;
-      this._isDue = true;
-      this._wrongFirstTime = [];
-      this._initializeSession();
+        this._sessionCompleted = false;
+        this._sessionStarted = false;
+        this._isDue = true;
+        this._wrongFirstTime = [];
+        this._initializeSession();
+      }
     }
   }
 
@@ -681,7 +687,7 @@ export class FlashcardDeck extends LitElement {
           ${this._score >= 0.9
             ? "Mastered!"
             : scorePercent >= 40
-              ? "Deck Completed"
+              ? "Good Progress"
               : "Needs Review"}
         </div>
         <div class="completed-stats">
@@ -694,7 +700,7 @@ export class FlashcardDeck extends LitElement {
             ? html`<p>
                 ${this._learningLog[this._learningLog.length - 1]
                   ?.sessionIndex === 999
-                  ? "Milestone requires more work so it has been reset. Ready to start again immediately."
+                  ? "You passed, but to advance to the next milestone you need 90% mastery. Let's try this milestone again."
                   : html`Next review scheduled for:
                     ${formatDistanceToNow(
                       this._learningLog[this._learningLog.length - 1]

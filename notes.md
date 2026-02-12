@@ -635,3 +635,7 @@ If the learning session is not due, then the user should be given the option to 
 ## Resizing
 
 Sometimes the default size of the text in the flashcards is too large. We should allow the user to resize the text in the flashcards. There should be a + and - button just to the right of the home button. Pressing these should change the size of the text in small increments. The resize should be persistent, so that the user can close the flashcard and come back to it later and the text size should be the same as the last time they resized it. The changed size should apply to that card only, not the whole deck.
+
+## new tooltip
+
+Add a new tooltip next to the dots showing all the milestones. In this tooltip show a list of the descriptions of all the milestones. When done add a Playwright test to test this.

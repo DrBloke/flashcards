@@ -43,8 +43,8 @@
 - [x] Temp version showing which decks are due
 - [x] Horizontal scrolling should only apply to the table
 - [x] When communicating the milestone details at start the time is not humanised, e.g. 1 day 1 hours apart. And is not in appropriate units. e.g -.0000000007 hours
-- [ ] On milestones column, when hovering over a milestone, show the description.
-- [ ] Sorting on deck table
+- [x] Sorting on deck table
+- [x] On milestones column, when hovering over a milestone, show the description.
 - [ ] Make learning log configuration clearer
 - [ ] Maths, chemistry, code and diagrams
 - [ ] Hierarchical menus
