@@ -10,6 +10,7 @@ import "@awesome.me/webawesome/dist/components/badge/badge.js";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import "@awesome.me/webawesome/dist/components/tooltip/tooltip.js";
+import "@awesome.me/webawesome/dist/components/input/input.js";
 import {
   formatDistanceToNow,
   formatDuration,
@@ -28,6 +29,8 @@ export class DeckList extends LitElement {
     :host {
       display: block;
       margin-top: var(--wa-space-l);
+      padding-left: var(--wa-space-xs);
+      padding-right: var(--wa-space-xs);
     }
     table {
       width: 100%;
@@ -162,6 +165,10 @@ export class DeckList extends LitElement {
       font-size: 1.1rem;
       display: block;
     }
+    .search-container {
+      margin-bottom: var(--wa-space-m);
+      max-width: 400px;
+    }
   `;
 
   @property({ type: Array })
@@ -175,6 +182,9 @@ export class DeckList extends LitElement {
 
   @state()
   private _storageData: z.infer<typeof flashcardsStorageSchema> = {};
+
+  @state()
+  private _searchQuery = "";
 
   connectedCallback() {
     super.connectedCallback();
@@ -194,6 +204,11 @@ export class DeckList extends LitElement {
     if (result.success) {
       this._storageData = result.data;
     }
+  }
+
+  private _handleSearch(e: Event) {
+    const input = e.target as HTMLElement & { value?: string };
+    this._searchQuery = (input.value || "").toLowerCase().trim();
   }
 
   private _getDeckStatus(deckId: string) {
@@ -302,7 +317,22 @@ export class DeckList extends LitElement {
   }
 
   render() {
-    const decksWithStatus = this.decks.map((deck) => ({
+    // Robustly handle decks property which might be a JSON string from Astro
+    let decksArray = this.decks;
+    if (typeof decksArray === "string") {
+      try {
+        decksArray = JSON.parse(decksArray);
+      } catch (e) {
+        console.error("Failed to parse decks property", e);
+        decksArray = [];
+      }
+    }
+
+    const filteredDecks = (decksArray || []).filter((deck) =>
+      (deck.title || "").toLowerCase().includes(this._searchQuery),
+    );
+
+    const decksWithStatus = filteredDecks.map((deck) => ({
       deck,
       status: this._getDeckStatus(deck.id),
     }));
@@ -320,10 +350,22 @@ export class DeckList extends LitElement {
       if (weightA !== weightB) {
         return weightA - weightB;
       }
-      return 1; // Preserve the original order if all other factors are equal
+      return 0; // Stability: return 0 if weights are equal
     });
 
     return html`
+      <div class="search-container">
+        <wa-input
+          id="deck-search"
+          label="Search Decks"
+          placeholder="Search decks..."
+          clearable
+          @input=${this._handleSearch}
+          @wa-clear=${this._handleSearch}
+        >
+          <wa-icon name="magnifying-glass" slot="prefix"></wa-icon>
+        </wa-input>
+      </div>
       <table>
         <thead>
           <tr>
