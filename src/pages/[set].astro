@@ -37,19 +37,20 @@ const title = set.title;
         <schedule-editor set-path={set.path}></schedule-editor>
       </wa-details>
     </wa-details>
-
-    <deck-list
-      decks={JSON.stringify(
-        decks.map((d) => ({
-          id: d.id,
-          title: d.data.title,
-          totalCards: d.data.cards.length,
-        })),
-      )}
-      set-path={set.path}
-      base-url={import.meta.env.BASE_URL}
-    >
-    </deck-list>
+    <div class="deck-list-container">
+      <deck-list
+        decks={JSON.stringify(
+          decks.map((d) => ({
+            id: d.id,
+            title: d.data.title,
+            totalCards: d.data.cards.length,
+          })),
+        )}
+        set-path={set.path}
+        base-url={import.meta.env.BASE_URL}
+      >
+      </deck-list>
+    </div>
   </main>
 </BaseLayout>
 

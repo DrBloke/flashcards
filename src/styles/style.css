@@ -13,3 +13,12 @@ body {
 main {
   margin: 10px;
 }
+
+h1 {
+  /* eslint-disable-next-line css/no-invalid-properties */
+  color: var(--wa-color-brand-on-quiet);
+}
+
+.deck-list-container {
+  overflow-x: auto;
+}
