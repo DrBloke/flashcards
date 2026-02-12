@@ -138,6 +138,17 @@ export class DeckList extends LitElement {
       display: flex;
       flex-direction: column;
       gap: var(--wa-space-3xs);
+      padding: var(--wa-space-3xs);
+    }
+    .milestone-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: var(--wa-space-3xs) 0;
+      border-bottom: 1px solid var(--wa-color-gray-90);
+    }
+    .milestone-entry:last-child {
+      border-bottom: none;
     }
     .milestone-session {
       font-weight: var(--wa-font-weight-semibold);
@@ -410,6 +421,39 @@ export class DeckList extends LitElement {
                         </div>
                       `;
                     })}
+                    <button
+                      id="milestones-info-${deck.id.replace(/\//g, "-")}"
+                      class="info-button"
+                      aria-label="All Milestones Info"
+                    >
+                      <wa-icon name="circle-info"></wa-icon>
+                    </button>
+                    <wa-tooltip
+                      for="milestones-info-${deck.id.replace(/\//g, "-")}"
+                    >
+                      <div class="milestone-info">
+                        ${schedule.map(
+                          (m, i) => html`
+                            <div class="milestone-entry">
+                              <div
+                                class="milestone-session"
+                                style="${i === status.milestoneIndex
+                                  ? "color: var(--wa-color-brand-60);"
+                                  : ""}"
+                              >
+                                Milestone
+                                ${i + 1}${i === status.milestoneIndex
+                                  ? " (Current)"
+                                  : ""}
+                              </div>
+                              <div class="milestone-description">
+                                ${this._getMilestoneDescription(m)}
+                              </div>
+                            </div>
+                          `,
+                        )}
+                      </div>
+                    </wa-tooltip>
                   </div>
                 </td>
                 <td>
