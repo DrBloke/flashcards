@@ -302,6 +302,27 @@ export class DeckList extends LitElement {
   }
 
   render() {
+    const decksWithStatus = this.decks.map((deck) => ({
+      deck,
+      status: this._getDeckStatus(deck.id),
+    }));
+
+    const statusWeight = {
+      overdue: 0,
+      due: 1,
+      scheduled: 2,
+      new: 3,
+    };
+
+    decksWithStatus.sort((a, b) => {
+      const weightA = statusWeight[a.status.state as keyof typeof statusWeight];
+      const weightB = statusWeight[b.status.state as keyof typeof statusWeight];
+      if (weightA !== weightB) {
+        return weightA - weightB;
+      }
+      return 1; // Preserve the original order if all other factors are equal
+    });
+
     return html`
       <table>
         <thead>
@@ -314,8 +335,7 @@ export class DeckList extends LitElement {
           </tr>
         </thead>
         <tbody>
-          ${this.decks.map((deck) => {
-            const status = this._getDeckStatus(deck.id);
+          ${decksWithStatus.map(({ deck, status }) => {
             const schedule =
               this._storageData[this.setPath]?.settings?.learningSchedule ||
               DEFAULT_LEARNING_SCHEDULE;
