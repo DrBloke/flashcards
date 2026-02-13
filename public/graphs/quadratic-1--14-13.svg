@@ -1,0 +1,18 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="background:white; border:1px solid #eee;">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#888" />
+      </marker>
+    </defs>
+    <!-- Axes -->
+    <line x1="10" y1="93.58490566037736" x2="290" y2="93.58490566037736" stroke="#888" stroke-width="1" marker-end="url(#arrowhead)" />
+    <line x1="50.588235294117645" y1="290" x2="50.588235294117645" y2="10" stroke="#888" stroke-width="1" marker-end="url(#arrowhead)" />
+    <!-- Graph -->
+    <path d="M 20.0 -127.2 L 22.6 -112.3 L 25.2 -97.7 L 27.8 -83.4 L 30.4 -69.4 L 33.0 -55.7 L 35.6 -42.2 L 38.2 -29.0 L 40.8 -16.2 L 43.4 -3.6 L 46.0 8.8 L 48.6 20.8 L 51.2 32.6 L 53.8 44.0 L 56.4 55.2 L 59.0 66.1 L 61.6 76.7 L 64.2 87.1 L 66.8 97.1 L 69.4 106.9 L 72.0 116.3 L 74.6 125.5 L 77.2 134.5 L 79.8 143.1 L 82.4 151.4 L 85.0 159.5 L 87.6 167.3 L 90.2 174.8 L 92.8 182.0 L 95.4 188.9 L 98.0 195.6 L 100.6 201.9 L 103.2 208.0 L 105.8 213.8 L 108.4 219.3 L 111.0 224.6 L 113.6 229.5 L 116.2 234.2 L 118.8 238.5 L 121.4 242.6 L 124.0 246.4 L 126.6 250.0 L 129.2 253.2 L 131.8 256.2 L 134.4 258.9 L 137.0 261.2 L 139.6 263.4 L 142.2 265.2 L 144.8 266.7 L 147.4 268.0 L 150.0 269.0 L 152.6 269.7 L 155.2 270.1 L 157.8 270.2 L 160.4 270.0 L 163.0 269.6 L 165.6 268.9 L 168.2 267.9 L 170.8 266.6 L 173.4 265.0 L 176.0 263.1 L 178.6 261.0 L 181.2 258.6 L 183.8 255.8 L 186.4 252.9 L 189.0 249.6 L 191.6 246.0 L 194.2 242.2 L 196.8 238.0 L 199.4 233.6 L 202.0 228.9 L 204.6 224.0 L 207.2 218.7 L 209.8 213.1 L 212.4 207.3 L 215.0 201.2 L 217.6 194.8 L 220.2 188.1 L 222.8 181.2 L 225.4 173.9 L 228.0 166.4 L 230.6 158.6 L 233.2 150.5 L 235.8 142.1 L 238.4 133.4 L 241.0 124.5 L 243.6 115.2 L 246.2 105.7 L 248.8 95.9 L 251.4 85.8 L 254.0 75.5 L 256.6 64.8 L 259.2 53.9 L 261.8 42.7 L 264.4 31.2 L 267.0 19.4 L 269.6 7.3 L 272.2 -5.0 L 274.8 -17.7 L 277.4 -30.6 L 280.0 -43.8" fill="none" stroke="blue" stroke-width="2" />
+    <!-- Intercepts -->
+    <circle cx="249.4" cy="93.6" r="3" fill="red" /><circle cx="65.9" cy="93.6" r="3" fill="red" /><circle cx="50.6" cy="29.8" r="3" fill="red" />
+    <!-- Labels -->
+    <text x="249.4" y="108.6" font-family="sans-serif" font-size="10" text-anchor="middle" dominant-baseline="hanging" fill="#333">13</text><text x="65.9" y="108.6" font-family="sans-serif" font-size="10" text-anchor="middle" dominant-baseline="hanging" fill="#333">1</text><text x="60.6" y="29.8" font-family="sans-serif" font-size="10" text-anchor="start" dominant-baseline="middle" fill="#333">13</text>
+    <!-- Equation -->
+    <text x="150" y="295" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">y = 1x² + -14x + 13</text>
+  </svg>

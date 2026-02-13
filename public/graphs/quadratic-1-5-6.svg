@@ -1,0 +1,18 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="background:white; border:1px solid #eee;">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#888" />
+      </marker>
+    </defs>
+    <!-- Axes -->
+    <line x1="10" y1="222.9268292682927" x2="290" y2="222.9268292682927" stroke="#888" stroke-width="1" marker-end="url(#arrowhead)" />
+    <line x1="205.71428571428572" y1="290" x2="205.71428571428572" y2="10" stroke="#888" stroke-width="1" marker-end="url(#arrowhead)" />
+    <!-- Graph -->
+    <path d="M 20.0 70.7 L 22.6 79.5 L 25.2 88.0 L 27.8 96.2 L 30.4 104.3 L 33.0 112.0 L 35.6 119.5 L 38.2 126.8 L 40.8 133.8 L 43.4 140.6 L 46.0 147.1 L 48.6 153.4 L 51.2 159.4 L 53.8 165.1 L 56.4 170.7 L 59.0 175.9 L 61.6 181.0 L 64.2 185.7 L 66.8 190.3 L 69.4 194.5 L 72.0 198.6 L 74.6 202.4 L 77.2 205.9 L 79.8 209.2 L 82.4 212.2 L 85.0 215.0 L 87.6 217.5 L 90.2 219.8 L 92.8 221.9 L 95.4 223.7 L 98.0 225.2 L 100.6 226.5 L 103.2 227.6 L 105.8 228.4 L 108.4 228.9 L 111.0 229.2 L 113.6 229.3 L 116.2 229.1 L 118.8 228.6 L 121.4 227.9 L 124.0 227.0 L 126.6 225.8 L 129.2 224.4 L 131.8 222.7 L 134.4 220.7 L 137.0 218.6 L 139.6 216.1 L 142.2 213.4 L 144.8 210.5 L 147.4 207.3 L 150.0 203.9 L 152.6 200.2 L 155.2 196.3 L 157.8 192.1 L 160.4 187.7 L 163.0 183.0 L 165.6 178.1 L 168.2 173.0 L 170.8 167.5 L 173.4 161.9 L 176.0 156.0 L 178.6 149.8 L 181.2 143.4 L 183.8 136.7 L 186.4 129.8 L 189.0 122.7 L 191.6 115.3 L 194.2 107.6 L 196.8 99.7 L 199.4 91.6 L 202.0 83.2 L 204.6 74.5 L 207.2 65.6 L 209.8 56.5 L 212.4 47.1 L 215.0 37.4 L 217.6 27.5 L 220.2 17.4 L 222.8 7.0 L 225.4 -3.6 L 228.0 -14.5 L 230.6 -25.6 L 233.2 -37.0 L 235.8 -48.6 L 238.4 -60.5 L 241.0 -72.6 L 243.6 -85.0 L 246.2 -97.6 L 248.8 -110.5 L 251.4 -123.6 L 254.0 -137.0 L 256.6 -150.6 L 259.2 -164.5 L 261.8 -178.6 L 264.4 -193.0 L 267.0 -207.6 L 269.6 -222.5 L 272.2 -237.6 L 274.8 -252.9 L 277.4 -268.5 L 280.0 -284.4" fill="none" stroke="blue" stroke-width="2" />
+    <!-- Intercepts -->
+    <circle cx="131.4" cy="222.9" r="3" fill="red" /><circle cx="94.3" cy="222.9" r="3" fill="red" /><circle cx="205.7" cy="70.7" r="3" fill="red" />
+    <!-- Labels -->
+    <text x="131.4" y="237.9" font-family="sans-serif" font-size="10" text-anchor="middle" dominant-baseline="hanging" fill="#333">-2</text><text x="94.3" y="237.9" font-family="sans-serif" font-size="10" text-anchor="middle" dominant-baseline="hanging" fill="#333">-3</text><text x="215.7" y="70.7" font-family="sans-serif" font-size="10" text-anchor="start" dominant-baseline="middle" fill="#333">6</text>
+    <!-- Equation -->
+    <text x="150" y="295" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666">y = 1x² + 5x + 6</text>
+  </svg>
