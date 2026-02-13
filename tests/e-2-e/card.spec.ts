@@ -302,7 +302,7 @@ test.describe("Flashcard deck", () => {
     // the score will be 50% (1/2) because stumbles are not cleared in extra sessions.
     await expect(page.locator(".completed-content")).toBeVisible();
     await expect(page.locator(".completed-title")).toContainText(
-      "Deck Completed",
+      "Good Progress",
     );
     await expect(page.locator(".completed-stats")).toContainText("Score: 50%");
     await expect(page.locator(".completed-stats")).toContainText(

@@ -103,4 +103,15 @@
 
 ## What next?
 
-Handle multiple decks. That would enable construction of a test deck that will help with then doing markdown and then chem and math and code.
+## Refactor Flashcard.ts
+
+- [x] Extract CSS to `Flashcard.css.ts`
+- [x] Create `FlashcardStorage.ts`
+- [x] Create `FlashcardSession.ts`
+- [x] Create `FlashcardStartScreen.ts`
+- [x] Create `FlashcardStudySession.ts`
+- [x] Create `FlashcardCompletedScreen.ts`
+- [x] Create `FlashcardHeader.ts`
+- [x] Create `FlashcardFooter.ts`
+- [x] Refactor `Flashcard.ts` to use new components
+- [x] Verify functionality

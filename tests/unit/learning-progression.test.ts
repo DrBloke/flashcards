@@ -1,6 +1,7 @@
 import { expect, test, describe, beforeEach, afterEach, vi } from "vitest";
 import { FlashcardDeck } from "../../src/components/lit/Flashcard";
 import { html } from "lit";
+import { FlashcardStorage } from "../../src/core/FlashcardStorage";
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -49,8 +50,7 @@ describe("Learning Progression Logic", () => {
     deckElement = new FlashcardDeck();
     deckElement.render = () => html`<div>Mocked</div>`;
 
-    // @ts-expect-error accessing private method
-    deckElement._getStoredData = () => {
+    FlashcardStorage.getStoredData = () => {
       const rawData = localStorage.getItem("flashcards-data");
       return rawData ? JSON.parse(rawData) : {};
     };
@@ -63,12 +63,13 @@ describe("Learning Progression Logic", () => {
     deckElement.deck = mockDeck;
     deckElement.deckId = "test-deck";
     deckElement.setPath = "test-set";
-    deckElement.totalRounds = 1;
 
     document.body.appendChild(deckElement);
 
-    // @ts-expect-error accessing private method
-    deckElement._initializeSession();
+    deckElement.session.updateContext("test-deck", "test-set", mockDeck);
+
+    deckElement.session.initializeSession();
+    deckElement.session.totalRounds = 1;
   }, 10000);
 
   afterEach(() => {
@@ -79,28 +80,25 @@ describe("Learning Progression Logic", () => {
   });
 
   const completeSession = async (score: number) => {
-    // @ts-expect-error accessing private method
-    deckElement._startSession("all");
+    deckElement.session.startSession("all");
 
     const numCorrect = Math.round(score * 10);
     for (let i = 0; i < 10; i++) {
       if (i < numCorrect) {
-        await deckElement.markCorrect();
+        await deckElement._markCorrect();
       } else {
-        await deckElement.markIncorrect();
+        await deckElement._markIncorrect();
       }
     }
 
-    // @ts-expect-error accessing private field
-    while (deckElement._remainingCards.length > 0) {
-      await deckElement.markCorrect();
+    while (deckElement.session.remainingCards.length > 0) {
+      await deckElement._markCorrect();
     }
   };
 
   test("Scheduled time for next study session within milestone", async () => {
     await completeSession(1.0);
-    // @ts-expect-error accessing private field
-    const log = deckElement._learningLog;
+    const log = deckElement.session.learningLog;
     expect(log.length).toBe(1);
     const lastEntry = log[0];
     const expectedReview = lastEntry.endTime + 3600 * 1000;
@@ -112,18 +110,17 @@ describe("Learning Progression Logic", () => {
     for (let i = 0; i < 5; i++) {
       await completeSession(1.0);
       vi.advanceTimersByTime(4000 * 1000);
-      // @ts-expect-error accessing private method
-      deckElement._initializeSession();
+      deckElement.session.initializeSession();
+      deckElement.session.totalRounds = 1;
     }
 
-    // @ts-expect-error accessing private field
-    expect(deckElement._milestoneIndex).toBe(1);
-    // @ts-expect-error accessing private field
-    expect(deckElement._sessionIndex).toBe(0);
+    expect(deckElement.session.milestoneIndex).toBe(1);
+    expect(deckElement.session.sessionIndex).toBe(0);
 
-    // @ts-expect-error accessing private field
     const lastEntry =
-      deckElement._learningLog[deckElement._learningLog.length - 1];
+      deckElement.session.learningLog[
+        deckElement.session.learningLog.length - 1
+      ];
     const expectedReview = lastEntry.endTime + 28800 * 1000;
     expect(lastEntry.nextReview).toBe(expectedReview);
   }, 30000);
@@ -132,18 +129,16 @@ describe("Learning Progression Logic", () => {
     for (let i = 0; i < 4; i++) {
       await completeSession(1.0);
       vi.advanceTimersByTime(4000 * 1000);
-      // @ts-expect-error accessing private method
-      deckElement._initializeSession();
+      deckElement.session.initializeSession();
+      deckElement.session.totalRounds = 1;
     }
 
     await completeSession(0.5);
-    // @ts-expect-error accessing private method
-    deckElement._initializeSession();
+    deckElement.session.initializeSession();
+    deckElement.session.totalRounds = 1;
 
-    // @ts-expect-error accessing private field
-    expect(deckElement._milestoneIndex).toBe(0);
-    // @ts-expect-error accessing private field
-    expect(deckElement._sessionIndex).toBe(0);
+    expect(deckElement.session.milestoneIndex).toBe(0);
+    expect(deckElement.session.sessionIndex).toBe(0);
   }, 30000);
 
   test("Demotion to previous milestone works correctly", async () => {
@@ -151,60 +146,52 @@ describe("Learning Progression Logic", () => {
     for (let i = 0; i < 4; i++) {
       await completeSession(1.0);
       vi.advanceTimersByTime(4000 * 1000);
-      // @ts-expect-error accessing private method
-      deckElement._initializeSession();
+      deckElement.session.initializeSession();
+      deckElement.session.totalRounds = 1;
     }
     await completeSession(1.0);
 
     // Crucial: Wait for Milestone 1 to become due (8 hours = 28800s)
     vi.advanceTimersByTime(30000 * 1000);
 
-    // @ts-expect-error accessing private method
-    deckElement._initializeSession();
-    // @ts-expect-error accessing private field
-    expect(deckElement._milestoneIndex).toBe(1);
-    // @ts-expect-error accessing private field
-    expect(deckElement._sessionIndex).toBe(0);
+    deckElement.session.initializeSession();
+    deckElement.session.totalRounds = 1;
+    expect(deckElement.session.milestoneIndex).toBe(1);
+    expect(deckElement.session.sessionIndex).toBe(0);
 
     // Complete session 0 and 1 of milestone 1
     // minTimeBetweenSessions is 3600s
     await completeSession(1.0);
     vi.advanceTimersByTime(4000 * 1000);
-    // @ts-expect-error accessing private method
-    deckElement._initializeSession();
-    // @ts-expect-error accessing private field
-    expect(deckElement._sessionIndex).toBe(1);
+    deckElement.session.initializeSession();
+    deckElement.session.totalRounds = 1;
+    expect(deckElement.session.sessionIndex).toBe(1);
 
     await completeSession(1.0);
     vi.advanceTimersByTime(4000 * 1000);
-    // @ts-expect-error accessing private method
-    deckElement._initializeSession();
-    // @ts-expect-error accessing private field
-    expect(deckElement._sessionIndex).toBe(2);
+    deckElement.session.initializeSession();
+    deckElement.session.totalRounds = 1;
+    expect(deckElement.session.sessionIndex).toBe(2);
 
     // Fail last session of milestone 1 (session 2)
     await completeSession(0.2);
-    // @ts-expect-error accessing private field
-    expect(deckElement._showDemotionChoice).toBe(true);
+    expect(deckElement.session.showDemotionChoice).toBe(true);
 
-    deckElement._demoteToPreviousMilestone();
-    // @ts-expect-error accessing private field
-    expect(deckElement._milestoneIndex).toBe(0);
-    // @ts-expect-error accessing private field
-    expect(deckElement._sessionIndex).toBe(0);
+    deckElement.session.demoteToPreviousMilestone();
+    expect(deckElement.session.milestoneIndex).toBe(0);
+    expect(deckElement.session.sessionIndex).toBe(0);
   }, 30000);
 
   test("Retrying milestone after failure sets isDue to true immediately", async () => {
     for (let i = 0; i < 4; i++) {
       await completeSession(1.0);
       vi.advanceTimersByTime(4000 * 1000);
-      // @ts-expect-error accessing private method
-      deckElement._initializeSession();
+      deckElement.session.initializeSession();
+      deckElement.session.totalRounds = 1;
     }
     await completeSession(0.5);
 
-    deckElement._retryMilestone();
-    // @ts-expect-error accessing private field
-    expect(deckElement._isDue).toBe(true);
+    deckElement.session.retryMilestone();
+    expect(deckElement.session.isDue).toBe(true);
   }, 30000);
 });
