@@ -6,6 +6,51 @@
       "id": 0,
       "side1": "Solve:\n\n $$x^2 + 6x + 8 = 0$$.",
       "side2": "$$(x + 2)(x + 4) = 0$$\n\n$$x = -2 \\space or \\space x = -4$$"
+    },
+    {
+      "id": 1,
+      "side1": "Solve:\n\n $$x^2 + 3x + 2 = 0$$.",
+      "side2": "$$(x + 1)(x + 2) = 0$$\n\n$$x = -1 \\space or \\space x = -2$$"
+    },
+    {
+      "id": 2,
+      "side1": "Solve:\n\n $$x^2 + 4x + 3 = 0$$.",
+      "side2": "$$(x + 1)(x + 3) = 0$$\n\n$$x = -1 \\space or \\space x = -3$$"
+    },
+    {
+      "id": 3,
+      "side1": "Solve:\n\n $$x^2 + 5x + 4 = 0$$.",
+      "side2": "$$(x + 1)(x + 4) = 0$$\n\n$$x = -1 \\space or \\space x = -4$$"
+    },
+    {
+      "id": 4,
+      "side1": "Solve:\n\n $$x^2 + 6x + 5 = 0$$.",
+      "side2": "$$(x + 1)(x + 5) = 0$$\n\n$$x = -1 \\space or \\space x = -5$$"
+    },
+    {
+      "id": 5,
+      "side1": "Solve:\n\n $$x^2 + 7x + 6 = 0$$.",
+      "side2": "$$(x + 1)(x + 6) = 0$$\n\n$$x = -1 \\space or \\space x = -6$$"
+    },
+    {
+      "id": 6,
+      "side1": "Solve:\n\n $$x^2 + 5x + 6 = 0$$.",
+      "side2": "$$(x + 2)(x + 3) = 0$$\n\n$$x = -2 \\space or \\space x = -3$$"
+    },
+    {
+      "id": 7,
+      "side1": "Solve:\n\n $$x^2 + 7x + 10 = 0$$.",
+      "side2": "$$(x + 2)(x + 5) = 0$$\n\n$$x = -2 \\space or \\space x = -5$$"
+    },
+    {
+      "id": 8,
+      "side1": "Solve:\n\n $$x^2 + 8x + 12 = 0$$.",
+      "side2": "$$(x + 2)(x + 6) = 0$$\n\n$$x = -2 \\space or \\space x = -6$$"
+    },
+    {
+      "id": 9,
+      "side1": "Solve:\n\n $$x^2 + 7x + 12 = 0$$.",
+      "side2": "$$(x + 3)(x + 4) = 0$$\n\n$$x = -3 \\space or \\space x = -4$$"
     }
   ],
   "tags": ["Maths", "GCSE"]
