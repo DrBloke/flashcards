@@ -6,5 +6,9 @@
   {
     "title": "Test Decks",
     "path": "test"
+  },
+  {
+    "title": "Maths GCSE",
+    "path": "maths-gcse"
   }
 ]
