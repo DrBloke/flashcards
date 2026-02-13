@@ -1,0 +1,107 @@
+{
+  "id": 7,
+  "title": "Quadratic Equations - mix",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "Solve:\n\n $$x^2 + 6x + 8 = 0$$.",
+      "side2": "$$(x + 2)(x + 4) = 0$$\n\n$$x = -2 \\space or \\space x = -4$$"
+    },
+    {
+      "id": 1,
+      "side1": "Solve:\n\n $$x^2 + 3x + 2 = 0$$.",
+      "side2": "$$(x + 1)(x + 2) = 0$$\n\n$$x = -1 \\space or \\space x = -2$$"
+    },
+    {
+      "id": 2,
+      "side1": "Solve:\n\n $$x^2 + 4x + 3 = 0$$.",
+      "side2": "$$(x + 1)(x + 3) = 0$$\n\n$$x = -1 \\space or \\space x = -3$$"
+    },
+    {
+      "id": 3,
+      "side1": "Solve:\n\n $$x^2 - 8x + 7 = 0$$.",
+      "side2": "$$(x - 1)(x - 7) = 0$$\n\n$$x = 1 \\space or \\space x = 7$$"
+    },
+    {
+      "id": 4,
+      "side1": "Solve:\n\n $$x^2 - 12x + 11 = 0$$.",
+      "side2": "$$(x - 1)(x - 11) = 0$$\n\n$$x = 1 \\space or \\space x = 11$$"
+    },
+    {
+      "id": 5,
+      "side1": "Solve:\n\n $$x^2 - 14x + 13 = 0$$.",
+      "side2": "$$(x - 1)(x - 13) = 0$$\n\n$$x = 1 \\space or \\space x = 13$$"
+    },
+    {
+      "id": 6,
+      "side1": "Solve:\n\n $$x^2 + x - 2 = 0$$.",
+      "side2": "$$(x - 1)(x + 2) = 0$$\n\n$$x = 1 \\space or \\space x = -2$$"
+    },
+    {
+      "id": 7,
+      "side1": "Solve:\n\n $$x^2 - 2x - 3 = 0$$.",
+      "side2": "$$(x + 1)(x - 3) = 0$$\n\n$$x = -1 \\space or \\space x = 3$$"
+    },
+    {
+      "id": 8,
+      "side1": "Solve:\n\n $$x^2 + 4x - 5 = 0$$.",
+      "side2": "$$(x - 1)(x + 5) = 0$$\n\n$$x = 1 \\space or \\space x = -5$$"
+    },
+    {
+      "id": 9,
+      "side1": "Solve:\n\n $$x^2 - 2x + 1 = 0$$.",
+      "side2": "$$(x - 1)^2 = 0$$\n\n$$x = 1$$"
+    },
+    {
+      "id": 10,
+      "side1": "Solve:\n\n $$x^2 + 2x + 1 = 0$$.",
+      "side2": "$$(x + 1)^2 = 0$$\n\n$$x = -1$$"
+    },
+    {
+      "id": 11,
+      "side1": "Solve:\n\n $$x^2 - 6x + 9 = 0$$.",
+      "side2": "$$(x - 3)^2 = 0$$\n\n$$x = 3$$"
+    },
+    {
+      "id": 12,
+      "side1": "Solve:\n\n $$x^2 - 1 = 0$$.",
+      "side2": "$$(x - 1)(x + 1) = 0$$\n\n$$x = 1 \\space or \\space x = -1$$"
+    },
+    {
+      "id": 13,
+      "side1": "Solve:\n\n $$x^2 - 4 = 0$$.",
+      "side2": "$$(x - 2)(x + 2) = 0$$\n\n$$x = 2 \\space or \\space x = -2$$"
+    },
+    {
+      "id": 14,
+      "side1": "Solve:\n\n $$x^2 - 9 = 0$$.",
+      "side2": "$$(x - 3)(x + 3) = 0$$\n\n$$x = 3 \\space or \\space x = -3$$"
+    },
+    {
+      "id": 15,
+      "side1": "Solve:\n\n $$x^2 - 16 = 0$$.",
+      "side2": "$$(x - 4)(x + 4) = 0$$\n\n$$x = 4 \\space or \\space x = -4$$"
+    },
+    {
+      "id": 16,
+      "side1": "Solve:\n\n $$2x^2 + 3x + 1 = 0$$.",
+      "side2": "$$(2x + 1)(x + 1) = 0$$\n\n$$x = -\\frac{1}{2} \\space or \\space x = -1$$"
+    },
+    {
+      "id": 17,
+      "side1": "Solve:\n\n $$2x^2 + 5x + 2 = 0$$.",
+      "side2": "$$(2x + 1)(x + 2) = 0$$\n\n$$x = -\\frac{1}{2} \\space or \\space x = -2$$"
+    },
+    {
+      "id": 18,
+      "side1": "Solve:\n\n $$3x^2 + 4x + 1 = 0$$.",
+      "side2": "$$(3x + 1)(x + 1) = 0$$\n\n$$x = -\\frac{1}{3} \\space or \\space x = -1$$"
+    },
+    {
+      "id": 19,
+      "side1": "Solve:\n\n $$2x^2 + 5x - 3 = 0$$.",
+      "side2": "$$(2x - 1)(x + 3) = 0$$\n\n$$x = \\frac{1}{2} \\space or \\space x = -3$$"
+    }
+  ],
+  "tags": ["Maths", "GCSE"]
+}
