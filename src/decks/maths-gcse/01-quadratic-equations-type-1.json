@@ -4,8 +4,8 @@
   "cards": [
     {
       "id": 0,
-      "side1": "Placeholder Question",
-      "side2": "Placeholder Answer"
+      "side1": "Solve:\n\n $$x^2 + 6x + 8 = 0$$.",
+      "side2": "$$(x + 2)(x + 4) = 0$$\n\n$$x = -2 \\space or \\space x = -4$$"
     }
   ],
   "tags": ["Maths", "GCSE"]
