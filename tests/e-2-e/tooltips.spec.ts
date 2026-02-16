@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
 
 test.describe("Deck List Tooltips", () => {
   test.beforeEach(async ({ page }) => {
@@ -48,5 +49,26 @@ test.describe("Deck List Tooltips", () => {
 
     // It should contain session info
     await expect(tooltip).toContainText("session");
+  });
+
+  test("Milestones tooltip is accessible", async ({ page }) => {
+    const milestonesBtn = page
+      .locator('button[id^="milestones-info-"]')
+      .first();
+    await expect(milestonesBtn).toBeVisible();
+
+    // Hover over the button
+    await milestonesBtn.hover();
+
+    const tooltipId = await milestonesBtn.getAttribute("id");
+    const tooltip = page.locator(`wa-tooltip[for="${tooltipId}"]`);
+
+    await expect(tooltip).toHaveAttribute("open", "");
+
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .include(`wa-tooltip[for="${tooltipId}"]`)
+      .analyze();
+
+    expect(accessibilityScanResults.violations).toEqual([]);
   });
 });

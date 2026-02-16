@@ -152,11 +152,11 @@ export class DeckList extends LitElement {
     }
     .milestone-session {
       font-weight: var(--wa-font-weight-semibold);
-      color: var(--wa-color-gray-10);
+      color: var(--wa-color-neutral-0);
     }
     .milestone-description {
       font-size: var(--wa-font-size-xs);
-      color: var(--wa-color-gray-40);
+      color: var(--wa-color-neutral-80);
       line-height: 1.2;
     }
     .info-button {
@@ -438,7 +438,7 @@ export class DeckList extends LitElement {
                               <div
                                 class="milestone-session"
                                 style="${i === status.milestoneIndex
-                                  ? "color: var(--wa-color-brand-60);"
+                                  ? "color: var(--wa-color-brand-80);"
                                   : ""}"
                               >
                                 Milestone
