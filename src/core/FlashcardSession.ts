@@ -193,7 +193,11 @@ export class FlashcardSession implements ReactiveController {
       this.isExtraSession = true;
     }
 
-    if (this.currentRound === 0 && mode === "all") {
+    if (
+      (!this.isExtraSession || this.isIngrained) &&
+      this.currentRound === 0 &&
+      mode === "all"
+    ) {
       this.wrongFirstTime = [];
     }
 
@@ -301,7 +305,11 @@ export class FlashcardSession implements ReactiveController {
     this.doneCards = [...this.doneCards, card];
     this.remainingCards = this.remainingCards.slice(1);
 
-    if (this.currentRound === 0 && this.studyMode === "struggling") {
+    if (
+      (!this.isExtraSession || this.isIngrained) &&
+      this.currentRound === 0 &&
+      this.studyMode === "struggling"
+    ) {
       this.wrongFirstTime = this.wrongFirstTime.filter((id) => id !== card.id);
       this.saveSession();
     }
