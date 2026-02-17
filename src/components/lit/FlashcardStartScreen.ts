@@ -20,6 +20,9 @@ export class FlashcardStartScreen extends LitElement {
   @property({ type: Boolean })
   isNewMilestone = false;
 
+  @property({ type: Boolean })
+  isIngrained = false;
+
   @property({ type: Number })
   milestoneIndex = 0;
 
@@ -47,6 +50,46 @@ export class FlashcardStartScreen extends LitElement {
   }
 
   render() {
+    if (this.isIngrained) {
+      return html`
+        <div id="content" class="completed-content">
+          <wa-icon
+            name="medal"
+            label="Deck Ingrained"
+            class="completed-icon"
+            style="color: var(--wa-color-brand-60)"
+          ></wa-icon>
+          <div class="completed-title">Deck Ingrained</div>
+          <div class="completed-stats">
+            <p>
+              This deck is already ingrained into your memory, but you can study
+              it anyway.
+            </p>
+          </div>
+          <div
+            style="display: flex; gap: var(--wa-space-m); flex-wrap: wrap; justify-content: center"
+          >
+            ${this.strugglingCount > 0
+              ? html`
+                  <wa-button
+                    @click=${() => this._startSession("struggling")}
+                    variant="warning"
+                    appearance="outlined"
+                    >Study Struggling Only</wa-button
+                  >
+                `
+              : ""}
+            <wa-button @click=${() => this._startSession("all")} variant="brand"
+              >Study All Cards</wa-button
+            >
+          </div>
+          <wa-button href=${this.homeRoute} variant="neutral" appearance="text"
+            >Back to Decks</wa-button
+          >
+        </div>
+      `;
+    }
+
     if (this.isDue) {
       if (this.isNewMilestone) {
         return html`

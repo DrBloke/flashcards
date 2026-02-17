@@ -60,6 +60,7 @@
 - [ ] Bugs in review: when you say go back to previous milestone it shows a blank screen; text for this is to big and requires scrolling; If you get over 40% then it resets session, but explanation is needed.
 - [ ] Humanise date and time
 - [ ] Review text throughout
+- [ ] Is this using Remark or Rehype for maths? Do I need to use both?
 
 ## Phase 2
 

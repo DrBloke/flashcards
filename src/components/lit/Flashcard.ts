@@ -81,6 +81,7 @@ export class FlashcardDeck extends LitElement {
         ]}
         .showDemotionChoice=${this.session.showDemotionChoice}
         .milestoneIndex=${this.session.milestoneIndex}
+        .isIngrained=${this.session.isIngrained}
         .homeRoute=${this.homeRoute}
         @retry-milestone=${() => this.session.retryMilestone()}
         @demote-milestone=${() => this.session.demoteToPreviousMilestone()}
@@ -89,6 +90,7 @@ export class FlashcardDeck extends LitElement {
       mainContent = html`<flashcard-start-screen
         .isDue=${this.session.isDue}
         .isNewMilestone=${this.session.isNewMilestone}
+        .isIngrained=${this.session.isIngrained}
         .milestoneIndex=${this.session.milestoneIndex}
         .sessionIndex=${this.session.sessionIndex}
         .strugglingCount=${this.session.strugglingCount}

@@ -105,6 +105,10 @@ export class DeckList extends LitElement {
       border-color: var(--wa-color-brand-60);
       box-shadow: 0 0 0 2px var(--wa-color-brand-90);
     }
+    .progress-dot.ingrained {
+      background-color: var(--wa-color-brand-60);
+      border-color: var(--wa-color-brand-60);
+    }
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -251,6 +255,50 @@ export class DeckList extends LitElement {
     let targetMilestoneIndex = lastEntry.milestoneIndex;
     let targetSessionIndex = lastEntry.sessionIndex;
 
+    // Detection of Ingrained state:
+    // If we finished the last session of the last milestone and nextReview is null (unless it was an extra session)
+    // But `FlashcardSession` sets null nextReview specifically for Ingrained.
+    let isIngrained = false;
+
+    if (targetMilestoneIndex >= schedule.length) {
+      isIngrained = true;
+    } else if (
+      targetMilestoneIndex === schedule.length - 1 &&
+      schedule[targetMilestoneIndex] &&
+      targetSessionIndex ===
+        schedule[targetMilestoneIndex].numberOfSessions - 1 &&
+      lastEntry.nextReview === null &&
+      !lastEntry.isExtra
+    ) {
+      isIngrained = true;
+    } else if (lastEntry.isExtra && lastEntry.nextReview === null) {
+      // Check if previous regular entry was ingrained?
+      // Simplification: if milestoneIndex is max and nextReview is null, it's Ingrained.
+      // However, new accounts have nextReview null but are "new/due".
+      // But max milestone index distinguishes it.
+      if (targetMilestoneIndex === schedule.length - 1) {
+        // We need to check if we are at the END.
+        const m = schedule[targetMilestoneIndex];
+        if (m && targetSessionIndex === m.numberOfSessions - 1) {
+          isIngrained = true;
+        }
+      }
+    }
+
+    if (isIngrained) {
+      const lastMilestone = schedule[schedule.length - 1];
+      return {
+        state: "ingrained" as const,
+        label: "Ingrained",
+        milestoneIndex: schedule.length,
+        sessionIndex: lastMilestone.numberOfSessions,
+        totalSessions: lastMilestone.numberOfSessions,
+        milestoneDescription: "Fully ingrained into memory.",
+        problemCards: deckData.wrongFirstTime.length,
+        nextReview: null,
+      };
+    }
+
     if (targetMilestoneIndex === -1) {
       targetMilestoneIndex = 0;
       targetSessionIndex = 0;
@@ -283,7 +331,9 @@ export class DeckList extends LitElement {
       }
     }
 
-    let state: "due" | "overdue" | "scheduled" = isDue ? "due" : "scheduled";
+    let state: "due" | "overdue" | "scheduled" | "ingrained" = isDue
+      ? "due"
+      : "scheduled";
     if (isOverdue) state = "overdue";
 
     const currentMilestone = schedule[targetMilestoneIndex];
@@ -349,15 +399,21 @@ export class DeckList extends LitElement {
     }));
 
     const statusWeight = {
+      ingrained: -1,
       overdue: 0,
       due: 1,
       scheduled: 2,
       new: 3,
     };
+    // Adjust weight based on preference. Maybe ingrained is last.
+    // Let's explicitly put ingrained last.
+    // statusWeight['ingrained'] = 4;
 
     decksWithStatus.sort((a, b) => {
-      const weightA = statusWeight[a.status.state as keyof typeof statusWeight];
-      const weightB = statusWeight[b.status.state as keyof typeof statusWeight];
+      const weightA =
+        statusWeight[a.status.state as keyof typeof statusWeight] ?? 4;
+      const weightB =
+        statusWeight[b.status.state as keyof typeof statusWeight] ?? 4;
       if (weightA !== weightB) {
         return weightA - weightB;
       }
@@ -405,7 +461,13 @@ export class DeckList extends LitElement {
                     ${schedule.map((_, i) => {
                       let dotClass = "";
                       let label = `Milestone ${i + 1}`;
-                      if (i < status.milestoneIndex) {
+
+                      const isIngrained = status.state === "ingrained";
+
+                      if (isIngrained) {
+                        dotClass = "ingrained";
+                        label += " (Ingrained)";
+                      } else if (i < status.milestoneIndex) {
                         dotClass = "completed";
                         label += " (Completed)";
                       } else if (i === status.milestoneIndex) {
@@ -463,7 +525,11 @@ export class DeckList extends LitElement {
                         (_, i) => {
                           let dotClass = "";
                           let label = `Session ${i + 1}`;
-                          if (i < status.sessionIndex) {
+
+                          if (status.state === "ingrained") {
+                            dotClass = "ingrained";
+                            label += " (Ingrained)";
+                          } else if (i < status.sessionIndex) {
                             dotClass = "completed";
                             label += " (Completed)";
                           } else if (i === status.sessionIndex) {
@@ -510,7 +576,9 @@ export class DeckList extends LitElement {
                         ? "danger"
                         : status.state === "new"
                           ? "success"
-                          : "neutral"}"
+                          : status.state === "ingrained"
+                            ? "brand"
+                            : "neutral"}"
                   >
                     ${status.label}
                   </wa-badge>

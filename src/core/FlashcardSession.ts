@@ -39,12 +39,15 @@ export class FlashcardSession implements ReactiveController {
   sessionStarted = false;
   studyMode: "all" | "struggling" = "all";
   isNewMilestone = false;
+  isIngrained = false;
   strugglingCount = 0;
   cardFontSizes: Record<number, number> = {};
   schedule = DEFAULT_LEARNING_SCHEDULE;
 
   get currentMilestone() {
-    return this.schedule[this.milestoneIndex];
+    return this.schedule[
+      Math.min(this.milestoneIndex, this.schedule.length - 1)
+    ];
   }
 
   constructor(host: ReactiveControllerHost) {
@@ -121,6 +124,7 @@ export class FlashcardSession implements ReactiveController {
         this.milestoneIndex = 0;
         this.sessionIndex = 0;
         this.isDue = true;
+        this.isIngrained = false;
       } else {
         const lastEntry = this.learningLog[this.learningLog.length - 1];
 
@@ -128,6 +132,7 @@ export class FlashcardSession implements ReactiveController {
           this.milestoneIndex = 0;
           this.sessionIndex = 0;
           this.isDue = true;
+          this.isIngrained = false;
         } else {
           const currentMilestone = this.schedule[lastEntry.milestoneIndex];
           if (lastEntry.isExtra) {
@@ -142,14 +147,20 @@ export class FlashcardSession implements ReactiveController {
           } else {
             this.milestoneIndex = Math.min(
               lastEntry.milestoneIndex + 1,
-              this.schedule.length - 1,
+              this.schedule.length,
             );
             this.sessionIndex = 0;
           }
 
+          this.isIngrained = this.milestoneIndex >= this.schedule.length;
+
           const now = Date.now();
           this.isDue =
             lastEntry.nextReview === null || now >= lastEntry.nextReview;
+
+          if (this.isIngrained) {
+            this.isDue = false; // Ingrained decks are never "due" but available
+          }
         }
       }
     } else {
@@ -159,6 +170,7 @@ export class FlashcardSession implements ReactiveController {
       this.milestoneIndex = 0;
       this.sessionIndex = 0;
       this.isDue = true;
+      this.isIngrained = false;
     }
 
     this.isNewMilestone = this.sessionIndex === 0;
@@ -177,11 +189,12 @@ export class FlashcardSession implements ReactiveController {
 
     if (this.isDue) {
       this.isExtraSession = false;
-      if (this.currentRound === 0 && mode === "all") {
-        this.wrongFirstTime = [];
-      }
     } else {
       this.isExtraSession = true;
+    }
+
+    if (this.currentRound === 0 && mode === "all") {
+      this.wrongFirstTime = [];
     }
 
     this.saveSession();
@@ -288,11 +301,7 @@ export class FlashcardSession implements ReactiveController {
     this.doneCards = [...this.doneCards, card];
     this.remainingCards = this.remainingCards.slice(1);
 
-    if (
-      this.currentRound === 0 &&
-      !this.isExtraSession &&
-      this.studyMode === "struggling"
-    ) {
+    if (this.currentRound === 0 && this.studyMode === "struggling") {
       this.wrongFirstTime = this.wrongFirstTime.filter((id) => id !== card.id);
       this.saveSession();
     }
@@ -354,16 +363,14 @@ export class FlashcardSession implements ReactiveController {
     let nextMilestoneIndex = this.milestoneIndex;
     let isRepeatingMilestone = false;
 
-    const currentMilestone = schedule[this.milestoneIndex];
+    const currentMilestone =
+      schedule[Math.min(this.milestoneIndex, schedule.length - 1)];
     const isEndOfMilestone =
       this.sessionIndex === currentMilestone.numberOfSessions - 1;
 
     if (isEndOfMilestone) {
       if (this.score >= 0.9) {
-        nextMilestoneIndex = Math.min(
-          this.milestoneIndex + 1,
-          schedule.length - 1,
-        );
+        nextMilestoneIndex = this.milestoneIndex + 1;
       } else if (this.score >= 0.4) {
         isRepeatingMilestone = true;
       } else {
@@ -372,9 +379,17 @@ export class FlashcardSession implements ReactiveController {
     }
 
     let nextReview: number | null = null;
-    const nextMilestone = schedule[nextMilestoneIndex];
+    let nextMilestone = schedule[nextMilestoneIndex];
+    if (!nextMilestone && nextMilestoneIndex >= schedule.length) {
+      // Ingrained status
+      this.isIngrained = true;
+      // Just grab the last one for reference if needed, but we don't need it for calculation
+      nextMilestone = schedule[schedule.length - 1];
+    }
 
-    if (nextMilestoneIndex > this.milestoneIndex) {
+    if (this.isIngrained) {
+      nextReview = null;
+    } else if (nextMilestoneIndex > this.milestoneIndex) {
       if (nextMilestone.minTimeSinceLastMilestone !== null) {
         nextReview =
           this.endTime + nextMilestone.minTimeSinceLastMilestone * 1000;

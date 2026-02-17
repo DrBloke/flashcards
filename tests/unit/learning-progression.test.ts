@@ -2,6 +2,7 @@ import { expect, test, describe, beforeEach, afterEach, vi } from "vitest";
 import { FlashcardDeck } from "../../src/components/lit/Flashcard";
 import { html } from "lit";
 import { FlashcardStorage } from "../../src/core/FlashcardStorage";
+import { DEFAULT_LEARNING_SCHEDULE } from "../../src/schemas/learningSchedule";
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -234,5 +235,96 @@ describe("Learning Progression Logic", () => {
     deckElement.session.startSession("all");
     expect(deckElement.session.wrongFirstTime.length).toBe(0);
     expect(deckElement.session.remainingCards.length).toBe(10); // All cards
+  });
+
+  test("Transitions to Ingrained status after completing final milestone", async () => {
+    // Override schedule to be short: 1 milestone with 2 sessions
+    const shortSchedule = [
+      {
+        minTimeSinceLastMilestone: 0,
+        numberOfSessions: 2,
+        minTimeBetweenSessions: 3600,
+        maxTimeBetweenSessions: null,
+      },
+    ];
+    deckElement.session.schedule = shortSchedule;
+    deckElement.session.milestoneIndex = 0;
+    deckElement.session.sessionIndex = 0;
+
+    // Complete session 1
+    await completeSession(1.0);
+    vi.advanceTimersByTime(4000 * 1000); // Advance past wait time
+    deckElement.session.initializeSession();
+    deckElement.session.schedule = shortSchedule; // Re-apply schedule as initialize resets it (actually initialize loads from storage settings, so we need to mock storage settings or ensure deckElement.session.schedule keeps value if we don't save settings?)
+    // FlashcardSession.initializeSession() reads settings from FlashcardStorage.
+    // So we need to save the settings with our short schedule.
+    FlashcardStorage.getSettings = () => ({
+      learningSchedule: shortSchedule,
+    });
+    // Re-initialize to load these settings
+    deckElement.session.initializeSession();
+
+    expect(deckElement.session.milestoneIndex).toBe(0);
+    expect(deckElement.session.sessionIndex).toBe(1);
+
+    // Complete session 2 (Final session of final milestone)
+    await completeSession(1.0);
+
+    // session.completeSession() updates state.
+    expect(deckElement.session.isIngrained).toBe(true);
+
+    // Verify learning log entry
+    const lastEntry =
+      deckElement.session.learningLog[
+        deckElement.session.learningLog.length - 1
+      ];
+    expect(lastEntry.nextReview).toBe(null);
+    expect(lastEntry.milestoneIndex).toBe(0); // Log records what we just finished
+    expect(lastEntry.sessionIndex).toBe(1);
+
+    // Verify session state if we reload
+    deckElement.session.initializeSession();
+    expect(deckElement.session.isIngrained).toBe(true);
+    expect(deckElement.session.isDue).toBe(false);
+  });
+
+  test("Studying struggling cards on Ingrained deck completes correctly", async () => {
+    // 1. Setup Ingrained State with Struggling Cards
+    deckElement.session.schedule = DEFAULT_LEARNING_SCHEDULE; // Ensure schedule is standard
+    deckElement.session.milestoneIndex = deckElement.session.schedule.length; // Set to Ingrained (max index)
+    deckElement.session.isIngrained = true;
+    deckElement.session.isDue = false;
+    deckElement.session.wrongFirstTime = [1]; // Card ID 1 is struggling
+    deckElement.session.totalRounds = 1;
+
+    // 2. Start Session (Struggling Only)
+    deckElement.session.startSession("struggling");
+
+    expect(deckElement.session.isExtraSession).toBe(true); // Ingrained = extra
+    expect(deckElement.session.sessionStarted).toBe(true);
+    expect(deckElement.session.remainingCards.length).toBe(1);
+    expect(deckElement.session.remainingCards[0].id).toBe(1);
+
+    // 3. Mark Correct
+    await deckElement._markCorrect();
+
+    // 4. Verify Completion
+    expect(deckElement.session.remainingCards.length).toBe(0);
+    expect(deckElement.session.sessionCompleted).toBe(true);
+
+    // 5. Verify Learning Log
+    const lastEntry =
+      deckElement.session.learningLog[
+        deckElement.session.learningLog.length - 1
+      ];
+    expect(lastEntry.isExtra).toBe(true);
+    expect(lastEntry.nextReview).toBe(null); // Ingrained
+
+    // 6. Verify Session State after re-init
+    deckElement.session.initializeSession();
+    expect(deckElement.session.isIngrained).toBe(true);
+
+    // Struggling card should be cleared as it was answered correctly
+    expect(deckElement.session.wrongFirstTime.includes(1)).toBe(false);
   });
 });
