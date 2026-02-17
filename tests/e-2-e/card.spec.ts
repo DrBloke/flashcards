@@ -37,7 +37,7 @@ test.describe("Flashcard deck", () => {
 
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Once loaded, assert the accessibility of the card
     await expect(page).toHaveTitle("Test Deck 1");
@@ -112,7 +112,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Round 1 - Card 1: Mark Incorrect
     await expect(cardContent).toContainText("Side 1");
@@ -165,7 +165,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Move to second card (which has markdown)
     await page.locator("#flip").click();
@@ -190,7 +190,7 @@ test.describe("Flashcard deck", () => {
     // Go to the math test deck
     await page.goto("/flashcards/test");
     await page.getByRole("link", { name: "A-Level Maths Test" }).click();
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Flip the first card
     await page.locator("#flip").click();
@@ -211,7 +211,7 @@ test.describe("Flashcard deck", () => {
     // Go to the code test deck
     await page.goto("/flashcards/test");
     await page.getByRole("link", { name: "Code Block Test" }).click();
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Flip the first card
     await page.locator("#flip").click();
@@ -238,7 +238,7 @@ test.describe("Flashcard deck", () => {
     // Click through to deck 1
     await page.getByRole("link", { name: "Test Deck 1" }).click();
     await expect(page).toHaveTitle("Test Deck 1");
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Round 1: Mark Card 1 incorrect, Card 2 correct
     await page.locator("#flip").click();

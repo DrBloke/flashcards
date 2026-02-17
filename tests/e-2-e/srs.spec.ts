@@ -32,7 +32,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await page.goto("/flashcards/test/01-test-deck");
     await expect(page).toHaveTitle("Test Deck 1");
 
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Start interacting (start time is recorded on first interaction)
     // Round 1 - Card 1 (Correct)
@@ -310,7 +310,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
 
     await page.goto("/flashcards/test/01-test-deck");
 
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
     await page.locator("#flip").waitFor();
 
     // Complete session
@@ -405,7 +405,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     // Go to the deck page
     await page.goto("/flashcards/test/01-test-deck");
 
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Complete session
     await page.locator("#flip").click();
@@ -658,7 +658,7 @@ test.describe("Spaced Repetition and Learning Log", () => {
     }, initialData);
 
     await page.goto("/flashcards/test/01-test-deck");
-    await page.getByRole("button", { name: "Start Milestone" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
 
     // Round 1 (0): Card 1 Correct, Card 2 Incorrect
     await page.locator("#flip").click();

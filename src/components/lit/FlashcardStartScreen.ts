@@ -76,9 +76,32 @@ export class FlashcardStartScreen extends LitElement {
                   </p>
                 </div>`
               : ""}
-            <wa-button @click=${() => this._startSession("all")} variant="brand"
-              >Start Milestone</wa-button
-            >
+            ${this.strugglingCount > 0
+              ? html`
+                  <div class="completed-stats">
+                    <p>There are ${this.strugglingCount} struggling words.</p>
+                  </div>
+                  <div
+                    style="display: flex; gap: var(--wa-space-m); flex-wrap: wrap; justify-content: center"
+                  >
+                    <wa-button
+                      @click=${() => this._startSession("struggling")}
+                      variant="warning"
+                      appearance="outlined"
+                      >Study Struggling Only</wa-button
+                    >
+                    <wa-button
+                      @click=${() => this._startSession("all")}
+                      variant="brand"
+                      >Study All</wa-button
+                    >
+                  </div>
+                `
+              : html`<wa-button
+                  @click=${() => this._startSession("all")}
+                  variant="brand"
+                  >Study All</wa-button
+                >`}
           </div>
         `;
       } else {

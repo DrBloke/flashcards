@@ -177,7 +177,7 @@ export class FlashcardSession implements ReactiveController {
 
     if (this.isDue) {
       this.isExtraSession = false;
-      if (this.currentRound === 0 && (this.isNewMilestone || mode === "all")) {
+      if (this.currentRound === 0 && mode === "all") {
         this.wrongFirstTime = [];
       }
     } else {

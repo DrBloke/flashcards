@@ -65,9 +65,7 @@ test.describe("Deck List Tooltips", () => {
 
     await expect(tooltip).toHaveAttribute("open", "");
 
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .include(`wa-tooltip[for="${tooltipId}"]`)
-      .analyze();
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
     expect(accessibilityScanResults.violations).toEqual([]);
   });

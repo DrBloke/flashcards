@@ -194,4 +194,45 @@ describe("Learning Progression Logic", () => {
     deckElement.session.retryMilestone();
     expect(deckElement.session.isDue).toBe(true);
   }, 30000);
+
+  test("Starting new milestone with struggling cards preserves wrongFirstTime", async () => {
+    // 1. Run a session and get some cards wrong
+    deckElement.session.startSession("all");
+
+    // Mark first card wrong
+    await deckElement._markIncorrect();
+    const wrongCardId = deckElement.session.wrongFirstTime[0];
+
+    // Mark rest correct
+    while (deckElement.session.remainingCards.length > 0) {
+      await deckElement._markCorrect();
+    }
+
+    // Session complete. wrongFirstTime has 1 item.
+    expect(deckElement.session.wrongFirstTime.length).toBe(1);
+
+    // 2. Simulate conditions for a new milestone start
+    // We reuse the existing session state but reset flags to simulate "New Milestone" screen
+    deckElement.session.sessionStarted = false;
+    deckElement.session.currentRound = 0;
+    deckElement.session.isNewMilestone = true;
+
+    // 3. Start session in "struggling" mode
+    deckElement.session.startSession("struggling");
+
+    // 4. Verify wrongFirstTime is preserved
+    expect(deckElement.session.wrongFirstTime.length).toBe(1);
+    expect(deckElement.session.wrongFirstTime[0]).toBe(wrongCardId);
+
+    // 5. Verify remainingCards contains only the wrong card
+    expect(deckElement.session.remainingCards.length).toBe(1);
+    expect(deckElement.session.remainingCards[0].id).toBe(wrongCardId);
+
+    // 6. Verify starting in "all" mode DOES clear it
+    deckElement.session.sessionStarted = false;
+    deckElement.session.currentRound = 0;
+    deckElement.session.startSession("all");
+    expect(deckElement.session.wrongFirstTime.length).toBe(0);
+    expect(deckElement.session.remainingCards.length).toBe(10); // All cards
+  });
 });
