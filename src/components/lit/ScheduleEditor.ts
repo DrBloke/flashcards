@@ -81,6 +81,12 @@ export class ScheduleEditor extends LitElement {
       margin-top: var(--wa-space-m);
       flex-wrap: wrap;
     }
+    .remove-group {
+      display: contents;
+    }
+    .spacer {
+      display: none;
+    }
     .remove-btn {
       position: absolute;
       top: var(--wa-space-xs);
@@ -120,11 +126,18 @@ export class ScheduleEditor extends LitElement {
         padding: var(--wa-space-l);
         /* padding-right removed as button is now in grid */
       }
+      .remove-group {
+        display: flex; /* Mimic .field-group */
+        flex-direction: column;
+        gap: var(--wa-space-3xs); /* Mimic .field-group gap */
+      }
+      .spacer {
+        display: block;
+        visibility: hidden;
+      }
       .remove-btn {
         position: static;
-        margin-top: var(
-          --wa-space-xl
-        ); /* Align roughly with inputs (inputs have label above) */
+        margin-top: 0;
         margin-bottom: auto;
       }
     }
@@ -516,15 +529,18 @@ export class ScheduleEditor extends LitElement {
                   : ""}
               </div>
 
-              <wa-button
-                circle
-                size="small"
-                class="remove-btn"
-                @click=${() => this._removeStep(i)}
-                title="Remove Step"
-              >
-                <wa-icon name="trash"></wa-icon>
-              </wa-button>
+              <div class="field-group remove-group">
+                <span class="field-label spacer">Remove</span>
+                <wa-button
+                  circle
+                  size="small"
+                  class="remove-btn"
+                  @click=${() => this._removeStep(i)}
+                  title="Remove Step"
+                >
+                  <wa-icon name="trash"></wa-icon>
+                </wa-button>
+              </div>
             </div>
           `,
         )}
