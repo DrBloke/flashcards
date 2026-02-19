@@ -58,6 +58,7 @@
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
 - [ ] Review text throughout
+- [ ] Use Web Awesome's date format instead of duration library
 
 ## Phase 2
 
