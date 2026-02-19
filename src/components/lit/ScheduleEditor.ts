@@ -8,6 +8,16 @@ import {
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/input/input.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
+import "@awesome.me/webawesome/dist/components/dialog/dialog.js";
+import { SuccessDialog } from "./SuccessDialog"; // Import the new component
+
+interface WaDialog extends HTMLElement {
+  show(): void;
+  hide(): void;
+  open: boolean;
+}
+import { formatDuration, parseDuration } from "../../utils/time";
+import { migrateDecks } from "../../utils/migration";
 
 @customElement("schedule-editor")
 export class ScheduleEditor extends LitElement {
@@ -89,6 +99,12 @@ export class ScheduleEditor extends LitElement {
       color: var(--wa-color-gray-40);
       margin-top: var(--wa-space-3xs);
     }
+    .error-text {
+      color: var(--wa-color-danger-60);
+      display: flex;
+      align-items: center;
+      gap: var(--wa-space-2xs);
+    }
 
     /* Desktop layout */
     @media (min-width: 768px) {
@@ -96,16 +112,35 @@ export class ScheduleEditor extends LitElement {
         margin-bottom: var(--wa-space-s);
       }
       .schedule-item {
-        grid-template-columns: 1.5fr 1fr 1fr 1fr;
-        align-items: end;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr auto;
+        align-items: start; /* Align to top so labels align, errors expand downwards */
         padding: var(--wa-space-l);
-        padding-right: var(--wa-space-3xl);
+        /* padding-right removed as button is now in grid */
       }
       .remove-btn {
         position: static;
-        box-shadow: none;
-        margin-bottom: 2px;
+        margin-top: var(
+          --wa-space-xl
+        ); /* Align roughly with inputs (inputs have label above) */
+        margin-bottom: auto;
       }
+    }
+
+    .error-msg {
+      color: var(--wa-color-danger-60);
+      font-size: var(--wa-font-size-2xs);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: var(--wa-space-2xs);
+    }
+
+    wa-input[data-invalid] {
+      --border-color: var(--wa-color-danger-60);
+    }
+    /* Target shadow DOM part for stronger override if needed */
+    wa-input[data-invalid]::part(base) {
+      border-color: var(--wa-color-danger-60);
     }
   `;
 
@@ -114,6 +149,15 @@ export class ScheduleEditor extends LitElement {
 
   @state()
   private _schedule: LearningSchedule = [];
+
+  @state()
+  private _errors: Record<string, string> = {};
+
+  @state()
+  private _draftValues: Record<string, string> = {};
+
+  // For managing focus after dialog close
+  private _firstInvalidField: string | null = null;
 
   connectedCallback() {
     super.connectedCallback();
@@ -131,6 +175,37 @@ export class ScheduleEditor extends LitElement {
     ];
   }
 
+  private _showErrorDialog() {
+    const dialog = this.shadowRoot?.querySelector("#error-dialog") as WaDialog;
+    if (dialog) return dialog.show();
+  }
+
+  private _handleDialogClose() {
+    // Find the first invalid field and focus it
+    // We need to find the key of the first error in _errors
+    // Iterating keys might not be in DOM order, so let's find input with existing error
+    const keys = Object.keys(this._errors);
+    if (keys.length > 0) {
+      // Sort keys to find the "first" one by index
+      const sortedKeys = keys.sort((a, b) => {
+        const [idxA] = a.split("-").map(Number);
+        const [idxB] = b.split("-").map(Number);
+        return idxA - idxB;
+      });
+
+      const firstKey = sortedKeys[0];
+      // Construct ID or selector?
+      // We don't have IDs on inputs, we need to add them or use a sophisticated selector
+      // Let's add data-field-key to inputs for easy selection
+      const input = this.shadowRoot?.querySelector(
+        `wa-input[data-field-key="${firstKey}"]`,
+      ) as HTMLElement;
+      if (input) {
+        input.focus();
+      }
+    }
+  }
+
   private _save() {
     const rawData = localStorage.getItem("flashcards-data");
     const parsed = rawData ? JSON.parse(rawData) : {};
@@ -138,6 +213,23 @@ export class ScheduleEditor extends LitElement {
     const allData = result.success ? result.data : {};
 
     if (!this.setPath) return;
+
+    // Check if there are any errors or draft values (unsaved changes that are invalid)
+    if (Object.keys(this._errors).length > 0) {
+      this._showErrorDialog();
+      return;
+    }
+
+    if (
+      !confirm(
+        "Changing the schedule will update all existing decks in this set. \n\n" +
+          "• Review times will be recalculated based on the new schedule.\n" +
+          "• Decks may move to different milestones if the number of sessions changes.\n\n" +
+          "Are you sure you want to save these changes?",
+      )
+    ) {
+      return;
+    }
 
     if (!allData[this.setPath]) {
       allData[this.setPath] = { settings: {} };
@@ -150,8 +242,20 @@ export class ScheduleEditor extends LitElement {
 
     localStorage.setItem("flashcards-data", JSON.stringify(allData));
 
+    // Migration: Update existing decks to fit new schedule
+    if (migrateDecks(allData, this.setPath, this._schedule)) {
+      localStorage.setItem("flashcards-data", JSON.stringify(allData));
+    }
+
     // Dispatch event so other components can refresh
     window.dispatchEvent(new CustomEvent("flashcards-data-changed"));
+
+    const successDialog = this.shadowRoot?.querySelector(
+      "success-dialog",
+    ) as SuccessDialog;
+    if (successDialog) {
+      successDialog.show();
+    }
   }
 
   private _addStep() {
@@ -168,10 +272,14 @@ export class ScheduleEditor extends LitElement {
 
   private _removeStep(index: number) {
     this._schedule = this._schedule.filter((_, i) => i !== index);
+    this._errors = {};
+    this._draftValues = {};
   }
 
   private _reset() {
     this._schedule = [...DEFAULT_LEARNING_SCHEDULE];
+    this._errors = {};
+    this._draftValues = {};
   }
 
   private _updateField(
@@ -179,7 +287,45 @@ export class ScheduleEditor extends LitElement {
     field: keyof LearningSchedule[0],
     value: string,
   ) {
-    const num = value === "" ? null : parseInt(value);
+    const key = `${index}-${field}`;
+
+    // Clear previous error/draft
+    const newErrors = { ...this._errors };
+    delete newErrors[key];
+    const newDrafts = { ...this._draftValues };
+    delete newDrafts[key];
+
+    let num: number | null = null;
+
+    if (field === "numberOfSessions") {
+      num = parseInt(value);
+      if (isNaN(num)) {
+        num = 1;
+      }
+    } else {
+      // Time fields
+      if (value.trim() === "") {
+        // Empty handling
+        if (field !== "numberOfSessions") {
+          num = null;
+        } else {
+          num = 1;
+        }
+      } else {
+        num = parseDuration(value);
+        if (num === null) {
+          // Invalid format!
+          this._errors = { ...newErrors, [key]: "Invalid format" };
+          this._draftValues = { ...newDrafts, [key]: value };
+          this.requestUpdate(); // Ensure re-render to show error
+          return;
+        }
+      }
+    }
+
+    this._errors = newErrors; // Clear error if valid
+    this._draftValues = newDrafts; // Clear draft if valid
+
     const newSchedule = [...this._schedule];
     const step = newSchedule[index];
     if (step) {
@@ -187,18 +333,54 @@ export class ScheduleEditor extends LitElement {
       step[field] = num;
       this._schedule = newSchedule;
     }
+    this.requestUpdate();
+  }
+
+  private _getValue(
+    index: number,
+    field: keyof LearningSchedule[0],
+    value: number | null,
+  ) {
+    const key = `${index}-${field}`;
+    if (typeof this._draftValues[key] !== "undefined") {
+      return this._draftValues[key];
+    }
+    if (field === "numberOfSessions") {
+      return value?.toString() || "";
+    }
+    return formatDuration(value);
+  }
+
+  private _getError(index: number, field: keyof LearningSchedule[0]) {
+    const key = `${index}-${field}`;
+    return this._errors[key];
   }
 
   render() {
     return html`
+      <style>
+        .error-msg {
+          color: var(--wa-color-danger-60);
+          font-size: var(--wa-font-size-2xs);
+          margin-top: 4px;
+          display: flex;
+          align-items: center;
+          gap: var(--wa-space-2xs);
+        }
+        /* Target the internal input border if possible using variables */
+        wa-input[data-invalid] {
+          --border-color: var(--wa-color-danger-60);
+          --focus-border-color: var(--wa-color-danger-60);
+        }
+      </style>
       <div class="top-actions">
         <wa-button size="small" @click=${this._reset}
           >Restore Defaults</wa-button
         >
       </div>
       <p class="help-text">
-        All times are in seconds.
-        <span class="unit-hint">(1h = 3600, 1d = 86400)</span>
+        Values can use units like 1d, 1h, 30m, 10s.
+        <span class="unit-hint">(Default is seconds)</span>
       </p>
 
       <div class="schedule-grid">
@@ -206,26 +388,45 @@ export class ScheduleEditor extends LitElement {
           (step, i) => html`
             <div class="schedule-item">
               <div class="field-group">
-                <span class="field-label">Wait (Milestone)</span>
+                <span class="field-label">Min time since last session</span>
                 <wa-input
-                  type="number"
+                  type="text"
                   size="small"
-                  .value=${step.minTimeSinceLastMilestone?.toString() || ""}
-                  @input=${(e: Event) =>
+                  data-field-key="${i}-minTimeSinceLastMilestone"
+                  .value=${this._getValue(
+                    i,
+                    "minTimeSinceLastMilestone",
+                    step.minTimeSinceLastMilestone,
+                  )}
+                  ?data-invalid=${!!this._getError(
+                    i,
+                    "minTimeSinceLastMilestone",
+                  )}
+                  @change=${(e: Event) =>
                     this._updateField(
                       i,
                       "minTimeSinceLastMilestone",
                       (e.target as HTMLInputElement).value,
                     )}
                 ></wa-input>
+                ${this._getError(i, "minTimeSinceLastMilestone")
+                  ? html`<div class="error-msg">
+                      <wa-icon name="circle-exclamation"></wa-icon>
+                      Invalid time format (e.g. 1d, 2h, 30m)
+                    </div>`
+                  : ""}
               </div>
 
               <div class="field-group">
-                <span class="field-label">Sessions</span>
+                <span class="field-label">Number of sessions</span>
                 <wa-input
                   type="number"
                   size="small"
-                  .value=${step.numberOfSessions.toString()}
+                  .value=${this._getValue(
+                    i,
+                    "numberOfSessions",
+                    step.numberOfSessions,
+                  )}
                   @input=${(e: Event) =>
                     this._updateField(
                       i,
@@ -236,35 +437,59 @@ export class ScheduleEditor extends LitElement {
               </div>
 
               <div class="field-group">
-                <span class="field-label">Min Gap</span>
+                <span class="field-label">Time between sessions</span>
                 <wa-input
-                  type="number"
+                  type="text"
                   size="small"
-                  .value=${step.minTimeBetweenSessions?.toString() || ""}
+                  data-field-key="${i}-minTimeBetweenSessions"
+                  .value=${this._getValue(
+                    i,
+                    "minTimeBetweenSessions",
+                    step.minTimeBetweenSessions,
+                  )}
                   placeholder="None"
-                  @input=${(e: Event) =>
+                  ?data-invalid=${!!this._getError(i, "minTimeBetweenSessions")}
+                  @change=${(e: Event) =>
                     this._updateField(
                       i,
                       "minTimeBetweenSessions",
                       (e.target as HTMLInputElement).value,
                     )}
                 ></wa-input>
+                ${this._getError(i, "minTimeBetweenSessions")
+                  ? html`<div class="error-msg">
+                      <wa-icon name="circle-exclamation"></wa-icon>
+                      Invalid time format (e.g. 1d, 2h, 30m)
+                    </div>`
+                  : ""}
               </div>
 
               <div class="field-group">
-                <span class="field-label">Max Gap</span>
+                <span class="field-label">Overdue time</span>
                 <wa-input
-                  type="number"
+                  type="text"
                   size="small"
-                  .value=${step.maxTimeBetweenSessions?.toString() || ""}
+                  data-field-key="${i}-maxTimeBetweenSessions"
+                  .value=${this._getValue(
+                    i,
+                    "maxTimeBetweenSessions",
+                    step.maxTimeBetweenSessions,
+                  )}
                   placeholder="None"
-                  @input=${(e: Event) =>
+                  ?data-invalid=${!!this._getError(i, "maxTimeBetweenSessions")}
+                  @change=${(e: Event) =>
                     this._updateField(
                       i,
                       "maxTimeBetweenSessions",
                       (e.target as HTMLInputElement).value,
                     )}
                 ></wa-input>
+                ${this._getError(i, "maxTimeBetweenSessions")
+                  ? html`<div class="error-msg">
+                      <wa-icon name="circle-exclamation"></wa-icon>
+                      Invalid time format (e.g. 1d, 2h, 30m)
+                    </div>`
+                  : ""}
               </div>
 
               <wa-button
@@ -290,6 +515,34 @@ export class ScheduleEditor extends LitElement {
           >Save Schedule</wa-button
         >
       </div>
+
+      <wa-dialog
+        label="Validation Errors"
+        id="error-dialog"
+        @wa-after-hide=${this._handleDialogClose}
+      >
+        <p>Please fix the following validation errors before saving:</p>
+        <ul>
+          <li>
+            Ensure all time fields use valid formats (e.g. "1d", "30m", "10s").
+          </li>
+          <li>Double-check highlighted fields.</li>
+        </ul>
+        <div slot="footer">
+          <wa-button variant="brand" @click=${() => this._closeDialog()}
+            >OK</wa-button
+          >
+        </div>
+      </wa-dialog>
+      <success-dialog message="Schedule saved successfully"></success-dialog>
     `;
+  }
+
+  private _closeDialog() {
+    const dialog = this.shadowRoot?.querySelector("#error-dialog") as WaDialog;
+    if (dialog) {
+      dialog.open = false;
+      dialog.hide();
+    }
   }
 }
