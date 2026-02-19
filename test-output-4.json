@@ -1,0 +1,276 @@
+{
+  "config": {
+    "configFile": "/home/sam/Code/flashcards/playwright.config.ts",
+    "rootDir": "/home/sam/Code/flashcards/tests/e-2-e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [["json"]],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/sam/Code/flashcards/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/sam/Code/flashcards/tests/e-2-e",
+        "testIgnore": [],
+        "testMatch": ["**/*.@(spec|test).?(c|m)[jt]s?(x)"],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 8,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:4321/flashcards/test",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "schedule-editor.spec.ts",
+      "file": "schedule-editor.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Schedule Editor",
+          "file": "schedule-editor.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "First milestone wait time should be disabled and set to 0",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 616,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-19T14:13:16.179Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "92d0076c187ff3aff5e7-824745bae6ac1cf6d3dd",
+              "file": "schedule-editor.spec.ts",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "Valid input changes update local storage and show success message",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 11042,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Schedule saved successfully')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Schedule saved successfully')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Schedule saved successfully')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Schedule saved successfully')\u001b[22m\n\n    at /home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts:64:65",
+                        "location": {
+                          "file": "/home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts",
+                          "column": 65,
+                          "line": 64
+                        },
+                        "snippet": "  62 |\n  63 |     // Verify success message\n> 64 |     await expect(page.getByText(\"Schedule saved successfully\")).toBeVisible({\n     |                                                                 ^\n  65 |       timeout: 10000,\n  66 |     });\n  67 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts",
+                            "column": 65,
+                            "line": 64
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Schedule saved successfully')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Schedule saved successfully')\u001b[22m\n\n\n  62 |\n  63 |     // Verify success message\n> 64 |     await expect(page.getByText(\"Schedule saved successfully\")).toBeVisible({\n     |                                                                 ^\n  65 |       timeout: 10000,\n  66 |     });\n  67 |\n    at /home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts:64:65"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-19T14:13:16.176Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/sam/Code/flashcards/test-results/schedule-editor-Schedule-E-ba810-ge-and-show-success-message-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts",
+                        "column": 65,
+                        "line": 64
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "92d0076c187ff3aff5e7-730ff58a68fbbec43c76",
+              "file": "schedule-editor.spec.ts",
+              "line": 43,
+              "column": 3
+            },
+            {
+              "title": "Error message is returned for invalid input",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 702,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-19T14:13:16.177Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "92d0076c187ff3aff5e7-5d5db949f470181203a8",
+              "file": "schedule-editor.spec.ts",
+              "line": 79,
+              "column": 3
+            },
+            {
+              "title": "Accessibility and HTML Validity check",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1893,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 55\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure landmarks are unique\",\u001b[39m\n\u001b[31m+     \"help\": \"Landmarks should have a unique role or role/label/title (i.e. accessible name) combination\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"landmark-unique\",\u001b[39m\n\u001b[31m+     \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"accessibleText\": null,\u001b[39m\n\u001b[31m+               \"role\": \"region\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"landmark-is-unique\",\u001b[39m\n\u001b[31m+             \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+             \"message\": \"The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div role=\\\"region\\\" aria-labelledby=\\\"header\\\" class=\\\"body\\\" style=\\\"height: auto;\\\">\u001b[39m\n\u001b[31m+           <slot part=\\\"content\\\" id=\\\"content\\\" class=\\\"content\\\"></slot>\u001b[39m\n\u001b[31m+         </div>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   Array [\u001b[39m\n\u001b[31m+                     \"wa-details[summary=\\\"Review Schedule\\\"]\",\u001b[39m\n\u001b[31m+                     \".body[role=\\\"region\\\"][aria-labelledby=\\\"header\\\"]\",\u001b[39m\n\u001b[31m+                   ],\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable\",\u001b[39m\n\u001b[31m+         \"html\": \"<div role=\\\"region\\\" aria-labelledby=\\\"header\\\" class=\\\"body\\\" style=\\\"height: auto;\\\">\u001b[39m\n\u001b[31m+           <slot part=\\\"content\\\" id=\\\"content\\\" class=\\\"content\\\"></slot>\u001b[39m\n\u001b[31m+         </div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           Array [\u001b[39m\n\u001b[31m+             \"wa-details[summary=\\\"Settings\\\"]\",\u001b[39m\n\u001b[31m+             \".body[role=\\\"region\\\"][aria-labelledby=\\\"header\\\"]\",\u001b[39m\n\u001b[31m+           ],\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.semantics\",\u001b[39m\n\u001b[31m+       \"best-practice\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 55\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure landmarks are unique\",\u001b[39m\n\u001b[31m+     \"help\": \"Landmarks should have a unique role or role/label/title (i.e. accessible name) combination\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"landmark-unique\",\u001b[39m\n\u001b[31m+     \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"accessibleText\": null,\u001b[39m\n\u001b[31m+               \"role\": \"region\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"landmark-is-unique\",\u001b[39m\n\u001b[31m+             \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+             \"message\": \"The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div role=\\\"region\\\" aria-labelledby=\\\"header\\\" class=\\\"body\\\" style=\\\"height: auto;\\\">\u001b[39m\n\u001b[31m+           <slot part=\\\"content\\\" id=\\\"content\\\" class=\\\"content\\\"></slot>\u001b[39m\n\u001b[31m+         </div>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   Array [\u001b[39m\n\u001b[31m+                     \"wa-details[summary=\\\"Review Schedule\\\"]\",\u001b[39m\n\u001b[31m+                     \".body[role=\\\"region\\\"][aria-labelledby=\\\"header\\\"]\",\u001b[39m\n\u001b[31m+                   ],\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable\",\u001b[39m\n\u001b[31m+         \"html\": \"<div role=\\\"region\\\" aria-labelledby=\\\"header\\\" class=\\\"body\\\" style=\\\"height: auto;\\\">\u001b[39m\n\u001b[31m+           <slot part=\\\"content\\\" id=\\\"content\\\" class=\\\"content\\\"></slot>\u001b[39m\n\u001b[31m+         </div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           Array [\u001b[39m\n\u001b[31m+             \"wa-details[summary=\\\"Settings\\\"]\",\u001b[39m\n\u001b[31m+             \".body[role=\\\"region\\\"][aria-labelledby=\\\"header\\\"]\",\u001b[39m\n\u001b[31m+           ],\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.semantics\",\u001b[39m\n\u001b[31m+       \"best-practice\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts:114:36",
+                        "location": {
+                          "file": "/home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts",
+                          "column": 36,
+                          "line": 114
+                        },
+                        "snippet": "  112 |     // We expect no violations, which covers duplicate IDs as well\n  113 |     const defaultScan = await new AxeBuilder({ page }).analyze();\n> 114 |     expect(defaultScan.violations).toEqual([]);\n      |                                    ^\n  115 |\n  116 |     // 2. Check with invalid input state (to ensure error messaging is accessible)\n  117 |     const input = page.locator("
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts",
+                            "column": 36,
+                            "line": 114
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 55\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure landmarks are unique\",\u001b[39m\n\u001b[31m+     \"help\": \"Landmarks should have a unique role or role/label/title (i.e. accessible name) combination\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"landmark-unique\",\u001b[39m\n\u001b[31m+     \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"accessibleText\": null,\u001b[39m\n\u001b[31m+               \"role\": \"region\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"landmark-is-unique\",\u001b[39m\n\u001b[31m+             \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+             \"message\": \"The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div role=\\\"region\\\" aria-labelledby=\\\"header\\\" class=\\\"body\\\" style=\\\"height: auto;\\\">\u001b[39m\n\u001b[31m+           <slot part=\\\"content\\\" id=\\\"content\\\" class=\\\"content\\\"></slot>\u001b[39m\n\u001b[31m+         </div>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   Array [\u001b[39m\n\u001b[31m+                     \"wa-details[summary=\\\"Review Schedule\\\"]\",\u001b[39m\n\u001b[31m+                     \".body[role=\\\"region\\\"][aria-labelledby=\\\"header\\\"]\",\u001b[39m\n\u001b[31m+                   ],\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable\",\u001b[39m\n\u001b[31m+         \"html\": \"<div role=\\\"region\\\" aria-labelledby=\\\"header\\\" class=\\\"body\\\" style=\\\"height: auto;\\\">\u001b[39m\n\u001b[31m+           <slot part=\\\"content\\\" id=\\\"content\\\" class=\\\"content\\\"></slot>\u001b[39m\n\u001b[31m+         </div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"moderate\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           Array [\u001b[39m\n\u001b[31m+             \"wa-details[summary=\\\"Settings\\\"]\",\u001b[39m\n\u001b[31m+             \".body[role=\\\"region\\\"][aria-labelledby=\\\"header\\\"]\",\u001b[39m\n\u001b[31m+           ],\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.semantics\",\u001b[39m\n\u001b[31m+       \"best-practice\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  112 |     // We expect no violations, which covers duplicate IDs as well\n  113 |     const defaultScan = await new AxeBuilder({ page }).analyze();\n> 114 |     expect(defaultScan.violations).toEqual([]);\n      |                                    ^\n  115 |\n  116 |     // 2. Check with invalid input state (to ensure error messaging is accessible)\n  117 |     const input = page.locator(\n    at /home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts:114:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-19T14:13:16.185Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/sam/Code/flashcards/test-results/schedule-editor-Schedule-E-2eb30-ity-and-HTML-Validity-check-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/sam/Code/flashcards/tests/e-2-e/schedule-editor.spec.ts",
+                        "column": 36,
+                        "line": 114
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "92d0076c187ff3aff5e7-cdd2e7898066a0b72c71",
+              "file": "schedule-editor.spec.ts",
+              "line": 105,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-02-19T14:13:15.269Z",
+    "duration": 12079.942000000001,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

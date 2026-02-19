@@ -143,7 +143,7 @@ export class ScheduleEditor extends LitElement {
     }
 
     .error-msg {
-      color: var(--wa-color-danger-60);
+      color: #b91c1c; /* Darker red for accessibility (AAA compliant on white) */
       font-size: var(--wa-font-size-2xs);
       margin-top: 4px;
       display: flex;
@@ -422,10 +422,10 @@ export class ScheduleEditor extends LitElement {
           (step, i) => html`
             <div class="schedule-item">
               <div class="field-group">
-                <span class="field-label">Min time since last session</span>
                 <wa-input
                   type="text"
                   size="small"
+                  label="Min time since last session"
                   data-field-key="${i}-minTimeSinceLastMilestone"
                   .value=${this._getValue(
                     i,
@@ -453,10 +453,10 @@ export class ScheduleEditor extends LitElement {
               </div>
 
               <div class="field-group">
-                <span class="field-label">Number of sessions</span>
                 <wa-input
                   type="number"
                   size="small"
+                  label="Number of sessions"
                   .value=${this._getValue(
                     i,
                     "numberOfSessions",
@@ -472,10 +472,10 @@ export class ScheduleEditor extends LitElement {
               </div>
 
               <div class="field-group">
-                <span class="field-label">Time between sessions</span>
                 <wa-input
                   type="text"
                   size="small"
+                  label="Time between sessions"
                   data-field-key="${i}-minTimeBetweenSessions"
                   .value=${this._getValue(
                     i,
@@ -500,10 +500,10 @@ export class ScheduleEditor extends LitElement {
               </div>
 
               <div class="field-group">
-                <span class="field-label">Overdue time</span>
                 <wa-input
                   type="text"
                   size="small"
+                  label="Overdue time"
                   data-field-key="${i}-maxTimeBetweenSessions"
                   .value=${this._getValue(
                     i,

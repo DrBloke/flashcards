@@ -80,7 +80,6 @@ export class NotificationDialog extends LitElement {
   }
 
   private _handleConfirm() {
-    this.hide();
     this.dispatchEvent(new CustomEvent("confirm"));
   }
 
