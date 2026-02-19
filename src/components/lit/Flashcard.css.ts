@@ -58,9 +58,22 @@ export const flashcardContentStyles = css`
     font-size: var(--wa-font-size-s);
     color: var(--wa-color-gray-20);
   }
-  span.toolbar-right {
+  span.toolbar-right,
+  span.toolbar-center {
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+  span.toolbar-left,
+  span.toolbar-center,
+  span.toolbar-right {
+    flex: 1;
+  }
+  span.toolbar-right {
+    justify-content: flex-end;
+  }
+  span.toolbar-left {
+    justify-content: flex-start;
   }
   wa-button#home::part(base) {
     width: auto;

@@ -312,4 +312,33 @@ test.describe("Flashcard deck", () => {
     await page.locator("#back-to-home").click();
     await expect(page).toHaveURL(/\/flashcards\/test$/);
   });
+  test("Back button functionality", async ({ page }) => {
+    // Go to the test deck
+    await page.goto("/flashcards/test");
+    await page.getByRole("link", { name: "Test Deck 1" }).click();
+    await page.getByRole("button", { name: "Study All" }).click();
+
+    // Flip the card to side 2
+    await page.locator("#flip").click();
+
+    // Verify we are on side 2
+    await expect(cardContent).toContainText("Side 2");
+
+    // Verify the Back button is visible
+    // We assume the ID will be "back-flip" or similar based on plan
+    // For now, let's look for text "Back" or "Undo"
+    // But wait, I haven't implemented it yet, so this test will fail as expected.
+    // I will target a button with name "Undo Flip" or "Back"
+    const backButton = page.locator("#back-flip");
+    await expect(backButton).toBeVisible();
+
+    // Click Back
+    await backButton.click();
+
+    // Verify we are back on side 1
+    await expect(cardContent).toContainText("Side 1");
+
+    // Verify Flip button is visible again
+    await expect(page.locator("#flip")).toBeVisible();
+  });
 });

@@ -143,6 +143,7 @@ export class FlashcardDeck extends LitElement {
               .sessionStarted=${this.session.sessionStarted}
               .canFlip=${canFlip}
               @flip-card=${this._flipCard}
+              @flip-back=${this._flipBack}
               @mark-correct=${this._markCorrect}
               @mark-incorrect=${this._markIncorrect}
             ></flashcard-footer>
@@ -160,6 +161,11 @@ export class FlashcardDeck extends LitElement {
     // The footer buttons are inside shadow DOM of flashcard-footer.
     // referencing them by ID locally won't work.
     // But we can let the footer handle focus or just ignore for now as webawesome buttons might handle focus.
+  }
+
+  async _flipBack() {
+    this._flip("back");
+    await this.updateComplete;
   }
 
   async _markCorrect() {

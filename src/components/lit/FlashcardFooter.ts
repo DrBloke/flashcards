@@ -53,6 +53,10 @@ export class FlashcardFooter extends LitElement {
     this.dispatchEvent(new CustomEvent("mark-incorrect"));
   }
 
+  private _flipBack() {
+    this.dispatchEvent(new CustomEvent("flip-back"));
+  }
+
   render() {
     // If session not started and not completed, footer might be empty or different?
     // In original code: if (!sessionStarted && !sessionCompleted) return html``
@@ -73,6 +77,21 @@ export class FlashcardFooter extends LitElement {
             .totalRounds}</span
         >
       </span>
+      <span class="toolbar-center">
+        ${!this.sessionStarted || this.sessionCompleted || this.canFlip
+          ? ""
+          : html`
+              <wa-button
+                id="back-flip"
+                title="back to side 1"
+                @click=${this._flipBack}
+                variant="brand"
+                appearance="filled"
+              >
+                <wa-icon name="arrow-left" label="back"></wa-icon>
+              </wa-button>
+            `}
+      </span>
       <span class="toolbar-right">
         ${!this.sessionStarted || this.sessionCompleted
           ? ""
@@ -90,7 +109,7 @@ export class FlashcardFooter extends LitElement {
                 ></wa-icon
                 >&nbsp;&nbsp;Flip
               </wa-button>`
-            : html` <wa-button-group>
+            : html`<wa-button-group>
                 <wa-button
                   id="correct"
                   title="correct"

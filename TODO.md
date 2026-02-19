@@ -48,14 +48,15 @@
 - [x] Make learning log configuration clearer
 - [x] Is this using Remark or Rehype for maths? Do I need to use both? Yes
 - [x] Humanise date and time
+- [x] Magic date input parser for learning schedule. Allow use of "3 days" or "10 seconds" etc.
+- [x] If a milestone is completed then give a different message to the user. Maybe congratualate them and describe the next session.a
+- [x] Bugs in review: when you say go back to previous milestone it shows a blank screen; text for this is to big and requires scrolling; If you get over 40% then it resets session, but explanation is needed.
 - [ ] Add meta description for SEO - get from `set.json`
+- [ ] Button for going back to side 1
 - [ ] Maths, chemistry, code and diagrams
 - [ ] Multiple side 2s for worked examples
 - [ ] Smaller font option for when you have a lot of text - at card level JSON
 - [ ] isReversible - not all decks are
-- [ ] Magic date input parser for learning schedule. Allow use of "3 days" or "10 seconds" etc.
-- [ ] If a milestone is completed then give a different message to the user. Maybe congratualate them and describe the next session.a
-- [ ] Bugs in review: when you say go back to previous milestone it shows a blank screen; text for this is to big and requires scrolling; If you get over 40% then it resets session, but explanation is needed.
 - [ ] Review text throughout
 
 ## Phase 2
