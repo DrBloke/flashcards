@@ -343,11 +343,8 @@ export class ScheduleEditor extends LitElement {
       // Time fields
       if (value.trim() === "") {
         // Empty handling
-        if (field !== "numberOfSessions") {
-          num = null;
-        } else {
-          num = 1;
-        }
+        // Empty handling
+        num = null;
       } else {
         num = parseDuration(value);
         if (num === null) {
@@ -435,6 +432,7 @@ export class ScheduleEditor extends LitElement {
                     "minTimeSinceLastMilestone",
                     step.minTimeSinceLastMilestone,
                   )}
+                  ?disabled=${i === 0}
                   ?data-invalid=${!!this._getError(
                     i,
                     "minTimeSinceLastMilestone",
