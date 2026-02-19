@@ -9,7 +9,10 @@ import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/input/input.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import "@awesome.me/webawesome/dist/components/dialog/dialog.js";
-import { SuccessDialog } from "./SuccessDialog"; // Import the new component
+import {
+  NotificationDialog,
+  type NotificationVariant,
+} from "./NotificationDialog";
 
 interface WaDialog extends HTMLElement {
   show(): void;
@@ -159,6 +162,15 @@ export class ScheduleEditor extends LitElement {
   // For managing focus after dialog close
   private _firstInvalidField: string | null = null;
 
+  @state()
+  private _notificationVariant: NotificationVariant = "success";
+
+  @state()
+  private _notificationMessage: string = "";
+
+  @state()
+  private _notificationHeadline: string = "";
+
   connectedCallback() {
     super.connectedCallback();
     this._loadSchedule();
@@ -206,12 +218,7 @@ export class ScheduleEditor extends LitElement {
     }
   }
 
-  private _save() {
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    const allData = result.success ? result.data : {};
-
+  private _requestSave() {
     if (!this.setPath) return;
 
     // Check if there are any errors or draft values (unsaved changes that are invalid)
@@ -220,16 +227,28 @@ export class ScheduleEditor extends LitElement {
       return;
     }
 
-    if (
-      !confirm(
-        "Changing the schedule will update all existing decks in this set. \n\n" +
-          "• Review times will be recalculated based on the new schedule.\n" +
-          "• Decks may move to different milestones if the number of sessions changes.\n\n" +
-          "Are you sure you want to save these changes?",
-      )
-    ) {
-      return;
-    }
+    this._notificationVariant = "confirm";
+    this._notificationHeadline = "Confirm Save";
+    this._notificationMessage =
+      "Changing the schedule will update all existing decks in this set. \n\n" +
+      "• Review times will be recalculated based on the new schedule.\n" +
+      "• Decks may move to different milestones if the number of sessions changes.\n\n" +
+      "Are you sure you want to save these changes?";
+
+    this.requestUpdate();
+    this.updateComplete.then(() => {
+      const dialog = this.shadowRoot?.querySelector(
+        "notification-dialog",
+      ) as NotificationDialog;
+      dialog?.show();
+    });
+  }
+
+  private _executeSave() {
+    const rawData = localStorage.getItem("flashcards-data");
+    const parsed = rawData ? JSON.parse(rawData) : {};
+    const result = flashcardsStorageSchema.safeParse(parsed);
+    const allData = result.success ? result.data : {};
 
     if (!allData[this.setPath]) {
       allData[this.setPath] = { settings: {} };
@@ -250,12 +269,17 @@ export class ScheduleEditor extends LitElement {
     // Dispatch event so other components can refresh
     window.dispatchEvent(new CustomEvent("flashcards-data-changed"));
 
-    const successDialog = this.shadowRoot?.querySelector(
-      "success-dialog",
-    ) as SuccessDialog;
-    if (successDialog) {
-      successDialog.show();
-    }
+    this._notificationVariant = "success";
+    this._notificationHeadline = "Success";
+    this._notificationMessage = "Schedule saved successfully";
+
+    this.requestUpdate();
+    this.updateComplete.then(() => {
+      const dialog = this.shadowRoot?.querySelector(
+        "notification-dialog",
+      ) as NotificationDialog;
+      dialog?.show();
+    });
   }
 
   private _addStep() {
@@ -511,7 +535,7 @@ export class ScheduleEditor extends LitElement {
           <wa-icon slot="prefix" name="plus"></wa-icon>
           Add Step
         </wa-button>
-        <wa-button size="small" variant="brand" @click=${this._save}
+        <wa-button size="small" variant="brand" @click=${this._requestSave}
           >Save Schedule</wa-button
         >
       </div>
@@ -534,7 +558,12 @@ export class ScheduleEditor extends LitElement {
           >
         </div>
       </wa-dialog>
-      <success-dialog message="Schedule saved successfully"></success-dialog>
+      <notification-dialog
+        .variant=${this._notificationVariant}
+        .message=${this._notificationMessage}
+        .headline=${this._notificationHeadline}
+        @confirm=${this._executeSave}
+      ></notification-dialog>
     `;
   }
 
