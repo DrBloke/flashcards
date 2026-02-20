@@ -22,7 +22,6 @@
     "@awesome.me/webawesome": "^3.2.1",
     "@types/katex": "^0.16.8",
     "astro": "^5.16.8",
-    "date-fns": "^4.1.0",
     "lit": "^3.3.0",
     "rehype-katex": "^7.0.1",
     "rehype-sanitize": "^6.0.0",

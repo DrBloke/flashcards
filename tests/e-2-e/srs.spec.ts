@@ -421,10 +421,8 @@ test.describe("Spaced Repetition and Learning Log", () => {
     await expect(page.locator(".completed-stats")).toContainText(
       "Next review scheduled for:",
     );
-    // Check for "in about 1 hour" to be somewhat sure it's the right time
-    await expect(page.locator(".completed-stats")).toContainText(
-      "in about 1 hour",
-    );
+    // Check for "Today at" to be somewhat sure it's the right time format
+    await expect(page.locator(".completed-stats")).toContainText("Today at");
   });
 
   test("should not show Flip button on 'Not due yet' screen", async ({

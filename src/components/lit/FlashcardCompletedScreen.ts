@@ -1,6 +1,7 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { formatDistance, formatDistanceToNow } from "date-fns";
+import { formatDuration } from "../../utils/time";
+import { formatDueDate } from "../../utils/dateFormatting";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import { flashcardStyles } from "./Flashcard.css";
@@ -124,9 +125,7 @@ export class FlashcardCompletedScreen extends LitElement {
       }
     }
 
-    const timeSpent = formatDistance(0, this.duration, {
-      includeSeconds: true,
-    });
+    const timeSpent = formatDuration(Math.round(this.duration / 1000));
     const scorePercent = Math.round(this.score * 100);
     const isMastered = this.score >= 0.9;
     const isGoodProgress = scorePercent >= 40;
@@ -159,10 +158,7 @@ export class FlashcardCompletedScreen extends LitElement {
                 ${this.lastLogEntry.sessionIndex === 999
                   ? "You passed, but to advance to the next milestone you need 90% mastery. Let's try this milestone again."
                   : html`Next review scheduled for:
-                    ${formatDistanceToNow(
-                      this.lastLogEntry.nextReview as number,
-                      { addSuffix: true },
-                    )}`}
+                    ${formatDueDate(this.lastLogEntry.nextReview as number)}`}
               </p>`
             : ""}
         </div>

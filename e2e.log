@@ -1,0 +1,94 @@
+
+> flashcards@0.0.1 test:e2e
+> playwright test
+
+
+Running 33 tests using 8 workers
+
+[1A[2K[1/33] [chromium] › tests/e-2-e/index-page.spec.ts:4:1 › Index page is accessible and showing the decks
+[1A[2K[2/33] [chromium] › tests/e-2-e/card.spec.ts:189:3 › Flashcard deck › Math equation rendering
+[1A[2K[3/33] [chromium] › tests/e-2-e/card.spec.ts:234:3 › Flashcard deck › Restarting a completed deck
+[1A[2K[4/33] [chromium] › tests/e-2-e/card.spec.ts:210:3 › Flashcard deck › Code block rendering
+[1A[2K[5/33] [chromium] › tests/e-2-e/card.spec.ts:96:3 › Flashcard deck › Card filtering in multiple rounds
+[1A[2K[6/33] [chromium] › tests/e-2-e/card.spec.ts:315:3 › Flashcard deck › Back button functionality
+[1A[2K[7/33] [chromium] › tests/e-2-e/card.spec.ts:21:3 › Flashcard deck › Card navigation and interaction
+[1A[2K[8/33] [chromium] › tests/e-2-e/card.spec.ts:161:3 › Flashcard deck › Markdown rendering
+[1A[2K[9/33] [chromium] › tests/e-2-e/ingrained.spec.ts:10:3 › Ingrained Status Display › Deck list renders correctly when a deck is Ingrained
+[1A[2K[10/33] [chromium] › tests/e-2-e/ingrained.spec.ts:62:3 › Ingrained Status Display › Deck list renders correctly when checking back from an Ingrained extra session
+[1A[2K[11/33] [chromium] › tests/e-2-e/ingrained.spec.ts:110:3 › Ingrained Status Display › Deck list renders correctly with custom schedule and Ingrained status
+[1A[2K[12/33] [chromium] › tests/e-2-e/schedule-editor.spec.ts:12:3 › Schedule Editor › First milestone wait time should be disabled and set to 0
+[1A[2K[13/33] [chromium] › tests/e-2-e/schedule-editor.spec.ts:43:3 › Schedule Editor › Valid input changes update local storage and show success message
+[1A[2K[14/33] [chromium] › tests/e-2-e/schedule-editor.spec.ts:79:3 › Schedule Editor › Error message is returned for invalid input
+[1A[2K[15/33] [chromium] › tests/e-2-e/schedule-editor.spec.ts:105:3 › Schedule Editor › Accessibility and HTML Validity check
+[1A[2K[16/33] [chromium] › tests/e-2-e/srs.spec.ts:14:3 › Spaced Repetition and Learning Log › should record a session in the learning log and set next review time
+[1A[2K[17/33] [chromium] › tests/e-2-e/srs.spec.ts:67:3 › Spaced Repetition and Learning Log › should show 'Not due yet' screen when trying to study early
+[1A[2K[18/33] [chromium] › tests/e-2-e/srs.spec.ts:116:3 › Spaced Repetition and Learning Log › should allow studying early via 'Study All Cards'
+[1A[2K[19/33] [chromium] › tests/e-2-e/srs.spec.ts:177:3 › Spaced Repetition and Learning Log › should allow studying only missed cards when early
+[1A[2K[20/33] [chromium] › tests/e-2-e/srs.spec.ts:228:3 › Spaced Repetition and Learning Log › should progress to next session index within a group
+[1A[2K[21/33] [chromium] › tests/e-2-e/srs.spec.ts:279:3 › Spaced Repetition and Learning Log › should progress to next group after mastering all sessions in a group
+[1A[2K[22/33] [chromium] › tests/e-2-e/srs.spec.ts:332:3 › Spaced Repetition and Learning Log › should show demotion options if score is low at end of group
+[1A[2K[23/33] [chromium] › tests/e-2-e/srs.spec.ts:388:3 › Spaced Repetition and Learning Log › should show next review time on completion screen
+[1A[2K[24/33] [chromium] › tests/e-2-e/srs.spec.ts:430:3 › Spaced Repetition and Learning Log › should not show Flip button on 'Not due yet' screen
+[1A[2K[25/33] [chromium] › tests/e-2-e/srs.spec.ts:469:3 › Spaced Repetition and Learning Log › should clear wrongFirstTime between sessions to avoid getting stuck
+[1A[2K[26/33] [chromium] › tests/e-2-e/srs.spec.ts:537:3 › Spaced Repetition and Learning Log › scheduled session: 'Struggling Only' choice should remove correctly guessed cards from wrongFirstTime
+[1A[2K[27/33] [chromium] › tests/e-2-e/srs.spec.ts:637:3 › Spaced Repetition and Learning Log › should add cards to wrongFirstTime if missed in later rounds
+[1A[2K[28/33] [chromium] › tests/e-2-e/srs.spec.ts:590:3 › Spaced Repetition and Learning Log › extra session: correctly guessed struggling cards should NOT be removed from wrongFirstTime
+[1A[2K[29/33] [chromium] › tests/e-2-e/srs.spec.ts:686:3 › Spaced Repetition and Learning Log › scheduled session: should skip choice and show 'Start Session' if no stumbles exist
+[1A[2K[30/33] [chromium] › tests/e-2-e/srs.spec.ts:736:3 › Spaced Repetition and Learning Log › extra session: 'Study All Words' should NOT clear wrongFirstTime
+[1A[2K[31/33] [chromium] › tests/e-2-e/tooltips.spec.ts:9:3 › Deck List Tooltips › Milestones column shows all milestone descriptions in a tooltip
+[1A[2K[32/33] [chromium] › tests/e-2-e/tooltips.spec.ts:32:3 › Deck List Tooltips › Current Milestone column still shows its specific description tooltip
+[1A[2K[33/33] [chromium] › tests/e-2-e/tooltips.spec.ts:54:3 › Deck List Tooltips › Milestones tooltip is accessible
+[1A[2K  1) [chromium] › tests/e-2-e/srs.spec.ts:388:3 › Spaced Repetition and Learning Log › should show next review time on completion screen 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.completed-stats')
+    Timeout: 5000ms
+    [32m- Expected substring  -  1[39m
+    [31m+ Received string     + 10[39m
+
+    [32m- in about 1 hour[39m
+    [31m+[39m
+    [31m+           Score: 100%[39m
+    [31m+           Time spent: 0s[39m
+    [31m+ [43m          [49m[39m
+    [31m+ [43m          [49m[39m
+    [31m+                 Next review scheduled for:[39m
+    [31m+                     Today at[39m
+    [31m+ [43m      [49m[39m
+    [31m+ [43m              [49m[39m
+    [31m+ [43m        [49m[39m
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('.completed-stats')[22m
+    [2m    9 × locator resolved to <div class="completed-stats">…</div>[22m
+    [2m      - unexpected value "[22m
+    [2m          Score: 100%[22m
+    [2m          Time spent: 0s[22m
+    [2m          [22m
+    [2m          [22m
+    [2m                Next review scheduled for:[22m
+    [2m                    Today at[22m
+    [2m      [22m
+    [2m              [22m
+    [2m        "[22m
+
+
+      423 |     );
+      424 |     // Check for "in about 1 hour" to be somewhat sure it's the right time
+    > 425 |     await expect(page.locator(".completed-stats")).toContainText(
+          |                                                    ^
+      426 |       "in about 1 hour",
+      427 |     );
+      428 |   });
+        at /home/sam/Code/flashcards/tests/e-2-e/srs.spec.ts:425:52
+
+    Error Context: test-results/srs-Spaced-Repetition-and--2ac88-w-time-on-completion-screen-chromium/error-context.md
+
+
+[1A[2K  1 failed
+    [chromium] › tests/e-2-e/srs.spec.ts:388:3 › Spaced Repetition and Learning Log › should show next review time on completion screen 
+  32 passed (15.3s)
+
+[36m  Serving HTML report at http://localhost:9323. Press Ctrl+C to quit.[39m

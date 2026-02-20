@@ -13,7 +13,7 @@ import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import "@awesome.me/webawesome/dist/components/tooltip/tooltip.js";
 import { LearningAlgorithm } from "../../core/LearningAlgorithm";
 import "@awesome.me/webawesome/dist/components/input/input.js";
-import { formatDistanceToNow } from "date-fns";
+import { formatDueDate } from "../../utils/dateFormatting";
 
 interface DeckEntry {
   id: string;
@@ -424,13 +424,7 @@ export class DeckList extends LitElement {
                     </div>
                   </div>
                 </td>
-                <td
-                  title="${status.nextReview
-                    ? formatDistanceToNow(status.nextReview, {
-                        addSuffix: true,
-                      })
-                    : ""}"
-                >
+                <td title="${status.nextReview ? "Next Review" : ""}">
                   <wa-badge
                     variant="${status.state === "due"
                       ? "warning"
@@ -446,9 +440,7 @@ export class DeckList extends LitElement {
                   </wa-badge>
                   ${status.state === "scheduled" && status.nextReview
                     ? html`<span class="scheduled-date"
-                        >${formatDistanceToNow(status.nextReview, {
-                          addSuffix: true,
-                        })}</span
+                        >${formatDueDate(status.nextReview)}</span
                       >`
                     : ""}
                 </td>

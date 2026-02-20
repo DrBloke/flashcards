@@ -1,10 +1,7 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import {
-  formatDuration,
-  intervalToDuration,
-  formatDistanceToNow,
-} from "date-fns";
+import { formatDuration } from "../../utils/time";
+import { formatDueDate } from "../../utils/dateFormatting";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import { flashcardStyles } from "./Flashcard.css";
@@ -108,12 +105,7 @@ export class FlashcardStartScreen extends LitElement {
                     ${this.milestone.numberOfSessions} sessions
                     ${this.milestone.minTimeBetweenSessions
                       ? html`,
-                        ${formatDuration(
-                          intervalToDuration({
-                            start: 0,
-                            end: this.milestone.minTimeBetweenSessions * 1000,
-                          }),
-                        )}
+                        ${formatDuration(this.milestone.minTimeBetweenSessions)}
                         apart`
                       : ""}
                   </p>
@@ -193,7 +185,7 @@ export class FlashcardStartScreen extends LitElement {
       }
     } else {
       const nextReview = this.lastReviewTimestamp
-        ? formatDistanceToNow(this.lastReviewTimestamp, { addSuffix: true })
+        ? formatDueDate(this.lastReviewTimestamp)
         : "Soon";
 
       return html`
