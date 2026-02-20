@@ -42,19 +42,27 @@ export class FlashcardFooter extends LitElement {
   sessionStarted = false;
 
   private _flipCard() {
-    this.dispatchEvent(new CustomEvent("flip-card"));
+    this.dispatchEvent(
+      new CustomEvent("flip-card", { bubbles: true, composed: true }),
+    );
   }
 
   private _markCorrect() {
-    this.dispatchEvent(new CustomEvent("mark-correct"));
+    this.dispatchEvent(
+      new CustomEvent("mark-correct", { bubbles: true, composed: true }),
+    );
   }
 
   private _markIncorrect() {
-    this.dispatchEvent(new CustomEvent("mark-incorrect"));
+    this.dispatchEvent(
+      new CustomEvent("mark-incorrect", { bubbles: true, composed: true }),
+    );
   }
 
   private _flipBack() {
-    this.dispatchEvent(new CustomEvent("flip-back"));
+    this.dispatchEvent(
+      new CustomEvent("flip-back", { bubbles: true, composed: true }),
+    );
   }
 
   render() {

@@ -37,4 +37,21 @@ export class FlashcardStorage {
     const allData = this.getStoredData();
     return allData[setPath]?.settings || {};
   }
+  static saveSettings(
+    setPath: string,
+    settings: NonNullable<
+      z.infer<typeof flashcardsStorageSchema>[string]
+    >["settings"],
+  ) {
+    const allData = this.getStoredData();
+    if (!allData[setPath]) {
+      allData[setPath] = { settings: {}, decks: {} };
+    }
+    allData[setPath].settings = settings;
+    this.saveAllData(allData);
+  }
+
+  static saveAllData(data: z.infer<typeof flashcardsStorageSchema>) {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+  }
 }

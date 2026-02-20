@@ -216,7 +216,7 @@ export const flashcardContainerStyles = css`
     flex: 1;
     text-align: right;
   }
-  ::slotted(#content) {
+  ::slotted(#ssr-content) {
     font-size: var(--wa-font-size-4xl);
     text-align: left;
     width: fit-content;

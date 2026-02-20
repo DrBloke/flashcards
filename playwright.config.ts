@@ -17,6 +17,7 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
+  /*
   webServer: {
     command: process.env.CI
       ? "npm run build && npm run preview -- --port 4322"
@@ -27,4 +28,5 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },
+  */
 });

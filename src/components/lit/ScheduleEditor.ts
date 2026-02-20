@@ -1,6 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
-import { flashcardsStorageSchema } from "../../schemas/storage";
+
+import { FlashcardStorage } from "../../core/FlashcardStorage";
 import {
   DEFAULT_LEARNING_SCHEDULE,
   type LearningSchedule,
@@ -190,12 +191,8 @@ export class ScheduleEditor extends LitElement {
   }
 
   private _loadSchedule() {
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    const allData = result.success ? result.data : {};
-
-    this._schedule = allData[this.setPath]?.settings?.learningSchedule || [
+    const settings = FlashcardStorage.getSettings(this.setPath);
+    this._schedule = settings.learningSchedule || [
       ...DEFAULT_LEARNING_SCHEDULE,
     ];
   }
@@ -258,25 +255,23 @@ export class ScheduleEditor extends LitElement {
   }
 
   private _executeSave() {
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    const allData = result.success ? result.data : {};
+    // Save settings
+    const currentSettings = FlashcardStorage.getSettings(this.setPath);
+    const newSettings = {
+      ...currentSettings,
+      learningSchedule: this._schedule,
+    };
+    FlashcardStorage.saveSettings(this.setPath, newSettings);
 
-    if (!allData[this.setPath]) {
-      allData[this.setPath] = { settings: {} };
-    }
-    const setData = allData[this.setPath];
-    if (setData) {
-      if (!setData.settings) setData.settings = {};
-      setData.settings.learningSchedule = this._schedule;
-    }
-
-    localStorage.setItem("flashcards-data", JSON.stringify(allData));
+    // We still need to migrate decks, which requires allData access or a migration helper that uses Storage
+    // The migrateDecks function takes 'allData'.
+    // We can expose allData via FlashcardStorage.getStoredData() or refactor migration.
+    // Let's use getStoredData for migration for now.
+    const allData = FlashcardStorage.getStoredData();
 
     // Migration: Update existing decks to fit new schedule
     if (migrateDecks(allData, this.setPath, this._schedule)) {
-      localStorage.setItem("flashcards-data", JSON.stringify(allData));
+      FlashcardStorage.saveAllData(allData);
     }
 
     // Dispatch event so other components can refresh

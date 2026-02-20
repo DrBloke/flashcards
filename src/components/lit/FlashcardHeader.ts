@@ -36,11 +36,15 @@ export class FlashcardHeader extends LitElement {
   homeRoute: string = "/";
 
   private _increaseFontSize() {
-    this.dispatchEvent(new CustomEvent("increase-font"));
+    this.dispatchEvent(
+      new CustomEvent("increase-font", { bubbles: true, composed: true }),
+    );
   }
 
   private _decreaseFontSize() {
-    this.dispatchEvent(new CustomEvent("decrease-font"));
+    this.dispatchEvent(
+      new CustomEvent("decrease-font", { bubbles: true, composed: true }),
+    );
   }
 
   render() {

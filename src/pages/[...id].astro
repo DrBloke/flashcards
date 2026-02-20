@@ -51,7 +51,7 @@ const preRenderedDeck = {
     home-route={import.meta.env.BASE_URL + setPath}
   >
     <h1 slot="header" id="ssr-header">{deck.data.title}</h1>
-    <div id="content" set:html={preRenderedDeck.cards[0]?.side1} />
+    <div id="ssr-content" set:html={preRenderedDeck.cards[0]?.side1} />
   </flashcard-deck>
 </BaseLayout>
 

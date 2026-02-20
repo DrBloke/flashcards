@@ -1,6 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { z } from "zod";
+import { FlashcardStorage } from "../../core/FlashcardStorage";
 import { flashcardsStorageSchema } from "../../schemas/storage";
 import {
   DEFAULT_LEARNING_SCHEDULE,
@@ -10,12 +11,9 @@ import "@awesome.me/webawesome/dist/components/badge/badge.js";
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import "@awesome.me/webawesome/dist/components/tooltip/tooltip.js";
+import { LearningAlgorithm } from "../../core/LearningAlgorithm";
 import "@awesome.me/webawesome/dist/components/input/input.js";
-import {
-  formatDistanceToNow,
-  formatDuration,
-  intervalToDuration,
-} from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 
 interface DeckEntry {
   id: string;
@@ -213,12 +211,7 @@ export class DeckList extends LitElement {
   }
 
   private _loadStorage() {
-    const rawData = localStorage.getItem("flashcards-data");
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    if (result.success) {
-      this._storageData = result.data;
-    }
+    this._storageData = FlashcardStorage.getStoredData();
   }
 
   private _handleSearch(e: Event) {
@@ -231,150 +224,19 @@ export class DeckList extends LitElement {
     const deckData = setData?.decks?.[deckId];
     const schedule =
       setData?.settings?.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
+    const learningLog = deckData?.learningLog || [];
 
-    if (!deckData || deckData.learningLog.length === 0) {
-      const currentMilestone = schedule[0];
-      return {
-        state: "new" as const,
-        label: "Ready",
-        milestoneIndex: 0,
-        sessionIndex: 0,
-        totalSessions: currentMilestone.numberOfSessions,
-        milestoneDescription: this._getMilestoneDescription(currentMilestone),
-        problemCards: 0,
-        nextReview: null,
-      };
-    }
-
-    const lastEntry = deckData.learningLog[deckData.learningLog.length - 1];
-    const now = Date.now();
-    const nextReview = lastEntry.nextReview;
-    const isDue = nextReview === null || now >= nextReview;
-
-    // Determine the group and session we are waiting for
-    let targetMilestoneIndex = lastEntry.milestoneIndex;
-    let targetSessionIndex = lastEntry.sessionIndex;
-
-    // Detection of Ingrained state:
-    // If we finished the last session of the last milestone and nextReview is null (unless it was an extra session)
-    // But `FlashcardSession` sets null nextReview specifically for Ingrained.
-    let isIngrained = false;
-
-    if (targetMilestoneIndex >= schedule.length) {
-      isIngrained = true;
-    } else if (
-      targetMilestoneIndex === schedule.length - 1 &&
-      schedule[targetMilestoneIndex] &&
-      targetSessionIndex ===
-        schedule[targetMilestoneIndex].numberOfSessions - 1 &&
-      lastEntry.nextReview === null &&
-      !lastEntry.isExtra
-    ) {
-      isIngrained = true;
-    } else if (lastEntry.isExtra && lastEntry.nextReview === null) {
-      // Check if previous regular entry was ingrained?
-      // Simplification: if milestoneIndex is max and nextReview is null, it's Ingrained.
-      // However, new accounts have nextReview null but are "new/due".
-      // But max milestone index distinguishes it.
-      if (targetMilestoneIndex === schedule.length - 1) {
-        // We need to check if we are at the END.
-        const m = schedule[targetMilestoneIndex];
-        if (m && targetSessionIndex === m.numberOfSessions - 1) {
-          isIngrained = true;
-        }
-      }
-    }
-
-    if (isIngrained) {
-      const lastMilestone = schedule[schedule.length - 1];
-      return {
-        state: "ingrained" as const,
-        label: "Ingrained",
-        milestoneIndex: schedule.length,
-        sessionIndex: lastMilestone.numberOfSessions,
-        totalSessions: lastMilestone.numberOfSessions,
-        milestoneDescription: "Fully ingrained into memory.",
-        problemCards: deckData.wrongFirstTime.length,
-        nextReview: null,
-      };
-    }
-
-    if (targetMilestoneIndex === -1) {
-      targetMilestoneIndex = 0;
-      targetSessionIndex = 0;
-    } else if (lastEntry.isExtra) {
-      // Stay at same index
-    } else if (
-      targetSessionIndex <
-      schedule[targetMilestoneIndex].numberOfSessions - 1
-    ) {
-      targetSessionIndex++;
-    } else {
-      targetMilestoneIndex = Math.min(
-        targetMilestoneIndex + 1,
-        schedule.length - 1,
-      );
-      targetSessionIndex = 0;
-    }
-
-    // Determine if overdue
-    let isOverdue = false;
-    const milestoneInLog = schedule[lastEntry.milestoneIndex];
-    if (milestoneInLog && !lastEntry.isExtra) {
-      if (lastEntry.sessionIndex < milestoneInLog.numberOfSessions - 1) {
-        // Within a group
-        if (milestoneInLog.maxTimeBetweenSessions !== null) {
-          const overdueTime =
-            lastEntry.endTime + milestoneInLog.maxTimeBetweenSessions * 1000;
-          if (now > overdueTime) isOverdue = true;
-        }
-      }
-    }
-
-    let state: "due" | "overdue" | "scheduled" | "ingrained" = isDue
-      ? "due"
-      : "scheduled";
-    if (isOverdue) state = "overdue";
-
-    const currentMilestone = schedule[targetMilestoneIndex];
+    const status = LearningAlgorithm.getDeckStatus(learningLog, schedule);
+    const problemCards = deckData?.wrongFirstTime?.length || 0;
 
     return {
-      state,
-      label:
-        state === "due" ? "Due" : state === "overdue" ? "Overdue" : "Scheduled",
-      milestoneIndex: targetMilestoneIndex,
-      sessionIndex: targetSessionIndex,
-      totalSessions: currentMilestone.numberOfSessions,
-      milestoneDescription: this._getMilestoneDescription(currentMilestone),
-      problemCards: deckData.wrongFirstTime.length,
-      nextReview: nextReview,
+      ...status,
+      problemCards,
     };
   }
 
   private _getMilestoneDescription(milestone: Milestone) {
-    const {
-      numberOfSessions,
-      minTimeBetweenSessions,
-      minTimeSinceLastMilestone,
-    } = milestone;
-
-    let desc = `${numberOfSessions} session${numberOfSessions > 1 ? "s" : ""}`;
-
-    if (numberOfSessions > 1 && minTimeBetweenSessions) {
-      const waitTime = formatDuration(
-        intervalToDuration({ start: 0, end: minTimeBetweenSessions * 1000 }),
-      );
-      desc += ` with at least ${waitTime} between each`;
-    }
-
-    if (minTimeSinceLastMilestone && minTimeSinceLastMilestone > 0) {
-      const waitTime = formatDuration(
-        intervalToDuration({ start: 0, end: minTimeSinceLastMilestone * 1000 }),
-      );
-      desc += ` (after ${waitTime} wait)`;
-    }
-
-    return desc;
+    return LearningAlgorithm.getMilestoneDescription(milestone);
   }
 
   render() {

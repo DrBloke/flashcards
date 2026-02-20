@@ -59,6 +59,8 @@ export class FlashcardDeck extends LitElement {
   }
 
   firstUpdated() {
+    // Clear the SEO/SSR injected light DOM so that interactive
+    // components like FlashcardHeader are properly rendered via fallback slots.
     this.innerHTML = "";
     // Attempt initial focus if needed
   }

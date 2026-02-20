@@ -4,6 +4,7 @@ import { deckSchema } from "../schemas/deck";
 import { deckSessionSchema, type LearningLogEntry } from "../schemas/storage";
 import { DEFAULT_LEARNING_SCHEDULE } from "../schemas/learningSchedule";
 import { FlashcardStorage } from "./FlashcardStorage";
+import { LearningAlgorithm } from "./LearningAlgorithm";
 
 export class FlashcardSession implements ReactiveController {
   host: ReactiveControllerHost;
@@ -120,49 +121,30 @@ export class FlashcardSession implements ReactiveController {
           )
         : {};
 
-      if (this.learningLog.length === 0) {
-        this.milestoneIndex = 0;
-        this.sessionIndex = 0;
+      const status = LearningAlgorithm.getDeckStatus(
+        this.learningLog,
+        this.schedule,
+      );
+
+      this.milestoneIndex = status.milestoneIndex;
+      this.sessionIndex = status.sessionIndex;
+      this.isDue = status.state === "due" || status.state === "overdue"; // 'overdue' implies due
+      this.isIngrained = status.state === "ingrained";
+
+      // Re-align isDue for new/ingrained specifically if needed,
+      // but LearningAlgorithm handles "new" (returns state='new')
+      // and "ingrained" (state='ingrained').
+      // FlashcardSession uses boolean flags.
+
+      if (status.state === "new") {
         this.isDue = true;
-        this.isIngrained = false;
-      } else {
-        const lastEntry = this.learningLog[this.learningLog.length - 1];
-
-        if (lastEntry.milestoneIndex === -1) {
-          this.milestoneIndex = 0;
-          this.sessionIndex = 0;
-          this.isDue = true;
-          this.isIngrained = false;
-        } else {
-          const currentMilestone = this.schedule[lastEntry.milestoneIndex];
-          if (lastEntry.isExtra) {
-            this.milestoneIndex = lastEntry.milestoneIndex;
-            this.sessionIndex = lastEntry.sessionIndex;
-          } else if (
-            lastEntry.sessionIndex <
-            currentMilestone.numberOfSessions - 1
-          ) {
-            this.milestoneIndex = lastEntry.milestoneIndex;
-            this.sessionIndex = lastEntry.sessionIndex + 1;
-          } else {
-            this.milestoneIndex = Math.min(
-              lastEntry.milestoneIndex + 1,
-              this.schedule.length,
-            );
-            this.sessionIndex = 0;
-          }
-
-          this.isIngrained = this.milestoneIndex >= this.schedule.length;
-
-          const now = Date.now();
-          this.isDue =
-            lastEntry.nextReview === null || now >= lastEntry.nextReview;
-
-          if (this.isIngrained) {
-            this.isDue = false; // Ingrained decks are never "due" but available
-          }
-        }
+      } else if (status.state === "ingrained") {
+        this.isDue = false;
+      } else if (status.state === "scheduled") {
+        this.isDue = false;
       }
+      // "overdue" -> isDue = true.
+      // "due" -> isDue = true.
     } else {
       this.learningLog = [];
       this.wrongFirstTime = [];
@@ -368,48 +350,35 @@ export class FlashcardSession implements ReactiveController {
     const settings = FlashcardStorage.getSettings(this.setPath);
     const schedule = settings.learningSchedule || DEFAULT_LEARNING_SCHEDULE;
 
-    let nextMilestoneIndex = this.milestoneIndex;
-    let isRepeatingMilestone = false;
+    const result = LearningAlgorithm.calculateSessionResult(
+      this.milestoneIndex,
+      this.sessionIndex,
+      this.score,
+      schedule,
+      this.endTime,
+    );
 
-    const currentMilestone =
-      schedule[Math.min(this.milestoneIndex, schedule.length - 1)];
-    const isEndOfMilestone =
-      this.sessionIndex === currentMilestone.numberOfSessions - 1;
+    // Check for showDemotionChoice
+    // NOTE: FlashcardSession original logic set showDemotionChoice but didn't prevent completion?
+    // Actually if showDemotionChoice is true, do we still save the log?
+    // Original code:
+    // ...
+    // } else { this.showDemotionChoice = true; }
+    // ...
+    // this.saveSession(); this.sessionCompleted = true;
+    // So yes, it completes the session and shows the choice on the completed screen.
 
-    if (isEndOfMilestone) {
-      if (this.score >= 0.9) {
-        nextMilestoneIndex = this.milestoneIndex + 1;
-      } else if (this.score >= 0.4) {
-        isRepeatingMilestone = true;
-      } else {
-        this.showDemotionChoice = true;
-      }
+    if (result.showDemotionChoice) {
+      this.showDemotionChoice = true;
     }
 
-    let nextReview: number | null = null;
-    let nextMilestone = schedule[nextMilestoneIndex];
-    if (!nextMilestone && nextMilestoneIndex >= schedule.length) {
-      // Ingrained status
-      this.isIngrained = true;
-      // Just grab the last one for reference if needed, but we don't need it for calculation
-      nextMilestone = schedule[schedule.length - 1];
-    }
+    this.isIngrained = result.isIngrained;
+    const nextReview = result.nextReview;
 
-    if (this.isIngrained) {
-      nextReview = null;
-    } else if (nextMilestoneIndex > this.milestoneIndex) {
-      if (nextMilestone.minTimeSinceLastMilestone !== null) {
-        nextReview =
-          this.endTime + nextMilestone.minTimeSinceLastMilestone * 1000;
-      }
-    } else if (isRepeatingMilestone) {
-      nextReview = this.endTime;
-    } else {
-      if (currentMilestone.minTimeBetweenSessions !== null) {
-        nextReview =
-          this.endTime + currentMilestone.minTimeBetweenSessions * 1000;
-      }
-    }
+    // We don't update this.milestoneIndex/sessionIndex here immediately for the *current* display
+    // because completeSession is called at the END.
+    // However, the *next* state is what matters for "Next Review".
+    // AND the log entry uses current indices.
 
     const newEntry: LearningLogEntry = {
       milestoneIndex: this.milestoneIndex,
@@ -421,10 +390,14 @@ export class FlashcardSession implements ReactiveController {
       missedCount: missedCount,
     };
 
+    const currentMilestone =
+      schedule[Math.min(this.milestoneIndex, schedule.length - 1)];
+    const isEndOfMilestone =
+      this.sessionIndex === currentMilestone.numberOfSessions - 1;
+
     if (isEndOfMilestone && this.score < 0.9) {
       newEntry.milestoneIndex = this.milestoneIndex - 1;
       newEntry.sessionIndex = 999;
-      isRepeatingMilestone = true;
     }
 
     this.learningLog = [...this.learningLog, newEntry];
