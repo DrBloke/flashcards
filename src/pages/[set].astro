@@ -30,7 +30,13 @@ const title = set.title;
 
     <wa-details summary="Settings">
       <div class="settings-row">
+        <wa-tooltip
+          for="reverse-deck-switch"
+          content="Study the deck front-to-back or back-to-front"></wa-tooltip>
         <wa-switch id="reverse-deck-switch">Reverse Decks</wa-switch>
+        <wa-tooltip
+          for="shuffle-deck-switch"
+          content="Randomize the order of cards"></wa-tooltip>
         <wa-switch id="shuffle-deck-switch">Shuffle</wa-switch>
       </div>
       <wa-details summary="Review Schedule">

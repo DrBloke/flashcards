@@ -182,6 +182,58 @@ export class DeckList extends LitElement {
       margin-bottom: var(--wa-space-m);
       max-width: 400px;
     }
+
+    @media (max-width: 640px) {
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+      thead {
+        display: none;
+      }
+      tr {
+        margin-bottom: var(--wa-space-m);
+        border: 1px solid var(--wa-color-gray-90);
+        border-radius: var(--wa-border-radius-m);
+        padding: var(--wa-space-s);
+        background-color: var(--wa-color-surface-default);
+      }
+      td {
+        border-bottom: none;
+        padding: var(--wa-space-2xs) 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--wa-space-3xs);
+      }
+      tr:hover td {
+        background-color: transparent;
+      }
+      td::before {
+        font-weight: var(--wa-font-weight-bold);
+        color: var(--wa-color-gray-40);
+        font-size: var(--wa-font-size-xs);
+        text-transform: uppercase;
+      }
+      td:nth-of-type(1)::before {
+        content: "Deck";
+      }
+      td:nth-of-type(2)::before {
+        content: "Milestones";
+      }
+      td:nth-of-type(3)::before {
+        content: "Current Milestone";
+      }
+      td:nth-of-type(4)::before {
+        content: "Status";
+      }
+      td:nth-of-type(5)::before {
+        content: "Problem Cards";
+      }
+    }
   `;
 
   @property({ type: Array })

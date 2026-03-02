@@ -1,5 +1,3 @@
-/* @import "../../node_modules/@awesome.me/webawesome/dist/styles/themes/default.css";
-@import "../../node_modules/@awesome.me/webawesome/dist/styles/native.css"; */
 @import "@awesome.me/webawesome/dist/styles/themes/default.css";
 @import "@awesome.me/webawesome/dist/styles/native.css";
 
@@ -11,7 +9,8 @@ body {
 }
 
 main {
-  margin: 10px;
+  /* eslint-disable-next-line css/no-invalid-properties */
+  margin: var(--wa-space-m);
 }
 
 h1 {
