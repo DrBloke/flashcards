@@ -5,10 +5,15 @@ export class FlashcardStorage {
   private static STORAGE_KEY = "flashcards-data";
 
   static getStoredData(): z.infer<typeof flashcardsStorageSchema> {
-    const rawData = localStorage.getItem(this.STORAGE_KEY);
-    const parsed = rawData ? JSON.parse(rawData) : {};
-    const result = flashcardsStorageSchema.safeParse(parsed);
-    return result.success ? result.data : {};
+    if (typeof localStorage === "undefined") return {};
+    try {
+      const rawData = localStorage.getItem(this.STORAGE_KEY);
+      const parsed = rawData ? JSON.parse(rawData) : {};
+      const result = flashcardsStorageSchema.safeParse(parsed);
+      return result.success ? result.data : {};
+    } catch {
+      return {};
+    }
   }
 
   static saveDeckData(
