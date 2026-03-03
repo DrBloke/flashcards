@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "How do you calculate the percentage yield of the complex?",
       "side2": "$\\text{Percentage Yield} = \\frac{\\text{Actual mass of complex obtained}}{\\text{Theoretical mass of complex}} \\times 100$"
+    },
+    {
+      "id": 12,
+      "side1": "What setup is used to rapidly filter the solid transition metal complex from the liquid?",
+      "side2": "Filtration under reduced pressure using a Buchner funnel and side-arm flask.\n\n![Buchner Funnel Setup](/diagrams/buchner-funnel.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

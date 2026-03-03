@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="auto" style="max-width:400px; display:block; margin: 0 auto; background-color: var(--wa-color-gray-100); border-radius: 8px;">
+
+    <!-- Buchner Flask (Side-arm flask) -->
+    <path d="M 175 140 L 225 140 L 225 180 L 265 260 L 135 260 L 175 180 Z" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Side arm -->
+    <line x1="225" y1="160" x2="260" y2="160" stroke="#000" stroke-width="2" />
+    <line x1="225" y1="165" x2="260" y2="165" stroke="#000" stroke-width="2" />
+    <text x="265" y="165" font-family="sans-serif" font-size="12">To vacuum pump</text>
+    <!-- Bung -->
+    <rect x="175" y="130" width="50" height="15" fill="#555" />
+    <!-- Buchner Funnel -->
+    <path d="M 155 70 L 245 70 L 245 100 L 210 130 L 210 150 L 190 150 L 190 130 L 155 100 Z" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Filter paper and crystals -->
+    <line x1="155" y1="95" x2="245" y2="95" stroke="#aaa" stroke-width="2" />
+    <rect x="165" y="80" width="70" height="15" fill="#ffffcc" />
+    <text x="140" y="55" font-family="sans-serif" font-size="14">Crystals on filter paper</text>
+    <!-- Filtrate -->
+    <path d="M 145 240 L 255 240 L 260 258 L 140 258 Z" fill="#dddddd" opacity="0.6" />
+    <text x="175" y="280" font-family="sans-serif" font-size="14">Filtrate</text>
+  
+</svg>

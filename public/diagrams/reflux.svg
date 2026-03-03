@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="auto" style="max-width:400px; display:block; margin: 0 auto; background-color: var(--wa-color-gray-100); border-radius: 8px;">
+
+    <!-- Heat -->
+    <path d="M 150 280 C 180 260, 220 260, 250 280 L 150 280 Z" fill="#ff6600" opacity="0.7"/>
+    <text x="260" y="280" font-family="sans-serif" font-size="14">Heat (water/oil bath)</text>
+    <!-- Round bottom flask -->
+    <circle cx="200" cy="240" r="30" fill="none" stroke="#000" stroke-width="2" />
+    <rect x="190" y="190" width="20" height="25" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Liquid -->
+    <path d="M 175 250 A 30 30 0 0 0 225 250 Z" fill="#ccccff" opacity="0.6" />
+    <!-- Condenser vertically -->
+    <rect x="185" y="40" width="30" height="150" fill="none" stroke="#000" stroke-width="2" rx="5" />
+    <!-- Inner tube -->
+    <rect x="190" y="35" width="20" height="155" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="4" />
+    <!-- Water flows -->
+    <line x1="215" y1="180" x2="235" y2="180" stroke="#000" stroke-width="2" />
+    <text x="240" y="185" font-family="sans-serif" font-size="12">Water IN</text>
+    <line x1="185" y1="50" x2="165" y2="50" stroke="#000" stroke-width="2" />
+    <text x="100" y="55" font-family="sans-serif" font-size="12">Water OUT</text>
+    <text x="140" y="200" font-family="sans-serif" font-size="14">Reflux</text>
+    <!-- Open top -->
+    <line x1="190" y1="35" x2="210" y2="35" stroke="#fff" stroke-width="4" />
+  
+</svg>

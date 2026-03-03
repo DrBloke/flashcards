@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "What are the expected colours of the silver halide precipitates?",
       "side2": "Silver chloride: White. Silver bromide: Cream. Silver iodide: Yellow."
+    },
+    {
+      "id": 12,
+      "side1": "To continuously heat a volatile reaction mixture without losing vapour, what setup is used?",
+      "side2": "Heating under reflux.\n\n![Reflux Setup](/diagrams/reflux.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

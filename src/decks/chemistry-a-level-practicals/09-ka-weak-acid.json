@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "What is an alternative graphical method to find $K_a$?",
       "side2": "Plot a graph of pH against $\\ln(\\frac{[\\text{salt}]}{[\\text{acid}]})$. The y-intercept gives the $\\text{p}K_a$ value."
+    },
+    {
+      "id": 12,
+      "side1": "Aside from a pH meter, what classical setup might be used alongside it to generate a pH curve?",
+      "side2": "A titration setup with a burette for adding the base dropwise into the conical flask.\n\n![Titration Setup](/diagrams/titration.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="auto" style="max-width:400px; display:block; margin: 0 auto; background-color: var(--wa-color-gray-100); border-radius: 8px;">
+
+    <!-- Heat & RBF -->
+    <path d="M 70 240 C 90 220, 130 220, 150 240 L 70 240 Z" fill="#ff6600" opacity="0.7"/>
+    <circle cx="110" cy="200" r="30" fill="none" stroke="#000" stroke-width="2" />
+    <path d="M 85 210 A 30 30 0 0 0 135 210 Z" fill="#ccccff" opacity="0.6" />
+    <rect x="100" y="140" width="20" height="35" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Thermometer -->
+    <rect x="108" y="80" width="4" height="60" fill="none" stroke="#000" stroke-width="1" />
+    <circle cx="110" cy="140" r="4" fill="#f00" />
+    <text x="115" y="90" font-family="sans-serif" font-size="12">Thermometer</text>
+    <!-- Still head adapter -->
+    <path d="M 120 150 L 140 150 L 160 170 L 145 185 Z" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Condenser angled -->
+    <g transform="translate(150, 160) rotate(45)">
+      <rect x="0" y="-15" width="120" height="30" fill="none" stroke="#000" stroke-width="2" rx="5" />
+      <rect x="-5" y="-10" width="130" height="20" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="4" />
+      <line x1="20" y1="15" x2="20" y2="35" stroke="#000" stroke-width="2" />
+      <text x="15" y="45" font-family="sans-serif" font-size="10" transform="rotate(-45 15 45)">Water IN</text>
+      <line x1="100" y1="-15" x2="100" y2="-35" stroke="#000" stroke-width="2" />
+      <text x="80" y="-45" font-family="sans-serif" font-size="10" transform="rotate(-45 80 -45)">Water OUT</text>
+    </g>
+    <!-- Receiving flask -->
+    <path d="M 235 260 L 255 260 L 255 270 L 275 295 L 215 295 L 235 270 Z" fill="none" stroke="#000" stroke-width="2" />
+    <path d="M 225 285 L 265 285 L 273 294 L 217 294 Z" fill="#ccccff" opacity="0.6" />
+    <text x="210" y="250" font-family="sans-serif" font-size="14" font-style="italic">Distillate</text>
+  
+</svg>

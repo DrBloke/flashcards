@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "How do you calculate the percentage uncertainty of a burette reading?",
       "side2": "Percentage uncertainty = $\\frac{\\text{uncertainty} \\times 2}{\\text{titre volume}} \\times 100$. We multiply by 2 because two readings are taken (initial and final)."
+    },
+    {
+      "id": 12,
+      "side1": "What is this experimental setup called?",
+      "side2": "Titration setup, featuring a burette and conical flask.\n\n![Titration Setup](/diagrams/titration.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

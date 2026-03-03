@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "Why is sodium hydrogencarbonate solution added to the separating funnel?",
       "side2": "To react with and neutralize any unreacted hydrochloric acid in the organic layer. This produces $\\mathrm{CO_2}$ gas, so the funnel must be vented frequently."
+    },
+    {
+      "id": 12,
+      "side1": "After drying the organic layer, what apparatus setup is used to purify the halogenoalkane product?",
+      "side2": "Distillation setup.\n\n![Distillation Setup](/diagrams/distillation.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

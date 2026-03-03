@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="auto" style="max-width:400px; display:block; margin: 0 auto; background-color: var(--wa-color-gray-100); border-radius: 8px;">
+
+    <!-- Stand -->
+    <rect x="180" y="270" width="100" height="10" fill="#333" />
+    <rect x="225" y="40" width="10" height="230" fill="#333" />
+    <rect x="200" y="100" width="25" height="10" fill="#333" />
+    <!-- Burette -->
+    <rect x="190" y="20" width="10" height="180" fill="none" stroke="#000" stroke-width="2" />
+    <path d="M 190 200 L 195 210 L 195 220 L 190 220 Z" fill="none" stroke="#000" stroke-width="2" />
+    <line x1="185" y1="210" x2="205" y2="210" stroke="#000" stroke-width="4" />
+    <text x="175" y="30" font-family="sans-serif" font-size="12">0</text>
+    <text x="170" y="195" font-family="sans-serif" font-size="12">50</text>
+    <!-- Liquid in burette -->
+    <rect x="191" y="40" width="8" height="160" fill="#aaddff" opacity="0.6" />
+    <!-- Conical Flask -->
+    <path d="M 185 225 L 205 225 L 205 235 L 225 270 L 165 270 L 185 235 Z" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Liquid in flask -->
+    <path d="M 175 255 L 215 255 L 223 268 L 167 268 Z" fill="#ffcccc" opacity="0.6" />
+    <text x="240" y="150" font-family="sans-serif" font-size="14">Burette with titrant</text>
+    <text x="240" y="250" font-family="sans-serif" font-size="14">Analyte + Indicator</text>
+  
+</svg>

@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "In a cell made of a zinc half-cell and a copper half-cell, which way do the electrons flow in the external circuit?",
       "side2": "From the more reactive metal (zinc, the negative electrode/anode) to the less reactive metal (copper, the positive electrode/cathode)."
+    },
+    {
+      "id": 12,
+      "side1": "Identify this setup. What must the two beakers be connected by to complete the circuit?",
+      "side2": "An electrochemical cell. They must be connected by a salt bridge to allow the flow of ions.\n\n![Electrochemical Cell Diagram](/diagrams/electrochemical-cell.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

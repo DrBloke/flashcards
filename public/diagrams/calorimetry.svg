@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="auto" style="max-width:400px; display:block; margin: 0 auto; background-color: var(--wa-color-gray-100); border-radius: 8px;">
+
+    <!-- Glass Beaker -->
+    <path d="M 120 120 L 120 260 L 280 260 L 280 120" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Cotton Wool Insulation -->
+    <path d="M 125 255 Q 150 240 180 255 T 275 255" fill="none" stroke="#ccc" stroke-dasharray="2,2" />
+    <text x="300" y="250" font-family="sans-serif" font-size="12">Cotton wool</text>
+    <!-- Polystyrene Cup -->
+    <path d="M 140 140 L 150 240 L 250 240 L 260 140 Z" fill="#eee" stroke="#666" stroke-width="2" />
+    <!-- Liquid -->
+    <path d="M 145 180 L 255 180 L 247 238 L 153 238 Z" fill="#99ccff" opacity="0.6" />
+    <!-- Lid -->
+    <rect x="130" y="130" width="140" height="10" fill="#ddd" stroke="#333" stroke-width="2" />
+    <!-- Thermometer -->
+    <rect x="195" y="50" width="10" height="180" fill="#fff" stroke="#000" stroke-width="2" />
+    <circle cx="200" cy="230" r="8" fill="#f00" />
+    <rect x="198" y="150" width="4" height="80" fill="#f00" />
+    <text x="215" y="80" font-family="sans-serif" font-size="14">Thermometer</text>
+    <!-- Stirrer -->
+    <path d="M 160 80 L 170 200 L 185 200" fill="none" stroke="#000" stroke-width="2" />
+    <text x="130" y="70" font-family="sans-serif" font-size="14">Stirrer</text>
+    <text x="200" y="280" font-family="sans-serif" font-size="14" text-anchor="middle">Polystyrene cup in a beaker</text>
+  
+</svg>

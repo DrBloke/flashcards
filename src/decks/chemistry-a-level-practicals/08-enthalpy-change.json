@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "How would the calculated enthalpy change be affected if you used a glass beaker instead of a polystyrene cup?",
       "side2": "A glass beaker is a worse insulator. More heat would be lost to the surroundings, so the measured maximum temperature (and thus $\\Delta T$ and the calculated enthalpy change magnitude) would be lower."
+    },
+    {
+      "id": 12,
+      "side1": "Identify this setup and explain why a polystyrene cup is used.",
+      "side2": "Simple coffee-cup calorimeter. Polystyrene is a good insulator, minimizing heat loss/gain from the surroundings to improve accuracy.\n\n![Calorimetry Setup](/diagrams/calorimetry.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

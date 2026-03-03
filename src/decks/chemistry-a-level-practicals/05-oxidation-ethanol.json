@@ -61,6 +61,16 @@
       "id": 11,
       "side1": "Why must water enter the condenser at the bottom and leave at the top?",
       "side2": "To ensure the condenser jacket is completely filled with cold water, providing maximum cooling efficiency and preventing vapour escape."
+    },
+    {
+      "id": 12,
+      "side1": "Identify the setup used to completely oxidize ethanol to ethanoic acid.",
+      "side2": "Heating under reflux. It ensures any vaporized ethanol or ethanal cools and drips back into the flask to react further.\n\n![Reflux Setup](/diagrams/reflux.svg)"
+    },
+    {
+      "id": 13,
+      "side1": "Identify the setup used to partially oxidize ethanol to ethanal.",
+      "side2": "Distillation setup. It separates the volatile ethanal product as soon as it forms, preventing further oxidation.\n\n![Distillation Setup](/diagrams/distillation.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

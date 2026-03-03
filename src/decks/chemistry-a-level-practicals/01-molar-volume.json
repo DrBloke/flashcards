@@ -5,7 +5,7 @@
     {
       "id": 0,
       "side1": "What is the correct procedure for weighing a solid 'by difference'?",
-      "side2": "1. Weigh the weighing boat containing the solid. 2. Tip the solid into the reaction vessel. 3. Reweigh the empty weighing boat. 4. Subtract the mass of the empty boat from the mass of the boat + solid."
+      "side2": "1. Weigh the weighing boat containing the solid.\n2. Tip the solid into the reaction vessel.\n3. Reweigh the empty weighing boat.\n4. Subtract the mass of the empty boat from the mass of the boat + solid."
     },
     {
       "id": 1,
@@ -61,6 +61,11 @@
       "id": 11,
       "side1": "Why should the mass of the solid reactant be carefully calculated beforehand?",
       "side2": "To ensure that the volume of gas produced does not exceed the maximum capacity of the gas syringe (e.g., $100\\text{ cm}^3$)."
+    },
+    {
+      "id": 12,
+      "side1": "Identify this apparatus setup used for measuring gas volumes.",
+      "side2": "Gas collection over water using a gas syringe.\n\n![Gas Syringe Setup](/diagrams/gas-syringe.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]
