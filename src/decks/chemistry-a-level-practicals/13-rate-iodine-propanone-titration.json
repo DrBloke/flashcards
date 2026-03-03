@@ -1,0 +1,32 @@
+{
+  "id": 13,
+  "title": "CP 13: Rate of iodine-propanone reaction (titrimetric)",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "How do you stop or 'quench' the reaction between iodine and propanone before titrating a sample aliquot?",
+      "side2": "Add the sample to a solution of sodium hydrogencarbonate (NaHCO3), which neutralizes the acid catalyst and stops the reaction."
+    },
+    {
+      "id": 1,
+      "side1": "What indicator is used when titrating the remaining iodine with sodium thiosulfate?",
+      "side2": "Starch solution is added near the end point (when the solution turns pale yellow). The blue-black colour will disappear sharply at the end point."
+    },
+    {
+      "id": 2,
+      "side1": "How do you find the order of reaction with respect to iodine from the results?",
+      "side2": "Plot a graph of the concentration of iodine (or titre volume) against time. A straight line with a constant negative gradient indicates the reaction is zero order with respect to iodine."
+    },
+    {
+      "id": 3,
+      "side1": "If a reaction is zero order with respect to a reactant, what does that imply about the reaction mechanism?",
+      "side2": "It implies that the reactant is not involved in the rate-determining step (the slowest step) of the reaction."
+    },
+    {
+      "id": 4,
+      "side1": "What are the main safety concerns when handling propanone and iodine?",
+      "side2": "Propanone is highly flammable; avoid naked flames. Iodine is harmful and can stain the skin, so handle with care."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

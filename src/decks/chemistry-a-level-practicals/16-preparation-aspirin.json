@@ -1,0 +1,32 @@
+{
+  "id": 16,
+  "title": "CP 16: Preparation of aspirin",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "Why is ethanoic anhydride used instead of ethanoyl chloride in the preparation of aspirin?",
+      "side2": "Ethanoic anhydride is cheaper, less corrosive, and does not produce toxic hydrogen chloride gas when it reacts."
+    },
+    {
+      "id": 1,
+      "side1": "Describe the main steps of recrystallization used to purify the crude aspirin.",
+      "side2": "1. Dissolve the crude solid in the minimum volume of hot solvent. 2. Perform a hot filtration to remove insoluble impurities. 3. Cool the filtrate in an ice bath to crystallize the aspirin. 4. Filter under reduced pressure."
+    },
+    {
+      "id": 2,
+      "side1": "How do you calculate the atom economy of a reaction?",
+      "side2": "Atom Economy = (Molar mass of desired product / Sum of molar masses of all reactants) × 100"
+    },
+    {
+      "id": 3,
+      "side1": "How can melting point determination indicate the purity of the synthesized aspirin?",
+      "side2": "Pure aspirin will melt sharply at exactly its theoretical melting point (136°C). Impurities will lower the melting point and cause it to melt over a broader range of temperatures."
+    },
+    {
+      "id": 4,
+      "side1": "What is the main safety hazard of ethanoic anhydride?",
+      "side2": "It is corrosive and reacts violently with water. Wear gloves and eye protection."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

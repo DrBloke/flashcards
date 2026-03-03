@@ -10,5 +10,9 @@
   {
     "title": "Maths GCSE",
     "path": "maths-gcse"
+  },
+  {
+    "title": "Chemistry A-Level Practicals",
+    "path": "chemistry-a-level-practicals"
   }
 ]

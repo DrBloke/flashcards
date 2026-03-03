@@ -1,0 +1,32 @@
+{
+  "id": 14,
+  "title": "CP 14: Rate of iodine-propanone reaction (continuous)",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "How does a colorimeter measure the concentration of a coloured substance like iodine over time?",
+      "side2": "It measures the absorbance of light passing through the solution. The darker the solution, the higher the absorbance. Absorbance is directly proportional to concentration."
+    },
+    {
+      "id": 1,
+      "side1": "Why must you select an appropriate colour filter for the colorimeter?",
+      "side2": "You choose a filter that produces a colour complementary to the solution's colour (e.g., a green/blue filter for a yellow/brown iodine solution) to maximize the absorption of light and increase measurement sensitivity."
+    },
+    {
+      "id": 2,
+      "side1": "How do you produce a calibration curve for colorimetry?",
+      "side2": "Make a series of standard solutions of known concentration. Measure their absorbance and plot a graph of Absorbance vs Concentration."
+    },
+    {
+      "id": 3,
+      "side1": "What is the main advantage of using continuous monitoring (e.g., colorimetry) over taking samples to titrate?",
+      "side2": "It allows for rapid, continuous data collection without altering the reaction mixture volume, and it doesn't require quenching."
+    },
+    {
+      "id": 4,
+      "side1": "What is the safety risk associated with the propanone used in this experiment?",
+      "side2": "Propanone is a highly flammable solvent. It must be kept well away from naked flames."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

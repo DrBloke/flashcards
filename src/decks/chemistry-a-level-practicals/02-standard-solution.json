@@ -1,0 +1,32 @@
+{
+  "id": 2,
+  "title": "CP 02: Preparation of a standard solution",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "What are the key steps to transfer a solid quantitatively into a volumetric flask?",
+      "side2": "Dissolve the solid in a beaker with a little distilled water. Pour the solution into the volumetric flask using a funnel. Rinse the beaker, glass rod, and funnel with distilled water and add the washings to the flask."
+    },
+    {
+      "id": 1,
+      "side1": "How should you correctly fill a volumetric flask to the graduation mark?",
+      "side2": "Add distilled water until the bottom of the meniscus rests exactly on the graduation mark when viewed at eye level. Use a dropping pipette for the last few drops."
+    },
+    {
+      "id": 2,
+      "side1": "Why must the volumetric flask be inverted several times after making up to the mark?",
+      "side2": "To ensure the solution is thoroughly mixed and has a uniform concentration throughout."
+    },
+    {
+      "id": 3,
+      "side1": "How do you calculate the concentration of the standard solution?",
+      "side2": "1. Calculate moles of solid = mass / Molar mass (Mr). \n2. Concentration (mol dm⁻³) = moles / volume in dm³."
+    },
+    {
+      "id": 4,
+      "side1": "What safety precautions are necessary when preparing a standard solution of an acid (e.g., sulfamic acid)?",
+      "side2": "Wear eye protection. If the solid acid is an irritant or toxic, avoid skin contact and inhalation of dust."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

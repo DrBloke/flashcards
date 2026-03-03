@@ -1,0 +1,32 @@
+{
+  "id": 7,
+  "title": "CP 07: Analysis of unknowns (Part 1)",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "What are the common flame test colours for Group 1 and 2 ions (Li, Na, K, Ca, Sr, Ba, Cu)?",
+      "side2": "Li: Red. Na: Yellow/Orange. K: Lilac. Ca: Brick red. Sr: Red. Ba: Apple green. Cu: Blue-green."
+    },
+    {
+      "id": 1,
+      "side1": "How do you perform the test for ammonium ions (NH4+)?",
+      "side2": "Add sodium hydroxide (NaOH) solution and gently warm. Test the gas produced with damp red litmus paper, which will turn blue if ammonia is present."
+    },
+    {
+      "id": 2,
+      "side1": "What is the test and expected observation for sulfate ions (SO4^2-)?",
+      "side2": "Add dilute hydrochloric acid, followed by barium chloride solution. A white precipitate of barium sulfate forms."
+    },
+    {
+      "id": 3,
+      "side1": "Describe the test for halide ions using silver nitrate.",
+      "side2": "Add dilute nitric acid, followed by aqueous silver nitrate. Chlorides form a white ppt (dissolves in dilute NH3). Bromides form a cream ppt (dissolves in conc NH3). Iodides form a yellow ppt (insoluble in NH3)."
+    },
+    {
+      "id": 4,
+      "side1": "What precautions should be taken when testing for gases like ammonia or chlorine?",
+      "side2": "Use small quantities to minimize gas production. Waft the gas towards your nose rather than sniffing directly. Use a fume cupboard if hazardous gases are expected."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

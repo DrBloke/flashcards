@@ -1,0 +1,32 @@
+{
+  "id": 10,
+  "title": "CP 10: Investigating some electrochemical cells",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "What is the purpose of a salt bridge in an electrochemical cell, and how is it made?",
+      "side2": "It completes the electrical circuit by allowing ions to flow between the two half-cells without mixing the solutions. It can be made using a strip of filter paper soaked in potassium nitrate (KNO3) solution."
+    },
+    {
+      "id": 1,
+      "side1": "Why is a high-resistance voltmeter used to measure cell potential?",
+      "side2": "A high resistance ensures that virtually zero current flows through the circuit, meaning the maximum potential difference (E.M.F.) is measured rather than a reduced value."
+    },
+    {
+      "id": 2,
+      "side1": "How should metal electrodes be prepared before use?",
+      "side2": "They should be cleaned with emery paper or sandpaper to remove any oxide layer on the surface, then rinsed with distilled water."
+    },
+    {
+      "id": 3,
+      "side1": "How is standard cell potential (E° cell) calculated from standard electrode potentials?",
+      "side2": "E° cell = E°(positive terminal/reduction half-cell) - E°(negative terminal/oxidation half-cell)"
+    },
+    {
+      "id": 4,
+      "side1": "What are the safety hazards of the metal salt solutions used in electrochemical cells?",
+      "side2": "Solutions containing transition metal ions (such as copper or zinc sulfate) are often harmful to aquatic life and toxic. Avoid skin contact and dispose of them in designated waste containers."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

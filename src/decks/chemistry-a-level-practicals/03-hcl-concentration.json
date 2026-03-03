@@ -1,0 +1,32 @@
+{
+  "id": 3,
+  "title": "CP 03: Finding concentration of HCl",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "How should a burette be prepared before starting a titration?",
+      "side2": "Rinse it with distilled water, then rinse it with the solution it is going to contain (e.g., the acid or alkali). Ensure the jet is completely filled and contains no air bubbles."
+    },
+    {
+      "id": 1,
+      "side1": "When is the endpoint of a titration reached when using phenolphthalein?",
+      "side2": "When the solution turns from pink (alkaline) to exactly colourless (acidic), or vice versa, with the addition of a single drop."
+    },
+    {
+      "id": 2,
+      "side1": "To what precision should burette readings be recorded?",
+      "side2": "To two decimal places, with the second decimal place being either a 0 or a 5 (e.g., 23.40 cm³ or 23.45 cm³)."
+    },
+    {
+      "id": 3,
+      "side1": "How do you calculate the concentration of an unknown solution from titration results?",
+      "side2": "1. Calculate moles of the standard solution used (moles = conc × vol). \n2. Use the balanced equation to find the molar ratio and moles of the unknown. \n3. Calculate concentration of the unknown (conc = moles / vol)."
+    },
+    {
+      "id": 4,
+      "side1": "What are the main safety hazards in an acid-base titration?",
+      "side2": "Acids and alkalis can be corrosive or irritants. Always wear safety goggles and deal with spills immediately."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

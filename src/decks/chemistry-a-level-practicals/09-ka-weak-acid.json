@@ -1,0 +1,32 @@
+{
+  "id": 9,
+  "title": "CP 09: Finding the Ka value for a weak acid",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "How must a pH meter be prepared before measuring unknown solutions?",
+      "side2": "It must be calibrated using standard buffer solutions of known pH (usually pH 4, 7, and 10), washing the probe with distilled water between each buffer."
+    },
+    {
+      "id": 1,
+      "side1": "How is the half-equivalence point found on a pH titration curve, and why is it useful?",
+      "side2": "Find the volume of base required for neutralization (equivalence point) and halve it. The pH at this half-equivalence volume is equal to the pKa of the weak acid."
+    },
+    {
+      "id": 2,
+      "side1": "How do you calculate the acid dissociation constant (Ka) of a weak acid from its pKa?",
+      "side2": "Ka = 10^(-pKa)"
+    },
+    {
+      "id": 3,
+      "side1": "What is another way to find Ka without plotting a full titration curve?",
+      "side2": "Measure the pH of the weak acid. Use [H+] = 10^-pH. Assuming [H+] ≈ [A-], calculate Ka = [H+]² / [HA], where [HA] is the initial concentration of the acid."
+    },
+    {
+      "id": 4,
+      "side1": "What are the common safety precautions in this acid-base experiment?",
+      "side2": "Wear safety goggles, as acids and alkalis can be irritants or corrosive. Clean up any drips from the burette."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

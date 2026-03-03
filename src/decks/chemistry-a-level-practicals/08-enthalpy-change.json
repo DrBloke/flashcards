@@ -1,0 +1,32 @@
+{
+  "id": 8,
+  "title": "CP 08: Determination of enthalpy change",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "Why is a polystyrene cup used for calorimetry experiments instead of a glass beaker?",
+      "side2": "Polystyrene is a better thermal insulator than glass, so it reduces heat loss to the surroundings, giving a more accurate temperature change reading."
+    },
+    {
+      "id": 1,
+      "side1": "How can you determine an accurate maximum temperature change if the reaction is slow or loses heat?",
+      "side2": "Plot a graph of temperature against time. Draw a line of best fit for the temperatures before addition and a line of best fit for the temperatures during cooling. Extrapolate the cooling curve back to the time of mixing to find the theoretical max temp."
+    },
+    {
+      "id": 2,
+      "side1": "What is the formula to calculate the heat energy transferred (Q) in a reaction mixture?",
+      "side2": "Q = mcΔT, where m is the mass of the solution (assuming 1 cm³ = 1 g), c is the specific heat capacity (4.18 J g⁻¹ °C⁻¹ for water), and ΔT is the temperature change."
+    },
+    {
+      "id": 3,
+      "side1": "How do you calculate the molar enthalpy change (ΔH) from the heat energy (Q)?",
+      "side2": "ΔH = -Q / n, where n is the number of moles reacting. Make sure to convert Q from Joules to kilojoules. Add a '-' sign for exothermic, '+' sign for endothermic."
+    },
+    {
+      "id": 4,
+      "side1": "What are the common safety hazards when performing a neutralizing enthalpy change experiment?",
+      "side2": "Concentrated acids and alkalis are corrosive. Wear eye protection. Handle thermometers carefully to prevent breakage."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

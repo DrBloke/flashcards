@@ -1,0 +1,32 @@
+{
+  "id": 5,
+  "title": "CP 05: Oxidation of ethanol",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "What is the purpose of adding anti-bumping granules during reflux or distillation?",
+      "side2": "To prevent large bubbles from forming and causing the liquid to boil over violently. They provide nucleation sites for smooth boiling."
+    },
+    {
+      "id": 1,
+      "side1": "How should the condenser be set up for reflux compared to distillation?",
+      "side2": "In reflux, the condenser is mounted vertically above the flask to return vapours back. In distillation, the condenser is mounted sloping downwards to collect the condensed liquid."
+    },
+    {
+      "id": 2,
+      "side1": "Where should the water enter and exit the Liebig condenser?",
+      "side2": "Water should enter at the bottom and exit at the top to ensure the condenser jacket is completely completely filled with cold water for maximum cooling efficiency."
+    },
+    {
+      "id": 3,
+      "side1": "How do you calculate the percentage yield of an organic product?",
+      "side2": "Percentage Yield = (Actual Yield in moles or mass / Theoretical Yield in moles or mass) × 100"
+    },
+    {
+      "id": 4,
+      "side1": "What are the key safety precautions when oxidizing ethanol with acidified potassium dichromate(VI)?",
+      "side2": "Ethanol is highly flammable; use a heating mantle or hot water bath, not a Bunsen burner. Acidified dichromate(VI) is toxic and carcinogenic; wear gloves and goggles."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

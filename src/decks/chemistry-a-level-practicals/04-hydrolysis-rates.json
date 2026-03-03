@@ -1,0 +1,32 @@
+{
+  "id": 4,
+  "title": "CP 04: Rates of hydrolysis of halogenoalkanes",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "Why is ethanol used as a solvent in the hydrolysis of halogenoalkanes?",
+      "side2": "Halogenoalkanes and aqueous silver nitrate are immiscible. Ethanol acts as a common solvent that allows them to mix and react."
+    },
+    {
+      "id": 1,
+      "side1": "How do you ensure a fair test when comparing the rate of hydrolysis of different halogenoalkanes?",
+      "side2": "Use a water bath to keep the temperature constant, as temperature affects the rate of reaction. Use the same volumes and concentrations of reagents."
+    },
+    {
+      "id": 2,
+      "side1": "What is the expected observation when a chloroalkane reacts with aqueous silver nitrate?",
+      "side2": "A white precipitate of silver chloride (AgCl) forms slowly."
+    },
+    {
+      "id": 3,
+      "side1": "What is the expected order of reaction rates for the hydrolysis of 1-chlorobutane, 1-bromobutane, and 1-iodobutane?",
+      "side2": "1-iodobutane (fastest) > 1-bromobutane > 1-chlorobutane (slowest). This is because the C-I bond is the weakest and breaks most easily."
+    },
+    {
+      "id": 4,
+      "side1": "What are the safety considerations when heating halogenoalkanes?",
+      "side2": "Halogenoalkanes are toxic and flammable. Avoid inhalation by using a fume cupboard or well-ventilated room, and keep away from naked flames (use a water or sand bath)."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

@@ -1,0 +1,32 @@
+{
+  "id": 6,
+  "title": "CP 06: Chlorination of 2-methylpropan-2-ol",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "Why do you need to open the stopper frequently when shaking the mixture in a separating funnel?",
+      "side2": "To release the build-up of gas pressure (often CO2 if sodium hydrogencarbonate has been added, or vapour pressure of the volatile liquids)."
+    },
+    {
+      "id": 1,
+      "side1": "What is the purpose of washing the organic layer with aqueous sodium hydrogencarbonate (NaHCO3)?",
+      "side2": "To neutralize any unreacted acid (e.g., concentrated HCl) remaining in the organic product. CO2 gas is produced during this neutralization."
+    },
+    {
+      "id": 2,
+      "side1": "How do you dry an organic liquid before distillation?",
+      "side2": "Swirl it with an anhydrous salt (like anhydrous sodium sulfate or calcium chloride) until the liquid goes from cloudy to clear."
+    },
+    {
+      "id": 3,
+      "side1": "Why is pure 2-chloro-2-methylpropane purified using simple distillation?",
+      "side2": "To separate the pure product from any remaining unreacted 2-methylpropan-2-ol or organic impurities that have a different boiling point."
+    },
+    {
+      "id": 4,
+      "side1": "What is the main safety hazard when using concentrated hydrochloric acid?",
+      "side2": "It is highly corrosive and emits toxic fumes (hydrogen chloride gas). The reaction should be carried out in a fume cupboard or well-ventilated room."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

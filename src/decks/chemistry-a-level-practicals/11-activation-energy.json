@@ -1,0 +1,32 @@
+{
+  "id": 11,
+  "title": "CP 11: Finding the activation energy of a reaction",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "How is the initial rate of reaction measured in the 'disappearing cross' experiment?",
+      "side2": "A cross is placed under the flask. The time (t) taken for the solid sulfur precipitate to obscure the cross is measured. The initial rate is approximated as 1/t."
+    },
+    {
+      "id": 1,
+      "side1": "What variables must be controlled when investigating the effect of temperature on a reaction rate?",
+      "side2": "The total volume of the reaction mixture, the concentrations of the reactants, and the size/darkness of the cross must all be kept constant."
+    },
+    {
+      "id": 2,
+      "side1": "To create an Arrhenius plot, what values do you plot on the axes?",
+      "side2": "Plot ln(1/t) or ln(rate) on the y-axis against 1/T on the x-axis, where T is the absolute temperature in Kelvin."
+    },
+    {
+      "id": 3,
+      "side1": "How do you calculate the activation energy (Ea) from an Arrhenius plot?",
+      "side2": "Calculate the gradient (m) of the line of best fit. Since Gradient = -Ea / R, Activation Energy (Ea) = -Gradient × R (where R is the gas constant, 8.31 J K⁻¹ mol⁻¹)."
+    },
+    {
+      "id": 4,
+      "side1": "What is the primary safety hazard when reacting sodium thiosulfate with hydrochloric acid?",
+      "side2": "The reaction produces sulfur dioxide (SO2) gas, which is toxic and a severe respiratory irritant. Ensure the room is well-ventilated or perform the experiment in a fume cupboard."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

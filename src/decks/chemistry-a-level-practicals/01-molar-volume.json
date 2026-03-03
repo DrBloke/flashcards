@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "title": "CP 01: Measuring the molar volume of a gas",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "What is the correct procedure for weighing a solid 'by difference'?",
+      "side2": "1. Weigh the weighing boat containing the solid. 2. Tip the solid into the reaction vessel. 3. Reweigh the empty weighing boat. 4. Subtract the mass of the empty boat from the mass of the boat + solid."
+    },
+    {
+      "id": 1,
+      "side1": "When measuring the volume of gas produced, what apparatus should be used to collect the gas?",
+      "side2": "A gas syringe or an inverted measuring cylinder filled with water over a pneumatic trough."
+    },
+    {
+      "id": 2,
+      "side1": "How do you calculate the number of moles of a gas from its volume at room temperature and pressure (RTP)?",
+      "side2": "Moles = Volume (dm³) / 24.0 dm³  OR  Moles = Volume (cm³) / 24000 cm³"
+    },
+    {
+      "id": 3,
+      "side1": "How do you calculate the molar volume of a gas from experimental data?",
+      "side2": "Molar Volume = Volume of gas produced / Moles of gas produced."
+    },
+    {
+      "id": 4,
+      "side1": "What is the main safety precaution when handling ethanoic acid or other acids used in this experiment?",
+      "side2": "Wear safety goggles, as the acids are irritants or corrosive. Clean up any spills immediately."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}

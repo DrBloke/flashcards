@@ -1,0 +1,32 @@
+{
+  "id": 12,
+  "title": "CP 12: Preparation of a transition metal complex",
+  "cards": [
+    {
+      "id": 0,
+      "side1": "What technique is used to quickly and effectively separate the crystallized complex from the solvent?",
+      "side2": "Filtration under reduced pressure using a Buchner funnel and a vacuum pump."
+    },
+    {
+      "id": 1,
+      "side1": "Why are the crystals washed with a small amount of ice-cold solvent during filtration?",
+      "side2": "To remove soluble impurities from the surface of the crystals. Ice-cold solvent is used to minimize the dissolving of the actual product crystals."
+    },
+    {
+      "id": 2,
+      "side1": "How should the final, isolated complex transition metal crystals be dried?",
+      "side2": "They should be left on the filter paper with the vacuum running to pull air through, or pressed between two pieces of dry filter paper."
+    },
+    {
+      "id": 3,
+      "side1": "How do you determine the theoretical yield of the complex?",
+      "side2": "Identify the limiting reactant. Use the balanced equation's molar ratio to find the theoretical moles of complex, then convert moles to mass using the complex's Molar Mass (Mr)."
+    },
+    {
+      "id": 4,
+      "side1": "What safety precautions must be taken when preparing transition metal complexes (like copper tetramine)?",
+      "side2": "Transition metals are often toxic to humans and the environment. Ligands like concentrated ammonia are corrosive and release toxic fumes, requiring use of a fume cupboard."
+    }
+  ],
+  "tags": ["chemistry", "a-level", "practicals"]
+}
