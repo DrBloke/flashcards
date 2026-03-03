@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error breaks the circuit entirely?",
       "side2": "Allowing the filter paper salt bridge to dry out, which stops the flow of ions and gives a reading of zero volts."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to investigate electrochemical cells?",
+      "side2": "- Clean pieces of metal (e.g., Cu, Zn) with emery paper to use as electrodes.\n- Set up two half-cells, each consisting of the metal electrode dipping into a $1.0\\text{ mol dm}^{-3}$ solution of its ions.\n- Connect the two half-cells with a salt bridge.\n- Connect the electrodes to a high-resistance voltmeter using wires and crocodile clips.\n- Record the EMF (voltage) of the cell."
+    },
+    {
+      "id": 9,
+      "side1": "What are standard conditions for measuring standard electrode potentials?",
+      "side2": "Temperature of $298\\text{ K}$ ($25^\\circ\\text{C}$), pressure of $100\\text{ kPa}$ (for gases), and ion concentrations of $1.00\\text{ mol dm}^{-3}$."
+    },
+    {
+      "id": 10,
+      "side1": "Why must high resistance voltmeters be used?",
+      "side2": "To prevent a significant current flowing through the circuit, which would cause the ion concentrations to change and the voltage reading to drop."
+    },
+    {
+      "id": 11,
+      "side1": "In a cell made of a zinc half-cell and a copper half-cell, which way do the electrons flow in the external circuit?",
+      "side2": "From the more reactive metal (zinc, the negative electrode/anode) to the less reactive metal (copper, the positive electrode/cathode)."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

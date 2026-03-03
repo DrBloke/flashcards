@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error occurs when using the separating funnel?",
       "side2": "Forgetting to remove the stopper from the top of the separating funnel before opening the tap to run the liquid out, which creates a vacuum and stops the flow."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to prepare a halogenoalkane (e.g., 2-chloro-2-methylpropane) from an alcohol?",
+      "side2": "- React the alcohol with concentrated hydrochloric acid in a flask and shake.\n- Transfer the mixture to a separating funnel and allow the layers to separate.\n- Run off the lower aqueous layer.\n- Wash the organic layer with sodium hydrogencarbonate solution to neutralize excess acid (release pressure from $\\mathrm{CO_2}$!).\n- Run off the aqueous layer again.\n- Run the organic layer into a conical flask and add anhydrous sodium sulfate to dry it.\n- Distil the liquid to collect the pure halogenoalkane."
+    },
+    {
+      "id": 9,
+      "side1": "What is the role of anhydrous sodium sulfate (or anhydrous calcium chloride)?",
+      "side2": "It acts as a drying agent. It absorbs any remaining traces of water from the organic liquid. The liquid should go from cloudy to clear when dry."
+    },
+    {
+      "id": 10,
+      "side1": "How do you know when you have added enough drying agent?",
+      "side2": "The organic liquid becomes completely clear (not cloudy), and the solid drying agent stops clumping and flows freely when swirled."
+    },
+    {
+      "id": 11,
+      "side1": "Why is sodium hydrogencarbonate solution added to the separating funnel?",
+      "side2": "To react with and neutralize any unreacted hydrochloric acid in the organic layer. This produces $\\mathrm{CO_2}$ gas, so the funnel must be vented frequently."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

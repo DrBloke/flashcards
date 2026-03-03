@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error occurs when making the solution up to the mark?",
       "side2": "Overshooting the graduation mark with distilled water. If this happens, the concentration is no longer known accurately and the solution must be remade."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to prepare a standard solution from a solid?",
+      "side2": "- Weigh the solid accurately 'by difference'.\n- Dissolve the solid in a small volume of distilled water in a beaker, stirring with a glass rod.\n- Transfer the solution quantitatively to a volumetric flask using a funnel.\n- Rinse the beaker, rod, and funnel multiple times with distilled water, adding the washings to the flask.\n- Make up to the mark with distilled water until the bottom of the meniscus touches the line.\n- Stopper and invert the flask several times to mix thoroughly."
+    },
+    {
+      "id": 9,
+      "side1": "Why must the volumetric flask be inverted several times after making it up to the mark?",
+      "side2": "To ensure the concentration of the solution is uniform throughout the flask."
+    },
+    {
+      "id": 10,
+      "side1": "What is a 'primary standard'?",
+      "side2": "A substance that can be obtained in a high state of purity, has a known formula, is stable, and does not absorb moisture from the air, making it suitable for preparing standard solutions directly."
+    },
+    {
+      "id": 11,
+      "side1": "Why is sodium hydroxide not a good primary standard?",
+      "side2": "It is hygroscopic (absorbs water from the air) and reacts with carbon dioxide in the air, meaning its mass cannot be weighed accurately to find its true number of moles."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

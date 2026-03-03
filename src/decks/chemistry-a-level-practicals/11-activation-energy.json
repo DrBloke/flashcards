@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error introduces inconsistency into the timing of the reaction?",
       "side2": "Starting the stopwatch at different relative times (e.g., before mixing vs. after mixing) rather than consistently starting it exactly when half of the second reactant has been added."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to find the activation energy of the reaction between sodium thiosulfate and hydrochloric acid?",
+      "side2": "- Draw a cross on a piece of paper and place it under a conical flask.\n- Put a measured volume of sodium thiosulfate in the flask and a measured volume of $\\mathrm{HCl}$ in a test tube, and place both in a water bath at the desired temperature.\n- Once equilibrated, mix the solutions, start the stopwatch, and swirl.\n- Record the time ($t$) taken for the cross to disappear due to the sulfur precipitate.\n- Repeat at several different temperatures.\n- Plot $\\ln(1/t)$ against $1/T$."
+    },
+    {
+      "id": 9,
+      "side1": "What assumption is made about the initial rate in the disappearing cross experiment?",
+      "side2": "That the amount of sulfur required to obscure the cross is constant and small, so the initial rate is directly proportional to $1/t$."
+    },
+    {
+      "id": 10,
+      "side1": "Why are measurements below room temperature difficult to obtain accurately in this experiment?",
+      "side2": "Because the reaction is slower, heat from the constantly warming room can more easily raise the temperature of the reaction mixture during the run."
+    },
+    {
+      "id": 11,
+      "side1": "Why only measure the initial rate?",
+      "side2": "Because measuring the initial rate means the concentrations of the reactants are known (they haven't decreased significantly yet), allowing for fair comparisons across different temperatures."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

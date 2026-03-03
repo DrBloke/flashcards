@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "Why is it an error to leave the funnel in the top of the burette during the titration?",
       "side2": "Drops of liquid from the funnel could fall into the burette during the titration, artificially lowering the measured titre volume."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to carry out an acid-base titration?",
+      "side2": "- Rinse the burette with the titrant, then fill it and record the initial volume.\n- Use a volumetric pipette to transfer a known volume of the analyte into a conical flask.\n- Add 2-3 drops of an appropriate indicator (e.g., phenolphthalein).\n- Perform a rough titration to find the approximate endpoint.\n- Repeat accurately, adding the titrant dropwise near the endpoint, until concordant results are achieved.\n- Record final volumes and calculate titre."
+    },
+    {
+      "id": 9,
+      "side1": "What are 'concordant results' in a titration?",
+      "side2": "Titre volumes that are within $0.10\\text{ cm}^3$ of each other."
+    },
+    {
+      "id": 10,
+      "side1": "Why should you only add 2-3 drops of indicator?",
+      "side2": "Indicators themselves are weak acids or bases. Adding too much will affect the amount of titrant required to reach the endpoint, reducing accuracy."
+    },
+    {
+      "id": 11,
+      "side1": "How do you calculate the percentage uncertainty of a burette reading?",
+      "side2": "Percentage uncertainty = $\\frac{\\text{uncertainty} \\times 2}{\\text{titre volume}} \\times 100$. We multiply by 2 because two readings are taken (initial and final)."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What assumption made in the calculations is a potential source of minor error?",
       "side2": "Assuming the specific heat capacity and density of the reaction mixture are exactly the same as pure water ($4.18\\text{ J g}^{-1}\\ ^\\circ\\text{C}^{-1}$ and $1\\text{ g cm}^{-3}$)."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to find the enthalpy change of a reaction (calorimetry)?",
+      "side2": "- Place the polystyrene cup in a glass beaker for stability and insulation.\n- Measure the required volume of the first solution into the cup and record its temperature every minute for 3-4 minutes to establish a baseline.\n- At exactly minute 4 (or a chosen specific time), add the second reactant without recording the temperature.\n- Continue to record the temperature every minute while stirring constantly, for about 10 minutes.\n- Plot a temperature-time graph and extrapolate back to the time of addition to find $\\Delta T$."
+    },
+    {
+      "id": 9,
+      "side1": "Why do you extrapolate the cooling curve back to the time of addition on the temperature-time graph?",
+      "side2": "To estimate the maximum theoretical temperature change if the reaction had occurred instantaneously with no heat loss to the surroundings."
+    },
+    {
+      "id": 10,
+      "side1": "In $Q = mc\\Delta T$, what does '$m$' represent?",
+      "side2": "The mass of the substance that is changing temperature. In solution chemistry, this is usually the total mass of the aqueous solutions (assuming $1\\text{ cm}^3 = 1\\text{ g}$), NOT the mass of the solid reacting."
+    },
+    {
+      "id": 11,
+      "side1": "How would the calculated enthalpy change be affected if you used a glass beaker instead of a polystyrene cup?",
+      "side2": "A glass beaker is a worse insulator. More heat would be lost to the surroundings, so the measured maximum temperature (and thus $\\Delta T$ and the calculated enthalpy change magnitude) would be lower."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

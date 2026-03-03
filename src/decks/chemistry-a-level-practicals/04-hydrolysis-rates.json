@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error relates to the temperature of the reagents before mixing?",
       "side2": "Failing to allow the separate tubes of halogenoalkane and silver nitrate to reach thermal equilibrium in the water bath before mixing them."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to investigate the rate of hydrolysis of halogenoalkanes?",
+      "side2": "- Set up a water bath at a constant temperature (e.g., $50^\\circ\\text{C}$).\n- Add equal volumes of ethanol and silver nitrate solution to test tubes and place them in the water bath to equilibrate.\n- Add a few drops of the halogenoalkane to the tube, quickly mix, and start the stopwatch.\n- Stop the clock when the precipitate first becomes visible.\n- Repeat for different halogenoalkanes (e.g., 1-chlorobutane, 1-bromobutane, 1-iodobutane)."
+    },
+    {
+      "id": 9,
+      "side1": "Write the general equation for the hydrolysis of a halogenoalkane (RX) by water.",
+      "side2": "$\\mathrm{RX} + \\mathrm{H_2O} \\rightarrow \\mathrm{ROH} + \\mathrm{H^+} + \\mathrm{X^-}$"
+    },
+    {
+      "id": 10,
+      "side1": "What dictates the rate of hydrolysis of primary halogenoalkanes: bond enthalpy or bond polarity?",
+      "side2": "Bond enthalpy. The C-I bond is the weakest and breaks most easily, making iodoalkanes hydrolyse the fastest, despite the C-F bond being the most polar."
+    },
+    {
+      "id": 11,
+      "side1": "What are the expected colours of the silver halide precipitates?",
+      "side2": "Silver chloride: White. Silver bromide: Cream. Silver iodide: Yellow."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

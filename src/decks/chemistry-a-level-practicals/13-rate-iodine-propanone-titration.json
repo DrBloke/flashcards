@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What is a common student timing error when quenching the reaction?",
       "side2": "Failing to add the sodium hydrogencarbonate quickly enough to quench the reaction at exactly the intended time, causing the reaction to continue slightly longer than recorded."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to determine the rate of iodine-propanone reaction by titration?",
+      "side2": "- Mix known volumes of iodine, propanone, and sulfuric acid catalyst in a flask and start a stopwatch.\n- At regular time intervals (e.g., every 5 minutes), use a pipette to withdraw a $10\\text{ cm}^3$ sample.\n- Immediately run this sample into a flask containing sodium hydrogencarbonate to quench the reaction.\n- Titrate the unreacted iodine in the quenched sample against standard sodium thiosulfate solution using starch indicator.\n- Plot a graph of titre volume against time."
+    },
+    {
+      "id": 9,
+      "side1": "Why is sodium hydrogencarbonate ($\\mathrm{NaHCO_3}$) used to quench the reaction?",
+      "side2": "It acts as a base to neutralize the sulfuric acid catalyst, stopping the reaction instantly without reacting with the iodine itself."
+    },
+    {
+      "id": 10,
+      "side1": "How do the results of this experiment demonstrate the order of reaction with respect to iodine?",
+      "side2": "A concentration vs. time graph produces a straight line with a constant negative gradient. This indicates a constant rate independent of iodine concentration, so the reaction is zero order with respect to iodine."
+    },
+    {
+      "id": 11,
+      "side1": "What is the overall rate equation for the reaction $I_2 + CH_3COCH_3 \\xrightarrow{H^+} CH_3COCH_2I + H^+ + I^-$?",
+      "side2": "$\\text{Rate} = k[\\mathrm{CH_3COCH_3}]^1[\\mathrm{H^+}]^1[\\mathrm{I_2}]^0$"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

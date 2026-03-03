@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What severe safety risk is commonly introduced by a student during the Tollens' test?",
       "side2": "Heating the Tollens' reagent test tube directly with a Bunsen burner. The organic compounds are flammable, so a hot water bath must be used instead to prevent fire."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to analyse an unknown organic compound (aldehyde, ketone, carboxylic acid)?",
+      "side2": "- Test with 2,4-DNPH. If an orange precipitate forms, it is a carbonyl compound (aldehyde or ketone).\n- If it is a carbonyl compound, test with Tollens' reagent or Fehling's solution. A positive result (silver mirror or red precipitate) confirms an aldehyde; a negative result indicates a ketone.\n- Test for a carboxylic acid by adding sodium carbonate solution. Effervescence indicates an acid.\n- To fully identify a specific carbonyl, react with 2,4-DNPH, filter and recrystallize the derivative, and measure its melting point to compare with literature values."
+    },
+    {
+      "id": 9,
+      "side1": "What is the expected observation when testing an aldehyde with Fehling's solution?",
+      "side2": "The deep blue solution forms a brick-red precipitate of copper(I) oxide ($\\mathrm{Cu_2O}$) upon warming."
+    },
+    {
+      "id": 10,
+      "side1": "If an unknown compound produces effervescence with sodium carbonate but no reaction with Tollens' reagent or 2,4-DNPH, what functional group is present?",
+      "side2": "A carboxylic acid."
+    },
+    {
+      "id": 11,
+      "side1": "Why do we measure the melting point of a solid derivative rather than simply measuring the boiling point of the liquid unknown carbonyl?",
+      "side2": "Boiling points of liquids are hard to measure precisely and many compounds have very similar boiling points. Solid derivatives are easily purified and their melting points are sharp and distinct."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

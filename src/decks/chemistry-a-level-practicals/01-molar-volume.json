@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What is a common student error regarding the condition of the gas syringe?",
       "side2": "Failing to check if the gas syringe plunger moves smoothly; if it sticks, the recorded volume will be lower than the actual volume produced."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps for the procedure to find the molar volume of a gas?",
+      "side2": "- Measure a set volume of acid into a conical flask.\n- Set up a gas syringe or inverted measuring cylinder over water.\n- Weigh a specific mass of calcium carbonate 'by difference'.\n- Add the solid to the acid, immediately replace the bung, and swirl.\n- Record the total volume of gas collected once the reaction has stopped."
+    },
+    {
+      "id": 9,
+      "side1": "What is the chemical equation for the reaction between calcium carbonate and ethanoic acid?",
+      "side2": "$\\mathrm{CaCO_3} + 2\\mathrm{CH_3COOH} \\rightarrow \\mathrm{Ca(CH_3COO)_2} + \\mathrm{H_2O} + \\mathrm{CO_2}$"
+    },
+    {
+      "id": 10,
+      "side1": "Why might you choose to use a weak acid instead of a strong acid for gas collection?",
+      "side2": "A strong acid might react too vigorously, causing gas to escape before the bung can be inserted or causing the gas syringe to blow out."
+    },
+    {
+      "id": 11,
+      "side1": "Why should the mass of the solid reactant be carefully calculated beforehand?",
+      "side2": "To ensure that the volume of gas produced does not exceed the maximum capacity of the gas syringe (e.g., $100\\text{ cm}^3$)."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

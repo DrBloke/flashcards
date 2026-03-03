@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error leads to an artificially high calculated percentage yield?",
       "side2": "Weighing the final solid product before it is completely dry; the residual water adds mass to the reading."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps for the preparation and purification of aspirin?",
+      "side2": "- In a flask, mix 2-hydroxybenzoic acid with ethanoic anhydride and a few drops of phosphoric(V) acid catalyst.\n- Warm the mixture in a water bath to complete the reaction, then add water to destroy excess anhydride.\n- Let the mixture cool, filter the crude aspirin under reduced pressure, and wash with cold water.\n- Recrystallize the aspirin from a minimum volume of hot solvent (e.g., an ethanol-water mixture).\n- Filter the purified crystals under reduced pressure, wash with ice-cold solvent, and dry.\n- Determine the melting point of the dry product to check purity."
+    },
+    {
+      "id": 9,
+      "side1": "What is the role of the few drops of concentrated phosphoric(V) acid?",
+      "side2": "It acts as a catalyst for the esterification reaction."
+    },
+    {
+      "id": 10,
+      "side1": "Why is cold water added to the reaction mixture before filtering the crude product?",
+      "side2": "To hydrolyse and destroy any unreacted ethanoic anhydride, converting it to soluble ethanoic acid, and to encourage the aspirin product to precipitate out of the solution."
+    },
+    {
+      "id": 11,
+      "side1": "How do you test the purity of the synthesized aspirin using Thin Layer Chromatography (TLC)?",
+      "side2": "Spot a solution of the synthesized aspirin alongside a pure reference sample on a TLC plate. Develop the plate in a solvent. The synthesized aspirin should produce a single spot that matches the $R_f$ value of the pure reference."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What is a common student analytical error when setting up distillation?",
       "side2": "Placing the thermometer bulb too low in the flask or too high above the T-junction, leading to incorrect reading of the boiling point of the distillate."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps for the partial oxidation of ethanol to ethanal (distillation)?",
+      "side2": "- Mix the alcohol with acidified potassium dichromate(VI) in a pear-shaped flask.\n- Set up the apparatus for distillation (flask, still head, thermometer, condenser, receiving flask in an ice bath).\n- Heat the mixture gently using a water bath or electric heater.\n- Collect the distillate that boils around the boiling point of ethanal (approx $21^\\circ\\text{C}$)."
+    },
+    {
+      "id": 9,
+      "side1": "What are the main steps for the complete oxidation of ethanol to ethanoic acid (reflux)?",
+      "side2": "- Mix the alcohol with excess acidified potassium dichromate(VI) and anti-bumping granules in a pear-shaped flask.\n- Set up the apparatus for heating under reflux (condenser fitted vertically into the flask).\n- Heat the mixture strongly for about 20-30 minutes.\n- Allow to cool, then distil the mixture to collect the ethanoic acid."
+    },
+    {
+      "id": 10,
+      "side1": "Why are anti-bumping granules used?",
+      "side2": "To provide a surface for small bubbles to form, preventing large bubbles from causing 'bumping', which can make the liquid boil over violently."
+    },
+    {
+      "id": 11,
+      "side1": "Why must water enter the condenser at the bottom and leave at the top?",
+      "side2": "To ensure the condenser jacket is completely filled with cold water, providing maximum cooling efficiency and preventing vapour escape."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

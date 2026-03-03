@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error results in systematically shifted absorbance readings?",
       "side2": "Failing to zero (calibrate) the colorimeter using a stable 'blank' solution (usually distilled water or the solvent) before taking readings."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to continuously monitor the iodine-propanone reaction using a colorimeter?",
+      "side2": "- Choose a suitable filter for the colorimeter (complementary colour to iodine's yellow/brown, so use blue/green).\n- Zero the colorimeter using a reference cuvette containing water.\n- Create a calibration curve by measuring the absorbance of several standard iodine solutions of known concentration.\n- Mix the iodine, propanone, and sulfuric acid in a beaker and start the stopclock.\n- Quickly transfer the mixture to a cuvette and record the absorbance at regular time intervals.\n- Convert absorbance to concentration using the calibration curve."
+    },
+    {
+      "id": 9,
+      "side1": "What is a 'blank' or reference cuvette?",
+      "side2": "A cuvette containing the solvent (usually water) used to zero the colorimeter, establishing a baseline of zero absorbance."
+    },
+    {
+      "id": 10,
+      "side1": "Why might a colorimeter not be suitable if the initial concentration of iodine is very high?",
+      "side2": "If the solution is too dark, the absorbance will be too high for the colorimeter to measure accurately (it may max out or fall off the linear portion of Beer-Lambert's law)."
+    },
+    {
+      "id": 11,
+      "side1": "Why must the cuvette be filled with the same volume for every reading?",
+      "side2": "According to the Beer-Lambert law, absorbance depends on the path length. Using the same cuvettes ensures path length remains constant."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

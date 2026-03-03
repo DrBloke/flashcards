@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error occurs during the addition of the ligand (e.g., ammonia to copper(II))?",
       "side2": "Assuming the initial precipitate is the final complex, rather than realizing it is an intermediate metal hydroxide that requires the addition of excess ligand to dissolve and form the final soluble complex."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps to prepare a transition metal complex?",
+      "side2": "- Accurately weigh the transition metal salt (e.g., copper(II) sulfate) and dissolve it in water.\n- Measure a volume of the concentrated ligand solution (e.g., ammonia) in a fume cupboard.\n- Add the ligand to the metal ion solution while stirring until the initial precipitate dissolves to form a clear, deeply coloured solution.\n- Add ethanol slowly to reduce the solubility of the complex and induce crystallization.\n- Cool in an ice bath, filter under reduced pressure, and wash with cold ethanol.\n- Dry the crystals and weigh."
+    },
+    {
+      "id": 9,
+      "side1": "Why is ethanol added to the aqueous solution to precipitate the complex?",
+      "side2": "Many transition metal complexes (like copper tetramine) are less soluble in ethanol than in water. Adding ethanol lowers the overall solubility of the mixture."
+    },
+    {
+      "id": 10,
+      "side1": "Why is the mixture cooled in an ice bath before filtration?",
+      "side2": "To further decrease the solubility of the complex, maximizing the yield of crystals."
+    },
+    {
+      "id": 11,
+      "side1": "How do you calculate the percentage yield of the complex?",
+      "side2": "$\\text{Percentage Yield} = \\frac{\\text{Actual mass of complex obtained}}{\\text{Theoretical mass of complex}} \\times 100$"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

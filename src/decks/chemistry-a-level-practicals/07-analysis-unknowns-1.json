@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What is a common student error associated with the sequence of anion testing?",
       "side2": "Adding silver nitrate to test for halides before adding dilute nitric acid. This can lead to false-positive precipitates forming from carbonate or hydroxide impurities."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps for testing unknown inorganic compounds?",
+      "side2": "- Determine the cation using a flame test and by adding aqueous sodium hydroxide (and potentially excess $\\mathrm{NaOH}$ or $\\mathrm{NH_3}$ to test solubility of precipitates).\n- Determine the presence of the ammonium ion by warming with $\\mathrm{NaOH}$ and testing the gas with damp red litmus paper.\n- Determine the anion by testing for carbonates (add dilute acid -> effervescence), sulfates (add dilute $\\mathrm{HCl}$ then $\\mathrm{BaCl_2}$ -> white ppt), and halides (add dilute $\\mathrm{HNO_3}$ then $\\mathrm{AgNO_3}$ -> ppt)."
+    },
+    {
+      "id": 9,
+      "side1": "What is the positive test observation for a sulfate ($\\mathrm{SO_4^{2-}}$) ion?",
+      "side2": "Addition of dilute $\\mathrm{HCl}$ followed by barium chloride ($\\mathrm{BaCl_2}$) produces a dense white precipitate of barium sulfate."
+    },
+    {
+      "id": 10,
+      "side1": "How does ammonia solution help distinguish between silver halide precipitates?",
+      "side2": "$\\mathrm{AgCl}$ dissolving in dilute $\\mathrm{NH_3}$. $\\mathrm{AgBr}$ dissolving only in concentrated $\\mathrm{NH_3}$. $\\mathrm{AgI}$ is insoluble in both dilute and concentrated $\\mathrm{NH_3}$."
+    },
+    {
+      "id": 11,
+      "side1": "Why is dilute nitric acid added before silver nitrate in the halide test?",
+      "side2": "To react with any carbonate or hydroxide ions present, which would otherwise form interfering white precipitates of silver carbonate or silver hydroxide."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

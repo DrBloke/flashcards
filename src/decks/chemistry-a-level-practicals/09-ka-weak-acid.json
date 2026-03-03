@@ -41,6 +41,26 @@
       "id": 7,
       "side1": "What common student error affects the accuracy of finding the equivalence point from a pH curve?",
       "side2": "Not recording the pH after every small addition (e.g., every 0.2 cm³) near the equivalence point, leading to an imprecise vertical section on the graph."
+    },
+    {
+      "id": 8,
+      "side1": "What are the main steps for finding the $K_a$ value of a weak acid from a pH curve?",
+      "side2": "- Calibrate the pH meter using standard buffer solutions.\n- Pipette a known volume of the weak acid into a beaker and record carefully its initial pH.\n- Fill a burette with a strong base of known concentration.\n- Add the base in small portions (e.g., $1-2\\text{ cm}^3$), stirring and recording the pH after each addition.\n- Add smaller drops (e.g., $0.1-0.2\\text{ cm}^3$) near the equivalence point where pH changes rapidly.\n- Plot a graph of pH vs volume of base added to find the equivalence point and half-equivalence point."
+    },
+    {
+      "id": 9,
+      "side1": "Why must the pH meter be calibrated?",
+      "side2": "Because the glass electrode in the pH meter can degrade or drift over time, so it needs to be standardized against solutions of reliably known pH to give accurate absolute readings."
+    },
+    {
+      "id": 10,
+      "side1": "At the half-equivalence point of a weak acid-strong base titration curve, what relationship holds true?",
+      "side2": "[Weak Acid] = [Conjugate Base]. Therefore, according to the $K_a$ expression, $K_a = [\\mathrm{H}^+]$, which means $\\text{pH} = \\text{p}K_a$."
+    },
+    {
+      "id": 11,
+      "side1": "What is an alternative graphical method to find $K_a$?",
+      "side2": "Plot a graph of pH against $\\ln(\\frac{[\\text{salt}]}{[\\text{acid}]})$. The y-intercept gives the $\\text{p}K_a$ value."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]
