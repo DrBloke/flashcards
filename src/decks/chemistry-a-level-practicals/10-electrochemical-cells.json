@@ -5,7 +5,7 @@
     {
       "id": 0,
       "side1": "What is the purpose of a salt bridge in an electrochemical cell, and how is it made?",
-      "side2": "It completes the electrical circuit by allowing ions to flow between the two half-cells without mixing the solutions. It can be made using a strip of filter paper soaked in potassium nitrate (KNO3) solution."
+      "side2": "It completes the electrical circuit by allowing ions to flow between the two half-cells without mixing the solutions. It can be made using a strip of filter paper soaked in potassium nitrate ($\\mathrm{KNO_3}$) solution."
     },
     {
       "id": 1,
@@ -20,12 +20,27 @@
     {
       "id": 3,
       "side1": "How is standard cell potential (E° cell) calculated from standard electrode potentials?",
-      "side2": "E° cell = E°(positive terminal/reduction half-cell) - E°(negative terminal/oxidation half-cell)"
+      "side2": "$E^\\circ_{\\text{cell}} = E^\\circ_{\\text{reduction}} - E^\\circ_{\\text{oxidation}}$"
     },
     {
       "id": 4,
       "side1": "What are the safety hazards of the metal salt solutions used in electrochemical cells?",
       "side2": "Solutions containing transition metal ions (such as copper or zinc sulfate) are often harmful to aquatic life and toxic. Avoid skin contact and dispose of them in designated waste containers."
+    },
+    {
+      "id": 5,
+      "side1": "What is a common source of error causing a lower-than-expected EMF reading in an electrochemical cell?",
+      "side2": "High resistance in the circuit due to poor electrical contact or oxidized layers on the surface of the metal electrodes."
+    },
+    {
+      "id": 6,
+      "side1": "How can the experimental setup be improved to maximize the recorded EMF?",
+      "side2": "Thoroughly clean the metal electrodes with emery paper and ensure the crocodile clips are securely attached to clean, bare metal surfaces."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error breaks the circuit entirely?",
+      "side2": "Allowing the filter paper salt bridge to dry out, which stops the flow of ions and gives a reading of zero volts."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What is the safety risk associated with the propanone used in this experiment?",
       "side2": "Propanone is a highly flammable solvent. It must be kept well away from naked flames."
+    },
+    {
+      "id": 5,
+      "side1": "What is a common source of error causing inaccurate absorbance readings from a colorimeter?",
+      "side2": "Fingerprints, scratches, or drops of the reaction mixture on the clear sides of the cuvette interfering with light absorption."
+    },
+    {
+      "id": 6,
+      "side1": "How can you improve the technique when using cuvettes to ensure accurate measurements?",
+      "side2": "Carefully wipe the outside of the cuvette with a tissue before placing it in the colorimeter, and only handle it by the frosted sides."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error results in systematically shifted absorbance readings?",
+      "side2": "Failing to zero (calibrate) the colorimeter using a stable 'blank' solution (usually distilled water or the solvent) before taking readings."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

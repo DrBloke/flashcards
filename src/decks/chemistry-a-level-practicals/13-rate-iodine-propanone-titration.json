@@ -5,7 +5,7 @@
     {
       "id": 0,
       "side1": "How do you stop or 'quench' the reaction between iodine and propanone before titrating a sample aliquot?",
-      "side2": "Add the sample to a solution of sodium hydrogencarbonate (NaHCO3), which neutralizes the acid catalyst and stops the reaction."
+      "side2": "Add the sample to a solution of sodium hydrogencarbonate ($\\mathrm{NaHCO_3}$), which neutralizes the acid catalyst and stops the reaction."
     },
     {
       "id": 1,
@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What are the main safety concerns when handling propanone and iodine?",
       "side2": "Propanone is highly flammable; avoid naked flames. Iodine is harmful and can stain the skin, so handle with care."
+    },
+    {
+      "id": 5,
+      "side1": "What is a significant source of error affecting the measured concentrations over time?",
+      "side2": "Incorrect volumes measured or transferred due to imprecise use of transferring equipment (e.g., using a measuring cylinder instead of a pipette)."
+    },
+    {
+      "id": 6,
+      "side1": "How can the precision of transferring aliquots be improved?",
+      "side2": "Use appropriately sized, clean volumetric pipettes to draw and transfer the aliquots."
+    },
+    {
+      "id": 7,
+      "side1": "What is a common student timing error when quenching the reaction?",
+      "side2": "Failing to add the sodium hydrogencarbonate quickly enough to quench the reaction at exactly the intended time, causing the reaction to continue slightly longer than recorded."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

@@ -5,12 +5,12 @@
     {
       "id": 0,
       "side1": "Why do you need to open the stopper frequently when shaking the mixture in a separating funnel?",
-      "side2": "To release the build-up of gas pressure (often CO2 if sodium hydrogencarbonate has been added, or vapour pressure of the volatile liquids)."
+      "side2": "To release the build-up of gas pressure (often $\\mathrm{CO_2}$ if sodium hydrogencarbonate has been added, or vapour pressure of the volatile liquids)."
     },
     {
       "id": 1,
-      "side1": "What is the purpose of washing the organic layer with aqueous sodium hydrogencarbonate (NaHCO3)?",
-      "side2": "To neutralize any unreacted acid (e.g., concentrated HCl) remaining in the organic product. CO2 gas is produced during this neutralization."
+      "side1": "What is the purpose of washing the organic layer with aqueous sodium hydrogencarbonate ($\\mathrm{NaHCO_3}$)?",
+      "side2": "To neutralize any unreacted acid (e.g., concentrated HCl) remaining in the organic product. $\\mathrm{CO_2}$ gas is produced during this neutralization."
     },
     {
       "id": 2,
@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What is the main safety hazard when using concentrated hydrochloric acid?",
       "side2": "It is highly corrosive and emits toxic fumes (hydrogen chloride gas). The reaction should be carried out in a fume cupboard or well-ventilated room."
+    },
+    {
+      "id": 5,
+      "side1": "What is a common source of error causing low yield or impurity in the final halogenoalkane product?",
+      "side2": "Incomplete separation of the aqueous and organic layers in the separating funnel, or losing some product when transferring between vessels."
+    },
+    {
+      "id": 6,
+      "side1": "How can the separation phase of the experiment be improved?",
+      "side2": "Allow the layers to settle longer before running off the lower layer, and carefully control the tap to separate them precisely at the boundary."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error occurs when using the separating funnel?",
+      "side2": "Forgetting to remove the stopper from the top of the separating funnel before opening the tap to run the liquid out, which creates a vacuum and stops the flow."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

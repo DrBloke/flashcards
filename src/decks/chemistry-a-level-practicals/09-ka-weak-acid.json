@@ -15,17 +15,32 @@
     {
       "id": 2,
       "side1": "How do you calculate the acid dissociation constant (Ka) of a weak acid from its pKa?",
-      "side2": "Ka = 10^(-pKa)"
+      "side2": "$K_a = 10^{-\\text{p}K_a}$"
     },
     {
       "id": 3,
       "side1": "What is another way to find Ka without plotting a full titration curve?",
-      "side2": "Measure the pH of the weak acid. Use [H+] = 10^-pH. Assuming [H+] ≈ [A-], calculate Ka = [H+]² / [HA], where [HA] is the initial concentration of the acid."
+      "side2": "Measure the pH of the weak acid. Use $[\\mathrm{H}^+] = 10^{-\\text{pH}}$. Assuming $[\\mathrm{H}^+] \\approx [\\mathrm{A}^-]$, calculate $K_a = \\frac{[\\mathrm{H}^+]^2}{[\\mathrm{HA}]}$, where [HA] is the initial concentration of the acid."
     },
     {
       "id": 4,
       "side1": "What are the common safety precautions in this acid-base experiment?",
       "side2": "Wear safety goggles, as acids and alkalis can be irritants or corrosive. Clean up any drips from the burette."
+    },
+    {
+      "id": 5,
+      "side1": "What is a major source of error causing inaccurate pH readings during a titration curve experiment?",
+      "side2": "Incorrect calibration of the pH meter or using expired standard buffer solutions."
+    },
+    {
+      "id": 6,
+      "side1": "How can the methodology be improved to ensure an accurate pH titration curve?",
+      "side2": "Calibrate the pH meter immediately before use and ensure the probe is thoroughly rinsed with distilled water between both calibration buffers and sample measurements."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error affects the accuracy of finding the equivalence point from a pH curve?",
+      "side2": "Not recording the pH after every small addition (e.g., every 0.2 cm³) near the equivalence point, leading to an imprecise vertical section on the graph."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

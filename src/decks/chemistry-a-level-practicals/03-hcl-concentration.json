@@ -20,12 +20,27 @@
     {
       "id": 3,
       "side1": "How do you calculate the concentration of an unknown solution from titration results?",
-      "side2": "1. Calculate moles of the standard solution used (moles = conc × vol). \n2. Use the balanced equation to find the molar ratio and moles of the unknown. \n3. Calculate concentration of the unknown (conc = moles / vol)."
+      "side2": "1. Calculate moles of the standard solution used ($\\text{moles} = \\text{conc} \\times \\text{vol}$). \n2. Use the balanced equation to find the molar ratio and moles of the unknown. \n3. Calculate concentration of the unknown ($\\text{conc} = \\frac{\\text{moles}}{\\text{vol}}$)."
     },
     {
       "id": 4,
       "side1": "What are the main safety hazards in an acid-base titration?",
       "side2": "Acids and alkalis can be corrosive or irritants. Always wear safety goggles and deal with spills immediately."
+    },
+    {
+      "id": 5,
+      "side1": "What is a common source of error when reading the burette volume?",
+      "side2": "Parallax error (reading the meniscus from an angle instead of at eye level) or failing to read from the bottom of the meniscus."
+    },
+    {
+      "id": 6,
+      "side1": "How can the accuracy of finding the exact endpoint be improved?",
+      "side2": "Add the titrant dropwise near the endpoint and wash down the inside of the conical flask with distilled water to ensure all reactants mix."
+    },
+    {
+      "id": 7,
+      "side1": "Why is it an error to leave the funnel in the top of the burette during the titration?",
+      "side2": "Drops of liquid from the funnel could fall into the burette during the titration, artificially lowering the measured titre volume."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

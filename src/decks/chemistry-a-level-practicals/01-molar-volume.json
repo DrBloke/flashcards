@@ -15,17 +15,32 @@
     {
       "id": 2,
       "side1": "How do you calculate the number of moles of a gas from its volume at room temperature and pressure (RTP)?",
-      "side2": "Moles = Volume (dm³) / 24.0 dm³  OR  Moles = Volume (cm³) / 24000 cm³"
+      "side2": "$\\text{Moles} = \\frac{\\text{Volume (dm}^3\\text{)}}{24.0 \\text{ dm}^3}$ OR $\\text{Moles} = \\frac{\\text{Volume (cm}^3\\text{)}}{24000 \\text{ cm}^3}$"
     },
     {
       "id": 3,
       "side1": "How do you calculate the molar volume of a gas from experimental data?",
-      "side2": "Molar Volume = Volume of gas produced / Moles of gas produced."
+      "side2": "$\\text{Molar Volume} = \\frac{\\text{Volume of gas produced}}{\\text{Moles of gas produced}}$"
     },
     {
       "id": 4,
       "side1": "What is the main safety precaution when handling ethanoic acid or other acids used in this experiment?",
       "side2": "Wear safety goggles, as the acids are irritants or corrosive. Clean up any spills immediately."
+    },
+    {
+      "id": 5,
+      "side1": "What is a major source of error when measuring the volume of gas produced in CP 01 (Molar Volume)?",
+      "side2": "Gas escaping before the bung is inserted into the conical flask."
+    },
+    {
+      "id": 6,
+      "side1": "How can you improve the experiment to prevent gas escaping when the solid is added to the acid?",
+      "side2": "Use a small test tube containing the solid suspended by a thread inside the flask. Replace the bung, then shake the flask to mix the reactants without opening the system."
+    },
+    {
+      "id": 7,
+      "side1": "What is a common student error regarding the condition of the gas syringe?",
+      "side2": "Failing to check if the gas syringe plunger moves smoothly; if it sticks, the recorded volume will be lower than the actual volume produced."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

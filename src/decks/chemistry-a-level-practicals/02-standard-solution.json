@@ -20,12 +20,27 @@
     {
       "id": 3,
       "side1": "How do you calculate the concentration of the standard solution?",
-      "side2": "1. Calculate moles of solid = mass / Molar mass (Mr). \n2. Concentration (mol dm⁻³) = moles / volume in dm³."
+      "side2": "1. Calculate moles of solid = mass / Molar mass (Mr). \n2. $\\text{Concentration} (\\text{mol dm}^{-3}) = \\frac{\\text{moles}}{\\text{volume (dm}^3)}$"
     },
     {
       "id": 4,
       "side1": "What safety precautions are necessary when preparing a standard solution of an acid (e.g., sulfamic acid)?",
       "side2": "Wear eye protection. If the solid acid is an irritant or toxic, avoid skin contact and inhalation of dust."
+    },
+    {
+      "id": 5,
+      "side1": "What is a significant source of error when preparing a standard solution from a solid?",
+      "side2": "Failing to transfer all the dissolved solid from the beaker to the volumetric flask (loss of substance)."
+    },
+    {
+      "id": 6,
+      "side1": "How can the procedure be improved to ensure quantitative transfer of the solid?",
+      "side2": "Rinse the weighing boat, beaker, and glass rod multiple times with distilled water, adding all washings directly into the volumetric flask."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error occurs when making the solution up to the mark?",
+      "side2": "Overshooting the graduation mark with distilled water. If this happens, the concentration is no longer known accurately and the solution must be remade."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

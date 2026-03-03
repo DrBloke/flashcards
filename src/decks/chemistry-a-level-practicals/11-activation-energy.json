@@ -15,17 +15,32 @@
     {
       "id": 2,
       "side1": "To create an Arrhenius plot, what values do you plot on the axes?",
-      "side2": "Plot ln(1/t) or ln(rate) on the y-axis against 1/T on the x-axis, where T is the absolute temperature in Kelvin."
+      "side2": "Plot $\\\\ln(1/t)$ or $\\\\ln(\\\\text{rate})$ on the y-axis against $1/T$ on the x-axis, where T is the absolute temperature in Kelvin."
     },
     {
       "id": 3,
       "side1": "How do you calculate the activation energy (Ea) from an Arrhenius plot?",
-      "side2": "Calculate the gradient (m) of the line of best fit. Since Gradient = -Ea / R, Activation Energy (Ea) = -Gradient × R (where R is the gas constant, 8.31 J K⁻¹ mol⁻¹)."
+      "side2": "Calculate the gradient (m) of the line of best fit. Since $\\text{Gradient} = -\\frac{E_a}{R}$, $E_a = -\\text{Gradient} \\times R$ (where R is the gas constant, $8.31\\text{ J K}^{-1}\\text{ mol}^{-1}$)."
     },
     {
       "id": 4,
       "side1": "What is the primary safety hazard when reacting sodium thiosulfate with hydrochloric acid?",
-      "side2": "The reaction produces sulfur dioxide (SO2) gas, which is toxic and a severe respiratory irritant. Ensure the room is well-ventilated or perform the experiment in a fume cupboard."
+      "side2": "The reaction produces sulfur dioxide ($\\\\mathrm{SO_2}$) gas, which is toxic and a severe respiratory irritant. Ensure the room is well-ventilated or perform the experiment in a fume cupboard."
+    },
+    {
+      "id": 5,
+      "side1": "What is the main source of error when determining activation energy at different temperatures?",
+      "side2": "Heat loss to the surroundings causing the reaction mixture's temperature to drop significantly during the course of the reaction."
+    },
+    {
+      "id": 6,
+      "side1": "How can the temperature control of the experiment be improved?",
+      "side2": "Place the reaction flask inside a thermostatically controlled water bath to maintain a constant temperature for the duration of each run."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error introduces inconsistency into the timing of the reaction?",
+      "side2": "Starting the stopwatch at different relative times (e.g., before mixing vs. after mixing) rather than consistently starting it exactly when half of the second reactant has been added."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

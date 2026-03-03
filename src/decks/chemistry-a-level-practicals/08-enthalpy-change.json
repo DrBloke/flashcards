@@ -15,17 +15,32 @@
     {
       "id": 2,
       "side1": "What is the formula to calculate the heat energy transferred (Q) in a reaction mixture?",
-      "side2": "Q = mcΔT, where m is the mass of the solution (assuming 1 cm³ = 1 g), c is the specific heat capacity (4.18 J g⁻¹ °C⁻¹ for water), and ΔT is the temperature change."
+      "side2": "$Q = mc\\Delta T$, where m is the mass of the solution (assuming $1\\text{ cm}^3 = 1\\text{ g}$), c is the specific heat capacity ($4.18\\text{ J g}^{-1}\\ ^\\circ\\text{C}^{-1}$ for water), and ΔT is the temperature change."
     },
     {
       "id": 3,
       "side1": "How do you calculate the molar enthalpy change (ΔH) from the heat energy (Q)?",
-      "side2": "ΔH = -Q / n, where n is the number of moles reacting. Make sure to convert Q from Joules to kilojoules. Add a '-' sign for exothermic, '+' sign for endothermic."
+      "side2": "$\\Delta H = -\\frac{Q}{n}$, where n is the number of moles reacting. Make sure to convert Q from Joules to kilojoules. Add a '-' sign for exothermic, '+' sign for endothermic."
     },
     {
       "id": 4,
       "side1": "What are the common safety hazards when performing a neutralizing enthalpy change experiment?",
       "side2": "Concentrated acids and alkalis are corrosive. Wear eye protection. Handle thermometers carefully to prevent breakage."
+    },
+    {
+      "id": 5,
+      "side1": "What is the most significant source of error in simple calorimetry experiments?",
+      "side2": "Heat loss to the surroundings (or heat absorbed from the surroundings in endothermic reactions)."
+    },
+    {
+      "id": 6,
+      "side1": "How can the apparatus be modified to improve thermal insulation?",
+      "side2": "Place a lid on the polystyrene cup and place the cup inside a glass beaker packed with cotton wool for added insulation."
+    },
+    {
+      "id": 7,
+      "side1": "What assumption made in the calculations is a potential source of minor error?",
+      "side2": "Assuming the specific heat capacity and density of the reaction mixture are exactly the same as pure water ($4.18\\text{ J g}^{-1}\\ ^\\circ\\text{C}^{-1}$ and $1\\text{ g cm}^{-3}$)."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

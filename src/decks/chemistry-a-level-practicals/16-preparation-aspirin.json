@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What is the main safety hazard of ethanoic anhydride?",
       "side2": "It is corrosive and reacts violently with water. Wear gloves and eye protection."
+    },
+    {
+      "id": 5,
+      "side1": "What is a source of error causing impurities in the final crystallized aspirin?",
+      "side2": "Co-precipitation of impurities due to cooling the hot recrystallization solvent too rapidly."
+    },
+    {
+      "id": 6,
+      "side1": "How can you improve the purity of the crystals during recrystallization?",
+      "side2": "Allow the hot filtered solution to cool slowly to room temperature before placing it in an ice bath. This slow cooling promotes the formation of larger, purer crystals."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error leads to an artificially high calculated percentage yield?",
+      "side2": "Weighing the final solid product before it is completely dry; the residual water adds mass to the reading."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

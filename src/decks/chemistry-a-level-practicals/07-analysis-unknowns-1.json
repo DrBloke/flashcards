@@ -9,23 +9,38 @@
     },
     {
       "id": 1,
-      "side1": "How do you perform the test for ammonium ions (NH4+)?",
+      "side1": "How do you perform the test for ammonium ions ($\\mathrm{NH_4^+}$)?",
       "side2": "Add sodium hydroxide (NaOH) solution and gently warm. Test the gas produced with damp red litmus paper, which will turn blue if ammonia is present."
     },
     {
       "id": 2,
-      "side1": "What is the test and expected observation for sulfate ions (SO4^2-)?",
+      "side1": "What is the test and expected observation for sulfate ions ($\\mathrm{SO_4^{2-}}$)?",
       "side2": "Add dilute hydrochloric acid, followed by barium chloride solution. A white precipitate of barium sulfate forms."
     },
     {
       "id": 3,
       "side1": "Describe the test for halide ions using silver nitrate.",
-      "side2": "Add dilute nitric acid, followed by aqueous silver nitrate. Chlorides form a white ppt (dissolves in dilute NH3). Bromides form a cream ppt (dissolves in conc NH3). Iodides form a yellow ppt (insoluble in NH3)."
+      "side2": "Add dilute nitric acid, followed by aqueous silver nitrate. Chlorides form a white ppt (dissolves in dilute $\\mathrm{NH_3}$). Bromides form a cream ppt (dissolves in conc $\\mathrm{NH_3}$). Iodides form a yellow ppt (insoluble in $\\mathrm{NH_3}$)."
     },
     {
       "id": 4,
       "side1": "What precautions should be taken when testing for gases like ammonia or chlorine?",
       "side2": "Use small quantities to minimize gas production. Waft the gas towards your nose rather than sniffing directly. Use a fume cupboard if hazardous gases are expected."
+    },
+    {
+      "id": 5,
+      "side1": "What is the main source of error preventing clear observation of flame tests?",
+      "side2": "Contamination of the nichrome wire used to introduce the sample into the flame."
+    },
+    {
+      "id": 6,
+      "side1": "How do you systematically improve your flame test technique to eliminate contamination?",
+      "side2": "Clean the nichrome wire thoroughly between each test by dipping it in concentrated $\\mathrm{HCl}$ and heating it in a roaring Bunsen flame until no colour is imparted to the flame."
+    },
+    {
+      "id": 7,
+      "side1": "What is a common student error associated with the sequence of anion testing?",
+      "side2": "Adding silver nitrate to test for halides before adding dilute nitric acid. This can lead to false-positive precipitates forming from carbonate or hydroxide impurities."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

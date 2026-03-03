@@ -15,7 +15,7 @@
     {
       "id": 2,
       "side1": "What is the expected observation when a chloroalkane reacts with aqueous silver nitrate?",
-      "side2": "A white precipitate of silver chloride (AgCl) forms slowly."
+      "side2": "A white precipitate of silver chloride ($\\mathrm{AgCl}$) forms slowly."
     },
     {
       "id": 3,
@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What are the safety considerations when heating halogenoalkanes?",
       "side2": "Halogenoalkanes are toxic and flammable. Avoid inhalation by using a fume cupboard or well-ventilated room, and keep away from naked flames (use a water or sand bath)."
+    },
+    {
+      "id": 5,
+      "side1": "What is a major source of error when timing the appearance of the precipitate in CP 04?",
+      "side2": "The subjective judgment of exactly when the precipitate becomes visible, which varies between individuals."
+    },
+    {
+      "id": 6,
+      "side1": "How can the methodology be improved to make the timing of the precipitate more objective?",
+      "side2": "Use a colorimeter to measure the decrease in light transmittance as the precipitate forms, rather than relying on the naked eye."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error relates to the temperature of the reagents before mixing?",
+      "side2": "Failing to allow the separate tubes of halogenoalkane and silver nitrate to reach thermal equilibrium in the water bath before mixing them."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

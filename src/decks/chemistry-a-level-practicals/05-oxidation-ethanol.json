@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What are the key safety precautions when oxidizing ethanol with acidified potassium dichromate(VI)?",
       "side2": "Ethanol is highly flammable; use a heating mantle or hot water bath, not a Bunsen burner. Acidified dichromate(VI) is toxic and carcinogenic; wear gloves and goggles."
+    },
+    {
+      "id": 5,
+      "side1": "What is a major source of error causing low yield during the oxidation of ethanol?",
+      "side2": "Loss of volatile starting materials (ethanol) or product (ethanal/ethanoic acid) vapour during heating or distillation."
+    },
+    {
+      "id": 6,
+      "side1": "How can the experimental setup be improved to prevent vapour escape?",
+      "side2": "Ensure all joints in the Quickfit distillation/reflux apparatus are lightly greased and tightly sealed."
+    },
+    {
+      "id": 7,
+      "side1": "What is a common student analytical error when setting up distillation?",
+      "side2": "Placing the thermometer bulb too low in the flask or too high above the T-junction, leading to incorrect reading of the boiling point of the distillate."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

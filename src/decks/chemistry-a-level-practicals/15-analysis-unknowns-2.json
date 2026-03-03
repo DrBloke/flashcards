@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "side1": "What is the expected observation when testing a carboxylic acid with aqueous sodium carbonate (Na2CO3)?",
+      "side1": "What is the expected observation when testing a carboxylic acid with aqueous sodium carbonate ($\\mathrm{Na_2CO_3}$)?",
       "side2": "Effervescence (fizzing) will occur as carbon dioxide gas is evolved. The gas will turn limewater cloudy."
     },
     {
@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What critical safety precaution must be observed when using Tollens' reagent?",
       "side2": "It must be made fresh right before use and any excess disposed of immediately by washing down the sink with plenty of water, as it can form highly explosive silver fulminate on standing."
+    },
+    {
+      "id": 5,
+      "side1": "What is a major source of error preventing accurate identification of a carbonyl compound from its derivative's melting point?",
+      "side2": "Incomplete drying of the 2,4-DNPH derivative after purification."
+    },
+    {
+      "id": 6,
+      "side1": "How can the melting point determination be improved?",
+      "side2": "Dry the crystals completely in a desiccator or warm oven beforehand, as any remaining solvent impurities will depress the observed melting point."
+    },
+    {
+      "id": 7,
+      "side1": "What severe safety risk is commonly introduced by a student during the Tollens' test?",
+      "side2": "Heating the Tollens' reagent test tube directly with a Bunsen burner. The organic compounds are flammable, so a hot water bath must be used instead to prevent fire."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

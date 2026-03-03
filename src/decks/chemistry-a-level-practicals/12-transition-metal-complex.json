@@ -26,6 +26,21 @@
       "id": 4,
       "side1": "What safety precautions must be taken when preparing transition metal complexes (like copper tetramine)?",
       "side2": "Transition metals are often toxic to humans and the environment. Ligands like concentrated ammonia are corrosive and release toxic fumes, requiring use of a fume cupboard."
+    },
+    {
+      "id": 5,
+      "side1": "What is a major source of error causing a reduced yield in the preparation of a transition metal complex?",
+      "side2": "Loss of product during the recrystallization and washing stages due to the complex remaining slightly soluble in the solvent."
+    },
+    {
+      "id": 6,
+      "side1": "How can the recrystallization and washing steps be improved to maximize yield?",
+      "side2": "Ensure that the absolute minimum possible volume of hot solvent is used for recrystallization, and wash the filtered crystals only with a small amount of ice-cold solvent."
+    },
+    {
+      "id": 7,
+      "side1": "What common student error occurs during the addition of the ligand (e.g., ammonia to copper(II))?",
+      "side2": "Assuming the initial precipitate is the final complex, rather than realizing it is an intermediate metal hydroxide that requires the addition of excess ligand to dissolve and form the final soluble complex."
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]
