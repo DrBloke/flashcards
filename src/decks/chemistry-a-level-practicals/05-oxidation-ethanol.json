@@ -65,12 +65,12 @@
     {
       "id": 12,
       "side1": "Identify the setup used to completely oxidize ethanol to ethanoic acid.",
-      "side2": "Heating under reflux. It ensures any vaporized ethanol or ethanal cools and drips back into the flask to react further.\n\n![Reflux Setup](/diagrams/reflux.svg)"
+      "side2": "Heating under reflux. It ensures any vaporized ethanol or ethanal cools and drips back into the flask to react further.\n\n[![Reflux Setup](/practicals-diagrams/resized/reflux.jpeg)](/flashcards/practicals-diagrams/reflux.jpeg)"
     },
     {
       "id": 13,
       "side1": "Identify the setup used to partially oxidize ethanol to ethanal.",
-      "side2": "Distillation setup. It separates the volatile ethanal product as soon as it forms, preventing further oxidation.\n\n![Distillation Setup](/diagrams/distillation.svg)"
+      "side2": "Distillation setup. It separates the volatile ethanal product as soon as it forms, preventing further oxidation.\n\n[![Distillation Setup](/practicals-diagrams/resized/distillation.png)](/flashcards/practicals-diagrams/distillation.png)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

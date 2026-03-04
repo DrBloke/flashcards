@@ -65,7 +65,7 @@
     {
       "id": 12,
       "side1": "What apparatus is most suitable for filtering purified aspirin crystals rapidly?",
-      "side2": "A Buchner funnel setup for filtration under reduced pressure.\n\n![Buchner Funnel Setup](/diagrams/buchner-funnel.svg)"
+      "side2": "A Buchner funnel setup for filtration under reduced pressure.\n\n[![Buchner Funnel Setup](/practicals-diagrams/resized/vacuum-filtration.png)](/flashcards/practicals-diagrams/vacuum-filtration.png)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

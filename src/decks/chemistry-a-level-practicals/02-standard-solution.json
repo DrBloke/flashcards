@@ -61,11 +61,6 @@
       "id": 11,
       "side1": "Why is sodium hydroxide not a good primary standard?",
       "side2": "It is hygroscopic (absorbs water from the air) and reacts with carbon dioxide in the air, meaning its mass cannot be weighed accurately to find its true number of moles."
-    },
-    {
-      "id": 12,
-      "side1": "Identify this apparatus setup and state its primary use in chemical analysis.",
-      "side2": "Titration setup.\n\n![Titration Setup](/diagrams/titration.svg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

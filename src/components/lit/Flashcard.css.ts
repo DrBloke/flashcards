@@ -51,6 +51,17 @@ export const flashcardContentStyles = css`
     border-radius: 0;
     font-size: inherit;
   }
+  #content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--wa-space-m) auto;
+    border-radius: var(--wa-border-radius-m);
+  }
+  #content a:has(img),
+  #content a img {
+    cursor: zoom-in;
+  }
   span.toolbar-left {
     display: flex;
     flex-direction: column;

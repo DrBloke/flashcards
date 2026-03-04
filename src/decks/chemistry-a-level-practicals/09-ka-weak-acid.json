@@ -65,7 +65,7 @@
     {
       "id": 12,
       "side1": "Aside from a pH meter, what classical setup might be used alongside it to generate a pH curve?",
-      "side2": "A titration setup with a burette for adding the base dropwise into the conical flask.\n\n![Titration Setup](/diagrams/titration.svg)"
+      "side2": "A titration setup with a burette for adding the base dropwise into the conical flask.\n\n[![Titration Setup](/practicals-diagrams/resized/titration.png)](/flashcards/practicals-diagrams/titration.png)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

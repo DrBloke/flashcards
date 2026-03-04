@@ -65,7 +65,7 @@
     {
       "id": 12,
       "side1": "What setup is used to rapidly filter the solid transition metal complex from the liquid?",
-      "side2": "Filtration under reduced pressure using a Buchner funnel and side-arm flask.\n\n![Buchner Funnel Setup](/diagrams/buchner-funnel.svg)"
+      "side2": "Filtration under reduced pressure using a Buchner funnel and side-arm flask.\n\n[![Buchner Funnel Setup](/practicals-diagrams/resized/vacuum-filtration.png)](/flashcards/practicals-diagrams/vacuum-filtration.png)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

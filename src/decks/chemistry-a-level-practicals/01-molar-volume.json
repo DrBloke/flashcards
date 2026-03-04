@@ -65,7 +65,7 @@
     {
       "id": 12,
       "side1": "Identify this apparatus setup used for measuring gas volumes.",
-      "side2": "Gas collection over water using a gas syringe.\n\n![Gas Syringe Setup](/diagrams/gas-syringe.svg)"
+      "side2": "Gas collection over water using a gas syringe.\n\n[![Gas Syringe Setup](/practicals-diagrams/resized/molar-volume.jpeg)](/flashcards/practicals-diagrams/molar-volume.jpeg)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

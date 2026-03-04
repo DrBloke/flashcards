@@ -65,7 +65,7 @@
     {
       "id": 12,
       "side1": "After drying the organic layer, what apparatus setup is used to purify the halogenoalkane product?",
-      "side2": "Distillation setup.\n\n![Distillation Setup](/diagrams/distillation.svg)"
+      "side2": "Distillation setup.\n\n[![Distillation Setup](/practicals-diagrams/resized/distillation.png)](/flashcards/practicals-diagrams/distillation.png)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]

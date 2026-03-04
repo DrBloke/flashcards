@@ -65,7 +65,7 @@
     {
       "id": 12,
       "side1": "What is this experimental setup called?",
-      "side2": "Titration setup, featuring a burette and conical flask.\n\n![Titration Setup](/diagrams/titration.svg)"
+      "side2": "Titration setup, featuring a burette and conical flask.\n\n[![Titration Setup](/practicals-diagrams/resized/titration.png)](/flashcards/practicals-diagrams/titration.png)"
     }
   ],
   "tags": ["chemistry", "a-level", "practicals"]
